@@ -12,4 +12,7 @@ wheels/
 # Downloaded papers
 papers/
 
+# incomplete datasets
+datasets/
+final_datasets/
 .env
