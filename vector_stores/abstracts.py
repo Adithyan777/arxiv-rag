@@ -42,3 +42,5 @@ df = df.rename(columns={"page_content": "content", "metadata": "metadata"})
 abstracts = [Document(page_content=row['content'], metadata={"id": row['metadata']}) for _, row in df.iterrows()]
 
 vector_store.add_documents(abstracts)
+
+print(f"Added {len(abstracts)} abstracts to the vector store.")
