@@ -23,5 +23,6 @@ dependencies = [
     "pypdf>=5.5.0",
     "qdrant-client>=1.14.2",
     "requests>=2.32.3",
+    "streamlit>=1.45.1",
     "unstructured[md]>=0.17.2",
 ]

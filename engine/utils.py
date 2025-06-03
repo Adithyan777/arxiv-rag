@@ -5,6 +5,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_qdrant import QdrantVectorStore
 from qdrant_client import models
 from langchain_core.documents import Document
+import pandas as pd
 
 
 def get_rewritten_queries(question: str, llm) -> List[str]:
@@ -64,13 +65,13 @@ def get_paper_id_from_search_query(search_query: str, abstracts_vector_store_col
 
     return predicted_paper_id, queries
 
-def get_context_for_qa(search_query: str ,paper_id: str, rewritten_queries: List[str], vector_store, k : int = 3) -> List[models.Record]:
+def get_context_for_qa(paper_id: str, rewritten_queries: List[str], vector_store, k : int = 3) -> List[models.Record]:
     """Get context for QA from the vector store based on paper ID and search query."""
     results = []
     for query in rewritten_queries:
         # Perform similarity search with filter for the specific paper ID
         individual_results = vector_store.similarity_search_with_score(
-            search_query, 
+            query, 
             k=k, 
             score_threshold=0.4,
             filter=models.Filter(
@@ -83,26 +84,32 @@ def get_context_for_qa(search_query: str ,paper_id: str, rewritten_queries: List
             )
         )
         if individual_results:
-            for doc in individual_results:
-                if doc not in results:
-                    results.append(doc)
+            if results:
+                for doc, score in individual_results:
+                    if not any(doc.page_content == existing_doc.page_content for existing_doc, score in results):
+                        results.append((doc, score))
+            else:
+                results = individual_results
     
     return results
 
-def get_context_for_qa_without_id(search_query: str ,rewritten_queries: List[str], vector_store, k : int = 3) -> List[models.Record]:
+def get_context_for_qa_without_id(rewritten_queries: List[str], vector_store, k : int = 3) -> List[models.Record]:
     """Get context for QA from the vector store based on paper ID and search query."""
     results = []
     for query in rewritten_queries:
         # Perform similarity search with filter for the specific paper ID
         individual_results = vector_store.similarity_search_with_score(
-            search_query, 
+            query, 
             k=k, 
             score_threshold=0.4,
         )
         if individual_results:
-            for doc in individual_results:
-                if doc not in results:
-                    results.append(doc)
+            if results:
+                for doc, score in individual_results:
+                    if not any(doc.page_content == existing_doc.page_content for existing_doc, score in results):
+                        results.append((doc, score))
+            else:
+                results = individual_results
     
     return results
 
