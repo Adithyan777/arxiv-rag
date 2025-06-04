@@ -18,21 +18,9 @@ st.set_page_config(
 # Sidebar
 st.sidebar.title("RAG Configuration")
 
-# Add connection status container early
-connection_status = st.sidebar.empty()
-
-def test_llm_connection(provider, model):
-    try:
-        llm, _ = get_llm(provider, model)
-        # Try a simple test prompt
-        response = llm.invoke("Test connection. Reply with 'OK'.")
-        return True, None
-    except Exception as e:
-        return False, str(e)
-
 llm_provider = st.sidebar.selectbox(
     "LLM Provider",
-    ["lmstudio", "openrouter", "ionet"],
+    ["ionet", "lmstudio", "openrouter"],
     help="Select the LLM provider for responses",
     key="llm_provider"
 )
@@ -50,16 +38,6 @@ model_name = st.sidebar.selectbox(
     help="Select the model to use for responses",
     key="model_name"
 )
-
-# Test connection whenever provider or model changes
-if llm_provider and model_name:
-    with connection_status.container():
-        with st.spinner("Testing LLM connection..."):
-            success, error = test_llm_connection(llm_provider, model_name)
-            if success:
-                st.success("✅ LLM Connection Successful")
-            else:
-                st.error(f"❌ LLM Connection Failed: {error}")
 
 # Initialize RAG components
 @st.cache_resource
