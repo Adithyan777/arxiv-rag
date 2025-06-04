@@ -1,0 +1,261 @@
+{
+  "papers": [
+    {
+      "id": "2505.00312",
+      "title": "aware-net: adaptive weighted averaging for robust ensemble network in   deepfake detection",
+      "categories": "cs.cv",
+      "abstract": "deepfake detection has become increasingly important due to the rise of synthetic media, which poses significant risks to digital identity and cyber presence for security and trust. while multiple approaches have improved detection accuracy, challenges remain in achieving consistent performance across diverse datasets and manipulation types. in response, we propose AWARE-NET - a novel two-tier ensemble framework for deepfake detection based on deep learning that hierarchically combines multiple instances of three state-of-the-art architectures: xception, res2net101, and efficientnet-b7. our framework employs a unique approach where each architecture is instantiated three times with different initializations to enhance model diversity, followed by a learnable weighting mechanism that dynamically combines their predictions. unlike traditional fixed-weight ensembles, our first-tier averages predictions within each architecture family to reduce model variance, while the second tier learns optimal contribution weights through backpropagation, automatically adjusting each architecture's influence based on their detection reliability. our experiments achieved state-of-the-art intra-dataset performance with auc scores of 99.22% (ff++) and 100.00% (celebdf-v2), and f1 scores of 98.06% (ff++) and 99.94% (celebdf-v2) without augmentation. with augmentation, we achieve auc scores of 99.47% (ff++) and 100.00% (celebdf-v2), and f1 scores of 98.43% (ff++) and 99.95% (celebdf-v2). the framework demonstrates robust cross-dataset generalization, achieving auc scores of 88.20% and 72.52%, and f1 scores of 93.16% and 80.62% in cross-dataset evaluations.",
+      "doi": "10.1049/icp.2025.1162",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['muhammad salman', 'iqra tariq', 'mishal zulfiqar', 'muqadas jalal', 'sami aujla', 'sumbal fatima']"
+    },
+    {
+      "id": "2505.00337",
+      "title": "t2vphysbench: a first-principles benchmark for physical consistency in   text-to-video generation",
+      "categories": "cs.lg cs.ai cs.cl cs.cv",
+      "abstract": "text-to-video generative models have made significant strides in recent years, producing high-quality videos that excel in both aesthetic appeal and accurate instruction following, and have become central to digital art creation and user engagement online. yet, despite these advancements, their ability to respect fundamental physical laws remains largely untested: many outputs still violate basic constraints such as rigid-body collisions, energy conservation, and gravitational dynamics, resulting in unrealistic or even misleading content. existing physical-evaluation benchmarks typically rely on automatic, pixel-level metrics applied to simplistic, life-scenario prompts, and thus overlook both human judgment and first-principles physics. to fill this gap, we introduce \\textbf{t2vphysbench}, a first-principled benchmark that systematically evaluates whether state-of-the-art text-to-video systems, both open-source and commercial, obey twelve core physical laws including newtonian mechanics, conservation principles, and phenomenological effects. our benchmark employs a rigorous human evaluation protocol and includes three targeted studies: (1) an overall compliance assessment showing that all models score below 0.60 on average in each law category; (2) a prompt-hint ablation revealing that even detailed, law-specific hints fail to remedy physics violations; and (3) a counterfactual robustness test demonstrating that models often generate videos that explicitly break physical rules when so instructed. the results expose persistent limitations in current architectures and offer concrete insights for guiding future research toward truly physics-aware video generation.",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['xuyang guo', 'jiayan huo', 'zhenmei shi', 'zhao song', 'jiahao zhang', 'jiale zhao']"
+    },
+    {
+      "id": "2505.00426",
+      "title": "leveraging pretrained diffusion models for zero-shot part assembly",
+      "categories": "cs.cv",
+      "abstract": "3d part assembly aims to understand part relationships and predict their 6-dof poses to construct realistic 3d shapes, addressing the growing demand for autonomous assembly, which is crucial for robots. existing methods mainly estimate the transformation of each part by training neural networks under supervision, which requires a substantial quantity of manually labeled data. however, the high cost of data collection and the immense variability of real-world shapes and parts make traditional methods impractical for large-scale applications. in this paper, we propose first a zero-shot part assembly method that utilizes pre-trained point cloud diffusion models as discriminators in the assembly process, guiding the manipulation of parts to form realistic shapes. specifically, we theoretically demonstrate that utilizing a diffusion model for zero-shot part assembly can be transformed into an iterative closest point (icp) process. then, we propose a novel pushing-away strategy to address the overlap parts, thereby further enhancing the robustness of the method. to verify our work, we conduct extensive experiments and quantitative comparisons to several strong baseline methods, demonstrating the effectiveness of the proposed approach, which even surpasses the supervised learning method. the code has been released on https://github.com/ruiyuan-zhang/zero-shot-assembly.",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['ruiyuan zhang', 'qi wang', 'jiaxiang liu', 'yu zhang', 'yuchi huo', 'chao wu']"
+    },
+    {
+      "id": "2505.00452",
+      "title": "clearlines - camera calibration from straight lines",
+      "categories": "cs.cv",
+      "abstract": "the problem of calibration from straight lines is fundamental in geometric computer vision, with well-established theoretical foundations. however, its practical applicability remains limited, particularly in real-world outdoor scenarios. these environments pose significant challenges due to diverse and cluttered scenes, interrupted reprojections of straight 3d lines, and varying lighting conditions, making the task notoriously difficult. furthermore, the field lacks a dedicated dataset encouraging the development of respective detection algorithms. in this study, we present a small dataset named \"clearlines\", and by detailing its creation process, provide practical insights that can serve as a guide for developing and refining straight 3d line detection algorithms.",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['gregory schroeder', 'mohamed sabry', 'cristina olaverri-monreal']"
+    },
+    {
+      "id": "2505.00482",
+      "title": "jointdit: enhancing rgb-depth joint modeling with diffusion transformers",
+      "categories": "cs.cv cs.ai",
+      "abstract": "we present jointdit, a diffusion transformer that models the joint distribution of rgb and depth. by leveraging the architectural benefit and outstanding image prior of the state-of-the-art diffusion transformer, jointdit not only generates high-fidelity images but also produces geometrically plausible and accurate depth maps. this solid joint distribution modeling is achieved through two simple yet effective techniques that we propose, i.e., adaptive scheduling weights, which depend on the noise levels of each modality, and the unbalanced timestep sampling strategy. with these techniques, we train our model across all noise levels for each modality, enabling jointdit to naturally handle various combinatorial generation tasks, including joint generation, depth estimation, and depth-conditioned image generation by simply controlling the timestep of each branch. jointdit demonstrates outstanding joint generation performance. furthermore, it achieves comparable results in depth estimation and depth-conditioned image generation, suggesting that joint distribution modeling can serve as a replaceable alternative to conditional generation. the project page is available at https://byungki-k.github.io/jointdit/.",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['kwon byung-ki', 'qi dai', 'lee hyoseok', 'chong luo', 'tae-hyun oh']"
+    },
+    {
+      "id": "2505.00584",
+      "title": "synthesizing and identifying noise levels in autonomous vehicle camera   radar datasets",
+      "categories": "cs.cv cs.ai eess.iv eess.sp",
+      "abstract": "detecting and tracking objects is a crucial component of any autonomous navigation method. for the past decades, object detection has yielded promising results using neural networks on various datasets. while many methods focus on performance metrics, few projects focus on improving the robustness of these detection and tracking pipelines, notably to sensor failures. in this paper we attempt to address this issue by creating a realistic synthetic data augmentation pipeline for camera-radar autonomous vehicle (av) datasets. our goal is to accurately simulate sensor failures and data deterioration due to real-world interferences. we also present our results of a baseline lightweight noise recognition neural network trained and tested on our augmented dataset, reaching an overall recognition accuracy of 54.4\\% on 11 categories across 10086 images and 2145 radar point-clouds.",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['mathis morales', 'golnaz habibi']"
+    },
+    {
+      "id": "2505.00681",
+      "title": "minerva: evaluating complex video reasoning",
+      "categories": "cs.lg cs.cv",
+      "abstract": "multimodal llms are turning their focus to video benchmarks, however most video benchmarks only provide outcome supervision, with no intermediate or interpretable reasoning steps. this makes it challenging to assess if models are truly able to combine perceptual and temporal information to reason about videos, or simply get the correct answer by chance or by exploiting linguistic biases. to remedy this, we provide a new video reasoning dataset called minerva for modern multimodal models. each question in the dataset comes with 5 answer choices, as well as detailed, hand-crafted reasoning traces. our dataset is multimodal, diverse in terms of video domain and length, and consists of complex multi-step questions. extensive benchmarking shows that our dataset provides a challenge for frontier open-source and proprietary models. we perform fine-grained error analysis to identify common failure modes across various models, and create a taxonomy of reasoning errors. we use this to explore both human and llm-as-a-judge methods for scoring video reasoning traces, and find that failure modes are primarily related to temporal localization, followed by visual perception errors, as opposed to logical or completeness errors. the dataset, along with questions, answer candidates and reasoning traces will be publicly available under https://github.com/google-deepmind/neptune?tab=readme-ov-file\\#minerva.",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['arsha nagrani', 'sachit menon', 'ahmet iscen', 'shyamal buch', 'ramin mehran', 'nilpa jha', 'anja hauth', 'yukun zhu', 'carl vondrick', 'mikhail sirotenko', 'cordelia schmid', 'tobias weyand']"
+    },
+    {
+      "id": "2505.00703",
+      "title": "t2i-r1: reinforcing image generation with collaborative semantic-level   and token-level cot",
+      "categories": "cs.cv cs.ai cs.cl cs.lg",
+      "abstract": "recent advancements in large language models have demonstrated how chain-of-thought (cot) and reinforcement learning (rl) can improve performance. however, applying such reasoning strategies to the visual generation domain remains largely unexplored. in this paper, we present t2i-r1, a novel reasoning-enhanced text-to-image generation model, powered by rl with a bi-level cot reasoning process. specifically, we identify two levels of cot that can be utilized to enhance different stages of generation: (1) the semantic-level cot for high-level planning of the prompt and (2) the token-level cot for low-level pixel processing during patch-by-patch generation. to better coordinate these two levels of cot, we introduce bicot-grpo with an ensemble of generation rewards, which seamlessly optimizes both generation cots within the same training step. by applying our reasoning strategies to the baseline model, janus-pro, we achieve superior performance with 13% improvement on t2i-compbench and 19% improvement on the wise benchmark, even surpassing the state-of-the-art model flux.1. code is available at: https://github.com/caraj7/t2i-r1",
+      "doi": "",
+      "created": "2025-05-01",
+      "updated": "",
+      "authors": "['dongzhi jiang', 'ziyu guo', 'renrui zhang', 'zhuofan zong', 'hao li', 'le zhuo', 'shilin yan', 'pheng-ann heng', 'hongsheng li']"
+    },
+    {
+      "id": "2505.00986",
+      "title": "on-demand test-time adaptation for edge devices",
+      "categories": "cs.lg cs.cv",
+      "abstract": "continual test-time adaptation (ctta) continuously adapts the deployed model on every incoming batch of data. while achieving optimal accuracy, existing ctta approaches present poor real-world applicability on resource-constrained edge devices, due to the substantial memory overhead and energy consumption. in this work, we first introduce a novel paradigm -- on-demand tta -- which triggers adaptation only when a significant domain shift is detected. then, we present od-tta, an on-demand tta framework for accurate and efficient adaptation on edge devices. od-tta comprises three innovative techniques: 1) a lightweight domain shift detection mechanism to activate tta only when it is needed, drastically reducing the overall computation overhead, 2) a source domain selection module that chooses an appropriate source model for adaptation, ensuring high and robust accuracy, 3) a decoupled batch normalization (bn) update scheme to enable memory-efficient adaptation with small batch sizes. extensive experiments show that od-tta achieves comparable and even better performance while reducing the energy and computation overhead remarkably, making tta a practical reality.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['xiao ma', 'young d. kwon', 'dong ma']"
+    },
+    {
+      "id": "2505.00998",
+      "title": "deterministic-to-stochastic diverse latent feature mapping for human   motion synthesis",
+      "categories": "cs.cv",
+      "abstract": "human motion synthesis aims to generate plausible human motion sequences, which has raised widespread attention in computer animation. recent score-based generative models (sgms) have demonstrated impressive results on this task. however, their training process involves complex curvature trajectories, leading to unstable training process. in this paper, we propose a deterministic-to-stochastic diverse latent feature mapping (dsdfm) method for human motion synthesis. dsdfm consists of two stages. the first human motion reconstruction stage aims to learn the latent space distribution of human motions. the second diverse motion generation stage aims to build connections between the gaussian distribution and the latent space distribution of human motions, thereby enhancing the diversity and accuracy of the generated human motions. this stage is achieved by the designed deterministic feature mapping procedure with derode and stochastic diverse output generation procedure with divsde.dsdfm is easy to train compared to previous sgms-based methods and can enhance diversity without introducing additional training parameters.through qualitative and quantitative experiments, dsdfm achieves state-of-the-art results surpassing the latest methods, validating its superiority in human motion synthesis.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['yu hua', 'weiming liu', 'gui xu', 'yaqing hou', 'yew-soon ong', 'qiang zhang']"
+    },
+    {
+      "id": "2505.01007",
+      "title": "towards the resistance of neural network watermarking to fine-tuning",
+      "categories": "cs.lg cs.ai cs.cl cs.cv",
+      "abstract": "this paper proves a new watermarking method to embed the ownership information into a deep neural network (dnn), which is robust to fine-tuning. specifically, we prove that when the input feature of a convolutional layer only contains low-frequency components, specific frequency components of the convolutional filter will not be changed by gradient descent during the fine-tuning process, where we propose a revised fourier transform to extract frequency components from the convolutional filter. additionally, we also prove that these frequency components are equivariant to weight scaling and weight permutations. in this way, we design a watermark module to encode the watermark information to specific frequency components in a convolutional filter. preliminary experiments demonstrate the effectiveness of our method.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['ling tang', 'yuefeng chen', 'hui xue', 'quanshi zhang']"
+    },
+    {
+      "id": "2505.01016",
+      "title": "fine-tuning without forgetting: adaptation of yolov8 preserves coco   performance",
+      "categories": "cs.cv cs.ai",
+      "abstract": "the success of large pre-trained object detectors hinges on their adaptability to diverse downstream tasks. while fine-tuning is the standard adaptation method, specializing these models for challenging fine-grained domains necessitates careful consideration of feature granularity. the critical question remains: how deeply should the pre-trained backbone be fine-tuned to optimize for the specialized task without incurring catastrophic forgetting of the original general capabilities? addressing this, we present a systematic empirical study evaluating the impact of fine-tuning depth. we adapt a standard yolov8n model to a custom, fine-grained fruit detection dataset by progressively unfreezing backbone layers (freeze points at layers 22, 15, and 10) and training. performance was rigorously evaluated on both the target fruit dataset and, using a dual-head evaluation architecture, on the original coco validation set. our results demonstrate unequivocally that deeper fine-tuning (unfreezing down to layer 10) yields substantial performance gains (e.g., +10\\% absolute map50) on the fine-grained fruit task compared to only training the head. strikingly, this significant adaptation and specialization resulted in negligible performance degradation (<0.1\\% absolute map difference) on the coco benchmark across all tested freeze levels. we conclude that adapting mid-to-late backbone features is highly effective for fine-grained specialization. critically, our results demonstrate this adaptation can be achieved without the commonly expected penalty of catastrophic forgetting, presenting a compelling case for exploring deeper fine-tuning strategies, particularly when targeting complex domains or when maximizing specialized performance is paramount.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['vishal gandhi', 'sagar gandhi']"
+    },
+    {
+      "id": "2505.01263",
+      "title": "flowdubber: movie dubbing with llm-based semantic-aware learning and   flow matching based voice enhancing",
+      "categories": "cs.mm cs.cv cs.sd eess.as",
+      "abstract": "movie dubbing aims to convert scripts into speeches that align with the given movie clip in both temporal and emotional aspects while preserving the vocal timbre of a given brief reference audio. existing methods focus primarily on reducing the word error rate while ignoring the importance of lip-sync and acoustic quality. to address these issues, we propose a large language model (llm) based flow matching architecture for dubbing, named flowdubber, which achieves high-quality audio-visual sync and pronunciation by incorporating a large speech language model and dual contrastive aligning while achieving better acoustic quality via the proposed voice-enhanced flow matching than previous works. first, we introduce qwen2.5 as the backbone of llm to learn the in-context sequence from movie scripts and reference audio. then, the proposed semantic-aware learning focuses on capturing llm semantic knowledge at the phoneme level. next, dual contrastive aligning (dca) boosts mutual alignment with lip movement, reducing ambiguities where similar phonemes might be confused. finally, the proposed flow-based voice enhancing (fve) improves acoustic quality in two aspects, which introduces an llm-based acoustics flow matching guidance to strengthen clarity and uses affine style prior to enhance identity when recovering noise into mel-spectrograms via gradient vector field prediction. extensive experiments demonstrate that our method outperforms several state-of-the-art methods on two primary benchmarks. the demos are available at {\\href{https://galaxycong.github.io/llm-flow-dubber/}{\\textcolor{red}{https://galaxycong.github.io/llm-flow-dubber/}}}.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['gaoxiang cong', 'liang li', 'jiadong pan', 'zhedong zhang', 'amin beheshti', 'anton van den hengel', 'yuankai qi', 'qingming huang']"
+    },
+    {
+      "id": "2505.01313",
+      "title": "a neural architecture search method using auxiliary evaluation metric   based on resnet architecture",
+      "categories": "cs.ne cs.cv",
+      "abstract": "this paper proposes a neural architecture search space using resnet as a framework, with search objectives including parameters for convolution, pooling, fully connected layers, and connectivity of the residual network. in addition to recognition accuracy, this paper uses the loss value on the validation set as a secondary objective for optimization. the experimental results demonstrate that the search space of this paper together with the optimisation approach can find competitive network architectures on the mnist, fashion-mnist and cifar100 datasets.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['shang wang', 'huanrong tang', 'jianquan ouyang']"
+    },
+    {
+      "id": "2505.01406",
+      "title": "vidstamp: a temporally-aware watermark for ownership and integrity in   video diffusion models",
+      "categories": "cs.cv cs.cr cs.lg",
+      "abstract": "the rapid rise of video diffusion models has enabled the generation of highly realistic and temporally coherent videos, raising critical concerns about content authenticity, provenance, and misuse. existing watermarking approaches, whether passive, post-hoc, or adapted from image-based techniques, often struggle to withstand video-specific manipulations such as frame insertion, dropping, or reordering, and typically degrade visual quality. in this work, we introduce vidstamp, a watermarking framework that embeds per-frame or per-segment messages directly into the latent space of temporally-aware video diffusion models. by fine-tuning the model's decoder through a two-stage pipeline, first on static image datasets to promote spatial message separation, and then on synthesized video sequences to restore temporal consistency, vidstamp learns to embed high-capacity, flexible watermarks with minimal perceptual impact. leveraging architectural components such as 3d convolutions and temporal attention, our method imposes no additional inference cost and offers better perceptual quality than prior methods, while maintaining comparable robustness against common distortions and tampering. vidstamp embeds 768 bits per video (48 bits per frame) with a bit accuracy of 95.0%, achieves a log p-value of -166.65 (lower is better), and maintains a video quality score of 0.836, comparable to unwatermarked outputs (0.838) and surpassing prior methods in capacity-quality tradeoffs. code: code: \\url{https://github.com/spin-umass/vidstamp}",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['mohammadreza teymoorianfard', 'shiqing ma', 'amir houmansadr']"
+    },
+    {
+      "id": "2505.01583",
+      "title": "tempura: temporal event masked prediction and understanding for   reasoning in action",
+      "categories": "cs.cv cs.ai",
+      "abstract": "understanding causal event relationships and achieving fine-grained temporal grounding in videos remain challenging for vision-language models. existing methods either compress video tokens to reduce temporal resolution, or treat videos as unsegmented streams, which obscures fine-grained event boundaries and limits the modeling of causal dependencies. we propose tempura (temporal event masked prediction and understanding for reasoning in action), a two-stage training framework that enhances video temporal understanding. tempura first applies masked event prediction reasoning to reconstruct missing events and generate step-by-step causal explanations from dense event annotations, drawing inspiration from effective infilling techniques. tempura then learns to perform video segmentation and dense captioning to decompose videos into non-overlapping events with detailed, timestamp-aligned descriptions. we train tempura on ver, a large-scale dataset curated by us that comprises 1m training instances and 500k videos with temporally aligned event descriptions and structured reasoning steps. experiments on temporal grounding and highlight detection benchmarks demonstrate that tempura outperforms strong baseline models, confirming that integrating causal reasoning with fine-grained temporal segmentation leads to improved video understanding.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['jen-hao cheng', 'vivian wang', 'huayu wang', 'huapeng zhou', 'yi-hao peng', 'hou-i liu', 'hsiang-wei huang', 'kuang-ming chen', 'cheng-yen yang', 'wenhao chai', 'yi-ling chen', 'vibhav vineet', 'qin cai', 'jenq-neng hwang']"
+    },
+    {
+      "id": "2505.01657",
+      "title": "ragar: retrieval augment personalized image generation guided by   recommendation",
+      "categories": "cs.ir cs.cv",
+      "abstract": "personalized image generation is crucial for improving the user experience, as it renders reference images into preferred ones according to user visual preferences. although effective, existing methods face two main issues. first, existing methods treat all items in the user historical sequence equally when extracting user preferences, overlooking the varying semantic similarities between historical items and the reference item. disproportionately high weights for low-similarity items distort users' visual preferences for the reference item. second, existing methods heavily rely on consistency between generated and reference images to optimize the generation, which leads to underfitting user preferences and hinders personalization. to address these issues, we propose retrieval augment personalized image generation guided by recommendation (ragar). our approach uses a retrieval mechanism to assign different weights to historical items according to their similarities to the reference item, thereby extracting more refined users' visual preferences for the reference item. then we introduce a novel rank task based on the multi-modal ranking model to optimize the personalization of the generated images instead of forcing depend on consistency. extensive experiments and human evaluations on three real-world datasets demonstrate that ragar achieves significant improvements in both personalization and semantic metrics compared to five baselines.",
+      "doi": "",
+      "created": "2025-05-02",
+      "updated": "",
+      "authors": "['run ling', 'wenji wang', 'yuting liu', 'guibing guo', 'linying jiang', 'xingwei wang']"
+    },
+    {
+      "id": "2505.01713",
+      "title": "vision and intention boost large language model in long-term action   anticipation",
+      "categories": "cs.cv",
+      "abstract": "long-term action anticipation (lta) aims to predict future actions over an extended period. previous approaches primarily focus on learning exclusively from video data but lack prior knowledge. recent researches leverage large language models (llms) by utilizing text-based inputs which suffer severe information loss. to tackle these limitations single-modality methods face, we propose a novel intention-conditioned vision-language (icvl) model in this study that fully leverages the rich semantic information of visual data and the powerful reasoning capabilities of llms. considering intention as a high-level concept guiding the evolution of actions, we first propose to employ a vision-language model (vlm) to infer behavioral intentions as comprehensive textual features directly from video inputs. the inferred intentions are then fused with visual features through a multi-modality fusion strategy, resulting in intention-enhanced visual representations. these enhanced visual representations, along with textual prompts, are fed into llm for future action anticipation. furthermore, we propose an effective example selection strategy jointly considers visual and textual similarities, providing more relevant and informative examples for in-context learning. extensive experiments with state-of-the-art performance on ego4d, epic-kitchens-55, and egtea gaze+ datasets fully demonstrate the effectiveness and superiority of the proposed method.",
+      "doi": "",
+      "created": "2025-05-03",
+      "updated": "",
+      "authors": "['congqi cao', 'lanshu hu', 'yating yu', 'yanning zhang']"
+    },
+    {
+      "id": "2505.01958",
+      "title": "a comprehensive analysis for visual object hallucination in large   vision-language models",
+      "categories": "cs.cv cs.cl",
+      "abstract": "large vision-language models (lvlms) demonstrate remarkable capabilities in multimodal tasks, but visual object hallucination remains a persistent issue. it refers to scenarios where models generate inaccurate visual object-related information based on the query input, potentially leading to misinformation and concerns about safety and reliability. previous works focus on the evaluation and mitigation of visual hallucinations, but the underlying causes have not been comprehensively investigated. in this paper, we analyze each component of llava-like lvlms -- the large language model, the vision backbone, and the projector -- to identify potential sources of error and their impact. based on our observations, we propose methods to mitigate hallucination for each problematic component. additionally, we developed two hallucination benchmarks: qa-visualgenome, which emphasizes attribute and relation hallucinations, and qa-fb15k, which focuses on cognition-based hallucinations.",
+      "doi": "",
+      "created": "2025-05-03",
+      "updated": "",
+      "authors": "['liqiang jing', 'guiming hardy chen', 'ehsan aghazadeh', 'xin eric wang', 'xinya du']"
+    },
+    {
+      "id": "2505.01996",
+      "title": "always skip attention",
+      "categories": "cs.lg cs.cv",
+      "abstract": "we highlight a curious empirical result within modern vision transformers (vits). specifically, self-attention catastrophically fails to train unless it is used in conjunction with a skip connection. this is in contrast to other elements of a vit that continue to exhibit good performance (albeit suboptimal) when skip connections are removed. further, we show that this critical dependence on skip connections is a relatively new phenomenon, with previous deep architectures (\\eg, cnns) exhibiting good performance in their absence. in this paper, we theoretically characterize that the self-attention mechanism is fundamentally ill-conditioned and is, therefore, uniquely dependent on skip connections for regularization. additionally, we propose token graying -- a simple yet effective complement (to skip connections) that further improves the condition of input tokens. we validate our approach in both supervised and self-supervised training methods.",
+      "doi": "",
+      "created": "2025-05-04",
+      "updated": "",
+      "authors": "['yiping ji', 'hemanth saratchandran', 'peyman moghaddam', 'simon lucey']"
+    },
+    {
+      "id": "2505.02018",
+      "title": "r-bench: graduate-level multi-disciplinary benchmarks for llm & mllm   complex reasoning evaluation",
+      "categories": "cs.cv",
+      "abstract": "reasoning stands as a cornerstone of intelligence, enabling the synthesis of existing knowledge to solve complex problems. despite remarkable progress, existing reasoning benchmarks often fail to rigorously evaluate the nuanced reasoning capabilities required for complex, real-world problemsolving, particularly in multi-disciplinary and multimodal contexts. in this paper, we introduce a graduate-level, multi-disciplinary, englishchinese benchmark, dubbed as reasoning bench (r-bench), for assessing the reasoning capability of both language and multimodal models. rbench spans 1,094 questions across 108 subjects for language model evaluation and 665 questions across 83 subjects for multimodal model testing in both english and chinese. these questions are meticulously curated to ensure rigorous difficulty calibration, subject balance, and crosslinguistic alignment, enabling the assessment to be an olympiad-level multi-disciplinary benchmark. we evaluate widely used models, including openai o1, gpt-4o, deepseek-r1, etc. experimental results indicate that advanced models perform poorly on complex reasoning, especially multimodal reasoning. even the top-performing model openai o1 achieves only 53.2% accuracy on our multimodal evaluation. data and code are made publicly available at here.",
+      "doi": "",
+      "created": "2025-05-04",
+      "updated": "",
+      "authors": "['meng-hao guo', 'jiajun xu', 'yi zhang', 'jiaxi song', 'haoyang peng', 'yi-xuan deng', 'xinzhi dong', 'kiyohiro nakayama', 'zhengyang geng', 'chen wang', 'bolin ni', 'guo-wei yang', 'yongming rao', 'houwen peng', 'han hu', 'gordon wetzstein', 'shi-min hu']"
+    },
+    {
+      "id": "2505.02048",
+      "title": "regression is all you need for medical image translation",
+      "categories": "eess.iv cs.ai cs.cv",
+      "abstract": "the acquisition of information-rich images within a limited time budget is crucial in medical imaging. medical image translation (mit) can help enhance and supplement existing datasets by generating synthetic images from acquired data. while generative adversarial nets (gans) and diffusion models (dms) have achieved remarkable success in natural image generation, their benefits - creativity and image realism - do not necessarily transfer to medical applications where highly accurate anatomical information is required. in fact, the imitation of acquisition noise or content hallucination hinder clinical utility. here, we introduce yoda (you only denoise once - or average), a novel 2.5d diffusion-based framework for volumetric mit. yoda unites diffusion and regression paradigms to produce realistic or noise-free outputs. furthermore, we propose expectation-approximation (expa) dm sampling, which draws inspiration from mri signal averaging. expa-sampling suppresses generated noise and, thus, eliminates noise from biasing the evaluation of image quality. through extensive experiments on four diverse multi-modal datasets - comprising multi-contrast brain mri and pelvic mri-ct - we show that diffusion and regression sampling yield similar results in practice. as such, the computational overhead of diffusion sampling does not provide systematic benefits in medical information translation. building on these insights, we demonstrate that yoda outperforms several state-of-the-art gan and dm methods. notably, yoda-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks. our findings challenge the presumed advantages of dms in mit and pave the way for the practical application of mit in medical imaging.",
+      "doi": "",
+      "created": "2025-05-04",
+      "updated": "2025-05-06",
+      "authors": "['sebastian rassmann', 'david kügler', 'christian ewert', 'martin reuter']"
+    },
+    {
+      "id": "2506.03084",
+      "title": "InterMamba: Efficient Human-Human Interaction Generation with Adaptive Spatio-Temporal Mamba",
+      "categories": "cs.CV",
+      "abstract": "Human-human interaction generation has garnered significant attention in motion synthesis due to its vital role in understanding humans as social beings. However, existing methods typically rely on transformer-based architectures, which often face challenges related to scalability and efficiency. To address these issues, we propose a novel, efficient human-human interaction generation method based on the Mamba framework, designed to meet the demands of effectively capturing long-sequence dependencies while providing real-time feedback. Specifically, we introduce an adaptive spatio-temporal Mamba framework that utilizes two parallel SSM branches with an adaptive mechanism to integrate the spatial and temporal features of motion sequences. To further enhance the model's ability to capture dependencies within individual motion sequences and the interactions between different individual sequences, we develop two key modules: the self-adaptive spatio-temporal Mamba module and the cross-adaptive spatio-temporal Mamba module, enabling efficient feature learning. Extensive experiments demonstrate that our method achieves state-of-the-art results on two interaction datasets with remarkable quality and efficiency. Compared to the baseline method InterGen, our approach not only improves accuracy but also requires a minimal parameter size of just 66M ,only 36% of InterGen's, while achieving an average inference speed of 0.57 seconds, which is 46% of InterGen's execution time.",
+      "doi": "",
+      "created": "2025-06-03",
+      "updated": "2025-06-03",
+      "authors": "['zizhao wu', 'yingying sun', 'yiming chen', 'xiaoling gu', 'ruyu liu', 'jiazhou chen']"
+    },
+    {
+      "title": "Dense Match Summarization for Faster Two-view Estimation",
+      "authors": "['jonathan astermark', 'anders heyden', 'viktor larsson']",
+      "abstract": "In this paper, we speed up robust two-view relative pose from dense correspondences. Previous work has shown that dense matchers can significantly improve both accuracy and robustness in the resulting pose. However, the large number of matches comes with a significantly increased runtime during robust estimation in RANSAC. To avoid this, we propose an efficient match summarization scheme which provides comparable accuracy to using the full set of dense matches, while having 10-100x faster runtime. We validate our approach on standard benchmark datasets together with multiple state-of-the-art dense matchers.",
+      "created": "2025-06-03",
+      "updated": "2025-06-03",
+      "id": "2506.02893",
+      "categories": "cs.CV"
+    },
+    {
+      "title": "GaRA-SAM: Robustifying Segment Anything Model with Gated-Rank Adaptation",
+      "authors": "['sohyun lee', 'yeho kwon', 'lukas hoyer', 'suha kwak']",
+      "abstract": "Improving robustness of the Segment Anything Model (SAM) to input degradations is critical for its deployment in high-stakes applications such as autonomous driving and robotics. Our approach to this challenge prioritizes three key aspects: first, parameter efficiency to maintain the inherent generalization capability of SAM; second, fine-grained and input-aware robustification to precisely address the input corruption; and third, adherence to standard training protocols for ease of training. To this end, we propose gated-rank adaptation (GaRA). GaRA introduces lightweight adapters into intermediate layers of the frozen SAM, where each adapter dynamically adjusts the effective rank of its weight matrix based on the input by selectively activating (rank-1) components of the matrix using a learned gating module. This adjustment enables fine-grained and input-aware robustification without compromising the generalization capability of SAM. Our model, GaRA-SAM, significantly outperforms prior work on all robust segmentation benchmarks. In particular, it surpasses the previous best IoU score by up to 21.3\\%p on ACDC, a challenging real corrupted image dataset.",
+      "created": "2025-06-03",
+      "updated": "2025-06-03",
+      "id": "2506.02882",
+      "categories": "cs.CV"
+    },
+    {
+      "title": "Hierarchical Self-Prompting SAM: A Prompt-Free Medical Image Segmentation Framework",
+      "authors": "['mengmeng zhang', 'xingyuan dai', 'yicheng sun', 'jing wang', 'yueyang yao', 'xiaoyan gong', 'fuze cong', 'feiyue wang', 'yisheng lv']",
+      "abstract": "Although the Segment Anything Model (SAM) is highly effective in natural image segmentation, it requires dependencies on prompts, which limits its applicability to medical imaging where manual prompts are often unavailable. Existing efforts to fine-tune SAM for medical segmentation typically struggle to remove this dependency. We propose Hierarchical Self-Prompting SAM (HSP-SAM), a novel self-prompting framework that enables SAM to achieve strong performance in prompt-free medical image segmentation. Unlike previous self-prompting methods that remain limited to positional prompts similar to vanilla SAM, we are the first to introduce learning abstract prompts during the self-prompting process. This simple and intuitive self-prompting framework achieves superior performance on classic segmentation tasks such as polyp and skin lesion segmentation, while maintaining robustness across diverse medical imaging modalities. Furthermore, it exhibits strong generalization to unseen datasets, achieving improvements of up to 14.04% over previous state-of-the-art methods on some challenging benchmarks. These results suggest that abstract prompts encapsulate richer and higher-dimensional semantic information compared to positional prompts, thereby enhancing the model's robustness and generalization performance. All models and codes will be released upon acceptance.",
+      "created": "2025-06-03",
+      "updated": "2025-06-03",
+      "id": "2506.02854",
+      "categories": "cs.CV"
+    }
+  ]
+}

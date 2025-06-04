@@ -9,8 +9,7 @@ import pandas as pd
 import re
 import requests
 import xml.etree.ElementTree as ET
-
-papers_csv_filename = "final_paper_list.csv"
+import os, json
 
 def get_arxiv_metadata_from_paper_id(paper_id):
     # ArXiv API endpoint
@@ -41,13 +40,11 @@ def get_arxiv_metadata_from_paper_id(paper_id):
         # Extract other metadata
         metadata = {
             "title": ' '.join(entry.find('{http://www.w3.org/2005/Atom}title').text.strip().split()),
-            "authors": authors,
+            "authors": str([author.lower() for author in authors]),
             "abstract": ' '.join(entry.find('{http://www.w3.org/2005/Atom}summary').text.strip().split()),
             "created": entry.find('{http://www.w3.org/2005/Atom}published').text.split('T')[0],  # Extract date part only
             "updated": entry.find('{http://www.w3.org/2005/Atom}updated').text.split('T')[0],  # Extract date part only
             "id": str(paper_id),
-            "pdf_url": next(link.get('href') for link in entry.findall('{http://www.w3.org/2005/Atom}link') 
-                          if link.get('title') == 'pdf'),
             "categories": entry.find('.//{http://arxiv.org/schemas/atom}primary_category').get('term'),
         }
         
@@ -69,8 +66,144 @@ def get_arxiv_metadata_from_paper_id(paper_id):
     except Exception as e:
         return {"error": f"Unexpected error: {str(e)}"}
 
-def extract_metadata(filename):
-    # Extract ID from filename (assumes format: "id title")
+def add_paper_to_json(paper_metadata: Dict, filepath: str = "final_papers.json") -> None:
+    """
+    Add a new paper's metadata to the JSON file.
+    
+    Args:
+        paper_metadata (Dict): Paper metadata containing id, title, authors, etc.
+        filepath (str): Path to the JSON file
+        
+    Raises:
+        ValueError: If required fields are missing or paper already exists
+        FileNotFoundError: If JSON file not found
+    """
+    required_fields = ['id', 'title', 'abstract', 'authors', 'created']
+    missing_fields = [field for field in required_fields if not paper_metadata.get(field)]
+    if missing_fields:
+        raise ValueError(f"Missing required fields: {', '.join(missing_fields)}")
+    
+    try:
+        # Get project root directory
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        abs_path = os.path.join(project_root, filepath)
+        
+        if not os.path.exists(abs_path):
+            abs_path = os.path.join(os.getcwd(), filepath)
+            
+        # Read existing data
+        try:
+            with open(abs_path, 'r') as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            # Create new file if it doesn't exist
+            data = {"papers": []}
+            
+        # Check if paper already exists
+        papers_list = data.get('papers', [])
+        if any(p.get('id') == paper_metadata['id'] for p in papers_list):
+            raise ValueError(f"Paper with ID {paper_metadata['id']} already exists")
+            
+        # Add new paper
+        papers_list.append(paper_metadata)
+        data['papers'] = papers_list
+        
+        # Write back to file
+        with open(abs_path, 'w', encoding='utf-8') as f:
+            json.dump(data, f, indent=2, ensure_ascii=False)
+            
+    except Exception as e:
+        raise Exception(f"Failed to add paper to JSON: {str(e)}")
+
+def clean_arxiv_md_text(text):
+    """
+    Clean academic text by removing citations, references, figures, tables, 
+    equations, and other academic formatting elements.
+    
+    Args:
+        text (str): Raw academic text content
+        
+    Returns:
+        str: Cleaned text content
+    """
+    
+    # Remove citation patterns like [1], [2], [3,4], etc.
+    text = re.sub(r'\[[\d,\s-]+\]', '', text)
+    
+    # Remove inline citations like (Author, Year) or (Author et al., Year)
+    text = re.sub(r'\([^)]*\d{4}[^)]*\)', '', text)
+    
+    # # Remove figure references and captions
+    # text = re.sub(r'Figure\s+\d+[^.]*\.?[^.]*\.', '', text, flags=re.IGNORECASE | re.MULTILINE)
+    # text = re.sub(r'Fig\.\s*\d+[^.]*\.?', '', text, flags=re.IGNORECASE)
+    
+    # Remove table references and captions
+    # text = re.sub(r'Table\s+\d+[^.]*\.?[^.]*\.', '', text, flags=re.IGNORECASE | re.MULTILINE)
+    
+    # Remove mathematical expressions in parentheses with numbers
+    text = re.sub(r'\([^)]*\d+[^)]*\)', '', text)
+    
+    
+    # Remove references section entirely
+    text = re.sub(r'## References.*$', '', text, flags=re.DOTALL | re.MULTILINE)
+    text = re.sub(r'# References.*$', '', text, flags=re.DOTALL | re.MULTILINE)
+    
+    # Remove acknowledgments section
+    text = re.sub(r'## Acknowledgments.*$', '', text, flags=re.DOTALL | re.MULTILINE)
+    text = re.sub(r'# Acknowledgments.*$', '', text, flags=re.DOTALL | re.MULTILINE)
+    
+    # Remove HTML comments
+    text = re.sub(r'<!--.*?-->', '', text, flags=re.DOTALL)
+    
+    # Remove mathematical notation patterns
+    text = re.sub(r'<!-- formula-not-decoded -->', '', text)
+    text = re.sub(r'<!-- image -->', '', text)
+    
+    # Remove author affiliations and institutional info
+    text = re.sub(r'\d+\s*Department of[^,]*,?[^,]*,?[^,]*', '', text)
+    text = re.sub(r'\*[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', '', text)
+    
+    # Remove extra spaces
+    text = re.sub(r' {2,}', ' ', text)
+    
+    # Remove lines that are just numbers or contain only special characters
+    lines = text.split('\n')
+    cleaned_lines = []
+    
+    for line in lines:
+        line = line.strip()
+        # Skip empty lines, lines with only numbers, or lines with only special chars
+        if (line and 
+            not re.match(r'^[\d\s\-\.\,\(\)]+$', line) and
+            not re.match(r'^[^\w\s]*$', line) and
+            len(line) > 2):
+            cleaned_lines.append(line)
+    
+    # Join lines back together
+    text = '\n'.join(cleaned_lines)
+    
+    # Final cleanup - remove any remaining isolated citations or references
+    text = re.sub(r'\n\s*\[\d+\].*\n', '\n', text)
+    text = re.sub(r'^- \[.*?\].*$', '', text, flags=re.MULTILINE)
+    
+    return text
+
+def extract_metadata(filename: str, json_file: str = "final_papers.json") -> Dict:
+    """
+    Extract metadata for a paper from its filename using a JSON database.
+    
+    Args:
+        filename (str): Filename containing paper ID (format: "XXXX.XXXXX Title")
+        json_file (str): Path to the JSON file containing paper metadata
+        
+    Returns:
+        Dict: Paper metadata
+        
+    Raises:
+        ValueError: If filename format is invalid or paper not found
+        FileNotFoundError: If JSON file not found
+    """
+    # Extract ID from filename
     id_match = re.match(r'(\d{4}\.\d+)', filename)
     if not id_match:
         raise ValueError("Invalid filename format. Expected format: 'XXXX.XXXXX Title'")
@@ -78,35 +211,39 @@ def extract_metadata(filename):
     arxiv_id = id_match.group(1)
     
     try:
-        df = pd.read_csv(papers_csv_filename)
-
-        # print(f"Extracting metadata for ID: {arxiv_id}")
-        # print(f"Total papers in dataset: {len(df)}")
-
-        # Convert ID column to string and remove any whitespace
-        df['id'] = df['id'].astype(str).str.strip()
-        paper_data = df[df['id'].str.contains(arxiv_id, regex=False)]
+        # Get project root directory
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        abs_path = os.path.join(project_root, json_file)
         
-        if paper_data.empty:
+        if not os.path.exists(abs_path):
+            abs_path = os.path.join(os.getcwd(), json_file)
+            
+        with open(abs_path, 'r') as f:
+            data = json.load(f)
+        
+        # Handle both possible JSON structures
+        papers_list = data if isinstance(data, list) else data.get('papers', [])
+        
+        # Find paper with matching ID
+        paper = next((p for p in papers_list if p.get('id') == arxiv_id), None)
+        
+        if not paper:
             raise ValueError(f"No metadata found for ID: {arxiv_id}")
-        
-        # Initialize empty metadata dictionary
-        metadata = {}
-        
+            
         # Define columns to check
         columns = ['id', 'title', 'categories', 'abstract', 'doi', 'created', 'updated', 'authors']
         
         # Only add non-empty values to metadata
-        for col in columns:
-            value = paper_data[col].iloc[0]
-            # Check if value is not empty/null/NaN
-            if pd.notna(value) and str(value).strip():
-                metadata[col] = value
+        metadata = {
+            col: paper.get(col) 
+            for col in columns 
+            if paper.get(col) and str(paper.get(col)).strip()
+        }
         
         return metadata
         
     except FileNotFoundError:
-        raise FileNotFoundError(f"{papers_csv_filename} not found")
+        raise FileNotFoundError(f"Papers list not found at: {abs_path}")
 
 def merge_same_heading_docs(docs):
     if not docs:

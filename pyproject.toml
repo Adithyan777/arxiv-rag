@@ -8,6 +8,7 @@ dependencies = [
     "agno>=1.5.5",
     "arxiv>=2.2.0",
     "arxivscraper>=0.0.5",
+    "docling>=2.15.1",
     "ipykernel>=6.29.5",
     "langchain>=0.3.25",
     "langchain-community>=0.3.24",
