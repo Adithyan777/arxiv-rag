@@ -28,6 +28,12 @@ vector_store = QdrantVectorStore(
     embedding=embeddings,
 )
 
+# def add_abstracts_to_vector_store():
+#     """
+#     Takes .
+#     """
+    # Read the CSV file containing abstracts
+
 df = pd.read_csv('final_paper_list.csv')
 
 abstr = df['abstract']

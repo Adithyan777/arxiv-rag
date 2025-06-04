@@ -6,7 +6,161 @@ from langchain_qdrant import QdrantVectorStore
 from qdrant_client import models
 from langchain_core.documents import Document
 import pandas as pd
+import re
+import requests
+import xml.etree.ElementTree as ET
 
+papers_csv_filename = "final_paper_list.csv"
+
+def get_arxiv_metadata_from_paper_id(paper_id):
+    # ArXiv API endpoint
+    url = f'https://export.arxiv.org/api/query?id_list={paper_id}'
+    
+    try:
+        # Make the request
+        response = requests.get(url)
+        response.raise_for_status()
+        
+        # Parse XML response
+        root = ET.fromstring(response.content)
+        
+        # Find the entry element (contains paper details)
+        entry = root.find('{http://www.w3.org/2005/Atom}entry')
+        
+        if entry is None:
+            return {"error": "No paper found with given ID"}
+            
+        # Extract namespace for arxiv-specific elements
+        ns = {'atom': 'http://www.w3.org/2005/Atom',
+              'arxiv': 'http://arxiv.org/schemas/atom'}
+        
+        # Extract authors
+        authors = [author.find('{http://www.w3.org/2005/Atom}name').text 
+                  for author in entry.findall('{http://www.w3.org/2005/Atom}author')]
+        
+        # Extract other metadata
+        metadata = {
+            "title": ' '.join(entry.find('{http://www.w3.org/2005/Atom}title').text.strip().split()),
+            "authors": authors,
+            "abstract": ' '.join(entry.find('{http://www.w3.org/2005/Atom}summary').text.strip().split()),
+            "created": entry.find('{http://www.w3.org/2005/Atom}published').text.split('T')[0],  # Extract date part only
+            "updated": entry.find('{http://www.w3.org/2005/Atom}updated').text.split('T')[0],  # Extract date part only
+            "id": str(paper_id),
+            "pdf_url": next(link.get('href') for link in entry.findall('{http://www.w3.org/2005/Atom}link') 
+                          if link.get('title') == 'pdf'),
+            "categories": entry.find('.//{http://arxiv.org/schemas/atom}primary_category').get('term'),
+        }
+        
+        # Optional fields
+        doi = entry.find('.//{http://arxiv.org/schemas/atom}doi')
+        if doi is not None:
+            metadata["doi"] = ' '.join(doi.text.strip().split())
+            
+        journal_ref = entry.find('.//{http://arxiv.org/schemas/atom}journal_ref')
+        if journal_ref is not None:
+            metadata["journal_ref"] = ' '.join(journal_ref.text.strip().split())
+            
+        return metadata
+        
+    except requests.exceptions.RequestException as e:
+        return {"error": f"Request failed: {str(e)}"}
+    except ET.ParseError as e:
+        return {"error": f"XML parsing failed: {str(e)}"}
+    except Exception as e:
+        return {"error": f"Unexpected error: {str(e)}"}
+
+def extract_metadata(filename):
+    # Extract ID from filename (assumes format: "id title")
+    id_match = re.match(r'(\d{4}\.\d+)', filename)
+    if not id_match:
+        raise ValueError("Invalid filename format. Expected format: 'XXXX.XXXXX Title'")
+    
+    arxiv_id = id_match.group(1)
+    
+    try:
+        df = pd.read_csv(papers_csv_filename)
+
+        # print(f"Extracting metadata for ID: {arxiv_id}")
+        # print(f"Total papers in dataset: {len(df)}")
+
+        # Convert ID column to string and remove any whitespace
+        df['id'] = df['id'].astype(str).str.strip()
+        paper_data = df[df['id'].str.contains(arxiv_id, regex=False)]
+        
+        if paper_data.empty:
+            raise ValueError(f"No metadata found for ID: {arxiv_id}")
+        
+        # Initialize empty metadata dictionary
+        metadata = {}
+        
+        # Define columns to check
+        columns = ['id', 'title', 'categories', 'abstract', 'doi', 'created', 'updated', 'authors']
+        
+        # Only add non-empty values to metadata
+        for col in columns:
+            value = paper_data[col].iloc[0]
+            # Check if value is not empty/null/NaN
+            if pd.notna(value) and str(value).strip():
+                metadata[col] = value
+        
+        return metadata
+        
+    except FileNotFoundError:
+        raise FileNotFoundError(f"{papers_csv_filename} not found")
+
+def merge_same_heading_docs(docs):
+    if not docs:
+        return []
+
+    merged_docs = []
+    current_heading = None
+    current_doc = None
+
+    for doc in docs:
+        # Check if doc is None
+        if doc is None:
+            print("Warning: Found None document, skipping...")
+            continue
+            
+        # Check if doc has required attributes
+        if not hasattr(doc, 'page_content') or not hasattr(doc, 'metadata'):
+            print(f"Warning: Document missing required attributes, skipping...")
+            continue
+            
+        # Get heading from the correct nested location
+        dl_meta = doc.metadata.get("dl_meta")
+        if dl_meta and dl_meta.get('headings'):
+            heading = dl_meta.get('headings')[0]
+        else:
+            heading = None
+        
+        # If this is a new heading, start a new merged document
+        if heading != current_heading:
+            if current_doc is not None:
+                merged_docs.append(current_doc)
+            
+            # Create a copy of the document instead of using reference
+            current_doc = type(doc)(
+                page_content=doc.page_content,
+                metadata=doc.metadata.copy()
+            )
+            current_heading = heading
+        else:
+            # For same heading, merge content while handling the heading prefix
+            content = doc.page_content
+            if content and "\n" in content:
+                # Remove heading prefix if present
+                content = content.split("\n", 1)[1]
+            
+            # Only append if content exists
+            if content:
+                current_doc.page_content += "\n" + content
+
+    # Add the last document
+    if current_doc is not None:
+        merged_docs.append(current_doc)
+
+    return merged_docs
 
 def get_rewritten_queries(question: str, llm) -> List[str]:
     """Generate multiple versions of the input question using an LLM."""
@@ -61,9 +215,9 @@ def get_paper_id_from_search_query(search_query: str, abstracts_vector_store_col
     
     # Get most frequent paper ID from all queries
     predicted_paper_id = get_top_paper_id(queries, abstract_vector_store)
-    # print(f"Predicted Paper ID for re-written queries: {predicted_paper_id}")
+    print(f"Predicted Paper ID for re-written queries: {predicted_paper_id}")
 
-    return predicted_paper_id, queries
+    return str(predicted_paper_id), queries
 
 def get_context_for_qa(paper_id: str, rewritten_queries: List[str], vector_store, k : int = 3) -> List[models.Record]:
     """Get context for QA from the vector store based on paper ID and search query."""

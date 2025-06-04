@@ -1,7 +1,7 @@
 from pathlib import Path
 from langchain_docling import DoclingLoader
-from utils import merge_docs
-from metadata import extract_metadata
+from utils import merge_same_heading_docs
+from utils import extract_metadata
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 from typing import List
@@ -55,7 +55,7 @@ for file_path in md_files:
 
     # ---------- Merge documents based on headings ----------
 
-    merged_docs = merge_docs(docs)
+    merged_docs = merge_same_heading_docs(docs)
     print(f"Found {len(merged_docs)} merged documents:")
 
     # ---------------- Modify metadata ----------------------

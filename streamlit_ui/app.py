@@ -6,7 +6,7 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from engine.llm import get_llm, lmstudio_model_list, open_router_model_list, io_net_model_list
 from engine.embedding import get_vector_store, get_embeddings, get_qdrant_client
-from engine.utils import get_paper_id_from_search_query, get_context_for_qa, get_context_for_qa_without_id, get_rewritten_queries, get_llm_generation_using_context
+from utils import get_paper_id_from_search_query, get_context_for_qa, get_context_for_qa_without_id, get_rewritten_queries, get_llm_generation_using_context
 
 # Page config
 st.set_page_config(
@@ -148,7 +148,8 @@ if st.button("Search"):
             try:
                 if use_paper_id and paper_id:
                     # Direct search with paper ID
-                    st.info(f"Searching within paper ID: {paper_id} - {get_paper_metadata(paper_id).get('title', 'N/A')}")
+                    paper_title = get_paper_metadata(paper_id).get('title', 'N/A')
+                    st.markdown(f"Searching within paper ID: [{paper_id} - {paper_title}](https://arxiv.org/pdf/{paper_id}.pdf)")
                     rewritten_queries = get_rewritten_queries(search_query, smol)
                     print(f"Rewritten queries: {rewritten_queries}")
                     results = get_context_for_qa(paper_id, rewritten_queries, vector_store)
@@ -158,12 +159,12 @@ if st.button("Search"):
                     with st.spinner("Detecting relevant paper..."):
                         paper_id, rewritten_queries = get_paper_id_from_search_query(
                             search_query,
-                            "arxiv-cvpr-main",
+                            "arxiv-abstracts",
                             embeddings,
                             client,
                             smol
                         )
-                        st.info(f"Found relevant paper: {paper_id} - {get_paper_metadata(paper_id).get('title', 'N/A')}")
+                        st.info(f"Found relevant paper: {paper_id} - {get_paper_metadata(paper_id).get('title', 'N/A')}(https://arxiv.org/pdf/{paper_id}.pdf)")
                     results = get_context_for_qa(paper_id, rewritten_queries, vector_store)
                     context = [res for res, score in results if res.page_content and len(res.page_content) > 0]
                     print(f"Context found for paper ID {paper_id}: {len(context)} excerpts")
