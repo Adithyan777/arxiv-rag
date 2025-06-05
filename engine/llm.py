@@ -26,6 +26,7 @@ open_router_model_list = [
 
 lmstudio_model_list = [
     "qwen/qwen3-8b",
+    "qwen3-8b-cvpr-lora-full2.0",
     "qwen3-14b-cvpr-chat-full",
     "qwen/qwen3-4b"
 ]

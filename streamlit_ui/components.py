@@ -97,6 +97,7 @@ def display_paper_metadata(paper_id: str):
 def perform_search(
     search_query: str,
     use_paper_id: bool,
+    use_global_context: bool,
     paper_id: Optional[str],
     llm,
     smol,
@@ -106,7 +107,12 @@ def perform_search(
 ) -> None:
     """Execute the search and display results."""
     try:
-        if use_paper_id and paper_id:
+        if use_global_context:
+            # Global context search across all papers
+            rewritten_queries = get_rewritten_queries(search_query, smol)
+            results = get_context_for_qa_without_id(rewritten_queries, vector_store)
+            st.info("Searching across all papers")
+        elif use_paper_id and paper_id:
             # Direct search with paper ID
             paper_title = get_paper_metadata(paper_id).get('title', 'N/A')
             st.markdown(f"Searching within paper ID: [{paper_id} - {paper_title}](https://arxiv.org/pdf/{paper_id}.pdf)")
@@ -151,7 +157,7 @@ def display_search_results(
     )
     
     if "I don't know" in response:
-        st.warning("Routing failed, trying with overall context...")
+        st.warning("Selected paper doesnt have enough context to answer the question, trying with overall context...")
         global_results = get_context_for_qa_without_id(rewritten_queries, vector_store)
         global_context = [res for res, score in global_results if res.page_content and len(res.page_content) > 0]
         

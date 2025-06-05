@@ -299,6 +299,18 @@ def merge_same_heading_docs(docs):
 
     return merged_docs
 
+def remove_think_tags(text: str) -> str:
+    """Remove all text between <think> and </think> tags, including the tags themselves.
+    
+    Args:
+        text (str): Input text containing potential think tags
+        
+    Returns:
+        str: Text with all think tag blocks removed
+    """
+    pattern = r'<think>.*?</think>'
+    return re.sub(pattern, '', text, flags=re.DOTALL).strip()
+
 def get_rewritten_queries(question: str, llm) -> List[str]:
     """Generate multiple versions of the input question using an LLM."""
     multi_query_template = PromptTemplate.from_template("""You are an AI language model assistant. Your task is to generate three 
@@ -309,7 +321,7 @@ def get_rewritten_queries(question: str, llm) -> List[str]:
     
     multi_query_chain = multi_query_template | llm
     # TODO: make a custom parser to handle <think> tags in the response
-    queries = multi_query_chain.invoke({"question": question}).content.split('\n')
+    queries = remove_think_tags(multi_query_chain.invoke({"question": question}).content).split('\n')
     
     # Clean up queries and add original question
     queries = [q.strip() for q in queries if q.strip()]
@@ -446,10 +458,5 @@ def get_llm_generation_using_context(
 
     response = rag_chain.invoke({"question": question, "context": format_docs(context)})
 
-    #TODO: make a custom parser to strip everything bw the <think> tags in the response
-    # if "<think>" in response.content:
-    #     start = response.content.index("<think>") + len("<think>")
-    #     end = response.content.index("</think>")
-    #     response.content = response.content[start:end].strip()
+    return remove_think_tags(response.content)
 
-    return response.content
