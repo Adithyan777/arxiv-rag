@@ -132,7 +132,7 @@ Access the application at `http://localhost:8501`
 - Automatic processing and vector store integration
 - Metadata extraction and storage
 
-### 3. Agents
+### 3. Agents (WIP⌛️)
 - **Compare Agent**: Side-by-side comparison of papers (methodology, results, architecture)
 - **Summarize Agent**: Generate focused summaries with optional areas of emphasis
 
@@ -222,10 +222,6 @@ The system can automatically identify the most relevant paper for your question,
 - [ ] Include unsloth QLoRA training scripts
 - [ ] Implement Agents
 
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## 🙏 Acknowledgments
 
 - **LangChain**: For the RAG framework
@@ -236,5 +232,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - **Synthetic Data Kit**: For training data generation
 
 ---
-
-**Built with ❤️ for the research community**
