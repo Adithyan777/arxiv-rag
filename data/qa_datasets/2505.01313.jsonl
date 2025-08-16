@@ -1,0 +1,372 @@
+[
+  {
+    "question": "What problem does the paper 'A Neural Architecture Search Method using Auxiliary Evaluation Metric based on ResNet Architecture' aim to solve?",
+    "context": "Many studies on genetic algorithm-based neural architecture search GA-NAS algorithms focus solely on accuracy as the evaluation metric for selecting the best-performing neural network architectures. However, other metrics, such as loss, can also be valuable in identifying potentially good individuals for further training. In this paper, we propose to use the loss value on the validation set as an auxiliary indicator of DNN in the GA-NAS algorithm.",
+    "answer": "The paper aims to improve neural architecture search by considering both accuracy and validation loss as optimization objectives."
+  },
+  {
+    "question": "What is the main method proposed in the paper by Shang Wang, Huanrong Tang, and Jianquan Ouyang?",
+    "context": "This paper proposes a neural architecture search space using ResNet as a framework, with search objectives including parameters for convolution, pooling, fully connected layers, and connectivity of the residual network. In addition to recognition accuracy, this paper uses the loss value on the validation set as a secondary objective for optimization.",
+    "answer": "The main method is a multi-objective genetic algorithm for neural architecture search based on ResNet, optimizing both accuracy and validation loss."
+  },
+  {
+    "question": "What are the key contributions of the MO-ResNet paper?",
+    "context": "Overall, our contributions include improved selection methods, novel genetic operators, and a comprehensive comparison of different optimization algorithms.",
+    "answer": "The key contributions are improved selection methods, novel genetic operators, and comprehensive comparisons with other optimization algorithms."
+  },
+  {
+    "question": "Which datasets were used to evaluate the proposed MO-ResNet method?",
+    "context": "The experimental results demonstrate that the search space of this paper together with the optimisation approach can find competitive network architectures on the MNIST, Fashion-MNIST and CIFAR100 datasets.",
+    "answer": "The MNIST, Fashion-MNIST, and CIFAR-100 datasets were used for evaluation."
+  },
+  {
+    "question": "What is the role of the loss value in the proposed neural architecture search method?",
+    "context": "In this paper, we propose to use the loss value on the validation set as an auxiliary indicator of DNN in the GA-NAS algorithm.",
+    "answer": "The loss value on the validation set serves as an auxiliary optimization objective alongside accuracy."
+  },
+  {
+    "question": "How does the MO-ResNet method differ from traditional GA-NAS algorithms?",
+    "context": "Many studies on genetic algorithm-based neural architecture search GA-NAS algorithms focus solely on accuracy as the evaluation metric... In this paper, we propose to use the loss value on the validation set as an auxiliary indicator.",
+    "answer": "MO-ResNet optimizes both accuracy and validation loss, unlike traditional GA-NAS methods that focus only on accuracy."
+  },
+  {
+    "question": "What genetic operators are introduced in the MO-ResNet paper?",
+    "context": "To support our search, we propose new genetic operators for variable-length gene codes based on the popular ResNet 6 architecture.",
+    "answer": "The paper introduces new genetic operators for variable-length gene codes tailored to ResNet architectures."
+  },
+  {
+    "question": "How does MO-ResNet select candidate network architectures?",
+    "context": "Using cooperative optimization in multi-objective genetic algorithms, we search for candidate network structures that perform well on both accuracy and loss metrics.",
+    "answer": "MO-ResNet selects candidates by optimizing both accuracy and loss with a multi-objective genetic algorithm."
+  },
+  {
+    "question": "What is the significance of the Pareto front in the MO-ResNet algorithm?",
+    "context": "After training numerous neural network architectures, those located at the Pareto front 20 undergo additional training to attain the final outcomes.",
+    "answer": "Architectures on the Pareto front, which balance accuracy and loss, are further trained for final evaluation."
+  },
+  {
+    "question": "How does the MO-ResNet method compare with hand-designed networks on MNIST?",
+    "context": "MO-ResNet outperformed ScatNet 1 in terms of recognition accuracy on the MNIST dataset when compared to a hand-designed neural network.",
+    "answer": "MO-ResNet achieved better recognition accuracy than hand-designed networks like ScatNet-2 on MNIST."
+  },
+  {
+    "question": "Which neural architecture search algorithms were compared with MO-ResNet?",
+    "context": "Compared to other NAS techniques, MO-ResNet had better performance than EvoCNN 15 and EvoAF 9 on the MNIST and Fashion-MNIST datasets, and outperformed PRE-NAS 14 on the CIFAR100 dataset.",
+    "answer": "MO-ResNet was compared with EvoCNN, EvoAF, and PRE-NAS algorithms."
+  },
+  {
+    "question": "What performance metric is used for fairness in reporting results?",
+    "context": "For the sake of fairness, the results of the validation set and the test set are reported separately in this paper.",
+    "answer": "Both validation set and test set results are reported for fairness."
+  },
+  {
+    "question": "What is the main advantage of using auxiliary evaluation metrics in NAS?",
+    "context": "These observations suggest that auxiliary evaluation metrics could increase the probability of discovering a competitive network that balances the trade-off between parameters and accuracy.",
+    "answer": "Auxiliary evaluation metrics help discover architectures that better balance accuracy and parameter count."
+  },
+  {
+    "question": "How does the MO-ResNet method perform on the Fashion-MNIST dataset?",
+    "context": "The algorithm proposed in this paper attained significantly superior model recognition accuracy compared to the GoogleNet 16, BackEISNN 22, and MCNN15 12 models on the Fashion-MNIST dataset.",
+    "answer": "MO-ResNet achieved higher recognition accuracy than GoogleNet, BackEISNN, and MCNN15 on Fashion-MNIST."
+  },
+  {
+    "question": "What is the main architectural framework used in the MO-ResNet search space?",
+    "context": "This paper proposes a neural architecture search space using ResNet as a framework...",
+    "answer": "The main framework is ResNet, with search over its convolution, pooling, and fully connected layers."
+  },
+  {
+    "question": "What optimization algorithm forms the basis of MO-ResNet?",
+    "context": "In this paper, we propose a neural architecture search algorithm MO-ResNet based on the ResNet architecture, which is based on the MOEAD algorithm.",
+    "answer": "MO-ResNet is based on the MOEAD (Multi-Objective Evolutionary Algorithm based on Decomposition) algorithm."
+  },
+  {
+    "question": "What is the role of genetic coding in the MO-ResNet method?",
+    "context": "Initialize N individual ResNet architectures according to the genetic coding strategy and train them to obtain M evaluation indicators...",
+    "answer": "Genetic coding encodes ResNet architectures for evolutionary search and optimization."
+  },
+  {
+    "question": "How is the search space for MNIST different from other datasets in MO-ResNet?",
+    "context": "The search space of the MNIST dataset contains only one ResNet block without shortcut connection plus fully connected layers, i.e., a one-chain neural network structure, because the MNIST dataset is... For other datasets, the number of ResNet blocks is chosen randomly between 1,10.",
+    "answer": "MNIST uses a simpler one-chain structure without shortcut connections, while other datasets use multiple ResNet blocks."
+  },
+  {
+    "question": "What optimizer is used during training in MO-ResNet experiments?",
+    "context": "The optimizer used is SGD with momentum 0.9 and weightdecay 0.0005.",
+    "answer": "Stochastic Gradient Descent (SGD) with momentum 0.9 and weight decay 0.0005 is used."
+  },
+  {
+    "question": "What is the main conclusion of the MO-ResNet paper?",
+    "context": "Competitive results were achieved on the MNIST, Fashion-MNIST, and CIFAR-100 datasets. Future work could consider more neural network evaluation metrics and design more combinations of objective functions to find better neural network architectures.",
+    "answer": "MO-ResNet achieves competitive results and suggests future work in expanding evaluation metrics and objective functions."
+  },
+  {
+    "question": "How does the MO-ResNet method handle the trade-off between accuracy and parameters?",
+    "context": "Models with fewer parameters and a comparable or better accuracy than other models could be obtained on both the Fashion-MNIST and CIFAR100 datasets when k was not zero.",
+    "answer": "By adjusting the auxiliary metric coefficient, MO-ResNet finds models with fewer parameters and competitive accuracy."
+  },
+  {
+    "question": "How does the MO-ResNet algorithm work in terms of population initialization?",
+    "context": "Initialize N individual ResNet architectures according to the genetic coding strategy and train them to obtain M evaluation indicators...",
+    "answer": "The algorithm initializes a population of ResNet architectures using genetic coding, then trains each to evaluate performance."
+  },
+  {
+    "question": "What is the main structure of the genetic coding used in MO-ResNet?",
+    "context": "The encoding strategy of the individual could be recursively defined using pseudo regular expressions as follows geneencode m resnetblockencode subsupN FFNlayerencode subsupM resnetblockencode mconvlayerencode poollayerencode convlayerencode m convidentify, filterwidth, outputchannels...",
+    "answer": "Genetic coding represents the number and parameters of ResNet blocks, convolutional, pooling, and fully connected layers."
+  },
+  {
+    "question": "How are crossover operations performed in MO-ResNet's genetic algorithm?",
+    "context": "Crossover operators occur between convolutional layers, pooling layers or fully connected layers of two individuals. The number of each type of layers may be different, and only the same number of layers will be put crossover operations on.",
+    "answer": "Crossover is applied between matching layers of two individuals, handling different layer counts by pairing only matching numbers."
+  },
+  {
+    "question": "What mutation operations are included in MO-ResNet's genetic operators?",
+    "context": "On a holistic level, genetic operators include 1 the mutation operation of adding a new layer when the number of its type is lower than the preset upper limit 2 the mutation operation of randomly removing a layer when the number of its type is higher than the preset lower limit 3 the mutation operation of changing internal parameters of a layer.",
+    "answer": "Mutation operations include adding or removing layers and changing internal parameters of layers."
+  },
+  {
+    "question": "How are evaluation metrics calculated during MO-ResNet training?",
+    "context": "In algorithm 2, stochastic gradient descent is used to train the neural network... the current loss value and accuracy will be calculated after each epoch training and the historical optimal value of the individual neural network will be updated.",
+    "answer": "After each epoch, both loss and accuracy are calculated and the best historical values are recorded."
+  },
+  {
+    "question": "What is the function of the Chebyshev function in MO-ResNet's algorithm?",
+    "context": "The function gt e in step 10 is the Chebyshev function 21, which takes the form gt ex , z 1 i mifix-zi",
+    "answer": "The Chebyshev function is used to compare solutions in the multi-objective optimization process."
+  },
+  {
+    "question": "How does the MO-ResNet algorithm handle parallelization during training?",
+    "context": "In the original version of the MOEAD algorithm 21, step 11 is placed before step 8, but it is not suitable for this experiment because the individuals in the population change during the training process, which is not conducive to parallelization.",
+    "answer": "MO-ResNet modifies the MOEAD algorithm to improve parallelization by adjusting the order of steps."
+  },
+  {
+    "question": "What is the role of the BenchENAS platform in MO-ResNet experiments?",
+    "context": "The algorithm experiment is based on the BenchENAS platform 19, which randomly selects a GPU to train each individual neural network in the population and summarizes the results in terms of generations.",
+    "answer": "BenchENAS manages distributed training and GPU allocation for neural architecture search experiments."
+  },
+  {
+    "question": "How are elite individuals treated after the search in MO-ResNet?",
+    "context": "After the search is completed, the individual neural networks on the EP set are further trained and the results are compared...",
+    "answer": "Elite individuals (on the EP set) are retrained for more epochs to refine their performance."
+  },
+  {
+    "question": "How are ResNet blocks encoded in the MO-ResNet genetic representation?",
+    "context": "In the representation information of neural network individuals, the number of convolutional layers, pooling layers and fully connected layers are encoded as integers, while the detailed information of each layer shown in Figure 1 e.g. filterwidth, outputchannels is encoded as real numbers at crossover and mutation, and rounded down when used.",
+    "answer": "ResNet blocks are encoded by integers for layer counts and real numbers for layer parameters, rounded as needed."
+  },
+  {
+    "question": "What is the purpose of using simulated binary crossover (SBX) in MO-ResNet?",
+    "context": "The crossover operation uses simulated binary crossover SBX 3, and the mutation operation uses polynomial mutation PM 2.",
+    "answer": "SBX is used for crossover of real-valued layer parameters during the genetic algorithm."
+  },
+  {
+    "question": "How does MO-ResNet handle the initialization of layer numbers in ResNet blocks?",
+    "context": "In the process of initialization, the number of ResNet blocks N and the number of FFN layers M are randomly generated within a preset range. Then, the number of convolutional and pooling layers in each ResNet block is also randomly generated within another preset range.",
+    "answer": "Layer numbers are randomly initialized within preset ranges for each individual."
+  },
+  {
+    "question": "What is the role of 1x1 convolutional layers in MO-ResNet's ResNet blocks?",
+    "context": "Note that in a ResNet block, when the input and the output have different lengths, widths, or number of channels, a 1 1 conv is required to downsample the input.",
+    "answer": "1x1 convolutional layers are used for downsampling when input and output dimensions differ."
+  },
+  {
+    "question": "How is the learning rate scheduled during MO-ResNet training?",
+    "context": "During the training of all individuals, i.e. steps 3 and 7 of Algorithm 1, l r is updated using CosineAnnealingLR 11 after initialization.",
+    "answer": "The learning rate is updated using cosine annealing during training."
+  },
+  {
+    "question": "What stopping criterion is used for retraining elite individuals in MO-ResNet?",
+    "context": "During the retraining of elite individuals, i.e. step 12 of Algorithm 1, after l r is re-initialised, the minimum loss value during the current training is recorded and if no smaller loss value appears after 8 epochs of training, l r is halved...",
+    "answer": "If no smaller loss appears after 8 epochs, the learning rate is halved during retraining."
+  },
+  {
+    "question": "How does MO-ResNet ensure fairness in comparing validation and test accuracy?",
+    "context": "For the sake of fairness, the results of the validation set and the test set are reported separately in this paper.",
+    "answer": "Both validation and test accuracies are reported to ensure fair comparison."
+  },
+  {
+    "question": "What batch sizes are used for different datasets in MO-ResNet experiments?",
+    "context": "Table 4 Some settings for each dataset. Parameter MNIST FashionMNIST CIFAR-100 batchsize in algorithm 2 64 100 100",
+    "answer": "Batch sizes are 64 for MNIST and 100 for both Fashion-MNIST and CIFAR-100."
+  },
+  {
+    "question": "How is the computational cost of MO-ResNet experiments managed?",
+    "context": "In practice, one graphics card can train multiple individual neural networks at the same time, and the NAS training process for multiple datasets can be carried out simultaneously without taking up full graphics memory.",
+    "answer": "Multiple networks are trained in parallel on GPUs, and experiments are distributed across GPUs and datasets."
+  },
+  {
+    "question": "What transfer learning experiment was conducted with MO-ResNet architectures?",
+    "context": "We migrated the optimal network architecture searched on the CIFAR-100 dataset starting with 7 7 convolution instead of 3 3, and then ran 150,000 steps on the imagenet dataset, obtaining 39.8 Top-1 error and 18.5 Top-5 error on the training set, and on the The test set yielded a Top-1 error of 35.4 and a Top-5 error of 14.2 , for a total of approximately 36 hours of training on 8 a100 GPU graphics cards.",
+    "answer": "An architecture found on CIFAR-100 was transferred to ImageNet, achieving 35.4% Top-1 and 14.2% Top-5 error."
+  },
+  {
+    "question": "How does MO-ResNet compare to EvoCNN in terms of search space design?",
+    "context": "The search space of our work is an extension of EvoCNN. As Figure 1 shows, without shortcut connections, the ResNet block will degenerate to an one-chain structure, so we could apply EvoCNNs genetic operator to each resnet block, then add a shortcut connection to it...",
+    "answer": "MO-ResNet extends EvoCNN's one-chain search space by supporting residual connections and more flexible block structures."
+  },
+  {
+    "question": "What performance advantage does MO-ResNet have over ScatNet-2 on MNIST?",
+    "context": "MO-ResNet outperformed ScatNet 1 in terms of recognition accuracy on the MNIST dataset when compared to a hand-designed neural network.",
+    "answer": "MO-ResNet achieves higher recognition accuracy than ScatNet-2 on MNIST."
+  },
+  {
+    "question": "How does MO-ResNet perform against BackEISNN on MNIST?",
+    "context": "However, it didnt improve upon BackEISNN 22 concerning the best results, yet it surpassed it in average error rates acquiring when adjusting certain k values.",
+    "answer": "MO-ResNet does not surpass BackEISNN's best result but outperforms it in average error rates."
+  },
+  {
+    "question": "How does MO-ResNet compare to GoogleNet on Fashion-MNIST?",
+    "context": "The algorithm proposed in this paper attained significantly superior model recognition accuracy compared to the GoogleNet 16, BackEISNN 22, and MCNN15 12 models on the Fashion-MNIST dataset.",
+    "answer": "MO-ResNet achieves significantly better recognition accuracy than GoogleNet on Fashion-MNIST."
+  },
+  {
+    "question": "How does MO-ResNet's parameter efficiency compare to other models on Fashion-MNIST?",
+    "context": "Models with fewer parameters and a comparable or better accuracy than other models could be obtained on both the Fashion-MNIST and CIFAR100 datasets when k was not zero.",
+    "answer": "MO-ResNet finds models with fewer parameters and competitive or better accuracy compared to baselines."
+  },
+  {
+    "question": "How does MO-ResNet compare to ResNet-18 and ResNet-50 on CIFAR-100?",
+    "context": "Moreover, MO-ResNet outperformed the two fundamental ResNet 6 models on the CIFAR100 dataset.",
+    "answer": "MO-ResNet outperforms both ResNet-18 and ResNet-50 in error rate on CIFAR-100."
+  },
+  {
+    "question": "What is the difference between MO-ResNet and PRE-NAS on CIFAR-100?",
+    "context": "MO-ResNet had better performance than EvoCNN 15 and EvoAF 9 on the MNIST and Fashion-MNIST datasets, and outperformed PRE-NAS 14 on the CIFAR100 dataset.",
+    "answer": "MO-ResNet achieves lower error rates than PRE-NAS on CIFAR-100."
+  },
+  {
+    "question": "How does MO-ResNet's multi-objective approach differ from single-objective NAS methods?",
+    "context": "In our experiments, we compare the multi-objective algorithm 17 with the single-objective algorithm by adjusting the scale factor of each objective value.",
+    "answer": "MO-ResNet optimizes both accuracy and loss, unlike single-objective NAS methods that optimize only accuracy."
+  },
+  {
+    "question": "How does MO-ResNet's use of auxiliary metrics affect its performance compared to EvoCNN?",
+    "context": "These observations suggest that auxiliary evaluation metrics could increase the probability of discovering a competitive network that balances the trade-off between parameters and accuracy.",
+    "answer": "Auxiliary metrics in MO-ResNet help discover better trade-offs between accuracy and parameter count compared to EvoCNN."
+  },
+  {
+    "question": "How does the training time of MO-ResNet compare to EvoCNN?",
+    "context": "In the experimental part of EvoCNN, the number of generations was set to 50 for all datasets including Fashion-MNIST, and we found individuals with better performance than them on the Fashion-MNIST dataset by evaluating less than one-sixth of this number of individuals with residual connections.",
+    "answer": "MO-ResNet achieves better results with fewer evaluated individuals than EvoCNN, reducing training time."
+  },
+  {
+    "question": "How does MO-ResNet's genetic operator design differ from EvoCNN's?",
+    "context": "EvoCNN algorithm 15 first proposed a variable length encoding strategy in the development of GA-NAS algorithms. The search space of EvoCNN is an one-chain neural network structure... our work is an extension of EvoCNN.",
+    "answer": "MO-ResNet generalizes EvoCNN's genetic operators to variable-length ResNet blocks and supports shortcut connections."
+  },
+  {
+    "question": "How does MO-ResNet compare to MCNN15 on Fashion-MNIST?",
+    "context": "The algorithm proposed in this paper attained significantly superior model recognition accuracy compared to the GoogleNet 16, BackEISNN 22, and MCNN15 12 models on the Fashion-MNIST dataset.",
+    "answer": "MO-ResNet achieves higher recognition accuracy than MCNN15 on Fashion-MNIST."
+  },
+  {
+    "question": "What are potential applications for MO-ResNet in real-world scenarios?",
+    "context": "The experimental results demonstrate that the search space of this paper together with the optimisation approach can find competitive network architectures on the MNIST, Fashion-MNIST and CIFAR100 datasets.",
+    "answer": "MO-ResNet can be used for automated model design in image classification tasks across various domains."
+  },
+  {
+    "question": "How could MO-ResNet benefit industries using automated image analysis?",
+    "context": "The experimental results demonstrate that the search space of this paper together with the optimisation approach can find competitive network architectures on the MNIST, Fashion-MNIST and CIFAR100 datasets.",
+    "answer": "Industries in healthcare, manufacturing, or security could use MO-ResNet to optimize image analysis models."
+  },
+  {
+    "question": "Can MO-ResNet architectures be transferred to large-scale datasets like ImageNet?",
+    "context": "We migrated the optimal network architecture searched on the CIFAR-100 dataset starting with 7 7 convolution instead of 3 3, and then ran 150,000 steps on the imagenet dataset...",
+    "answer": "Yes, MO-ResNet architectures can be transferred to ImageNet and achieve competitive error rates."
+  },
+  {
+    "question": "What are the main limitations of MO-ResNet as discussed by the authors?",
+    "context": "Future work could consider more neural network evaluation metrics and design more combinations of objective functions to find better neural network architectures.",
+    "answer": "MO-ResNet is limited by the choice of evaluation metrics and objective functions; future work may expand these."
+  },
+  {
+    "question": "What future improvements are suggested for MO-ResNet?",
+    "context": "Future work could consider more neural network evaluation metrics and design more combinations of objective functions to find better neural network architectures.",
+    "answer": "Future improvements include adding more evaluation metrics and objective function combinations."
+  },
+  {
+    "question": "How can practitioners implement MO-ResNet in their own research?",
+    "context": "The code of this paper is published on httpsgithub.comra225codeonBenchENAS.",
+    "answer": "Practitioners can use the public code on GitHub and follow the BenchENAS platform setup."
+  },
+  {
+    "question": "What hardware setup is recommended for running MO-ResNet?",
+    "context": "The experiment in this paper is based on BenchENAS platform 19, which can be deployed in a multi-machine and multi-card GPU environment with one central node server and multiple working nodes.",
+    "answer": "A multi-GPU, multi-node setup with sufficient memory is recommended for MO-ResNet experiments."
+  },
+  {
+    "question": "What deep learning framework is used for MO-ResNet implementation?",
+    "context": "The deep learning framework is Pytorch 13 1.10.1.",
+    "answer": "MO-ResNet is implemented using PyTorch 1.10.1."
+  },
+  {
+    "question": "How is distributed training managed in MO-ResNet experiments?",
+    "context": "The central node server is composed of the controller part and redis. After the individuals of each population are generated, the controller distributes all individual neural networks to the worker nodes.",
+    "answer": "Distributed training is managed by a central server that allocates jobs to worker nodes using Redis."
+  },
+  {
+    "question": "What is required to reproduce MO-ResNet results on MNIST?",
+    "context": "The MNIST 10, Fashion-MNIST 18 and CIFAR-100 8 datasets are used to test the effect of neural architecture search.",
+    "answer": "Access to MNIST, the provided code, and a multi-GPU setup are required to reproduce results."
+  },
+  {
+    "question": "How does MO-ResNet handle hyperparameter initialization?",
+    "context": "In the process of initialization, the number of ResNet blocks N and the number of FFN layers M are randomly generated within a preset range.",
+    "answer": "Hyperparameters such as block count and layer sizes are randomly initialized within preset ranges."
+  },
+  {
+    "question": "What optimizer and learning rate schedule does MO-ResNet use?",
+    "context": "The optimizer used is SGD with momentum 0.9 and weightdecay 0.0005... l r is updated using CosineAnnealingLR 11 after initialization.",
+    "answer": "MO-ResNet uses SGD with momentum and cosine annealing for the learning rate."
+  },
+  {
+    "question": "How does MO-ResNet manage GPU resources during large-scale experiments?",
+    "context": "When a GPU with sufficient video memory and suitable for training appears, a work node is ordered to create a process on the GPU to train an individual neural network.",
+    "answer": "GPU resources are managed dynamically, allocating training jobs as memory becomes available."
+  },
+  {
+    "question": "What are the main steps to use MO-ResNet on a new dataset?",
+    "context": "The experiment in this paper is based on BenchENAS platform 19, which can be deployed in a multi-machine and multi-card GPU environment...",
+    "answer": "Prepare the dataset, configure BenchENAS, initialize the search space, and run the search with MO-ResNet."
+  },
+  {
+    "question": "How does MO-ResNet's runtime compare across datasets?",
+    "context": "The total number of GPU days run for the MNIST dataset experiment is about 6 7, the total number of GPU days run for the Fashion-MNIST dataset experiment is about 4, and the total number of GPU days run for the CIFAR100 dataset experiment is about 3739.",
+    "answer": "MO-ResNet requires more GPU time for larger datasets; CIFAR-100 takes significantly longer than MNIST or Fashion-MNIST."
+  },
+  {
+    "question": "What is the role of the Pareto front in MO-ResNet's retraining phase?",
+    "context": "After the search is completed, the individual neural networks on the EP set are further trained and the results are compared...",
+    "answer": "Pareto front individuals are retrained for more epochs to refine their accuracy and loss."
+  },
+  {
+    "question": "Does the context provide information about MO-ResNet's performance on speech recognition?",
+    "context": "The experimental results demonstrate that the search space of this paper together with the optimisation approach can find competitive network architectures on the MNIST, Fashion-MNIST and CIFAR100 datasets.",
+    "answer": "The context does not provide information about speech recognition performance."
+  },
+  {
+    "question": "Does the context explain how MO-ResNet handles time-series data?",
+    "context": "The algorithm proposed in this paper attained significantly superior model recognition accuracy compared to the GoogleNet 16, BackEISNN 22, and MCNN15 12 models on the Fashion-MNIST dataset.",
+    "answer": "The context does not discuss handling of time-series data."
+  },
+  {
+    "question": "Does the context describe MO-ResNet's application to object detection tasks?",
+    "context": "MO-ResNet outperformed ScatNet 1 in terms of recognition accuracy on the MNIST dataset when compared to a hand-designed neural network.",
+    "answer": "The context does not mention object detection applications."
+  },
+  {
+    "question": "Is there information about MO-ResNet's performance on medical imaging datasets?",
+    "context": "The experimental results demonstrate that the search space of this paper together with the optimisation approach can find competitive network architectures on the MNIST, Fashion-MNIST and CIFAR100 datasets.",
+    "answer": "The context does not provide results on medical imaging datasets."
+  },
+  {
+    "question": "Does the context explain how MO-ResNet works with natural language processing tasks?",
+    "context": "The code of this paper is published on httpsgithub.comra225codeonBenchENAS.",
+    "answer": "The context does not discuss applications to natural language processing."
+  },
+  {
+    "question": "Does the context provide details about MO-ResNet's use for video classification?",
+    "context": "The deep learning framework is Pytorch 13 1.10.1.",
+    "answer": "The context does not provide information about video classification."
+  }
+]

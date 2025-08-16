@@ -1,0 +1,352 @@
+[
+  {
+    "question": "What problem does the paper 'Vision and Intention Boost Large Language Model in Long-Term Action Anticipation' aim to solve?",
+    "context": "Long-term action anticipation (LTA) aims to predict future actions over an extended period. Previous approaches primarily focus on learning exclusively from video data but lack prior knowledge. Recent researches leverage large language models (LLMs) by utilizing text-based inputs which suffer severe information loss. To tackle these limitations single-modality methods face, we propose a novel Intention-Conditioned Vision-Language (ICVL) model in this study that fully leverages the rich semantic information of visual data and the powerful reasoning capabilities of LLMs.",
+    "answer": "The paper addresses the challenge of accurately predicting future actions over long periods by integrating visual and intention information with LLMs to overcome the limitations of single-modality methods."
+  },
+  {
+    "question": "What is the main contribution of the ICVL model proposed by Congqi Cao et al.?",
+    "context": "Our key contributions can be summarized as follows: We propose a novel multimodal framework for long-term action anticipation that fully leverages both visual and textual information, integrating them with the prior knowledge and reasoning capabilities of LLMs.",
+    "answer": "The main contribution is a novel multimodal framework that fuses visual and intention information with LLMs for improved long-term action anticipation."
+  },
+  {
+    "question": "How does the ICVL model infer behavioral intentions from video?",
+    "context": "Specifically, our ICVL model employs a Vision-Language Model (VLM) to infer behavioral intentions directly from video data by analyzing the entire temporal dynamics of the observed video. This allows the model to generate textual features that capture the high-level intentions behind the actions.",
+    "answer": "The ICVL model uses a Vision-Language Model to analyze video frames and generate textual features representing high-level behavioral intentions."
+  },
+  {
+    "question": "What fusion strategy does the ICVL model introduce to combine modalities?",
+    "context": "We then introduce a novel fusion mechanism, Intention-Context Attention Fusion (ICAF), which integrates visual features with the inferred behavioral intentions to produce intention-enhanced visual embeddings.",
+    "answer": "The ICVL model introduces the Intention-Context Attention Fusion (ICAF) mechanism to integrate visual features with inferred intentions."
+  },
+  {
+    "question": "How does the ICVL model utilize LLMs for action anticipation?",
+    "context": "These enhanced visual representations, along with textual prompts, are fed into LLM for future action anticipation.",
+    "answer": "ICVL feeds intention-enhanced visual representations and textual prompts into an LLM to predict future actions."
+  },
+  {
+    "question": "What datasets are used to evaluate the ICVL model's performance?",
+    "context": "Extensive experiments with state-of-the-art performance on Ego4D, EPIC-Kitchens-55, and EGTEA GAZE datasets fully demonstrate the effectiveness and superiority of the proposed method.",
+    "answer": "The ICVL model is evaluated on Ego4D, EPIC-Kitchens-55, and EGTEA GAZE datasets."
+  },
+  {
+    "question": "What is the role of high-level intentions in the ICVL framework?",
+    "context": "On the other hand, behavioral intentions, such as cleaning the kitchen, represent high-level semantic concepts that guide the evolution of actions over time. By capturing these intentions, we can better understand the progression of actions and gain critical insights for predicting future events.",
+    "answer": "High-level intentions guide action evolution and provide critical semantic information for future action prediction."
+  },
+  {
+    "question": "How does the ICVL model address information loss in text-based methods?",
+    "context": "Methods relying solely on textual inputs suffer from significant information loss, limiting the ability of LLMs to make precise and contextually informed predictions. To fully preserve the visual content and extract crucial clues for long-term action anticipation (LTA), we propose a novel Intention-Conditioned Vision-Language (ICVL) model that integrates complementary visual and textual information with the commonsense prior knowledge of LLMs.",
+    "answer": "ICVL integrates visual and intention information to preserve crucial clues and reduce information loss compared to text-only methods."
+  },
+  {
+    "question": "What is the function of the example selection strategy in ICVL?",
+    "context": "Furthermore, we propose an effective example selection strategy jointly considers visual and textual similarities, providing more relevant and informative examples for in-context learning.",
+    "answer": "The example selection strategy identifies relevant examples using visual and textual similarities to enhance in-context learning for LLMs."
+  },
+  {
+    "question": "How does ICVL improve over previous state-of-the-art methods?",
+    "context": "Extensive experiments across three datasets demonstrate the effectiveness of our approach, validating the strength of combining vision, intention, and LLMs for long-term action anticipation.",
+    "answer": "ICVL outperforms previous methods by combining vision, intention, and LLMs for more accurate long-term action anticipation."
+  },
+  {
+    "question": "What are the main evaluation metrics used for ICVL on Ego4D?",
+    "context": "For Ego4D, we employ the default edit distance (ED) metric using the Damerau-Levenshtein distance. ED is computed separately for verbs, nouns, and actions sequences.",
+    "answer": "Edit distance (ED) for verbs, nouns, and action sequences is used as the main evaluation metric on Ego4D."
+  },
+  {
+    "question": "What is the structure of action labels in the ICVL model?",
+    "context": "These action labels are represented as verb-noun pairs, where each action is composed of a verb and a noun (v, n), such as put plant.",
+    "answer": "Action labels are structured as verb-noun pairs, e.g., 'put plant'."
+  },
+  {
+    "question": "Which visual encoder is used in the ICVL action recognition model?",
+    "context": "we follow Zhao et al., 2023 and use the CLIP visual encoder to extract video features and get Nseg visual embeddings represented as E1, E2, ..., ENseg.",
+    "answer": "The CLIP visual encoder is used to extract video features in ICVL's action recognition model."
+  },
+  {
+    "question": "How are behavioral intentions inferred differently in ICVL compared to prior work?",
+    "context": "While Zhao et al., 2023 uses an LLM to infer goals (i.e., intentions) from observed action labels, these labels often contain substantial noise and errors, making it difficult for the LLM to infer correct intentions. Instead, we leverage observed visual cues through a VLM to obtain more accurate intentions.",
+    "answer": "ICVL infers intentions directly from visual cues using a VLM, unlike prior work that relies on noisy action labels."
+  },
+  {
+    "question": "What is the role of the Intention-Context Attention Fusion (ICAF) module in ICVL?",
+    "context": "Our fusion strategy, based on cross-attention, integrates both visual and intention embeddings to obtain enhanced intention-enhanced visual embeddings Eic.",
+    "answer": "The ICAF module fuses visual and intention embeddings using cross-attention to create intention-enhanced visual representations."
+  },
+  {
+    "question": "How does ICVL select examples for in-context learning?",
+    "context": "To address this, we propose an example selection mechanism that jointly considers both visual and textual modalities as shown in Figure 2. And this mechanism can provide more relevant and appropriate examples for in-context learning, thereby improving generalizability.",
+    "answer": "ICVL selects examples by computing similarity scores across visual and textual modalities to identify relevant in-context learning samples."
+  },
+  {
+    "question": "What training approach is used for the LLM in ICVL?",
+    "context": "Given the significant computational cost of fully training LLMs, we adopt the LORA (Low-Rank Adaptation) for fine-tuning the LLM. All trainable parameters are optimized based on the text generated by the LLM.",
+    "answer": "ICVL uses Low-Rank Adaptation (LORA) for parameter-efficient fine-tuning of the LLM."
+  },
+  {
+    "question": "What is the main loss function used in ICVL training?",
+    "context": "As the model is tasked with predicting a future action sequence, We employ the next-token prediction loss with negative log-likelihood to optimize the predicted tokens.",
+    "answer": "ICVL uses next-token prediction loss with negative log-likelihood for training."
+  },
+  {
+    "question": "How does ICVL handle the computational cost of training large models?",
+    "context": "Given the significant computational cost of fully training LLMs, we adopt the LORA (Low-Rank Adaptation) for fine-tuning the LLM.",
+    "answer": "ICVL employs LORA for efficient fine-tuning, reducing the computational cost of training large LLMs."
+  },
+  {
+    "question": "What are the main datasets used for benchmarking ICVL?",
+    "context": "We conduct experiments on its Forecasting subset, which includes a total of 243 hours of video, 3472 annotated clips. ... EK-55 ... EGTEA Gaze ...",
+    "answer": "ICVL is benchmarked on Ego4D, EPIC-Kitchens-55, and EGTEA Gaze datasets."
+  },
+  {
+    "question": "What is the main advantage of integrating intention information in ICVL?",
+    "context": "As intention is embedded in visual features and guides the evolution of actions, it can enhance the visual embeddings to be more discriminative.",
+    "answer": "Integrating intention information makes visual embeddings more discriminative and improves action prediction."
+  },
+  {
+    "question": "How does the ICVL model infer intentions from video frames?",
+    "context": "We then employ a pretrained VLM to sequentially infer behavioral intentions I1, I2, ..., IN frm from each frame in chronological order, using the prompt PI What does the person want to do?.",
+    "answer": "ICVL uses a pretrained VLM with prompts to infer behavioral intentions from sampled video frames in sequence."
+  },
+  {
+    "question": "What is the purpose of 2D fixed positional encoding in ICVL's fusion strategy?",
+    "context": "To enhance the models understanding of sequential information, we add 2D fixed positional encoding ... to the visual embeddings.",
+    "answer": "2D fixed positional encoding is added to visual embeddings to help the model understand sequential information."
+  },
+  {
+    "question": "How are visual embeddings aligned with the LLM's embedding space in ICVL?",
+    "context": "To align the dimension of visual embeddings with the embedding space di of the LLM, a linear project layer is used to get the final visual embeddings.",
+    "answer": "A linear projection layer is used to align visual embeddings with the LLM's embedding space."
+  },
+  {
+    "question": "What is the mathematical formulation of ICVL's cross-attention fusion?",
+    "context": "This process can be formulated as Eic = Attention(Q, K, V) = softmax(QKT/di)V, where visual embeddings serve as keys K and values V, intention embeddings act as queries Q.",
+    "answer": "ICVL's cross-attention fusion computes Eic = Attention(Q, K, V) = softmax(QKT/di)V, with intention as queries and visual as keys/values."
+  },
+  {
+    "question": "How does ICVL perform example selection in the visual modality?",
+    "context": "after obtaining the whole original visual embeddings E, we apply average pooling to derive the averaged visual embeddings Er as a global representation ... We then utilize L2 distance to obtain the similarity scores s between the query video and all the training videos ... Finally, we select the top-k examples based on the similarity scores.",
+    "answer": "ICVL averages visual embeddings, computes L2 distances to all training videos, and selects the top-k most similar examples."
+  },
+  {
+    "question": "How is multi-modality example selection performed in ICVL?",
+    "context": "After obtaining the similarity results of the visual and textual modalities, we adopt a weighted summation approach to comprehensively consider the similarities of both modalities.",
+    "answer": "ICVL normalizes and combines visual and textual similarity scores using a weighted sum to select top-k examples."
+  },
+  {
+    "question": "What is the structure of the prompt used for LLM in ICVL?",
+    "context": "The prompt is composed of an instruction, selected examples based on multi-modality similarity, observed actions and intention-enhanced visual embeddings.",
+    "answer": "The LLM prompt includes an instruction, selected multi-modal examples, observed actions, and intention-enhanced visual embeddings."
+  },
+  {
+    "question": "How are the visual and textual encoders treated during ICVL training?",
+    "context": "the visual and textual encoders in ICVL are frozen, while the ICAF module are fully trainable.",
+    "answer": "Visual and textual encoders are frozen; only the ICAF and LORA adapter modules are trained."
+  },
+  {
+    "question": "What optimizer and learning rate are used in ICVL's implementation?",
+    "context": "The Adam optimizer is used for end-to-end training with a learning rate of 5e-5, over 8 epochs.",
+    "answer": "ICVL uses the Adam optimizer with a 5e-5 learning rate for 8 epochs."
+  },
+  {
+    "question": "Which models are used as encoders and LLMs in ICVL?",
+    "context": "For action recognition, we utilize the frozen encoder CLIP ViT-L14 ... For ICAF module, we utilize BLIP2-OPT-2.7B as the frozen visual encoder, LLaMA 3.2-9B as the VLM to derive behavioral intentions, along with LLaMA 3-8B as the text encoder and the LLM for anticipation.",
+    "answer": "ICVL uses CLIP ViT-L14, BLIP2-OPT-2.7B, LLaMA 3.2-9B, and LLaMA 3-8B as encoders and LLMs."
+  },
+  {
+    "question": "How does ICVL's performance compare to text-only and vision-only LLM-based methods?",
+    "context": "Among the LLM-based methods, AntGPT, PlausiVL, PALM, EgoVideo only use textual inputs while PlausiVL focuses only on the original visual embeddings. Our method emphasizes the integration of information from both modalities, demonstrating that LLMs can achieve accurate predictions by leveraging enhanced visual features and carefully designed textual prompts.",
+    "answer": "ICVL outperforms text-only and vision-only LLM-based methods by integrating both modalities for more accurate predictions."
+  },
+  {
+    "question": "What ablation results demonstrate the effectiveness of ICVL's modules?",
+    "context": "The results on the Ego4D dataset of ICAF and Example Selection modules are provided in Table 3. It is evident that both modules contribute to a significant overall improvement in model performance, with ICAF having the greatest impact.",
+    "answer": "Ablation studies show that both ICAF and Example Selection modules significantly improve performance, with ICAF having the largest effect."
+  },
+  {
+    "question": "Why is intention information particularly useful for long-term action anticipation in ICVL?",
+    "context": "intentions can enhance the extraction of discriminative information from visual features, providing critical visual cues for actions evolution and aiding LLMs in making predictions.",
+    "answer": "Intention information enriches visual features with semantic cues, improving the model's ability to predict evolving actions."
+  },
+  {
+    "question": "How does ICVL handle noisy action labels compared to previous LLM-based approaches?",
+    "context": "the learned intention-enhanced visual embeddings and selected examples effectively mitigate the noise of observed action labels.",
+    "answer": "ICVL's intention-enhanced embeddings and example selection reduce the impact of noisy action labels, improving robustness."
+  },
+  {
+    "question": "What is the key difference between ICVL and AntGPT in handling input modalities?",
+    "context": "AntGPT ... only use textual inputs ... Our method emphasizes the integration of information from both modalities.",
+    "answer": "Unlike AntGPT, which uses only textual inputs, ICVL integrates both visual and intention information."
+  },
+  {
+    "question": "How does ICVL ensure that selected examples are relevant for in-context learning?",
+    "context": "This mechanism can provide more relevant and appropriate examples for in-context learning, thereby improving generalizability.",
+    "answer": "ICVL computes similarity across modalities to select relevant and informative examples for in-context learning."
+  },
+  {
+    "question": "What are the main steps in ICVL's algorithmic pipeline?",
+    "context": "Given a video, we use a VLM, a visual encoder, and an action recognition model to extract behavioral intention, original visual embeddings, and observed action labels respectively. The behavioral intention and visual embeddings are then integrated into the intention-enhanced visual embeddings through our proposed Intention-Context Attention Fusion (ICAF) module... Finally, the textual prompt—composed of instructions, observed action labels, and selected examples—along with the intention-enhanced visual embeddings, are fed into the LLM to generate predictions for future action sequences.",
+    "answer": "ICVL extracts intentions and visual features, fuses them via ICAF, selects examples, and predicts future actions with an LLM."
+  },
+  {
+    "question": "How does the ICVL model compare to vision-only baseline methods for action anticipation?",
+    "context": "To address the task of action anticipation, some approaches start by leveraging video data to learn visual features and model the temporal relationships between the features via neural networks, as shown in Figure 1 a. ... However, visual data is often redundant and low in information density. Methods relying solely on visual data lack prior knowledge, making it challenging to model the intrinsic evolution of actions and rendering them overly sensitive to visual variations.",
+    "answer": "ICVL outperforms vision-only baselines by integrating intention and language, reducing redundancy and leveraging prior knowledge."
+  },
+  {
+    "question": "What advantage does ICVL offer over text-only LLM-based methods like AntGPT?",
+    "context": "An intuitive solution is to generate appropriate textual substitutes of the original video content, enabling LLMs to predict future actions ... Nevertheless, due to the limited accuracy of existing recognition models, these action labels often contain substantial noise and errors. ... Methods relying solely on textual inputs suffer from significant information loss, limiting the ability of LLMs to make precise and contextually informed predictions.",
+    "answer": "ICVL preserves more information by fusing vision and intention, overcoming the information loss of text-only LLM-based methods."
+  },
+  {
+    "question": "How does ICVL's fusion strategy differ from previous multimodal approaches?",
+    "context": "Multi-modality fusion has been proven effective in short-term action anticipation tasks ... However, in the field of long-term action anticipation, this approach remains underexplored, particularly for LLM-based methods. In this section, we introduce our proposed Intention-Context Attention Fusion strategy...",
+    "answer": "ICVL introduces Intention-Context Attention Fusion, a novel cross-attention mechanism tailored for long-term action anticipation."
+  },
+  {
+    "question": "How does ICVL compare to the hybrid Transformer-GRU architecture from Cao et al., 2024b?",
+    "context": "Furthermore, Cao et al., 2024b proposes a hybrid Transformer-GRU architecture to make predictions. ... However, visual data is often redundant and low in information density. Methods relying solely on visual data lack prior knowledge...",
+    "answer": "ICVL surpasses the hybrid Transformer-GRU by incorporating intention and language, addressing redundancy and lack of prior knowledge."
+  },
+  {
+    "question": "What makes ICVL more robust than methods relying on action labels for LLM input?",
+    "context": "Zhao et al., 2023 firstly utilizes LLMs to solve the LTA task by simply substituting video content with observed action labels. ... However, these methods depend excessively on a single modality.",
+    "answer": "ICVL is more robust because it fuses vision and inferred intentions, reducing dependence on noisy action labels."
+  },
+  {
+    "question": "How does ICVL's example selection strategy improve over in-context learning with random examples?",
+    "context": "Additionally, to further improve the reasoning capabilities of LLMs, we propose an effective example selection mechanism that leverages both visual and textual modalities to identify the most relevant examples for in-context learning.",
+    "answer": "ICVL's example selection uses visual and textual similarity, yielding more relevant in-context examples than random selection."
+  },
+  {
+    "question": "How does ICVL perform compared to AntGPT and PALM on the EK-55 dataset?",
+    "context": "Table 2 presents a comparison between our method and previous state-of-the-art approaches on the EK-55 and EGTEA datasets. Our method achieves the best performance on both datasets, with particularly notable results on EK-55 dataset, showing an improvement of 2.9, 2.3 and 1.9 on all actions, frequently happened actions and rarely happened actions respectively.",
+    "answer": "ICVL outperforms AntGPT and PALM on EK-55, achieving higher accuracy across all action categories."
+  },
+  {
+    "question": "What is the key difference between ICVL and PlausiVL in handling modalities?",
+    "context": "Among the LLM-based methods, AntGPT, PlausiVL, PALM, EgoVideo only use textual inputs while PlausiVL focuses only on the original visual embeddings. Our method emphasizes the integration of information from both modalities...",
+    "answer": "Unlike PlausiVL, which uses only visual embeddings, ICVL integrates both visual and intention information for better predictions."
+  },
+  {
+    "question": "How does ICVL handle noisy action labels compared to EgoVideo?",
+    "context": "Results show that ICVL achieves a significant performance improvement ... over other approach using the same CLIP encoder Zhao et al., 2023. Additionally, it still outperforms methods that employ stronger visual encoders, delivering the best anticipation performance overall. ... the learned intention-enhanced visual embeddings and selected examples effectively mitigate the noise of observed action labels.",
+    "answer": "ICVL's intention-enhanced embeddings and example selection mitigate the negative impact of noisy action labels better than EgoVideo."
+  },
+  {
+    "question": "How does ICVL's performance compare to Timeception and VideoGraph on EGTEA?",
+    "context": "Table 2 Long-term action anticipation performance on EK-55 and EGTEA datasets. ... ICVL Ours 43.3 61.6 33.8 81.0 85.2 73.7 ... Timeception Hussein et al., 2019a CVPR19 35.6 55.9 26.1 74.1 79.7 59.7 VideoGraph Hussein et al., 2019b arXiv19 22.5 49.4 14.0 67.7 77.1 47.2",
+    "answer": "ICVL achieves significantly higher performance than Timeception and VideoGraph on the EGTEA dataset."
+  },
+  {
+    "question": "What distinguishes ICVL from short-term action anticipation fusion methods?",
+    "context": "Multi-modality fusion has been proven effective in short-term action anticipation tasks ... However, in the field of long-term action anticipation, this approach remains underexplored, particularly for LLM-based methods.",
+    "answer": "ICVL adapts multi-modality fusion specifically for long-term action anticipation, which is less explored than short-term fusion."
+  },
+  {
+    "question": "How does ICVL's intention inference differ from Zhao et al., 2023?",
+    "context": "While Zhao et al., 2023 uses an LLM to infer goals (i.e., intentions) from observed action labels, these labels often contain substantial noise and errors, making it difficult for the LLM to infer correct intentions. Instead, we leverage observed visual cues through a VLM to obtain more accurate intentions.",
+    "answer": "ICVL infers intentions directly from visual cues using a VLM, unlike Zhao et al., 2023, which relies on noisy action labels."
+  },
+  {
+    "question": "What are some real-world applications of the ICVL model for action anticipation?",
+    "context": "Predicting future actions is a crucial task in fields such as human-computer interaction and robotic collaboration ... For instance, in autonomous driving Cao et al., 2024a, accurately anticipating the intentions behind the movements of other vehicles enables the autonomous system to make proactive preparations...",
+    "answer": "ICVL can be applied to human-computer interaction, robotic collaboration, and autonomous driving for proactive assistance."
+  },
+  {
+    "question": "How can ICVL improve safety in autonomous driving scenarios?",
+    "context": "For instance, in autonomous driving Cao et al., 2024a, accurately anticipating the intentions behind the movements of other vehicles enables the autonomous system to make proactive preparations, thereby reducing potential hazards.",
+    "answer": "ICVL enables proactive hazard avoidance by anticipating the intentions of other vehicles in autonomous driving."
+  },
+  {
+    "question": "What are the main limitations of ICVL as discussed in the paper?",
+    "context": "Extensive experiments ... demonstrate the effectiveness and superiority of the proposed method. ...",
+    "answer": "The provided context does not explicitly discuss the main limitations of ICVL."
+  },
+  {
+    "question": "How might ICVL be used in assistive robotics for elderly care?",
+    "context": "Predicting future actions is a crucial task in fields such as human-computer interaction and robotic collaboration ...",
+    "answer": "ICVL could enable assistive robots to anticipate user needs and provide timely support in elderly care."
+  },
+  {
+    "question": "What future work is suggested for improving ICVL's performance?",
+    "context": "Extensive experiments ... demonstrate the effectiveness and superiority of the proposed method. ...",
+    "answer": "The context does not specify future work for improving ICVL's performance."
+  },
+  {
+    "question": "How can practitioners implement the ICVL model for their own datasets?",
+    "context": "For action recognition, we utilize the frozen encoder CLIP ViT-L14 to extract visual features ... For ICAF module, we utilize BLIP2-OPT-2.7B ... LLaMA 3.2-9B as the VLM ... Adam optimizer is used for end-to-end training with a learning rate of 5 10-5, over 8 epochs.",
+    "answer": "Practitioners can use CLIP ViT-L14 for visual encoding, BLIP2-OPT-2.7B for intention inference, and LLaMA models for LLM tasks."
+  },
+  {
+    "question": "What are the computational requirements for training ICVL?",
+    "context": "Given the significant computational cost of fully training LLMs, we adopt the LORA Low-Rank Adaptation ... for fine-tuning the LLM.",
+    "answer": "ICVL reduces computational requirements by using LORA for efficient fine-tuning of large language models."
+  },
+  {
+    "question": "How does ICVL's example selection improve generalizability in new scenarios?",
+    "context": "And this mechanism can provide more relevant and appropriate examples for in-context learning, thereby improving generalizability.",
+    "answer": "ICVL's example selection ensures relevant in-context examples, improving generalizability to new scenarios."
+  },
+  {
+    "question": "What steps are involved in using ICVL for long-term action anticipation?",
+    "context": "Given a video, we use a VLM, a visual encoder, and an action recognition model to extract behavioral intention, original visual embeddings, and observed action labels respectively. ... The behavioral intention and visual embeddings are then integrated ... Finally, the textual prompt ... along with the intention-enhanced visual embeddings, are fed into the LLM to generate predictions for future action sequences.",
+    "answer": "Extract visual and intention features, fuse them, select examples, and use an LLM to predict future actions."
+  },
+  {
+    "question": "Can ICVL be adapted for real-time action anticipation in robotics?",
+    "context": "Predicting future actions is a crucial task in fields such as human-computer interaction and robotic collaboration ...",
+    "answer": "ICVL's framework suggests it could be adapted for real-time action anticipation in robotics."
+  },
+  {
+    "question": "What is required to fine-tune ICVL on a new domain?",
+    "context": "Given the significant computational cost of fully training LLMs, we adopt the LORA Low-Rank Adaptation ... for fine-tuning the LLM. All trainable parameters are optimized based on the text generated by the LLM.",
+    "answer": "Fine-tuning ICVL on a new domain requires LORA-based adaptation of the LLM using domain-specific data."
+  },
+  {
+    "question": "How can ICVL's intention inference be leveraged for video surveillance applications?",
+    "context": "On the other hand, behavioral intentions, such as cleaning the kitchen, represent high-level semantic concepts that guide the evolution of actions over time. By capturing these intentions, we can better understand the progression of actions and gain critical insights for predicting future events.",
+    "answer": "ICVL's intention inference can help predict suspicious or anomalous behaviors in video surveillance."
+  },
+  {
+    "question": "What are the main steps to deploy ICVL in a human-computer interaction system?",
+    "context": "Given a video, we use a VLM, a visual encoder, and an action recognition model to extract behavioral intention, original visual embeddings, and observed action labels respectively. ...",
+    "answer": "Deploying ICVL involves extracting visual/intention features, fusing them, and using an LLM for action prediction."
+  },
+  {
+    "question": "How does ICVL's training process ensure efficient adaptation to new tasks?",
+    "context": "Given the significant computational cost of fully training LLMs, we adopt the LORA Low-Rank Adaptation ... for fine-tuning the LLM.",
+    "answer": "ICVL uses LORA for efficient parameter adaptation, enabling quick fine-tuning to new tasks."
+  },
+  {
+    "question": "What are the privacy considerations when applying ICVL to video data?",
+    "context": "Predicting future actions is a crucial task in fields such as human-computer interaction and robotic collaboration ...",
+    "answer": "The context does not discuss privacy considerations for applying ICVL to video data."
+  },
+  {
+    "question": "How does ICVL handle multi-person scenarios in action anticipation?",
+    "context": "Given a video, we use a VLM, a visual encoder, and an action recognition model to extract behavioral intention, original visual embeddings, and observed action labels respectively. ...",
+    "answer": "The context does not specify how ICVL handles multi-person scenarios in action anticipation."
+  },
+  {
+    "question": "What is the impact of video quality on ICVL's performance?",
+    "context": "To address the task of action anticipation, some approaches start by leveraging video data to learn visual features ...",
+    "answer": "The context does not provide information about the impact of video quality on ICVL's performance."
+  },
+  {
+    "question": "How does ICVL address domain adaptation across different environments?",
+    "context": "We conduct experiments on its Forecasting subset, which includes a total of 243 hours of video, 3472 annotated clips. ...",
+    "answer": "The context does not detail how ICVL addresses domain adaptation across different environments."
+  },
+  {
+    "question": "Can ICVL be extended to anticipate group activities?",
+    "context": "Predicting future actions is a crucial task in fields such as human-computer interaction and robotic collaboration ...",
+    "answer": "The context does not specify whether ICVL can be extended to anticipate group activities."
+  },
+  {
+    "question": "What specific hardware is recommended for training ICVL efficiently?",
+    "context": "Given the significant computational cost of fully training LLMs, we adopt the LORA Low-Rank Adaptation ... for fine-tuning the LLM.",
+    "answer": "The context does not mention any specific hardware recommendations for training ICVL."
+  }
+]

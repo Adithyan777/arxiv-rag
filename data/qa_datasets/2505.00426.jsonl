@@ -1,0 +1,387 @@
+[
+  {
+    "question": "What problem does 'Leveraging Pretrained Diffusion Models for Zero-Shot Part Assembly' aim to solve?",
+    "context": "3D part assembly aims to understand part relationships and predict their 6-DoF poses to construct realistic 3D shapes, addressing the growing demand for autonomous assembly, which is crucial for robots. Existing methods mainly estimate the transformation of each part by training neural networks under supervision, which requires a substantial quantity of manually labeled data. However, the high cost of data collection and the immense variability of real-world shapes and parts make traditional methods impractical for large-scale applications.",
+    "answer": "'Leveraging Pretrained Diffusion Models for Zero-Shot Part Assembly' addresses the challenge of 3D part assembly without relying on large amounts of manually labeled data."
+  },
+  {
+    "question": "What is the main method proposed in the paper by Ruiyuan Zhang et al. for zero-shot part assembly?",
+    "context": "In this paper, we propose first a zero-shot part assembly method that utilizes pre-trained point cloud diffusion models as discriminators in the assembly process, guiding the manipulation of parts to form realistic shapes.",
+    "answer": "The paper proposes using pre-trained point cloud diffusion models as discriminators to guide zero-shot 3D part assembly."
+  },
+  {
+    "question": "What is a key contribution of the zero-shot part assembly paper regarding part overlap?",
+    "context": "Then, we propose a novel pushing-away strategy to address the overlap parts, thereby further enhancing the robustness of the method.",
+    "answer": "A key contribution is the introduction of a pushing-away strategy to handle overlapping parts during assembly."
+  },
+  {
+    "question": "How does the proposed method in 'Leveraging Pretrained Diffusion Models for Zero-Shot Part Assembly' compare to supervised learning methods?",
+    "context": "Quantitative and qualitative results indicate that our method not only outperforms all baseline approaches in zero-shot settings but also surpasses some supervised techniques, underscoring its potential for practical applications.",
+    "answer": "The method outperforms all baseline approaches in zero-shot settings and even surpasses some supervised methods."
+  },
+  {
+    "question": "What theoretical insight does the paper provide about using diffusion models for zero-shot assembly?",
+    "context": "Specifically, we theoretically demonstrate that utilizing a diffusion model for zero-shot part assembly can be transformed into an Iterative Closest Point ICP process.",
+    "answer": "The paper shows that zero-shot part assembly with diffusion models can be formulated as an Iterative Closest Point (ICP) process."
+  },
+  {
+    "question": "What is the primary objective of the zero-shot part assembly task in the paper?",
+    "context": "The goal of this task is to predict the pose parameters quaternion quat and translation vector trans of the test samples without pose information during training.",
+    "answer": "The objective is to predict part pose parameters without any pose information during training."
+  },
+  {
+    "question": "Which dataset is primarily used for evaluation in the zero-shot part assembly paper?",
+    "context": "Dataset. We evaluate our method using assembly benchmark datasets PartNet 2019, a large-scale shape dataset with fine-grained and hierarchical part segmentations, for both training and evaluation. We use its Chair subset and adopt the datasets default traintestvalidation splits.",
+    "answer": "The PartNet dataset, specifically its Chair subset, is primarily used for evaluation."
+  },
+  {
+    "question": "What metric is introduced in the paper to address limitations of vanilla Part Accuracy?",
+    "context": "However, certain components, such as stool legs, are permitted to be positioned in regions with inconsistent indices, as illustrated by GT and Ours in Figure. Therefore, we propose the concept of Fair Part Accuracy fPA.",
+    "answer": "The paper introduces Fair Part Accuracy (fPA) to address limitations of vanilla Part Accuracy."
+  },
+  {
+    "question": "What is the main advantage of the proposed zero-shot assembly method over previous supervised approaches?",
+    "context": "Unlike the aforementioned works that rely on manual annotations of each parts rotation and translation, our study aims to explore a novel approach to extracting the necessary pose transformations for assembly tasks. Specifically, we investigate how existing diffusion models can be leveraged to achieve this goal, thereby reducing the dependency on labour-intensive manual labelling.",
+    "answer": "It reduces dependency on manual labeling by leveraging pretrained diffusion models for pose estimation."
+  },
+  {
+    "question": "How does the paper validate the robustness of its proposed method?",
+    "context": "As shown in Fig. 6, to assess the robustness of both baseline methods and our proposed approach, we established four distinct noise levels slight, moderate, substantial, and excessive.",
+    "answer": "Robustness is validated by testing the method under four distinct noise levels."
+  },
+  {
+    "question": "What is the role of the ICP algorithm in the proposed zero-shot assembly method?",
+    "context": "To address this issue, we employ the ICP algorithm to align each part as closely as possible. By iteratively repeating this process, we can utilize the diffusion model to convert disordered parts into a complete shape, thereby accomplishing the entire assembly process.",
+    "answer": "ICP aligns parts after diffusion-based denoising, iteratively refining pose estimates for assembly."
+  },
+  {
+    "question": "Which baseline methods are compared in the experiments of the zero-shot assembly paper?",
+    "context": "We compared our approach with Complement Sung et al., 2017, DGL Zhan et al., 2020, IET Zhang et al., 2022, HPA Gao et al., 2024, and Simple.",
+    "answer": "The method is compared against Complement, DGL, IET, HPA, and Simple baselines."
+  },
+  {
+    "question": "What is the main finding regarding performance as the number of parts increases in assembly tasks?",
+    "context": "As shown in Fig. 7, assembly difficulty increases notably with the number of components. Compared to Simple, our method consistently achieves superior performance across all levels of complexity.",
+    "answer": "Assembly difficulty increases with more parts, but the proposed method remains superior to baselines."
+  },
+  {
+    "question": "How does the proposed method handle collision between parts during assembly?",
+    "context": "Given the explicit nature of our method, it facilitates the direct application of pull-in or push-away operations for either overlapping or distant parts.",
+    "answer": "It uses explicit push-away operations to directly separate overlapping parts."
+  },
+  {
+    "question": "What is the limitation of the proposed method when handling severe misalignments?",
+    "context": "Such behavior, involving point-level redistribution rather than rigid transformation, is beyond the capacity of ICP-like processes, thus revealing why the proposed method struggles with severe misalignments.",
+    "answer": "The method struggles with severe misalignments that require point-level redistribution, not just rigid transformations."
+  },
+  {
+    "question": "What generalization does the paper demonstrate for the proposed assembly method?",
+    "context": "The proposed method is not limited to zero-shot chair assembly this section further evaluates its effectiveness on airplane models.",
+    "answer": "The method generalizes to other categories, such as airplane assembly, beyond chairs."
+  },
+  {
+    "question": "How does the method perform on 2D image reassembly tasks?",
+    "context": "Our model can almost perfectly reconstruct 3 3 image fragments without oversimplifying the challenge.",
+    "answer": "The method nearly perfectly reconstructs 3x3 fragmented 2D images, showing strong potential for image reassembly."
+  },
+  {
+    "question": "What is a significant challenge for supervised methods in zero-shot assembly scenarios?",
+    "context": "Without any prior information on part poses, all baselines demonstrate notably poor performance, as further analysis of their training loss functions reveals why they fail in zero-shot scenarios.",
+    "answer": "Supervised methods perform poorly in zero-shot scenarios due to reliance on pose annotations unavailable at test time."
+  },
+  {
+    "question": "What is the main conclusion of 'Leveraging Pretrained Diffusion Models for Zero-Shot Part Assembly'?",
+    "context": "In this work, we introduced a novel zero-shot assembly method that leverages the inherent assembly capabilities of general-purpose diffusion models to generate continuous rigid transformations for object assembly without prior training on specific shapes or configurations.",
+    "answer": "The paper introduces a novel zero-shot assembly method leveraging diffusion models for continuous rigid transformations without specific training."
+  },
+  {
+    "question": "What future direction does the paper propose for improving zero-shot assembly?",
+    "context": "In the future, we plan to investigate an interpretable approach to reposition misplaced parts. This requires us better to explore the underutilized assembly knowledge inherent in general models and to be able to identify which positions have vacancies, thus allowing for the effective transfer of parts.",
+    "answer": "Future work aims to develop interpretable methods for repositioning misplaced parts and exploiting general model knowledge."
+  },
+  {
+    "question": "How does the diffusion model operate in the context of the proposed zero-shot assembly method?",
+    "context": "Diffusion models operate in two steps adding noise to destroy data structure and reversing this noise to reconstruct it. This enables them to model target distributions and generate diverse content, including images, videos, 3D objects, and audio.",
+    "answer": "The diffusion model adds noise to break structure and then denoises to reconstruct realistic shapes."
+  },
+  {
+    "question": "What are the algorithmic steps in the zero-shot assembly method using diffusion models?",
+    "context": "Given the misaligned input clouds Pt, we introduce noise to the shape, which helps the diffusion model recognize the data. The diffusion process then refines the input, generating a point cloud closer to the target chair shape. To achieve rigid transformation, we apply the ICP method for alignment, producing updated pose vectors. By iterating this process over T steps, the algorithm effectively assembles the disordered parts into the final coherent structure.",
+    "answer": "The steps are: add noise, denoise with diffusion model, align with ICP, update poses, and iterate."
+  },
+  {
+    "question": "How is the overlap between parts detected and resolved in the proposed method?",
+    "context": "To describe the pushing behavior of Pi in a point cloud P to reduce overlap with Pji j, the overlap is quantified using CPi, Pj, which counts coincident points. The indicator function ICPi, Pj. threshold determines whether the overlap is below a predefined threshold. The centroids of Pi and their intersection region are denoted as CPi and C intersect , respectively. The displacement required to separate Pi is given by iICPi, Pj threshold CPi-C intersect s .",
+    "answer": "Overlap is quantified by coincident points, and parts are displaced based on centroid differences to resolve collisions."
+  },
+  {
+    "question": "Why is a small diffusion time step z used in the zero-shot assembly process?",
+    "context": "Recall that the step size determines the noise Eq. 1 and 3 1 In the forward process, smaller step sizes reduce the Gaussian noise variance, bringing Pt closer to Pt, z 2 In the generation process, smaller step sizes reduce denoising variance, making Pt, z closer to P. Therefore, we fixed the time step z to a small value, typically 2 or 4 , to obtain more accurate ICP estimates.",
+    "answer": "A small z reduces noise, improving ICP alignment accuracy during assembly."
+  },
+  {
+    "question": "What is the role of the Score Distillation Sampling (SDS) loss in the proposed method?",
+    "context": "Inspired by Poole et al. 2022, we leverage a pre-trained diffusion model for 3D point cloud generation, which implicitly captures the distribution of point clouds in real-world objects. Then we optimize over A so that gA looks like a sample from this frozen diffusion model. This is achieved through a Score Distillation Sampling SDS loss Poole et al., 2022",
+    "answer": "SDS loss is used to optimize the transformation so assembled shapes match the diffusion model's distribution."
+  },
+  {
+    "question": "How does the method handle input with different levels of noise?",
+    "context": "As demonstrated in the first four rows of Table 1, assembly performance declines with increasing noise intensity, thereby validating our noise level designations. The slight noise level evaluates the ability of our method to converge close to the ground truth. Conversely, the excessive noise level, characterized by randomly dispersed point clouds, tests the extremes of performance for both baselines and our method.",
+    "answer": "The method is evaluated under slight, moderate, substantial, and excessive noise levels to test robustness."
+  },
+  {
+    "question": "What is the significance of using density estimates from diffusion models in assembly?",
+    "context": "We propose the first zero-shot assembly method that utilizes density estimates from a diffusion model to achieve continuous and smooth transformations of parts, thereby coherently assembling multiple parts.",
+    "answer": "Density estimates enable continuous, smooth transformations for coherent assembly without supervision."
+  },
+  {
+    "question": "How does the method generalize to 2D image reassembly tasks?",
+    "context": "In addition to exploring the potential of 2D diffusion models for 3D part assembly tasks, we also examined their capability in 2D image reassembly. Our model can almost perfectly reconstruct 3 3 image fragments without oversimplifying the challenge.",
+    "answer": "The method can be adapted to reassemble 2D image fragments using 2D diffusion models."
+  },
+  {
+    "question": "What architectural components are used in the 2D image reassembly experiment?",
+    "context": "In this experiment, no special architecture was designed instead, we implemented a classifier utilizing two CNN layers. An MLP was implemented to predict the correct position of each sub-image within the whole picture.",
+    "answer": "A two-layer CNN and an MLP are used to predict sub-image positions for 2D reassembly."
+  },
+  {
+    "question": "How is the assembly process visualized in the experiments?",
+    "context": "As shown in Fig. 9, we demonstrate the visualization of the assembly process. These images are processed through microrendering, serving as inputs for the diffusion model to obtain SDS loss.",
+    "answer": "The assembly process is visualized using microrendered images as inputs for the diffusion model."
+  },
+  {
+    "question": "What is the main limitation of the push operation for overlapping parts?",
+    "context": "The bottom row of Fig. 2 exemplifies a failure case, revealing challenges in accurately placing overlapping parts. Especially when they are far from their GT positions, using the push operation cannot accurately place overlapping parts.",
+    "answer": "The push operation cannot accurately place overlapping parts when they are far from ground truth positions."
+  },
+  {
+    "question": "How does the method update part poses during each iteration?",
+    "context": "We finally apply the transformations obtained from the ICP algorithm to Pt to generate the result of this iteration Pt-1 and use it as the input for the next iteration. With each iteration, the diffusion model helps bring our results closer to real-world objects.",
+    "answer": "After each ICP alignment, updated poses are applied and used as input for the next iteration."
+  },
+  {
+    "question": "What is the main difference between the Simple baseline and the proposed method?",
+    "context": "Baseline-Simple utilizes supervised learning on point clouds generated by a diffusion model, while our method employs density estimates. The results of the Simple are similar to set of point clouds from reference, but do not correspond to a chair shape.",
+    "answer": "Simple uses supervised learning on diffusion-generated clouds; the proposed method uses density estimates for realistic assembly."
+  },
+  {
+    "question": "How does the method perform when the number of components exceeds 10?",
+    "context": "Fig. 7a-h further reveals a performance decline in zero-shot settings as the component count increases. Notably, when the number exceeds 10, assembly errors become more prominent.",
+    "answer": "Assembly errors become more prominent when the number of components exceeds 10."
+  },
+  {
+    "question": "What is the effect of large-volume components on assembly difficulty?",
+    "context": "the presence of largevolume components exacerbates task difficulty, demanding greater robustness from the method.",
+    "answer": "Large-volume components make assembly more difficult, requiring greater method robustness."
+  },
+  {
+    "question": "What is the main challenge for the diffusion model in severe misalignment cases?",
+    "context": "In such cases, the pretrained diffusion model, under a zero-shot setting, can only partially infer the correspondence between point cloud segments and part semantics, limiting its ability to resolve these errors.",
+    "answer": "The diffusion model can only partially infer correct correspondences, limiting error resolution in severe misalignments."
+  },
+  {
+    "question": "How does the method perform on airplane assembly compared to the Simple baseline?",
+    "context": "As shown in Figure 11, the method successfully assembles disordered components into coherent airplane structures. In contrast, the baseline Simple tends to force component features to match those of a reference sample, often resulting in incorrect assemblies e.g., red circles.",
+    "answer": "The method assembles coherent airplane structures, outperforming Simple, which often produces incorrect assemblies."
+  },
+  {
+    "question": "What is the purpose of using a pretrained 2D diffusion model in 3D assembly?",
+    "context": "A pretrained 2D image diffusion model, in theory, can also evaluate the quality of assembly results by differentiably rendering 3D components into 2D space and feeding them into the model.",
+    "answer": "It evaluates assembly quality by rendering 3D components into 2D and using the diffusion model for feedback."
+  },
+  {
+    "question": "How is the SDS loss used in the 2D image reassembly experiment?",
+    "context": "Training followed the method outlined in Eq. 9, using stable diffusion 2.1 Rombach et al., 2022b with the prompt a picture of chair.",
+    "answer": "SDS loss is used to optimize the arrangement of image fragments for correct reassembly."
+  },
+  {
+    "question": "What is the main benefit of using explicit operations in the proposed assembly method?",
+    "context": "Given the explicit nature of our method, it facilitates the direct application of pull-in or push-away operations for either overlapping or distant parts. This strategy is very difficult to implement in existing methods due to their poses being implicitly generated by the model.",
+    "answer": "Explicit operations allow direct handling of part collisions, which is hard with implicit pose generation."
+  },
+  {
+    "question": "How does the zero-shot method in Zhang et al. compare to supervised assembly approaches?",
+    "context": "Our approach outperforms current methods in addressing the zero-shot challenge. All of our metrics outperform existing methods, except for SCD. This is expected since our method emphasizes density estimates from a diffusion model rather than sampling complete shapes. Therefore, our assembled outputs conceptually resemble chairs instead of precisely replicating chair-shaped point clouds. This distinction is illustrated in Fig. 4, which visualizes samples generated by Simple under two different random seeds. Furthermore, compared to IET, Simple performs worse on the SCD, highlighting the advantage of Transformer models in encoding complex structures. Additionally, we tested a carefully designed model, HPA, whose performance is significantly impaired when trained exclusively with the SCD. Without any prior information on part poses, all baselines demonstrate notably poor performance, as further analysis of their training loss functions reveals why they fail in zero-shot scenarios details in Appendix Section 8.3.",
+    "answer": "The zero-shot method outperforms baseline and some supervised approaches, except in exact shape replication (SCD)."
+  },
+  {
+    "question": "What is the main difference between the proposed method and the Simple baseline?",
+    "context": "Figure 4 Different Views from Baseline-Simple and Ours. Baseline-Simple utilizes supervised learning on point clouds generated by a diffusion model, while our method employs density estimates. The results of the Simple are similar to set of point clouds from reference, but do not correspond to a chair shape.",
+    "answer": "Simple uses supervised learning on diffusion outputs; the proposed method uses density estimates for realistic assembly."
+  },
+  {
+    "question": "How does the proposed method in Zhang et al. handle part overlap compared to previous methods?",
+    "context": "Given the explicit nature of our method, it facilitates the direct application of pull-in or push-away operations for either overlapping or distant parts. This strategy is very difficult to implement in existing methods due to their poses being implicitly generated by the model.",
+    "answer": "The proposed method uses explicit push-away operations, unlike previous implicit pose generation methods."
+  },
+  {
+    "question": "How does the proposed zero-shot assembly method compare to Complement (Sung et al., 2017)?",
+    "context": "Table 2 Comparisons with methods on Supervised scenario. PA is a metric used to evaluate the accuracy of each part. Our zero-shot method can surpass the Complement with supervised learning.",
+    "answer": "The zero-shot method can surpass the supervised Complement approach in part accuracy."
+  },
+  {
+    "question": "How does the method in Zhang et al. compare to DGL (Zhan et al., 2020) in supervised settings?",
+    "context": "Table 2 Comparisons with methods on Supervised scenario. ... Supervised Complement 24.1 8.78 - Supervised DGL 9 . 1 3 9 . 0 - tabular As indicated in Table 2, our work achieves comparable results by the early supervised learning method Complement.",
+    "answer": "DGL achieves lower SCD and higher PA, but the zero-shot method is competitive with Complement."
+  },
+  {
+    "question": "How does the proposed method perform compared to IET (Zhang et al., 2022)?",
+    "context": "Furthermore, compared to IET, Simple performs worse on the SCD, highlighting the advantage of Transformer models in encoding complex structures.",
+    "answer": "IET performs better on SCD due to Transformer encoding, but the proposed method excels in zero-shot settings."
+  },
+  {
+    "question": "How does the method in Zhang et al. compare to HPA (Gao et al., 2024)?",
+    "context": "Additionally, we tested a carefully designed model, HPA, whose performance is significantly impaired when trained exclusively with the SCD.",
+    "answer": "HPA's performance is impaired when trained solely on SCD, while the proposed method remains robust."
+  },
+  {
+    "question": "How does the proposed method compare to traditional graph-based assembly models?",
+    "context": "Later, graph models were employed to capture semantic and geometric relationships among shape components, enabling advancements in assembly-based shape modeling Zhan et al., 2020 Jaiswal et al., 2016, while a progressive strategy leveraging the recurrent graph learning framework was explored in Narayan et al., 2022. ... Unlike the aforementioned works that rely on manual annotations of each parts rotation and translation, our study aims to explore a novel approach to extracting the necessary pose transformations for assembly tasks.",
+    "answer": "Unlike graph-based models requiring manual annotations, the proposed method extracts pose transformations without supervision."
+  },
+  {
+    "question": "What advantage does the proposed method have over diffusion-based generative assembly approaches?",
+    "context": "To explore the diversity of assembly outcomes, several authors propose treating parts poses as a distribution and achieving part assembly through a diffusion process involving noising and denoising Xu et al., 2024 Scarpellini et al., 2024 Cheng et al., 2023. ... Our work builds upon the generative approach, introducing a theoretically sound and interpretable method to tackle the zero-shot assembly problem effectively.",
+    "answer": "The method offers a theoretically sound, interpretable solution for zero-shot assembly, unlike prior generative approaches."
+  },
+  {
+    "question": "How does the method in Zhang et al. generalize compared to baseline methods?",
+    "context": "These results further demonstrate the generalizability and robustness of the proposed approach across diverse 3D assembly tasks.",
+    "answer": "The method generalizes well to diverse 3D assembly tasks, outperforming baselines in robustness."
+  },
+  {
+    "question": "How does the method compare to 2D diffusion-based image reassembly approaches?",
+    "context": "In addition to exploring the potential of 2D diffusion models for 3D part assembly tasks, we also examined their capability in 2D image reassembly. Our model can almost perfectly reconstruct 3 3 image fragments without oversimplifying the challenge.",
+    "answer": "The method achieves near-perfect 2D image reassembly, matching or exceeding prior 2D diffusion approaches."
+  },
+  {
+    "question": "How does the explicit collision handling in Zhang et al. compare to previous collision strategies?",
+    "context": "In this work, we propose an improved approach to address the collision issue that arises when identical parts are placed in the same position. ... However, in this study, we innovatively incorporate an explicit pushing-apart operation into the original method.",
+    "answer": "Explicit pushing-apart operations provide more effective collision handling than previous, less direct strategies."
+  },
+  {
+    "question": "What are the potential real-world applications of the zero-shot assembly method?",
+    "context": "3D part assembly aims to understand part relationships and predict their 6-DoF poses to construct realistic 3D shapes, addressing the growing demand for autonomous assembly, which is crucial for robots.",
+    "answer": "Potential applications include autonomous robotic assembly and automation in manufacturing environments."
+  },
+  {
+    "question": "How can the proposed method be applied to airplane assembly tasks?",
+    "context": "The proposed method is not limited to zero-shot chair assembly this section further evaluates its effectiveness on airplane models. ... As shown in Figure 11, the method successfully assembles disordered components into coherent airplane structures.",
+    "answer": "The method assembles disordered airplane components into coherent structures, demonstrating cross-category applicability."
+  },
+  {
+    "question": "What are the limitations of the push-away strategy in the proposed method?",
+    "context": "The bottom row of Fig. 2 exemplifies a failure case, revealing challenges in accurately placing overlapping parts. Especially when they are far from their GT positions, using the push operation cannot accurately place overlapping parts.",
+    "answer": "Push-away operations fail to accurately place overlapping parts when they are far from ground-truth positions."
+  },
+  {
+    "question": "How can practitioners implement the zero-shot assembly method from Zhang et al.?",
+    "context": "The code has been released on https github.comRuiyuan-ZhangZero-Shot-Assembly.",
+    "answer": "Practitioners can implement the method by using the released code at the specified GitHub repository."
+  },
+  {
+    "question": "What future directions are suggested for improving zero-shot assembly robustness?",
+    "context": "In the future, we plan to investigate an interpretable approach to reposition misplaced parts. This requires us better to explore the underutilized assembly knowledge inherent in general models and to be able to identify which positions have vacancies, thus allowing for the effective transfer of parts.",
+    "answer": "Future work aims to develop interpretable repositioning and better use of general model knowledge."
+  },
+  {
+    "question": "How does the method handle severe misalignment cases in part assembly?",
+    "context": "Such behavior, involving point-level redistribution rather than rigid transformation, is beyond the capacity of ICP-like processes, thus revealing why the proposed method struggles with severe misalignments.",
+    "answer": "The method struggles with severe misalignments requiring non-rigid transformations, a known limitation."
+  },
+  {
+    "question": "What is required to adapt the method for 2D image reassembly tasks?",
+    "context": "In this experiment, no special architecture was designed instead, we implemented a classifier utilizing two CNN layers. An MLP was implemented to predict the correct position of each sub-image within the whole picture.",
+    "answer": "A two-layer CNN and an MLP are used to adapt the method for 2D image reassembly."
+  },
+  {
+    "question": "How does the method address the challenge of large-volume components during assembly?",
+    "context": "the presence of largevolume components exacerbates task difficulty, demanding greater robustness from the method.",
+    "answer": "The method requires increased robustness to handle assembly tasks with large-volume components."
+  },
+  {
+    "question": "What is the main limitation of the proposed method when handling severe misalignments?",
+    "context": "Such behavior, involving point-level redistribution rather than rigid transformation, is beyond the capacity of ICP-like processes, thus revealing why the proposed method struggles with severe misalignments.",
+    "answer": "The method cannot resolve misalignments needing point-level redistribution, only rigid transformations."
+  },
+  {
+    "question": "What is the significance of Fair Part Accuracy (fPA) in evaluating assembly?",
+    "context": "Therefore, we propose the concept of Fair Part Accuracy fPA. ... We define the accuracy as fPA1N p1N 11N p C DP pred p, P fair g tpthre, where thre 0.01, which is a parameter inherited from previous work 2020.",
+    "answer": "Fair Part Accuracy fairly evaluates assembly even when part indices are inconsistent, improving over vanilla PA."
+  },
+  {
+    "question": "How can the method be used for zero-shot learning in new 3D categories?",
+    "context": "Our approach aims to harness existing extensive work on diffusion models to achieve assembly at virtually no additional cost, which represents a meaningful and valuable contribution.",
+    "answer": "It enables zero-shot assembly in new categories using pretrained diffusion models without extra training."
+  },
+  {
+    "question": "What steps are involved in using the released code for the proposed method?",
+    "context": "The code has been released on https github.comRuiyuan-ZhangZero-Shot-Assembly.",
+    "answer": "Download the code, prepare data as described, and follow documentation to run zero-shot assembly."
+  },
+  {
+    "question": "What are the practical challenges of using 2D diffusion models for 3D assembly?",
+    "context": "A pretrained 2D image diffusion model, in theory, can also evaluate the quality of assembly results by differentiably rendering 3D components into 2D space and feeding them into the model. However, in practice, this approach is challenging due to the difficulty of propagating 2D signals back to 3D point clouds and pose parameters.",
+    "answer": "The main challenge is propagating 2D feedback back to 3D point clouds and pose parameters."
+  },
+  {
+    "question": "How does the method ensure reproducibility for researchers?",
+    "context": "In this work, we ensure that all results are reproducible. All proofs, code, and data will be provided upon acceptance.",
+    "answer": "Reproducibility is ensured by providing proofs, code, and data upon acceptance."
+  },
+  {
+    "question": "What is the role of the ICP algorithm in the iterative assembly process?",
+    "context": "To address this issue, we employ the ICP algorithm to align each part as closely as possible. By iteratively repeating this process, we can utilize the diffusion model to convert disordered parts into a complete shape, thereby accomplishing the entire assembly process.",
+    "answer": "ICP aligns parts after diffusion denoising, refining poses in each assembly iteration."
+  },
+  {
+    "question": "What is the main limitation of supervised assembly methods in zero-shot scenarios?",
+    "context": "Without any prior information on part poses, all baselines demonstrate notably poor performance, as further analysis of their training loss functions reveals why they fail in zero-shot scenarios details in Appendix Section 8.3.",
+    "answer": "Supervised methods perform poorly in zero-shot scenarios due to reliance on pose annotations."
+  },
+  {
+    "question": "How does the method handle different noise levels in input data?",
+    "context": "As demonstrated in the first four rows of Table 1, assembly performance declines with increasing noise intensity, thereby validating our noise level designations.",
+    "answer": "Performance declines with higher noise, but the method is robust across different noise levels."
+  },
+  {
+    "question": "How does the method perform in zero-shot assembly of objects with more than 10 parts?",
+    "context": "Notably, when the number exceeds 10, assembly errors become more prominent.",
+    "answer": "Assembly errors increase with more than 10 parts, highlighting a complexity limitation."
+  },
+  {
+    "question": "What is the main finding regarding the use of density estimates in assembly?",
+    "context": "We propose the first zero-shot assembly method that utilizes density estimates from a diffusion model to achieve continuous and smooth transformations of parts, thereby coherently assembling multiple parts.",
+    "answer": "Density estimates enable continuous, smooth transformations for coherent, unsupervised assembly."
+  },
+  {
+    "question": "Does the paper by Zhang et al. provide details on hardware requirements for their method?",
+    "context": "Our approach aims to harness existing extensive work on diffusion models to achieve assembly at virtually no additional cost, which represents a meaningful and valuable contribution.",
+    "answer": "The provided context does not contain information about hardware requirements."
+  },
+  {
+    "question": "Does the method in Zhang et al. support real-time assembly for robotics?",
+    "context": "The code has been released on https github.comRuiyuan-ZhangZero-Shot-Assembly.",
+    "answer": "The context does not specify if the method supports real-time robotic assembly."
+  },
+  {
+    "question": "Does the proposed method address texture mapping in 3D assembly?",
+    "context": "Given the explicit nature of our method, it facilitates the direct application of pull-in or push-away operations for either overlapping or distant parts.",
+    "answer": "The context does not discuss texture mapping in 3D assembly."
+  },
+  {
+    "question": "Does the paper discuss energy efficiency of the diffusion-based assembly method?",
+    "context": "The proposed method is not limited to zero-shot chair assembly this section further evaluates its effectiveness on airplane models.",
+    "answer": "The provided context does not contain information about energy efficiency."
+  },
+  {
+    "question": "Does Zhang et al. provide a user interface for their assembly tool?",
+    "context": "The code has been released on https github.comRuiyuan-ZhangZero-Shot-Assembly.",
+    "answer": "The context does not mention a user interface for the assembly tool."
+  },
+  {
+    "question": "Does the paper describe integration with commercial CAD software?",
+    "context": "In this work, we propose an improved approach to address the collision issue that arises when identical parts are placed in the same position.",
+    "answer": "The context does not mention integration with commercial CAD software."
+  }
+]

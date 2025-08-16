@@ -1,0 +1,362 @@
+[
+  {
+    "question": "What problem does the JointDiT paper by Kwon Byung-Ki et al. address?",
+    "context": "We present JointDiT, a diffusion transformer that models the joint distribution of RGB and depth. By leveraging the architectural benefit and outstanding image prior of the state-of-the-art diffusion transformer, JointDiT not only generates high-fidelity images but also produces geometrically plausible and accurate depth maps.",
+    "answer": "The JointDiT paper addresses the problem of joint modeling of RGB images and depth maps for high-fidelity image and accurate depth generation."
+  },
+  {
+    "question": "What is the main contribution of the JointDiT paper?",
+    "context": "We summarize our contributions as follows We present JointDiT, a model for solid joint distribution modeling between image and depth modalities across all noise levels by leveraging the strong image prior of diffusion transformers.",
+    "answer": "The main contribution is JointDiT, a diffusion transformer for robust joint modeling of image and depth modalities across all noise levels."
+  },
+  {
+    "question": "What techniques does JointDiT introduce for multi-modal diffusion training?",
+    "context": "This solid joint distribution modeling is achieved through two simple yet effective techniques that we propose, i.e., adaptive scheduling weights, which depend on the noise levels of each modality, and the unbalanced timestep sampling strategy.",
+    "answer": "JointDiT introduces adaptive scheduling weights and an unbalanced timestep sampling strategy for multi-modal diffusion training."
+  },
+  {
+    "question": "What tasks can JointDiT perform by controlling the timestep of each branch?",
+    "context": "JointDiT to naturally handle various combinatorial generation tasks, including joint generation, depth estimation, and depth-conditioned image generation by simply controlling the timestep of each branch.",
+    "answer": "JointDiT can perform joint generation, depth estimation, and depth-conditioned image generation by controlling timesteps."
+  },
+  {
+    "question": "How does JointDiT compare to previous joint generation methods?",
+    "context": "JointDiT also achieves significantly superior joint generation results compared to previous joint generation methods 31, 53, 60 while demonstrating comparable performance in conditional generation tasks, such as depth estimation and depth-conditioned image generation.",
+    "answer": "JointDiT achieves significantly superior joint generation results compared to previous joint generation methods."
+  },
+  {
+    "question": "What architecture is JointDiT built upon?",
+    "context": "JointDiT is built on Flux 5, an advanced diffusion transformer model that consists of multi-modal diffusion transformer MM-DiT and parallel diffusion transformer P-DiT blocks 15, 16.",
+    "answer": "JointDiT is built upon the Flux diffusion transformer architecture, using MM-DiT and P-DiT blocks."
+  },
+  {
+    "question": "What is the purpose of the parallel depth branch in JointDiT?",
+    "context": "We extend it to joint image and depth distribution modeling by introducing a parallel depth branch alongside the pre-trained RGB branch.",
+    "answer": "The parallel depth branch enables joint modeling of image and depth distributions."
+  },
+  {
+    "question": "How does JointDiT model the joint distribution between images and depth maps?",
+    "context": "By training on separate noise levels for each modality, JointDiT flexibly facilitates combinatorial tasks of image and depth, including the joint task, by simply controlling the timestep of each branch.",
+    "answer": "JointDiT models the joint distribution by training on separate noise levels for each modality and controlling timesteps."
+  },
+  {
+    "question": "What is the role of LoRA in JointDiT?",
+    "context": "Thereafter, we add LoRAs 24 to the MM-DiT and P-DiT blocks to process the depth domain, which has a different data distribution from images.",
+    "answer": "LoRA modules adapt the diffusion transformer blocks to process the depth domain in JointDiT."
+  },
+  {
+    "question": "What datasets were used to evaluate JointDiT's depth estimation?",
+    "context": "We compare each method on the NYUv2 49, ScanNet 14, KITTI 3, DIODE 55, and ETH3D 48 datasets.",
+    "answer": "JointDiT's depth estimation was evaluated on NYUv2, ScanNet, KITTI, DIODE, and ETH3D datasets."
+  },
+  {
+    "question": "How does JointDiT perform in 3D lifting compared to other models?",
+    "context": "JointDiT shows plausible and smooth 3D point clouds than depth estimation models because our joint distribution model inherently learns the relationship between images and depth across repetitive generative processes.",
+    "answer": "JointDiT produces smoother and more plausible 3D point clouds than other models."
+  },
+  {
+    "question": "What is the significance of adaptive scheduling weights in JointDiT?",
+    "context": "We propose adaptive scheduling weights, which encourage the joint model to follow the form and structure of the relatively cleaner domain between the RGB and depth branches.",
+    "answer": "Adaptive scheduling weights help JointDiT transfer information based on the relative cleanliness of modalities."
+  },
+  {
+    "question": "What is the function of the joint connection module in JointDiT?",
+    "context": "In the joint connection modules see Fig 3-b, feature exchange for joint distribution modeling occurs within the attention mechanism of each DiT block.",
+    "answer": "The joint connection module enables feature exchange between RGB and depth branches for joint modeling."
+  },
+  {
+    "question": "How does JointDiT handle different noise levels in RGB and depth?",
+    "context": "We propose adaptive scheduling weights and the unbalanced timestep sampling strategy for separate noise level training in multi-modality.",
+    "answer": "JointDiT uses adaptive scheduling weights and unbalanced timestep sampling to handle different noise levels."
+  },
+  {
+    "question": "What ablation results support the effectiveness of JointDiT's techniques?",
+    "context": "Applying adaptive scheduling weights notably improves all evaluation metrics across all datasets. The unbalanced timestep sampling strategy enhances IS and CLIP scores when combined with adaptive scheduling weights.",
+    "answer": "Ablation studies show both adaptive scheduling weights and unbalanced timestep sampling improve performance."
+  },
+  {
+    "question": "How does JointDiT achieve depth-conditioned image generation?",
+    "context": "We validate the depth-conditioned image generation quality, another joint generation with different time steps, tx 0 and ty 1.",
+    "answer": "JointDiT achieves depth-conditioned image generation by setting different timesteps for image and depth branches."
+  },
+  {
+    "question": "How does JointDiT compare to discriminative and generative depth estimation methods?",
+    "context": "Our approach significantly outperforms JointNet and UniCon. Additionally, it achieves comparable performance to generative depth estimation methods, except on the ETH3D dataset.",
+    "answer": "JointDiT outperforms joint generation models and achieves comparable results to generative depth estimation methods."
+  },
+  {
+    "question": "What is the training dataset size and duration for JointDiT?",
+    "context": "We train our model on the collected dataset, which consists of 50k pairs, for 75k iterations with a batch size of 4 and a learning rate of le-5. The training is conducted on a single NVIDIA H100 GPU for 3.5 days.",
+    "answer": "JointDiT is trained on 50k image-depth pairs for 75k iterations over 3.5 days on a single GPU."
+  },
+  {
+    "question": "What is the impact of using both adaptive scheduling weights and unbalanced timestep sampling?",
+    "context": "When adaptive scheduling weights and unbalanced timestep sampling are applied together, ranking 1 has the highest proportion, while the last ranking has the lowest. These results demonstrate that the two techniques effectively model the joint distribution at extreme timesteps.",
+    "answer": "Using both techniques together yields the best performance in joint distribution modeling at extreme timesteps."
+  },
+  {
+    "question": "What is the main architectural difference between JointDiT and previous joint diffusion models?",
+    "context": "However, these models are based on a U-Net based diffusion architecture, which has a limited receptive field. This is in contrast to recent findings suggesting that diffusion transformers provide a stronger image prior and a global receptive field, which is particularly useful for dense prediction tasks 1, 33, 43.",
+    "answer": "JointDiT uses a transformer-based architecture, unlike previous U-Net based models, providing a global receptive field."
+  },
+  {
+    "question": "What is the significance of the global receptive field in JointDiT's architecture?",
+    "context": "The Flux model, which is built on the diffusion transformer architecture, demonstrates extraordinary image generation quality over stable diffusion that adopts the UNet-based architecture. In addition, the transformer architecture has been shown effective in depth estimation by several studies 1, 33, 43 since it has the global receptive field different from the fully-convolutional networks.",
+    "answer": "The global receptive field enables better image generation and depth estimation in JointDiT."
+  },
+  {
+    "question": "How does the JointDiT method perform joint generation of images and depth maps?",
+    "context": "Once the network successfully learns to estimate the vector field Utz,ty x, yx1, y1, various tasks can be performed simply by adjusting tx and ty without any additional guidance. For example, initially setting tx 0, ty 0 leads to the joint generation of both images and depth maps.",
+    "answer": "JointDiT performs joint generation by setting both image and depth timesteps to zero."
+  },
+  {
+    "question": "How does the joint cross-attention module work in JointDiT?",
+    "context": "We adopt the joint cross-attention module from the prior work 31. This module facilitates joint distribution training by exchanging queries between the RGB and depth branches through attention mechanisms.",
+    "answer": "The joint cross-attention module exchanges queries between RGB and depth branches for joint distribution training."
+  },
+  {
+    "question": "What is the purpose of unbalanced timestep sampling in JointDiT?",
+    "context": "The unbalanced timestep sampling strategy samples tx and ty independently from two unbalanced timestep distributions, ft and gt, with half probability during training. For the remaining half, the same timesteps sampled from ft are assigned to tx and ty.",
+    "answer": "Unbalanced timestep sampling ensures sufficient coverage of joint and conditional generation tasks during training."
+  },
+  {
+    "question": "Why are LoRA modules used in the depth branch of JointDiT?",
+    "context": "Thereafter, we add LoRAs 24 to the MM-DiT and P-DiT blocks to process the depth domain, which has a different data distribution from images.",
+    "answer": "LoRA modules adapt transformer blocks to the unique data distribution of depth maps."
+  },
+  {
+    "question": "How does adaptive scheduling weight calculation depend on noise levels?",
+    "context": "Specifically, we adaptively schedule the amount of information transferred between branches by joint cross attention according to the relative cleanliness of the given noisy image xt and the noisy depth Yty.",
+    "answer": "Adaptive scheduling weights depend on the relative noise levels of the image and depth branches."
+  },
+  {
+    "question": "What is the effect of adaptive scheduling weights on joint generation metrics?",
+    "context": "Applying adaptive scheduling weights notably improves all evaluation metrics across all datasets.",
+    "answer": "Adaptive scheduling weights significantly improve joint generation metrics across datasets."
+  },
+  {
+    "question": "How does JointDiT perform depth estimation from an image?",
+    "context": "We assess the depth estimation capability of JointDiT, which can be regarded as joint generation with two extremely different time steps, i.e., tx 1 and ty 0.",
+    "answer": "JointDiT performs depth estimation by setting the image timestep to 1 and the depth timestep to 0."
+  },
+  {
+    "question": "How does JointDiT perform depth-conditioned image generation?",
+    "context": "We validate the depth-conditioned image generation quality, another joint generation with different time steps, tx 0 and ty 1.",
+    "answer": "JointDiT performs depth-conditioned image generation by setting image timestep to 0 and depth timestep to 1."
+  },
+  {
+    "question": "What is the advantage of transformer-based diffusion models for dense prediction tasks?",
+    "context": "The transformer architecture has been shown effective in depth estimation by several studies 1, 33, 43 since it has the global receptive field different from the fully-convolutional networks.",
+    "answer": "Transformer-based diffusion models offer a global receptive field, improving dense prediction tasks like depth estimation."
+  },
+  {
+    "question": "How does JointDiT handle training with separate noise levels for each modality?",
+    "context": "By training on separate noise levels for each modality, JointDiT flexibly facilitates combinatorial tasks of image and depth, including the joint task, by simply controlling the timestep of each branch.",
+    "answer": "JointDiT trains with separate noise levels for image and depth, enabling flexible combinatorial task handling."
+  },
+  {
+    "question": "What are the main evaluation metrics used for JointDiT?",
+    "context": "We use the Inception Score IS 47, Frchet Inception Distance FID 21, and CLIP similarity 41 as evaluation metrics.",
+    "answer": "Main evaluation metrics are Inception Score (IS), Fréchet Inception Distance (FID), and CLIP similarity."
+  },
+  {
+    "question": "How does JointDiT achieve joint modeling at all noise levels?",
+    "context": "We present JointDiT, a model for solid joint distribution modeling between image and depth modalities across all noise levels by leveraging the strong image prior of diffusion transformers.",
+    "answer": "JointDiT leverages diffusion transformers and trains across all noise levels for both modalities."
+  },
+  {
+    "question": "What is the role of the joint connection module's attention mechanism?",
+    "context": "In the joint connection modules see Fig 3-b, feature exchange for joint distribution modeling occurs within the attention mechanism of each DiT block.",
+    "answer": "The attention mechanism in the joint connection module enables feature exchange for joint distribution modeling."
+  },
+  {
+    "question": "What are the effects of omitting adaptive scheduling weights or unbalanced timestep sampling?",
+    "context": "In depth estimation, applying either adaptive scheduling weights or unbalanced timestep sampling improves performance. The best results are achieved when both are used together.",
+    "answer": "Omitting either technique reduces performance; using both yields the best results."
+  },
+  {
+    "question": "How does JointDiT facilitate combinatorial generation tasks?",
+    "context": "It flexibly facilitates combinatorial tasks, such as joint generation, depth estimation, and depth-conditioned image generation by simply controlling the timestep of each branch.",
+    "answer": "JointDiT enables combinatorial generation tasks by controlling the timesteps of each modality branch."
+  },
+  {
+    "question": "How does JointDiT's training differ from previous U-Net based joint models?",
+    "context": "However, these models are based on a U-Net based diffusion architecture, which has a limited receptive field. This is in contrast to recent findings suggesting that diffusion transformers provide a stronger image prior and a global receptive field.",
+    "answer": "JointDiT uses a transformer-based backbone, unlike previous U-Net based models, offering a global receptive field."
+  },
+  {
+    "question": "How does JointDiT's joint distribution modeling serve as an alternative to conditional generation?",
+    "context": "Through these techniques, we demonstrate that joint distribution modeling can be the replaceable alternative of conditional generation.",
+    "answer": "JointDiT's joint distribution modeling can replace conditional generation by unifying tasks in one framework."
+  },
+  {
+    "question": "How are synthetic datasets used to further train JointDiT?",
+    "context": "To verify the depth estimation performance itself, we further trained our model for an additional 50k iterations on synthetic datasets. We collect the synthetic training dataset by filtering 80k data samples from Hypersim 44, Replica 26, IRS 57, and MatrixCity 32.",
+    "answer": "JointDiT is further trained on 80k synthetic samples from multiple datasets for improved depth estimation."
+  },
+  {
+    "question": "What is the effect of transformer architecture on 3D lifting results in JointDiT?",
+    "context": "The Flux model, which is built on the diffusion transformer architecture, demonstrates extraordinary image generation quality over stable diffusion that adopts the UNet-based architecture.",
+    "answer": "The transformer architecture in JointDiT yields more accurate and plausible 3D lifting results."
+  },
+  {
+    "question": "How does JointDiT's joint generation compare to LDM3D and JointNet?",
+    "context": "Figure 4 demonstrates the results. Compared to LDM3D and JointNet, our JointDiT shows high-fidelity images, fine-detailed depth maps, and geometrically accurate 3D lifting results. In contrast, the 3D lifting results of JointNet and LDM3D are geometrically inaccurate.",
+    "answer": "JointDiT produces higher-fidelity images and more accurate 3D lifting than LDM3D and JointNet."
+  },
+  {
+    "question": "What architectural advantage does JointDiT have over previous U-Net based models?",
+    "context": "However, these models are based on a U-Net based diffusion architecture, which has a limited receptive field. This is in contrast to recent findings suggesting that diffusion transformers provide a stronger image prior and a global receptive field, which is particularly useful for dense prediction tasks.",
+    "answer": "JointDiT uses a transformer-based architecture, offering a global receptive field unlike U-Net models."
+  },
+  {
+    "question": "How does JointDiT's depth estimation performance compare to JointNet and UniCon?",
+    "context": "Compared to joint generation methods, our model achieves superior performance across all evaluation datasets. Figure 5 visualizes the depth estimation results of joint generative methods on the ScanNet dataset. Compared to JointNet and UniCon, our method captures sharp edges and fine details.",
+    "answer": "JointDiT outperforms JointNet and UniCon in depth estimation, capturing sharper edges and details."
+  },
+  {
+    "question": "How does JointDiT compare to generative depth estimation models like Marigold and GeoWizard?",
+    "context": "We also compare our method with generative depth estimation models, which finetune most of the parameters of a pre-trained diffusion model. Except for the ETH3D dataset, our model achieves comparable performance with only a small portion of parameter tuning.",
+    "answer": "JointDiT achieves comparable depth estimation results to Marigold and GeoWizard with fewer tuned parameters."
+  },
+  {
+    "question": "How does JointDiT perform in depth-conditioned image generation compared to ControlNet and Readout-Guidance?",
+    "context": "We compare our method with Readout-Guidance 38, ControlNet 61, and UniCon 31 using the evaluation setup proposed by UniCon... Table 2 shows the depth-conditioned image generation results on the OpenImages 6K dataset. Compared to other methods, our method shows a lower FID score and AbsRel.",
+    "answer": "JointDiT outperforms ControlNet and Readout-Guidance in depth-conditioned image generation with lower FID and AbsRel."
+  },
+  {
+    "question": "What is the main difference between JointDiT and UniCon in handling text prompts?",
+    "context": "Figure 10. Depth-conditioned image generation results of JointNet, UniCon, and Ours. JointNet and UniCon often fail to reflect the text prompt properly... Our JointDiT generates images that better reflect the text prompt and depth map.",
+    "answer": "JointDiT better incorporates text prompts and depth maps in generation than UniCon."
+  },
+  {
+    "question": "How does JointDiT's 3D lifting compare to Marigold and GeoWizard?",
+    "context": "JointDiT shows plausible and smooth 3D point clouds than depth estimation models because our joint distribution model inherently learns the relationship between images and depth across repetitive generative processes. In contrast, depth estimation models exhibit rough surfaces due to the uncertainty in depth estimation.",
+    "answer": "JointDiT produces smoother, more plausible 3D point clouds than Marigold and GeoWizard."
+  },
+  {
+    "question": "How does JointDiT's training efficiency compare to generative depth estimation models?",
+    "context": "Except for the ETH3D dataset, our model achieves comparable performance with only a small portion of parameter tuning, e.g., LoRA layers and the joint connection module.",
+    "answer": "JointDiT matches generative models' performance with less parameter tuning, increasing efficiency."
+  },
+  {
+    "question": "How does the Flux backbone in JointDiT compare to stable diffusion in baseline models?",
+    "context": "The Flux model, which is built on the diffusion transformer architecture, demonstrates extraordinary image generation quality over stable diffusion that adopts the UNet-based architecture.",
+    "answer": "Flux, used in JointDiT, provides superior image generation quality compared to stable diffusion."
+  },
+  {
+    "question": "How does JointDiT's ablation performance compare to baseline training strategies?",
+    "context": "Table 3 shows that the usage of adaptive scheduling weights significantly improves all metrics across all evaluation datasets. When unbalanced timestep sampling is applied together, IS and CLIP scores tend to improve.",
+    "answer": "JointDiT's adaptive scheduling and unbalanced sampling outperform baseline strategies in all metrics."
+  },
+  {
+    "question": "What is the difference in 3D structure quality between JointDiT and JointNet?",
+    "context": "Our method generates highly plausible image-aligned 3D structures, surpassing previous joint generation methods in achieving superior consistency with real 3D space.",
+    "answer": "JointDiT achieves more plausible and consistent 3D structures than JointNet."
+  },
+  {
+    "question": "How does JointDiT's global receptive field impact performance compared to U-Net models?",
+    "context": "The transformer architecture has been shown effective in depth estimation by several studies since it has the global receptive field different from the fully-convolutional networks.",
+    "answer": "JointDiT's global receptive field improves dense prediction tasks over U-Net models."
+  },
+  {
+    "question": "What are potential real-world applications of JointDiT's high-fidelity RGB-depth modeling?",
+    "context": "We present JointDiT that models the joint distribution of RGB images and depth maps. By leveraging the strong image prior of the state-of-the-art diffusion transformer, JointDiT generates high-fidelity images and geometrically plausible and accurate depth maps.",
+    "answer": "Applications include robotics, AR/VR, autonomous driving, and 3D scene reconstruction."
+  },
+  {
+    "question": "How can JointDiT be used for 3D scene reconstruction from images?",
+    "context": "We visualize the jointly generated images, depth maps, and their 3D lifting results of JointDiT.",
+    "answer": "JointDiT enables 3D scene reconstruction by generating aligned RGB images and depth maps."
+  },
+  {
+    "question": "What are the practical implications of JointDiT for autonomous vehicle perception?",
+    "context": "JointDiT generates high-fidelity images and geometrically plausible and accurate depth maps.",
+    "answer": "JointDiT can enhance autonomous vehicle perception by providing accurate RGB-depth data."
+  },
+  {
+    "question": "How does JointDiT facilitate AR/VR content creation?",
+    "context": "JointDiT not only generates high-fidelity images but also produces geometrically plausible and accurate depth maps.",
+    "answer": "JointDiT's joint RGB-depth generation supports realistic AR/VR content creation."
+  },
+  {
+    "question": "What are the limitations of JointDiT on the ETH3D dataset?",
+    "context": "On the ETH3D dataset, our method appears to achieve higher AbsRel than generative depth estimation methods, likely because we use the depth predictions of Depth-Anything-V2 for training.",
+    "answer": "JointDiT underperforms on ETH3D due to limitations in training data quality."
+  },
+  {
+    "question": "What future work is suggested for improving JointDiT's generalization?",
+    "context": "On the ETH3D dataset, our method appears to achieve higher AbsRel than generative depth estimation methods, likely because we use the depth predictions of Depth-Anything-V2 for training.",
+    "answer": "Future work could use higher-quality depth data to improve generalization."
+  },
+  {
+    "question": "What are the steps to implement JointDiT for a new dataset?",
+    "context": "We train our model on the collected dataset, which consists of 50k pairs, for 75k iterations with a batch size of 4 and a learning rate of le-5.",
+    "answer": "Collect RGB-depth pairs, preprocess, and train JointDiT with LoRA modules and joint connection."
+  },
+  {
+    "question": "How can JointDiT be fine-tuned for specific applications?",
+    "context": "To verify the depth estimation performance itself, we further trained our model for an additional 50k iterations on synthetic datasets.",
+    "answer": "JointDiT can be fine-tuned on synthetic or domain-specific data for targeted applications."
+  },
+  {
+    "question": "How does JointDiT enable flexible combinatorial generation tasks?",
+    "context": "By training on separate noise levels for each modality, JointDiT flexibly facilitates combinatorial tasks of image and depth, including the joint task, by simply controlling the timestep of each branch.",
+    "answer": "JointDiT enables flexible tasks by controlling noise levels for each modality during generation."
+  },
+  {
+    "question": "What are the hardware requirements for training JointDiT?",
+    "context": "The training is conducted on a single NVIDIA H100 GPU for 3.5 days.",
+    "answer": "Training JointDiT requires a high-end GPU, such as NVIDIA H100, for several days."
+  },
+  {
+    "question": "How can JointDiT be adapted for real-time applications?",
+    "context": "We consistently use the LoRA rank of 64 and apply text drop with a probability of 10 22.",
+    "answer": "Optimizing LoRA ranks and model size could adapt JointDiT for real-time use."
+  },
+  {
+    "question": "What is required to use JointDiT for depth-conditioned image generation?",
+    "context": "We validate the depth-conditioned image generation quality, another joint generation with different time steps, tx 0 and ty 1.",
+    "answer": "Set appropriate timesteps and provide depth maps as input for depth-conditioned image generation."
+  },
+  {
+    "question": "How can JointDiT's outputs be integrated into 3D graphics pipelines?",
+    "context": "We apply an inverse projection to the generated image by utilizing the generated depth map.",
+    "answer": "JointDiT's RGB and depth outputs can be projected into 3D graphics pipelines for visualization."
+  },
+  {
+    "question": "What is the recommended data preprocessing for JointDiT training?",
+    "context": "The sampled frames are resized while maintaining their aspect ratio, then center-cropped, to produce 512 512 images.",
+    "answer": "Resize and center-crop images to 512x512; generate depth maps and text prompts as needed."
+  },
+  {
+    "question": "How does JointDiT handle missing or noisy depth data during training?",
+    "context": "The depth maps and text prompts are generated by Depth-Anything-v2 59 and LLaVa 36, respectively.",
+    "answer": "The context does not specify how JointDiT handles missing or noisy depth data."
+  },
+  {
+    "question": "Does the JointDiT paper discuss privacy concerns in data usage?",
+    "context": "We present JointDiT that models the joint distribution of RGB images and depth maps.",
+    "answer": "The provided context does not mention privacy concerns in data usage."
+  },
+  {
+    "question": "What are the ethical considerations mentioned for JointDiT applications?",
+    "context": "JointDiT generates high-fidelity images and geometrically plausible and accurate depth maps.",
+    "answer": "The context does not discuss ethical considerations for JointDiT applications."
+  },
+  {
+    "question": "Does the JointDiT paper address model fairness across demographic groups?",
+    "context": "We train our model on the collected dataset, which consists of 50k pairs, for 75k iterations.",
+    "answer": "The context does not address model fairness or demographic considerations."
+  },
+  {
+    "question": "What is the energy consumption of training JointDiT?",
+    "context": "The training is conducted on a single NVIDIA H100 GPU for 3.5 days.",
+    "answer": "The context does not provide information about energy consumption."
+  },
+  {
+    "question": "Does JointDiT support multimodal generation beyond RGB and depth?",
+    "context": "JointDiT is built on Flux 5, an advanced diffusion transformer model that consists of multi-modal diffusion transformer MM-DiT and parallel diffusion transformer P-DiT blocks.",
+    "answer": "The context does not specify support for modalities beyond RGB and depth."
+  }
+]

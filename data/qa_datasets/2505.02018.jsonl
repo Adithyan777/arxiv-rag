@@ -1,0 +1,352 @@
+[
+  {
+    "question": "What problem does the R-Bench paper by Guo et al. aim to solve?",
+    "context": "Despite remarkable progress, existing reasoning benchmarks often fail to rigorously evaluate the nuanced reasoning capabilities required for complex, real-world problem-solving, particularly in multi-disciplinary and multimodal contexts. In this paper, we introduce a graduate-level, multi-disciplinary, English-Chinese benchmark, dubbed as Reasoning Bench R-Bench, for assessing the reasoning capability of both language and multimodal models.",
+    "answer": "The R-Bench paper aims to address the lack of rigorous, multi-disciplinary, and multimodal reasoning benchmarks for evaluating advanced language and multimodal models."
+  },
+  {
+    "question": "What is the main contribution of the R-Bench benchmark introduced by Guo et al.?",
+    "context": "In this paper, we introduce a graduate-level, multi-disciplinary, English-Chinese benchmark, dubbed as Reasoning Bench R-Bench, for assessing the reasoning capability of both language and multimodal models.",
+    "answer": "The main contribution is the introduction of R-Bench, a graduate-level, multi-disciplinary benchmark for evaluating complex reasoning in language and multimodal models."
+  },
+  {
+    "question": "How many questions are included in R-Bench for language model evaluation?",
+    "context": "R-Bench spans 1,094 questions across 108 subjects for language model evaluation and 665 questions across 83 subjects for multimodal model testing in both English and Chinese.",
+    "answer": "R-Bench includes 1,094 questions for language model evaluation."
+  },
+  {
+    "question": "How many subjects are covered by R-Bench for language models?",
+    "context": "R-Bench spans 1,094 questions across 108 subjects for language model evaluation and 665 questions across 83 subjects for multimodal model testing in both English and Chinese.",
+    "answer": "R-Bench covers 108 subjects for language models."
+  },
+  {
+    "question": "How many questions are included in R-Bench for multimodal model testing?",
+    "context": "R-Bench spans 1,094 questions across 108 subjects for language model evaluation and 665 questions across 83 subjects for multimodal model testing in both English and Chinese.",
+    "answer": "R-Bench includes 665 questions for multimodal model testing."
+  },
+  {
+    "question": "How does R-Bench ensure rigorous difficulty calibration and subject balance?",
+    "context": "These questions are meticulously curated to ensure rigorous difficulty calibration, subject balance, and cross-linguistic alignment, enabling the assessment to be an Olympiad-level multi-disciplinary benchmark.",
+    "answer": "R-Bench ensures difficulty calibration and subject balance through meticulous curation and expert screening."
+  },
+  {
+    "question": "Which models were evaluated using R-Bench in the paper by Guo et al.?",
+    "context": "We evaluate widely used models, including OpenAI 01, GPT-40, DeepSeek-R1, etc.",
+    "answer": "Models evaluated include OpenAI 01, GPT-40, and DeepSeek-R1."
+  },
+  {
+    "question": "What is the performance of OpenAI 01 on R-Bench's multimodal evaluation?",
+    "context": "Even the top-performing model OpenAI ol achieves only 53.2 accuracy on our multimodal evaluation.",
+    "answer": "OpenAI 01 achieves 53.2% accuracy on R-Bench's multimodal evaluation."
+  },
+  {
+    "question": "What are the four key properties proposed for R-Bench's evaluation design?",
+    "context": "We believe following four properties are critical. Comprehensiveness. Difficulty. Multimodality. Multilingualism.",
+    "answer": "The four key properties are comprehensiveness, difficulty, multimodality, and multilingualism."
+  },
+  {
+    "question": "How does R-Bench differ from MMLU and MMMU benchmarks?",
+    "context": "We illustrate from three dimensions expert scoring, model scoring, and model thinking time that R-Bench is a more complex benchmark with higher R-Bench requirements for model reasoning compared to existing multidisciplinary benchmarks MMLU and MMMU.",
+    "answer": "R-Bench is more complex and requires higher reasoning skills than MMLU and MMMU."
+  },
+  {
+    "question": "What is the main goal of R-Bench according to Guo et al.?",
+    "context": "Our goal is to build a benchmark R-Bench that aligns with the four properties we proposed for evaluating the reasoning abilities of intelligent models.",
+    "answer": "The main goal is to create a benchmark aligning with comprehensiveness, difficulty, multimodality, and multilingualism for reasoning evaluation."
+  },
+  {
+    "question": "How were the questions for R-Bench collected?",
+    "context": "To achieve that, we follow more than 100 college courses from 19 departments at Tsinghua University and collect challenging problems from their exams, textbooks, quizzes, homework, etc.",
+    "answer": "Questions were collected from over 100 courses across 19 departments at Tsinghua University using exams, textbooks, quizzes, and homework."
+  },
+  {
+    "question": "What is the subject and department coverage of R-Bench?",
+    "context": "R-Bench spans 19 departments, including mathematics, physics, biology, computer science, and chemistry, covering over 100 subjects.",
+    "answer": "R-Bench covers 19 departments and over 100 subjects, including mathematics, physics, biology, computer science, and chemistry."
+  },
+  {
+    "question": "What types of reasoning does R-Bench focus on evaluating?",
+    "context": "As shown in the figure, the problems in R-Bench are complex and cannot be solved by quick thinking, which shows that R-Bench focuses on deep reasoning problems rather than knowledge problems, such as conceptual problems.",
+    "answer": "R-Bench focuses on evaluating deep reasoning rather than simple knowledge or conceptual recall."
+  },
+  {
+    "question": "How does R-Bench address multilingual evaluation?",
+    "context": "Besides, in order to enable R-Bench to acquire the multilingual property, we manually constructed English-Chinese translations for each question.",
+    "answer": "R-Bench provides English and Chinese versions for all questions to enable multilingual evaluation."
+  },
+  {
+    "question": "What format are R-Bench questions converted into for automatic evaluation?",
+    "context": "We convert all questions such as analytical, fill-in-the-blank, and multiple-choice questions into the single-choice question format.",
+    "answer": "All questions are converted into single-choice format for automatic evaluation."
+  },
+  {
+    "question": "How many options does each R-Bench question have?",
+    "context": "We use GPT-40 to construct 5 options for each question and add an option All other answers are incorrect, which equips each question with 6 candidate answers.",
+    "answer": "Each question has 6 options, including 'All other answers are incorrect.'"
+  },
+  {
+    "question": "What is the difference in model performance between text and multimodal reasoning on R-Bench?",
+    "context": "For instance, GPT-4o scores 53.6 on text but only 33.7 in multimodal reasoning on R-Bench.",
+    "answer": "Models perform significantly better on text reasoning than on multimodal reasoning in R-Bench."
+  },
+  {
+    "question": "How does Chain of Thought (CoT) prompting affect models on R-Bench?",
+    "context": "Chain of Thought CoT can enhance reasoning abilities in most chat models, such as GPT-40. However, for reasoning models like 01-mini, CoT does not have the same effect.",
+    "answer": "CoT prompting improves reasoning for most chat models but is less effective for models inherently designed for reasoning."
+  },
+  {
+    "question": "What does R-Bench reveal about cross-lingual reasoning abilities of models?",
+    "context": "Models maintain high consistency in answering Chinese and English questions of equal difficulty, exceeding 70 for most models, demonstrating strong cross-lingual reasoning capabilities.",
+    "answer": "R-Bench shows that most models have strong cross-lingual reasoning abilities, with high consistency across languages."
+  },
+  {
+    "question": "What are the main algorithmic steps in constructing R-Bench?",
+    "context": "The process is divided into six steps, which are detailed in Sec. 2. The funnel represents screening. We always filter out the blue ball and preserve the brown one.",
+    "answer": "The main steps are: defining disciplines, expert collection, digitization, model-based screening, manual review, and constructing options/translations."
+  },
+  {
+    "question": "How were experts involved in R-Bench question collection?",
+    "context": "We recruit senior undergraduates and graduate students from different departments as experts to provide reasoning question-answer pairs.",
+    "answer": "Experts from various departments provided and filtered reasoning question-answer pairs."
+  },
+  {
+    "question": "What criteria were used by experts to filter questions for R-Bench?",
+    "context": "The professional expertise should filter out knowledge-based questions-those that rely solely on memory rather than reasoning, such as concept-definition questions.",
+    "answer": "Experts filtered out knowledge-based questions, retaining only reasoning-based questions with sufficient difficulty."
+  },
+  {
+    "question": "How does model-based filtering work in R-Bench construction?",
+    "context": "In this round of screening, we mainly focus on the difficulty of reasoning. We filter out the questions with less than 2,000 reasoning tokens to ensure that our R-Bench is a benchmark for reasoning evaluation.",
+    "answer": "Model-based filtering removes questions with fewer than 2,000 reasoning tokens to ensure difficulty."
+  },
+  {
+    "question": "What is the purpose of manual review in R-Bench's pipeline?",
+    "context": "Our manual review focuses on whether the question conditions are complete, whether the questions are repeated, whether the questions are ambiguous, and the balance of subjects.",
+    "answer": "Manual review ensures completeness, removes repetition and ambiguity, and balances subject distribution."
+  },
+  {
+    "question": "How are numerical options designed in R-Bench to avoid errors?",
+    "context": "We manually adjust the options to ensure a sufficient numerical gap between them, thereby avoiding errors caused by numerical approximations.",
+    "answer": "Options are adjusted to have sufficient numerical gaps, reducing errors from approximations."
+  },
+  {
+    "question": "How is translation quality ensured for R-Bench's multilingual property?",
+    "context": "Each question is meticulously reviewed and refined by three experts fluent in both English and Chinese to ensure correctness and clarity.",
+    "answer": "Translations are reviewed and refined by three bilingual experts for accuracy and clarity."
+  },
+  {
+    "question": "What are R-Bench-T and R-Bench-M sub-benchmarks?",
+    "context": "R-Bench can be divided into four sub-benchmarks R-Bench-T and R-Bench-Tzh for language model evaluation, R-Bench-M and R-Bench-Mzh for multimodal model evaluation.",
+    "answer": "R-Bench-T evaluates language models with text-only questions; R-Bench-M evaluates multimodal models."
+  },
+  {
+    "question": "What departments and subjects are included in R-Bench-M?",
+    "context": "R-Bench-M incorporates a diverse set of question types requiring both textual and visual inputs. It covers 18 departments, such as physics, biology, architecture, and economics, and includes 83 subjects.",
+    "answer": "R-Bench-M spans 18 departments and 83 subjects, including physics, biology, architecture, and economics."
+  },
+  {
+    "question": "How does R-Bench ensure subject balance across disciplines?",
+    "context": "To reduce testing bias from subject imbalance, we limit the number of questions per subject to a maximum of 50 by filtering out excess.",
+    "answer": "The number of questions per subject is capped at 50 to maintain subject balance."
+  },
+  {
+    "question": "How is data digitization handled in R-Bench's pipeline?",
+    "context": "We need to organize and digitize this data. R-Bench Major computer science Subject data structure. ... We recruit a data annotation team of about 20 people. They are responsible for organizing, digitizing, checking, and compiling all the questions into Excel sheets.",
+    "answer": "A data annotation team organizes, digitizes, and compiles questions into standardized Excel sheets."
+  },
+  {
+    "question": "What tools are used for OCR and digitization in R-Bench?",
+    "context": "In this process, we utilize tools such as GPT-40 and Mathpix for OCR processing, followed by manual proofreading to ensure it is correct.",
+    "answer": "GPT-40 and Mathpix are used for OCR, with manual proofreading for accuracy."
+  },
+  {
+    "question": "How are ambiguous or incomplete questions handled during R-Bench construction?",
+    "context": "Checking for completeness, repetition, and ambiguity require multiple rounds of thorough review by different individuals to eliminate ambiguities.",
+    "answer": "Multiple rounds of review are conducted to eliminate ambiguous or incomplete questions."
+  },
+  {
+    "question": "How does R-Bench compare to other benchmarks in terms of reasoning difficulty?",
+    "context": "The results indicate that both ols judgment and the experts judgment consider R-Bench to require significantly higher reasoning ability compared to MMLU and MMMU.",
+    "answer": "R-Bench is considered to require significantly higher reasoning ability than MMLU and MMMU."
+  },
+  {
+    "question": "What is the evaluation protocol for models tested on R-Bench?",
+    "context": "The evaluation involves utilizing API calls and deploying open-source models locally. For API calls, we utilize the official interfaces with default hyperparameters. For open-source models, we deploy their weights locally using vLLM ... setting the temperature to 0 while keeping all other parameters at their default values.",
+    "answer": "Models are evaluated using official API calls or local deployment with default parameters and temperature set to 0."
+  },
+  {
+    "question": "How does R-Bench handle proof-based questions?",
+    "context": "In this collecting process, we exclude proof-based questions, as current automated methods cannot verify the correctness of proofs.",
+    "answer": "Proof-based questions are excluded since automated verification is not feasible."
+  },
+  {
+    "question": "How are options constructed for each R-Bench question?",
+    "context": "We use GPT-40 to construct 5 options for each question and add an option All other answers are incorrect, which equips each question with 6 candidate answers.",
+    "answer": "Options are generated using GPT-40, with five plausible answers and one catch-all incorrect option."
+  },
+  {
+    "question": "What is the role of model thinking time in R-Bench's evaluation?",
+    "context": "We illustrate from three dimensions expert scoring, model scoring, and model thinking time that R-Bench is a more complex benchmark with higher R-Bench requirements for model reasoning compared to existing multidisciplinary benchmarks MMLU and MMMU.",
+    "answer": "Model thinking time is used as a metric to compare reasoning complexity across benchmarks."
+  },
+  {
+    "question": "How does R-Bench help guide improvement of foundation models?",
+    "context": "A meaningful evaluation should exhibit the capability to effectively discriminate between the performance of different models and provide valuable insights for guiding model improvement.",
+    "answer": "R-Bench discriminates between model performances and provides insights to guide model improvements."
+  },
+  {
+    "question": "How does R-Bench compare to MMLU in evaluating reasoning skills?",
+    "context": "We conducted expert scoring through user studies. To be specific, we randomly selected 30 questions from R-Bench-T and another 30 questions from MMLU and presented them to experts for pairwise comparisons to determine which question required more reasoning skills to solve.",
+    "answer": "R-Bench requires significantly higher reasoning ability than MMLU, as determined by expert comparisons."
+  },
+  {
+    "question": "How does the R-Bench benchmark differ from MMMU in its evaluation scope?",
+    "context": "We constructed similar experiments using the same settings between R-Bench-M and MMMU. The results indicate that both ols judgment and the experts judgment consider R-Bench to require significantly higher reasoning ability compared to MMMU.",
+    "answer": "R-Bench covers more complex reasoning and is considered more challenging than MMMU."
+  },
+  {
+    "question": "What is the main limitation of MMLU compared to R-Bench?",
+    "context": "MMLU is a comprehensive benchmark for multi-discipline understanding... However, considering the current level of model intelligence, this benchmark is close to saturation... Besides, it does not take multimodality and multilingualism into consideration, which is also critical for an ideal reasoning test.",
+    "answer": "MMLU is nearly saturated and lacks multimodality and multilingualism, unlike R-Bench."
+  },
+  {
+    "question": "How does MMMU fall short compared to R-Bench for reasoning evaluation?",
+    "context": "MMMU... is a holistic evaluation for multimodal reasoning tests. With the launch of o1 OpenAI, 2024b, this benchmark is also close to saturation. Also, it cannot be used to evaluate language models and ignores multilingual testing.",
+    "answer": "MMMU is nearly saturated, cannot evaluate language models, and ignores multilingual testing, unlike R-Bench."
+  },
+  {
+    "question": "How does Frontiermath compare to R-Bench in terms of comprehensiveness?",
+    "context": "Frontiermath... collects some challenging problems specifically designed for advanced mathematical reasoning evaluation... However, it falls short in comprehensiveness and multilingual testing. This also applies to Omni-Math and AIME.",
+    "answer": "Frontiermath is less comprehensive and lacks multilingual testing compared to R-Bench."
+  },
+  {
+    "question": "What is the difference between R-Bench and math-focused benchmarks like Omni-Math?",
+    "context": "Omni-Math... serve as benchmarks focused on employing mathematical olympiad challenges. In this paper, our goal is to build a benchmark R-Bench that aligns with the four properties we proposed...",
+    "answer": "R-Bench is multi-disciplinary, multimodal, and multilingual, while Omni-Math focuses only on math."
+  },
+  {
+    "question": "How does R-Bench challenge advanced models compared to previous benchmarks?",
+    "context": "With the emergence of advanced models like o1, existing multidisciplinary evaluations have nearly reached saturation. The community needs challenging multi-disciplinary benchmarks to guide foundational models in enhancing their reasoning abilities, and the goal of R-Bench is to address it.",
+    "answer": "R-Bench provides new challenges for advanced models, unlike saturated previous benchmarks."
+  },
+  {
+    "question": "How do open-source models perform on R-Bench compared to commercial models?",
+    "context": "In the results shown in Tab. 5, we found that models designed for reasoning tasks, such as o1, outperform chat models like GPT-40 in complex reasoning. There remains a significant gap in complex reasoning between open-source models and commercial models.",
+    "answer": "Commercial models outperform open-source models by a significant margin on R-Bench."
+  },
+  {
+    "question": "How does R-Bench evaluate both LLMs and MLLMs, unlike previous benchmarks?",
+    "context": "While there have been attempts to create an ideal reasoning benchmark, to the best of our knowledge, existing benchmarks cannot incorporate all four of these key properties simultaneously.",
+    "answer": "R-Bench uniquely evaluates both LLMs and MLLMs across multiple disciplines and languages."
+  },
+  {
+    "question": "What is the performance gap between text and multimodal reasoning on R-Bench?",
+    "context": "For instance, GPT-4o scores 53.6 on text but only 33.7 in multimodal reasoning on R-Bench.",
+    "answer": "Models perform significantly worse on multimodal reasoning than text reasoning on R-Bench."
+  },
+  {
+    "question": "How does Chain of Thought prompting affect models differently in R-Bench vs. other benchmarks?",
+    "context": "Chain of Thought CoT can enhance reasoning abilities in most chat models, such as GPT-40. However, for reasoning models like 01-mini, CoT does not have the same effect.",
+    "answer": "CoT prompting helps chat models on R-Bench, but reasoning models gain little benefit."
+  },
+  {
+    "question": "How does R-Bench's subject and department coverage compare to previous benchmarks?",
+    "context": "R-Bench spans 19 departments, including mathematics, physics, biology, computer science, and chemistry, covering over 100 subjects.",
+    "answer": "R-Bench covers more departments and subjects than most previous benchmarks."
+  },
+  {
+    "question": "What are some real-world applications for models evaluated on R-Bench?",
+    "context": "Reasoning stands as a cornerstone of intelligence, enabling the synthesis of existing knowledge to solve complex problems.",
+    "answer": "Applications include scientific research, engineering problem-solving, and advanced academic tutoring."
+  },
+  {
+    "question": "How can R-Bench guide the improvement of foundation models?",
+    "context": "A meaningful evaluation should exhibit the capability to effectively discriminate between the performance of different models and provide valuable insights for guiding model improvement.",
+    "answer": "R-Bench helps identify model weaknesses and guides targeted improvements in reasoning abilities."
+  },
+  {
+    "question": "What are the main limitations of current models as revealed by R-Bench?",
+    "context": "Experimental results indicate that advanced models perform poorly on complex reasoning, especially multimodal reasoning.",
+    "answer": "Current models struggle with complex and multimodal reasoning tasks on R-Bench."
+  },
+  {
+    "question": "What future work is suggested for benchmarks like R-Bench?",
+    "context": "Despite rapid advances, models lag behind text-based reasoning. For instance, GPT-4o scores 53.6 on text but only 33.7 in multimodal reasoning on R-Bench.",
+    "answer": "Future work includes improving multimodal reasoning capabilities and expanding benchmark coverage."
+  },
+  {
+    "question": "How can researchers implement R-Bench for their own model evaluations?",
+    "context": "Data and code are made publicly available at here.",
+    "answer": "Researchers can access R-Bench's data and code to evaluate their models using the provided protocols."
+  },
+  {
+    "question": "What steps are involved in preparing data for R-Bench evaluation?",
+    "context": "We need to organize and digitize this data... They are responsible for organizing, digitizing, checking, and compiling all the questions into Excel sheets.",
+    "answer": "Data preparation involves organizing, digitizing, checking, and compiling questions into standardized formats."
+  },
+  {
+    "question": "How are translations handled for multilingual evaluation in R-Bench?",
+    "context": "Each question is meticulously reviewed and refined by three experts fluent in both English and Chinese to ensure correctness and clarity.",
+    "answer": "Translations are manually reviewed by bilingual experts to ensure accuracy and clarity."
+  },
+  {
+    "question": "How does R-Bench ensure fairness across different academic disciplines?",
+    "context": "To reduce testing bias from subject imbalance, we limit the number of questions per subject to a maximum of 50 by filtering out excess.",
+    "answer": "R-Bench limits the number of questions per subject to maintain balance and fairness."
+  },
+  {
+    "question": "How can practitioners use R-Bench to benchmark multimodal models?",
+    "context": "R-Bench-M incorporates a diverse set of question types requiring both textual and visual inputs.",
+    "answer": "Practitioners can use R-Bench-M to evaluate multimodal models on diverse, real-world problems."
+  },
+  {
+    "question": "What are potential applications of R-Bench in educational settings?",
+    "context": "R-Bench spans over 100 college courses from 19 departments at Tsinghua University.",
+    "answer": "R-Bench can be used to assess and improve AI tutors or automated grading systems in higher education."
+  },
+  {
+    "question": "How does R-Bench support cross-lingual research in AI?",
+    "context": "Models maintain high consistency in answering Chinese and English questions of equal difficulty, exceeding 70 for most models, demonstrating strong cross-lingual reasoning capabilities.",
+    "answer": "R-Bench enables evaluation of cross-lingual reasoning, supporting multilingual AI research."
+  },
+  {
+    "question": "What are the requirements for models to be evaluated on R-Bench?",
+    "context": "The evaluation involves utilizing API calls and deploying open-source models locally. For API calls, we utilize the official interfaces with default hyperparameters.",
+    "answer": "Models must support API or local deployment and handle single-choice formatted questions."
+  },
+  {
+    "question": "What are the limitations of R-Bench's current evaluation protocol?",
+    "context": "For details on the specific prompts, please refer to our appendix.",
+    "answer": "The context does not provide specific limitations of the evaluation protocol."
+  },
+  {
+    "question": "How can users customize R-Bench for specific research needs?",
+    "context": "R-Bench provides English and Chinese versions for all questions.",
+    "answer": "The context does not specify customization methods for R-Bench."
+  },
+  {
+    "question": "What are the hardware requirements for running R-Bench evaluations?",
+    "context": "The evaluation involves utilizing API calls and deploying open-source models locally.",
+    "answer": "The context does not specify the hardware requirements for R-Bench evaluations."
+  },
+  {
+    "question": "Does R-Bench include benchmarks for audio or video reasoning?",
+    "context": "R-Bench-M incorporates a diverse set of question types requiring both textual and visual inputs.",
+    "answer": "The context does not mention audio or video reasoning benchmarks in R-Bench."
+  },
+  {
+    "question": "How are ambiguous questions handled during R-Bench construction?",
+    "context": "Our manual review focuses on whether the question conditions are complete, whether the questions are repeated, whether the questions are ambiguous, and the balance of subjects.",
+    "answer": "Ambiguous questions are removed through multiple rounds of manual review."
+  },
+  {
+    "question": "Are there any privacy concerns related to the data used in R-Bench?",
+    "context": "We recruit a data annotation team of about 20 people. They are responsible for organizing, digitizing, checking, and compiling all the questions into Excel sheets.",
+    "answer": "The context does not mention privacy concerns related to R-Bench data."
+  },
+  {
+    "question": "What licensing terms apply to the use of R-Bench?",
+    "context": "Data and code are made publicly available at here.",
+    "answer": "The context does not specify the licensing terms for R-Bench."
+  }
+]

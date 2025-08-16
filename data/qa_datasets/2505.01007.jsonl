@@ -1,0 +1,377 @@
+[
+  {
+    "question": "What problem does 'Towards the Resistance of Neural Network Watermarking to Fine-tuning' address?",
+    "context": "One of the core challenges of neural network watermarking is that most watermarking techniques cannot be resistant to the fine-tuning of the DNN. When network parameters are changed during the fine-tuning process, the watermark implicitly embedded in the parameters may also be overwritten.",
+    "answer": "'Towards the Resistance of Neural Network Watermarking to Fine-tuning' addresses the problem of watermark robustness against fine-tuning in neural networks."
+  },
+  {
+    "question": "What is the main contribution of the paper by Ling Tang et al.?",
+    "context": "The contribution of this study can be summarized as follows. 1 We discover and theoretically prove that specific frequency components of a convolutional filter remain invariant during training and are equivariant to weight scaling and weight permutations. 2 Based on the theory, we propose to encode the watermark information to these frequency components, so as to ensure that the watermark is robust to fine-tuning, weight scaling, and weight permutations. 3 Preliminary experiments have demonstrated the effectiveness of the proposed method.",
+    "answer": "The main contribution is proving and utilizing invariant frequency components in convolutional filters to embed robust watermarks."
+  },
+  {
+    "question": "How does the proposed watermarking method ensure robustness to fine-tuning?",
+    "context": "We prove that if the input feature X only contains the low-frequency components, then specific frequency components of a convolutional filter Fw are stable w.r.t. network fine-tuning.",
+    "answer": "By embedding watermark information in specific frequency components of convolutional filters that remain stable during fine-tuning."
+  },
+  {
+    "question": "What theoretical guarantee is provided for watermark robustness in this paper?",
+    "context": "Compared to the robustness to weight scaling and weight permutations, the robustness to fine-tuning presents a more significant challenge. Up to now, there is no theoretically guaranteed robust watermark to fine-tuning, to the best of our knowledge. ... we have proved that the convolutional filters specific frequency components keep stable during fine-tuning.",
+    "answer": "The paper provides a theoretical guarantee that certain frequency components in convolutional filters remain invariant during fine-tuning."
+  },
+  {
+    "question": "What is the role of the revised discrete Fourier transform in the proposed method?",
+    "context": "We propose a revised Fourier transform to extract frequency components from the convolutional filter.",
+    "answer": "The revised discrete Fourier transform is used to extract specific frequency components from convolutional filters for watermark embedding."
+  },
+  {
+    "question": "What attacks, besides fine-tuning, does the proposed watermark resist?",
+    "context": "Additionally, these specific frequency components also exhibit equivariance to weight scaling and weight permutations.",
+    "answer": "The proposed watermark resists weight scaling and weight permutation attacks, in addition to fine-tuning."
+  },
+  {
+    "question": "How does the watermark module integrate with the neural network architecture?",
+    "context": "The watermark module is connected in parallel to the backbone of the neural network. ... this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "The watermark module is connected in parallel to the backbone network, preserving the main architecture and performance."
+  },
+  {
+    "question": "What experimental evidence supports the effectiveness of the proposed method?",
+    "context": "Preliminary experiments have demonstrated the effectiveness of our method...",
+    "answer": "Preliminary experiments demonstrate that the proposed watermarking method is effective and robust."
+  },
+  {
+    "question": "What is the main challenge in neural network watermarking addressed by this paper?",
+    "context": "One of the core challenges of neural network watermarking is that most watermarking techniques cannot be resistant to the fine-tuning of the DNN.",
+    "answer": "The main challenge addressed is making neural network watermarks resistant to fine-tuning."
+  },
+  {
+    "question": "How does the paper differ from previous watermarking approaches?",
+    "context": "Compared to the robustness to weight scaling and weight permutations, the robustness to fine-tuning presents a more significant challenge. ... In contrast, we have proved that the convolutional filters specific frequency components keep stable during fine-tuning.",
+    "answer": "Unlike previous approaches, this paper provides a theoretical basis for watermark robustness against fine-tuning."
+  },
+  {
+    "question": "What is the significance of encoding watermark information in frequency components?",
+    "context": "Based on the theory, we propose to encode the watermark information to these frequency components, so as to ensure that the watermark is robust to fine-tuning, weight scaling, and weight permutations.",
+    "answer": "Encoding watermark information in frequency components ensures robustness to fine-tuning, weight scaling, and permutations."
+  },
+  {
+    "question": "What datasets were used in the experiments?",
+    "context": "We ran experiments of AlexNet ... and ResNet18 ... on Caltech-101, Caltech-256 ... CIFAR-10 and CIFAR-100 ... for image classification tasks.",
+    "answer": "The experiments used Caltech-101, Caltech-256, CIFAR-10, and CIFAR-100 datasets."
+  },
+  {
+    "question": "How is the watermark detected in a suspicious neural network?",
+    "context": "Given a source watermarked DNN ... and a suspicious DNN ... we aim to detect whether the suspicious DNN is obtained from the source DNN by fine-tuning, weight scaling or weight permutations. ... we use the following watermark detection rate DR between two DNNs to identify the matching quality.",
+    "answer": "Watermark detection is performed by comparing the cosine similarity of frequency components and computing a detection rate."
+  },
+  {
+    "question": "What is the purpose of the additional loss term introduced during training?",
+    "context": "To defend the overwriting attack, we introduce an additional loss to train the model, which ensures that the overwriting of the watermark will significantly hurt the models performance.",
+    "answer": "The additional loss ensures that overwriting the watermark significantly degrades model performance, defending against overwriting attacks."
+  },
+  {
+    "question": "What is the structure of the watermark module?",
+    "context": "We construct the following watermark module X to contain the watermark, which consists of a low-pass filter A and convolution operations with D convolutional filters W ... and D bias terms.",
+    "answer": "The watermark module consists of a low-pass filter and multiple convolutional filters with associated biases."
+  },
+  {
+    "question": "How does the method defend against watermark overwriting attacks?",
+    "context": "To defend the overwriting attack, we introduce an additional loss to train the model, which ensures that the overwriting of the watermark will significantly hurt the models performance.",
+    "answer": "By training with an additional loss, the network's performance drops significantly if the watermark is overwritten, making overwriting detectable."
+  },
+  {
+    "question": "What is the theoretical basis for frequency component invariance?",
+    "context": "We prove that if the input feature X only contains the low-frequency components, then specific frequency components of a convolutional filter Fw are stable w.r.t. network fine-tuning.",
+    "answer": "Theoretical analysis shows that certain frequency components remain stable if the input contains only low-frequency components."
+  },
+  {
+    "question": "What is the role of the low-pass filter in the watermark module?",
+    "context": "The low-pass filtering operation A preserves frequency components in X at low frequencies ... and removes all other frequency components.",
+    "answer": "The low-pass filter ensures only low-frequency components are present, supporting the invariance of selected frequency components."
+  },
+  {
+    "question": "How is the watermark visualized in the paper?",
+    "context": "Figure 4a shows the specific frequencies in the set S used as the watermark. Fig- ure 4b shows the feature maps when we apply the inverse discrete Fourier transform IDFT to some unit frequency components which are used as the watermark.",
+    "answer": "The watermark is visualized by applying the inverse discrete Fourier transform to selected frequency components."
+  },
+  {
+    "question": "What is the impact of the watermark module on network performance?",
+    "context": "The watermark module is connected in parallel to the backbone of the neural network. ... this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "The watermark module does not significantly affect the network's architecture or performance."
+  },
+  {
+    "question": "How does the proposed method reformulate convolution in the frequency domain?",
+    "context": "Tang et al. 2023 have proven that the forward propagation through a convolutional filter can be reformulated as the vector multiplication between the frequency component vectors of the input feature and the convolutional filter at corresponding frequencies.",
+    "answer": "Convolution is reformulated as vector multiplication of frequency components of the input and filter at corresponding frequencies."
+  },
+  {
+    "question": "What are the algorithmic steps for embedding a watermark using frequency components?",
+    "context": "We design a watermark module to encode the watermark information to specific frequency components in a convolutional filter.",
+    "answer": "The algorithm embeds watermark information into specific frequency components of convolutional filters via a parallel watermark module."
+  },
+  {
+    "question": "How are frequency components extracted from convolutional filters?",
+    "context": "The frequency component Fur of the convolutional filter is defined in Equation 6, which is extracted by applying a revised discrete Fourier transform on the convolutional filter W.",
+    "answer": "Frequency components are extracted by applying a revised discrete Fourier transform to the convolutional filter."
+  },
+  {
+    "question": "What design choice is made regarding the connection of the watermark module?",
+    "context": "The watermark module is connected in parallel to the backbone of the neural network. ... this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "The watermark module is connected in parallel to the main network to minimize impact on architecture and performance."
+  },
+  {
+    "question": "Why are low-frequency components important in the proposed method?",
+    "context": "We prove that if the input feature X only contains the low-frequency components, then specific frequency components of a convolutional filter Fw are stable w.r.t. network fine-tuning.",
+    "answer": "Low-frequency components ensure the stability of selected frequency components used for watermarking during fine-tuning."
+  },
+  {
+    "question": "How does the method handle weight scaling attacks?",
+    "context": "Theorem 3.5. Equivariance towards weight scaling ... If we scale all weights in the convolutional filter W by a constant a ... the frequency components of W are equal to the scaled frequency components of W.",
+    "answer": "Frequency components used for watermarking scale proportionally, maintaining watermark detectability under weight scaling."
+  },
+  {
+    "question": "How does the method handle weight permutation attacks?",
+    "context": "Theorem 3.6. Equivariance towards weight permutations ... the frequency components of W are equal to the permuted frequency components of W.",
+    "answer": "Frequency components are permuted accordingly, allowing watermark detection despite weight permutation attacks."
+  },
+  {
+    "question": "What is the set S of frequencies used for watermarking?",
+    "context": "S is the set of the specific frequencies, defined as S u, v u iMK or v jNK i, j 1, 2, ..., K 1.",
+    "answer": "Set S includes frequencies where u or v is a multiple of the kernel size, used for robust watermarking."
+  },
+  {
+    "question": "How is the watermark detection rate (DR) calculated?",
+    "context": "Specifically, we use the following watermark detection rate DR between two DNNs to identify the matching quality. DR u,vES,dcosFW FW Z d T 100",
+    "answer": "DR is calculated as the percentage of frequency components with cosine similarity above a threshold between two DNNs."
+  },
+  {
+    "question": "What is the purpose of adding noise during training for overwriting defense?",
+    "context": "The noise added to the parameters in the watermark module was obtained by conducting the IDFT on a unit frequency component at a random frequency, and the 12-norm of the noise e was set to 0.5 times the 12-norm of the weights.",
+    "answer": "Noise is added to simulate parameter overwriting and train the network to be sensitive to such attacks."
+  },
+  {
+    "question": "How does the watermark module affect feature representation flexibility?",
+    "context": "We notice that in the watermark module, the low-pass filter A may hurt the flexibility of feature representations. Therefore, ... the watermark module is connected in parallel to the backbone architecture.",
+    "answer": "To preserve feature representation flexibility, the watermark module operates in parallel rather than modifying the main feature path."
+  },
+  {
+    "question": "What is the effect of the additional loss term on classification accuracy under attack?",
+    "context": "We observe that if the network is trained with the loss function L LCE Lattack in Equation 15, the classification accuracy ... significantly drops under the overwriting attack.",
+    "answer": "The additional loss causes classification accuracy to drop significantly if the watermark is overwritten, aiding attack detection."
+  },
+  {
+    "question": "How are the specific frequency components selected for watermarking?",
+    "context": "In this way, when we extract frequency components F Fuv from every d-th convolutional filter Wa in the watermark module X ... we can consider the frequency components at the following frequencies in the set S.",
+    "answer": "Specific frequency components are selected based on their stability and defined by set S, related to kernel size multiples."
+  },
+  {
+    "question": "What is the rationale for using a parallel watermark module?",
+    "context": "The watermark module is connected in parallel to the backbone of the neural network. ... this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "A parallel watermark module allows robust watermarking without disrupting the main network's architecture or performance."
+  },
+  {
+    "question": "How is the cosine similarity used in watermark detection?",
+    "context": "The cosine similarity cosZ1, Z2 between two complex vectors Z1 and 22 is defined as ReZ1-22, where Z1 denotes the conjugate of 21Z2 ... measures the directional similarity between two complex vectors.",
+    "answer": "Cosine similarity measures the alignment of frequency components between two networks to detect watermark presence."
+  },
+  {
+    "question": "What is the impact of the watermark module on different network architectures?",
+    "context": "For AlexNet, the watermark module containing 256 convolutional filters was connected to the third convolutional layer. For ResNet18, the watermark module containing 256 convolutional filters was connected to the second convolutional layer of the second residual block.",
+    "answer": "The watermark module can be integrated into various architectures, such as AlexNet and ResNet18, at different layers."
+  },
+  {
+    "question": "How does the method ensure watermark stability during training?",
+    "context": "Proposition 3.4. In the training process, if the input feature X only contains the low-frequency components ... then frequency components Fw at the following frequencies in the set S keep relative stable.",
+    "answer": "By ensuring input features are low-frequency, the selected frequency components used for watermarking remain stable during training."
+  },
+  {
+    "question": "What is the effect of the watermark module on the network's classification tasks?",
+    "context": "We ran experiments ... for image classification tasks. ... this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "The watermark module does not significantly degrade classification performance on standard tasks."
+  },
+  {
+    "question": "How does the method handle the case when input features have only low-frequency components?",
+    "context": "Proposition 3.4. In the training process, if the input feature X only contains the low-frequency components ... then frequency components Fw at the following frequencies in the set S keep relative stable.",
+    "answer": "With only low-frequency input features, the selected frequency components in filters remain stable, ensuring robust watermarking."
+  },
+  {
+    "question": "What is the purpose of the pseudo category in the loss function for overwriting defense?",
+    "context": "To defend the overwriting attack, the basic idea is to construct the n 1-th category as a pseudo category besides the existing n categories. ... if the network is under an overwriting attack, then it is supposed to classify all samples into the pseudo category.",
+    "answer": "The pseudo category helps detect overwriting by causing the network to misclassify all samples if the watermark is overwritten."
+  },
+  {
+    "question": "How does the frequency-based watermarking in Tang et al. compare to parameter-based methods?",
+    "context": "Wang et al. 2020 directly embedded the watermark into the network parameters. ... we prove that if the input feature X only contains the low-frequency components, then specific frequency components of a convolutional filter Fw are stable... w.r.t. network fine-tuning.",
+    "answer": "Tang et al.'s frequency-based watermarking is theoretically robust to fine-tuning, unlike parameter-based methods."
+  },
+  {
+    "question": "How does the proposed method compare with backdoor watermarking approaches?",
+    "context": "Lukas et al. 2021 used the classification results on a particular type of adversarial examples as the backdoor watermark. ... our method embeds watermarks in frequency components, which remain stable under fine-tuning.",
+    "answer": "Unlike backdoor watermarks, Tang et al.'s method uses frequency components for greater fine-tuning robustness."
+  },
+  {
+    "question": "What is the key difference between Tang et al. and Kirchenbauer et al.'s soft watermark?",
+    "context": "Kirchenbauer et al. 2023 added a soft watermark to the generation result. ... our method embeds watermark information in frequency components of convolutional filters.",
+    "answer": "Tang et al. embed watermarks in filter frequency components, while Kirchenbauer et al. use output modifications."
+  },
+  {
+    "question": "How does the resistance to fine-tuning in Tang et al. differ from Zeng et al.'s approach?",
+    "context": "Zeng et al. 2023 found that the multiplication of specific weight matrices were invariant to weight scaling and weight permutations ... the theoretically guaranteed invariant term to fine-tuning remains unsolved. ... we aim to discover and prove such an invariant term to fine-tuning.",
+    "answer": "Tang et al. provide theoretical guarantees for fine-tuning robustness, unlike Zeng et al.'s focus on scaling/permutation."
+  },
+  {
+    "question": "How does the proposed method compare to trigger set-based watermarking?",
+    "context": "Tan et al. 2023 used the classification accuracy on a particular type of adversarial examples, which is termed a trigger set, as the watermark. ... our method embeds watermark information in frequency components for theoretical robustness.",
+    "answer": "Tang et al.'s method uses filter frequency components, while trigger set approaches use adversarial sample accuracy."
+  },
+  {
+    "question": "What is the advantage over engineering-based defenses like those in Liu et al. 2021?",
+    "context": "Liu et al. 2021 selected network parameters, which did not change a lot during fine-tuning, to encode the watermark information. ... our method provides a theoretical guarantee for invariance under fine-tuning.",
+    "answer": "Tang et al. offer theoretical invariance, whereas Liu et al. rely on empirically stable parameters."
+  },
+  {
+    "question": "How does the method compare to CKA-based watermarking by Zhang et al. 2024?",
+    "context": "Zhang et al. 2024 measured the CKA similarity ... as the robust watermark towards weight scaling and weight permutations. ... the robustness to fine-tuning presents a more significant challenge.",
+    "answer": "Tang et al. address fine-tuning robustness, while Zhang et al. focus on scaling and permutation using CKA similarity."
+  },
+  {
+    "question": "How does the method improve upon safe-range approaches by Bansal et al. and Ren et al.?",
+    "context": "Bansal et al. 2022 and Ren et al. 2023 ... proved a safe range of parameter changes during fine-tuning, but they did not boost the robustness of the watermark or propose an intrinsically robust watermark.",
+    "answer": "Tang et al. propose an intrinsically robust watermark, not just a safe range of parameter changes."
+  },
+  {
+    "question": "How does the watermark module design in Tang et al. compare to baseline architectures?",
+    "context": "the watermark module is connected in parallel to the backbone architecture of the neural network. ... this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "Tang et al.'s parallel watermark module preserves baseline architecture and performance."
+  },
+  {
+    "question": "How does the detection process differ from previous watermarking methods?",
+    "context": "we use the following watermark detection rate DR between two DNNs ... based on cosine similarity of frequency components.",
+    "answer": "Tang et al. detect watermarks via frequency component similarity, unlike output-based or parameter-matching methods."
+  },
+  {
+    "question": "What is the main limitation of previous watermarking methods addressed by this work?",
+    "context": "most watermarking techniques cannot be resistant to the fine-tuning of the DNN. ... we prove that specific frequency components ... are stable w.r.t. network fine-tuning.",
+    "answer": "Tang et al. address the lack of fine-tuning robustness in prior watermarking methods."
+  },
+  {
+    "question": "How does the method's robustness to overwriting attacks compare to prior work?",
+    "context": "To defend the watermark from the overwriting attack, we introduce an additional loss ... which ensures that the overwriting ... will significantly hurt the models performance.",
+    "answer": "Tang et al. explicitly defend against overwriting attacks using a loss term, unlike many prior methods."
+  },
+  {
+    "question": "What are potential real-world uses for the frequency-based watermarking in Tang et al.?",
+    "context": "Watermarking techniques have long been used to protect the copyright of digital content ... Recently, these techniques have been extended to protect the intellectual property of neural networks.",
+    "answer": "Tang et al.'s method can protect neural network intellectual property in commercial deployments."
+  },
+  {
+    "question": "How can companies use Tang et al.'s watermarking for model theft detection?",
+    "context": "if a neural network is stolen and further optimized, the ownership information embedded in the network can be used to verify its true origin.",
+    "answer": "Companies can verify model ownership even after fine-tuning using Tang et al.'s watermarking."
+  },
+  {
+    "question": "What are the limitations of the proposed watermarking approach?",
+    "context": "In this paper, unless stated otherwise, we set the integer r 1, the kernel size K 3. ... the low-pass filter A may hurt the flexibility of feature representations.",
+    "answer": "The low-pass filter in the watermark module may reduce feature representation flexibility."
+  },
+  {
+    "question": "What future work do the authors suggest for improving watermark flexibility?",
+    "context": "We notice that in the watermark module, the low-pass filter A may hurt the flexibility of feature representations. Therefore, ... the watermark module is connected in parallel to the backbone architecture.",
+    "answer": "Future work may focus on reducing the impact of the low-pass filter on feature flexibility."
+  },
+  {
+    "question": "How can practitioners implement the watermark module in existing networks?",
+    "context": "the watermark module is connected in parallel to the backbone architecture of the neural network.",
+    "answer": "Practitioners can add a parallel watermark module to existing networks without major architectural changes."
+  },
+  {
+    "question": "What are the main steps to detect a watermark in a suspicious model?",
+    "context": "we use the following watermark detection rate DR between two DNNs ... based on cosine similarity of frequency components.",
+    "answer": "Extract frequency components from both models and compute cosine similarity to detect the watermark."
+  },
+  {
+    "question": "How is the watermark module integrated into AlexNet and ResNet18?",
+    "context": "For AlexNet, the watermark module ... was connected to the third convolutional layer. For ResNet18, ... to the second convolutional layer of the second residual block.",
+    "answer": "The watermark module is attached to specific convolutional layers in AlexNet and ResNet18."
+  },
+  {
+    "question": "What is required to train a model with Tang et al.'s watermark defense?",
+    "context": "we train the network by adding an additional loss Lattack ... to the standard cross-entropy loss LCE for multi-category classification.",
+    "answer": "Training requires adding a special loss term to defend against overwriting attacks."
+  },
+  {
+    "question": "How does the method handle suspicious models altered by weight permutation?",
+    "context": "the detection towards the frequency components should consider the matching between the frequency components of different convolutional filters ... we can definitely find a permutation ... to assign each d-th convolutional filter.",
+    "answer": "The detection process accounts for filter permutations when matching frequency components."
+  },
+  {
+    "question": "What is the impact of the watermark module on model inference speed?",
+    "context": "this design does not significantly change the networks architecture or seriously hurt its performance.",
+    "answer": "The parallel watermark module has minimal impact on inference speed."
+  },
+  {
+    "question": "How can the method be adapted for other neural network architectures?",
+    "context": "the watermark module is connected in parallel to the backbone architecture ... For AlexNet ... for ResNet18 ...",
+    "answer": "The method can be adapted by attaching the watermark module to suitable layers in other architectures."
+  },
+  {
+    "question": "What are the practical challenges in deploying this watermarking method?",
+    "context": "the low-pass filter A may hurt the flexibility of feature representations.",
+    "answer": "A key challenge is balancing watermark robustness with feature representation flexibility."
+  },
+  {
+    "question": "How can the watermark's robustness to fine-tuning benefit cloud-based AI services?",
+    "context": "the watermark is robust to fine-tuning, weight scaling, and weight permutations.",
+    "answer": "Cloud providers can track ownership of models even after clients fine-tune them."
+  },
+  {
+    "question": "What is the recommended threshold for watermark detection rate (DR)?",
+    "context": "we set T 0.995 in this paper unless otherwise stated.",
+    "answer": "A threshold of 0.995 is recommended for watermark detection."
+  },
+  {
+    "question": "How can the method be used to monitor unauthorized model modifications?",
+    "context": "if the watermark detection rate DR is high, we can determine that the suspicious network originates from the source network.",
+    "answer": "By checking the watermark detection rate, unauthorized modifications can be detected."
+  },
+  {
+    "question": "What is the effect of adding random noise to the watermark module during training?",
+    "context": "we add random noise ... to mimic the state of the neural network with overwritten parameters.",
+    "answer": "Adding noise improves the model's sensitivity to overwriting attacks."
+  },
+  {
+    "question": "How does the method perform on standard image classification datasets?",
+    "context": "We ran experiments of AlexNet ... and ResNet18 ... on Caltech-101, Caltech-256 ... CIFAR-10 and CIFAR-100 ... for image classification tasks.",
+    "answer": "The method is effective and robust on standard image classification datasets."
+  },
+  {
+    "question": "Does the paper by Tang et al. discuss the use of reinforcement learning?",
+    "context": "Watermarking techniques have long been used to protect the copyright of digital content ... Recently, these techniques have been extended to protect the intellectual property of neural networks.",
+    "answer": "The provided context does not discuss reinforcement learning."
+  },
+  {
+    "question": "Does the paper propose a new data augmentation technique?",
+    "context": "we prove that if the input feature X only contains the low-frequency components, then specific frequency components of a convolutional filter Fw are stable... w.r.t. network fine-tuning.",
+    "answer": "The context does not mention any new data augmentation technique."
+  },
+  {
+    "question": "Does the watermark module in Tang et al. use attention mechanisms?",
+    "context": "the watermark module is connected in parallel to the backbone architecture of the neural network.",
+    "answer": "There is no mention of attention mechanisms in the provided context."
+  },
+  {
+    "question": "Does the paper address federated learning scenarios?",
+    "context": "For AlexNet, the watermark module ... was connected to the third convolutional layer. For ResNet18, ... to the second convolutional layer of the second residual block.",
+    "answer": "The context does not discuss federated learning scenarios."
+  },
+  {
+    "question": "Does the proposed method require labeled data for watermark detection?",
+    "context": "we use the following watermark detection rate DR between two DNNs ... based on cosine similarity of frequency components.",
+    "answer": "The context does not specify whether labeled data is required for watermark detection."
+  },
+  {
+    "question": "Does the paper evaluate robustness to adversarial examples?",
+    "context": "Preliminary experiments demonstrate the effectiveness of our method...",
+    "answer": "The context does not mention evaluation against adversarial examples."
+  }
+]

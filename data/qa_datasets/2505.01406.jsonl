@@ -1,0 +1,392 @@
+[
+  {
+    "question": "What problem does the paper 'VidStamp: A Temporally-Aware Watermark for Video Diffusion Models' address?",
+    "context": "VidStamp addresses the challenge of embedding robust watermarks in AI-generated videos to ensure content authenticity, provenance, and tamper detection.",
+    "answer": "The paper solves the problem of robust watermarking in video diffusion models to protect against misuse and ensure video content authenticity and integrity."
+  },
+  {
+    "question": "What is the core method proposed by 'VidStamp' for watermarking video diffusion models?",
+    "context": "VidStamp embeds watermark messages directly into the latent space of temporally-aware video diffusion models by fine-tuning the decoder.",
+    "answer": "VidStamp proposes embedding per-frame or per-segment watermark messages into the latent space of video diffusion models via a two-stage decoder fine-tuning."
+  },
+  {
+    "question": "What are the key contributions of the 'VidStamp' paper?",
+    "context": "The paper introduces a temporally-aware watermarking framework, a two-stage fine-tuning pipeline, and demonstrates state-of-the-art performance in video quality, robustness, and tamper localization.",
+    "answer": "Key contributions include a temporally-aware watermarking framework for video diffusion models, a two-stage decoder fine-tuning process, and superior performance in quality, robustness, and tamper localization."
+  },
+  {
+    "question": "How does 'VidStamp' leverage temporal modules in video diffusion models?",
+    "context": "VidStamp uses inherent temporally-aware components like 3D convolutions and temporal attention in the decoder to embed watermarks consistently across frames.",
+    "answer": "It exploits 3D convolutions and temporal attention layers in the decoder to embed temporally coherent watermarks across video frames."
+  },
+  {
+    "question": "What is the two-stage fine-tuning strategy used in 'VidStamp'?",
+    "context": "First, the decoder is fine-tuned on static images to promote spatial message separation; second, it is fine-tuned on synthesized videos to restore temporal consistency.",
+    "answer": "The decoder is first fine-tuned on image datasets for spatial watermark separation, then on generated videos to ensure temporal coherence."
+  },
+  {
+    "question": "What watermark capacity does 'VidStamp' achieve per video and per frame?",
+    "context": "VidStamp embeds 768 bits per video, corresponding to 48 bits per frame over 16 frames.",
+    "answer": "It achieves a watermark capacity of 768 bits per video, with 48 bits embedded in each frame."
+  },
+  {
+    "question": "How does 'VidStamp' compare to prior watermarking methods in terms of video quality preservation?",
+    "context": "VidStamp maintains video quality nearly identical to unwatermarked outputs, outperforming post-hoc watermarking methods that degrade quality.",
+    "answer": "VidStamp preserves video quality almost indistinguishable from unwatermarked videos, surpassing prior post-processing watermarking approaches."
+  },
+  {
+    "question": "What metric does 'VidStamp' use to evaluate statistical confidence in watermark detection?",
+    "context": "The paper uses the log P-value metric to measure the statistical confidence that the extracted watermark is not due to chance.",
+    "answer": "VidStamp uses the log P-value metric, with lower values indicating stronger watermark detectability."
+  },
+  {
+    "question": "What robustness does 'VidStamp' demonstrate against common video distortions?",
+    "context": "VidStamp shows strong resilience to distortions like cropping, compression, rotation, brightness, contrast, saturation, and noise.",
+    "answer": "It maintains high watermark extraction accuracy and robustness across a wide range of common video distortions."
+  },
+  {
+    "question": "How does 'VidStamp' enable frame-level tamper localization in videos?",
+    "context": "By embedding distinct messages per frame, VidStamp uses Hamming similarity between decoded messages and template keys to detect and localize tampering.",
+    "answer": "It compares decoded frame messages to original templates using Hamming similarity to detect and localize frame insertions, deletions, or swaps."
+  },
+  {
+    "question": "What design choice in 'VidStamp' avoids additional inference cost during video generation?",
+    "context": "VidStamp embeds watermarks directly into the latent decoding process by fine-tuning the decoder, requiring no extra inference steps.",
+    "answer": "Embedding watermarks via decoder fine-tuning integrates watermarking into generation, incurring no additional inference overhead."
+  },
+  {
+    "question": "What datasets are used in 'VidStamp's two-stage fine-tuning process?",
+    "context": "The COCO image dataset is used for the first stage, and synthesized videos from Stable Video Diffusion are used for the second stage.",
+    "answer": "COCO images for spatial embedding and synthesized videos from Stable Video Diffusion for temporal consistency fine-tuning."
+  },
+  {
+    "question": "How does 'VidStamp' achieve a balance between watermark capacity and visual quality?",
+    "context": "Through a weighted training loss combining message accuracy and perceptual quality, and segment-wise embedding strategies.",
+    "answer": "By optimizing a combined message and perceptual loss and using segment-wise embedding to control capacity without degrading quality."
+  },
+  {
+    "question": "What is the role of the pretrained message extractor in 'VidStamp'?",
+    "context": "A HiDDeN-based extractor decodes embedded watermark messages from generated video frames during training and evaluation.",
+    "answer": "It recovers embedded watermark bits from video frames, supervising the decoder's watermark embedding during training."
+  },
+  {
+    "question": "How does segment-wise embedding in 'VidStamp' improve watermarking efficiency?",
+    "context": "By embedding the same message across fixed-length frame segments, reducing unique message count and simplifying extraction.",
+    "answer": "Segment-wise embedding reduces message overhead and enhances temporal consistency by repeating the same watermark across frame segments."
+  },
+  {
+    "question": "What baseline watermarking methods does 'VidStamp' compare against?",
+    "context": "VidStamp is compared to RivaGAN, VideoSeal, and VideoShield, covering post-hoc and integrated watermarking approaches.",
+    "answer": "It compares with RivaGAN, VideoSeal (post-hoc), and VideoShield (generation-integrated) watermarking methods."
+  },
+  {
+    "question": "What are the main evaluation metrics used in 'VidStamp' experiments?",
+    "context": "Metrics include bit accuracy, log P-value for watermark detectability, and video quality metrics like subject consistency and aesthetic quality.",
+    "answer": "Bit accuracy, log P-value, and multiple video quality metrics such as subject/background consistency, motion smoothness, and aesthetic quality."
+  },
+  {
+    "question": "How does 'VidStamp' perform under aggressive tampering like multiple frame swaps, drops, and insertions?",
+    "context": "VidStamp maintains over 95% localization accuracy even with combined and intensified temporal tampering attacks.",
+    "answer": "It robustly localizes tampered frames with high accuracy despite multiple simultaneous frame swaps, drops, and insertions."
+  },
+  {
+    "question": "What limitations does the 'VidStamp' paper acknowledge about their method?",
+    "context": "Limitations include the need for decoder access, high training cost, and vulnerability to advanced watermark removal attacks.",
+    "answer": "VidStamp requires model decoder access, involves costly two-stage training, and is not yet robust against sophisticated watermark removal."
+  },
+  {
+    "question": "What future work does 'VidStamp' suggest to improve watermark robustness?",
+    "context": "The paper proposes integrating adversarial training and error-correcting codes to resist targeted removal attacks.",
+    "answer": "Future work includes adversarial training and embedding redundancy via error-correcting codes to enhance removal resistance."
+  },
+  {
+    "question": "How does 'VidStamp' embed watermark information without perceptible artifacts?",
+    "context": "It modulates pixel values along high-frequency edges and contours, guided by a perceptual loss to maintain visual fidelity.",
+    "answer": "By subtly altering pixel values near object edges, minimizing visible changes through perceptual loss optimization."
+  },
+  {
+    "question": "What is the significance of using 3D convolutions and temporal attention in 'VidStamp'?",
+    "context": "These modules enable capturing temporal dependencies, ensuring watermark consistency and tamper localization across frames.",
+    "answer": "They allow embedding watermarks that are temporally coherent and enable frame-level tamper detection."
+  },
+  {
+    "question": "Why does 'VidStamp' use a weighted sum of message loss and perceptual loss during training?",
+    "context": "To balance accurate watermark embedding with maintaining high visual quality of generated videos.",
+    "answer": "The weighted loss ensures the model learns to embed watermarks accurately without degrading perceptual video quality."
+  },
+  {
+    "question": "How does 'VidStamp' handle watermark extraction for tamper detection?",
+    "context": "It decodes messages per frame and compares them to known templates using Hamming similarity to identify tampering.",
+    "answer": "By matching decoded frame messages against original keys, it detects and localizes frame insertions, deletions, or swaps."
+  },
+  {
+    "question": "What is the impact of segment size on watermark capacity and robustness in 'VidStamp'?",
+    "context": "Larger segments reduce capacity but increase bit accuracy due to message repetition; robustness remains stable across sizes.",
+    "answer": "Increasing segment size lowers capacity but improves extraction reliability; robustness is consistent across segment sizes."
+  },
+  {
+    "question": "How does 'VidStamp' achieve tamper localization accuracy above 95%?",
+    "context": "By setting a similarity threshold in the decoding algorithm and leveraging temporally-aware watermark embedding.",
+    "answer": "Using a Hamming similarity threshold (e.g., 0.8) on frame-wise decoded messages enables precise tamper localization."
+  },
+  {
+    "question": "What training data is used for the second stage fine-tuning in 'VidStamp'?",
+    "context": "Synthesized videos generated by the same diffusion model are used to adapt the decoder for temporal consistency.",
+    "answer": "Videos generated by Stable Video Diffusion from diverse prompts are used for temporal fine-tuning."
+  },
+  {
+    "question": "Why is post-hoc watermarking less effective than VidStamp's integrated approach?",
+    "context": "Post-hoc methods are vulnerable to removal and degrade video quality, while VidStamp embeds watermarks during generation.",
+    "answer": "Post-hoc watermarking is brittle and can be removed easily; VidStamp's integrated embedding is more robust and preserves quality."
+  },
+  {
+    "question": "How does 'VidStamp' maintain video quality at higher inference resolution than training?",
+    "context": "The decoder is fine-tuned at 256x256 but evaluated at 512x512, showing robustness and generalization to higher resolution.",
+    "answer": "Fine-tuning at lower resolution still enables high-quality watermark embedding when generating higher-resolution videos."
+  },
+  {
+    "question": "What is the role of the Watson-VGG perceptual loss in 'VidStamp' training?",
+    "context": "It compares deep feature activations between original and watermarked frames to preserve semantic and visual quality.",
+    "answer": "The perceptual loss guides the model to minimize visible differences, maintaining high video fidelity."
+  },
+  {
+    "question": "How does 'VidStamp' support flexible watermark capacity control?",
+    "context": "By allowing per-frame or segment-wise watermark embedding, adjusting the number of unique messages embedded.",
+    "answer": "Capacity is controlled by choosing to embed distinct messages per frame or repeated messages per segment."
+  },
+  {
+    "question": "What is the significance of the log P-value of -166.65 achieved by 'VidStamp'?",
+    "context": "This low value indicates high statistical confidence in watermark presence, outperforming prior methods significantly.",
+    "answer": "It reflects strong watermark detectability and robustness, surpassing competing watermarking techniques."
+  },
+  {
+    "question": "How does 'VidStamp' compare with VideoShield in terms of watermark capacity and robustness?",
+    "context": "VidStamp embeds more bits per video and achieves better overall robustness measured by log P-value despite slightly lower bit accuracy.",
+    "answer": "VidStamp offers higher capacity and stronger statistical robustness than VideoShield, with comparable bit accuracy."
+  },
+  {
+    "question": "What are the main types of temporal tampering attacks evaluated in 'VidStamp'?",
+    "context": "Frame drop, frame insertion, and frame swapping attacks, including combinations of these manipulations.",
+    "answer": "The paper evaluates frame deletion, insertion of synthetic frames, and frame order swapping."
+  },
+  {
+    "question": "How does 'VidStamp' detect inserted unauthentic frames during tamper localization?",
+    "context": "Frames with decoded messages below a similarity threshold to any original key are flagged as inserted frames.",
+    "answer": "Inserted frames are identified by low Hamming similarity to all template messages and marked as unauthentic."
+  },
+  {
+    "question": "Why does 'VidStamp' use a pretrained HiDDeN extractor for message decoding?",
+    "context": "HiDDeN provides a robust CNN-based architecture for extracting hidden messages from images and video frames.",
+    "answer": "HiDDeN's extractor reliably decodes embedded watermarks, enabling supervised training of the video decoder."
+  },
+  {
+    "question": "What is the impact of video distortions like cropping and contrast on 'VidStamp' performance?",
+    "context": "VidStamp achieves best or near-best bit accuracy and log P-value under distortions such as cropping and contrast adjustments.",
+    "answer": "It maintains strong watermark extraction accuracy and robustness under these challenging distortions."
+  },
+  {
+    "question": "How does 'VidStamp' handle watermark embedding without modifying the decoder architecture?",
+    "context": "It fine-tunes the existing decoder weights to embed watermarks, leveraging inherent temporal modules without architectural changes.",
+    "answer": "By adjusting decoder parameters during training, it embeds watermarks without altering the model's structure."
+  },
+  {
+    "question": "What video quality metrics are used to assess 'VidStamp' outputs?",
+    "context": "Metrics include subject consistency, background consistency, motion smoothness, aesthetic quality, and imaging quality.",
+    "answer": "VidStamp is evaluated using multiple perceptual and technical video quality metrics to ensure fidelity."
+  },
+  {
+    "question": "How does 'VidStamp' ensure watermark imperceptibility in generated videos?",
+    "context": "Through perceptual loss optimization and embedding in high spatial frequency regions like object edges.",
+    "answer": "It embeds watermarks subtly in edges and contours, guided by perceptual loss to avoid visible artifacts."
+  },
+  {
+    "question": "What is the main advantage of embedding watermarks directly into the latent decoding process, as in 'VidStamp'?",
+    "context": "This approach ensures temporal coherence, high capacity, no inference overhead, and robust tamper localization.",
+    "answer": "Direct embedding yields temporally consistent, high-capacity watermarks without extra computation or post-processing."
+  },
+  {
+    "question": "How does 'VidStamp' balance between watermark capacity and tamper localization precision?",
+    "context": "Per-frame embedding offers high granularity and localization, while segment-wise embedding reduces overhead and maintains consistency.",
+    "answer": "It uses per-frame messages for precise localization and segment-wise embedding to manage capacity and efficiency trade-offs."
+  },
+  {
+    "question": "What is the significance of using COCO dataset images as pseudo-videos in 'VidStamp' training?",
+    "context": "Treating images as independent frames promotes spatial message separability before temporal fine-tuning on videos.",
+    "answer": "It initializes the decoder to embed distinct watermarks per frame by learning spatial separation without temporal cues."
+  },
+  {
+    "question": "How does VidStamp compare to RivaGAN in watermark robustness?",
+    "context": "VidStamp achieves a log P-value of -166.65, substantially lower (better) than RivaGAN’s -9.6, indicating much stronger statistical detectability and robustness against removal or distortion.",
+    "answer": "VidStamp is significantly more robust and statistically detectable than RivaGAN, especially under distortion."
+  },
+  {
+    "question": "What is the main difference between VidStamp and VideoSeal in watermark embedding?",
+    "context": "VidStamp embeds watermarks during video generation by fine-tuning the decoder, while VideoSeal applies watermarks post-hoc after generation using an external neural embedder.",
+    "answer": "VidStamp integrates watermarking at generation time, whereas VideoSeal operates post-hoc after video creation."
+  },
+  {
+    "question": "How does VidStamp's watermark capacity compare to VideoShield?",
+    "context": "VidStamp embeds 768 bits per video, which is higher than VideoShield’s capacity, while maintaining comparable or superior robustness and quality.",
+    "answer": "VidStamp offers higher watermark capacity per video than VideoShield, with similar or better robustness."
+  },
+  {
+    "question": "How does VidStamp’s inference-time overhead compare to RivaGAN and VideoSeal?",
+    "context": "VidStamp introduces no additional inference overhead since watermarks are embedded during generation, unlike RivaGAN and VideoSeal which require post-processing steps.",
+    "answer": "VidStamp has zero inference-time overhead, unlike RivaGAN and VideoSeal which add post-processing costs."
+  },
+  {
+    "question": "In what way does VidStamp outperform post-hoc watermarking methods?",
+    "context": "Post-hoc watermarking methods are more vulnerable to removal and may degrade video quality, while VidStamp’s integrated approach is robust and maintains perceptual quality.",
+    "answer": "VidStamp is more robust to removal and preserves video quality better than post-hoc watermarking methods."
+  },
+  {
+    "question": "How does VidStamp’s tamper localization compare to VideoShield?",
+    "context": "Both methods support frame-level tamper localization, but VidStamp achieves higher localization accuracy, especially under compound attacks.",
+    "answer": "VidStamp provides more accurate frame-level tamper localization than VideoShield, even under aggressive attacks."
+  },
+  {
+    "question": "How does VidStamp handle temporal consistency compared to image-based watermarking?",
+    "context": "Image-based methods applied frame-by-frame cannot capture temporal dependencies, while VidStamp leverages temporally-aware decoders for consistent watermarking.",
+    "answer": "VidStamp ensures temporal consistency by using 3D convolutions and temporal attention, unlike image-based methods."
+  },
+  {
+    "question": "What is a key advantage of VidStamp over classical spatial-domain watermarking?",
+    "context": "Classical spatial-domain techniques are fragile against processing and compression, while VidStamp is robust to common distortions and maintains high perceptual quality.",
+    "answer": "VidStamp is more robust to distortions and preserves quality better than classical spatial-domain watermarking."
+  },
+  {
+    "question": "How does VidStamp compare to transform-domain watermarking methods?",
+    "context": "Transform-domain methods hide information in frequency coefficients for robustness, but VidStamp achieves similar or better robustness by integrating watermarking into the generative process.",
+    "answer": "VidStamp matches or exceeds transform-domain methods in robustness by embedding watermarks during generation."
+  },
+  {
+    "question": "How does VidStamp’s segment-wise embedding compare to per-frame embedding in efficiency?",
+    "context": "Segment-wise embedding in VidStamp reduces the number of unique messages, improving efficiency and extraction reliability for long videos.",
+    "answer": "Segment-wise embedding improves efficiency and reliability over per-frame embedding, especially for longer videos."
+  },
+  {
+    "question": "How does VidStamp’s visual quality preservation compare to previous baselines?",
+    "context": "VidStamp achieves a video quality score of 0.836, nearly identical to unwatermarked outputs and better than all competing methods.",
+    "answer": "VidStamp preserves visual quality better than previous baselines, closely matching unwatermarked video quality."
+  },
+  {
+    "question": "What is the main difference between passive forensic detection and VidStamp’s active watermarking?",
+    "context": "Passive forensics detect artifacts left by generative models, which are often ineffective for modern diffusion models; VidStamp actively embeds robust, detectable watermarks during generation.",
+    "answer": "VidStamp’s active watermarking is more reliable than passive forensics for detecting and verifying generative video content."
+  },
+  {
+    "question": "What are real-world applications of VidStamp’s temporally-aware watermarking?",
+    "context": "VidStamp enables forensic verification, tamper detection, and source attribution for AI-generated video, supporting content authenticity and provenance.",
+    "answer": "VidStamp can be used for authenticating AI-generated videos, forensic analysis, and tracking content provenance."
+  },
+  {
+    "question": "How can VidStamp be used for tamper detection in video content?",
+    "context": "VidStamp embeds unique messages per frame or segment, allowing detection and localization of frame insertions, deletions, or swaps using Hamming similarity.",
+    "answer": "VidStamp detects and localizes tampered frames by comparing decoded messages to original templates."
+  },
+  {
+    "question": "What is required to implement VidStamp in a video diffusion model?",
+    "context": "Implementation requires access to the model decoder for two-stage fine-tuning on image and video datasets, and a pretrained message extractor.",
+    "answer": "VidStamp implementation needs decoder access, two-stage fine-tuning, and a pretrained extractor."
+  },
+  {
+    "question": "What are the main limitations of VidStamp for deployment?",
+    "context": "Limitations include the need for decoder access, higher training cost, and current vulnerability to advanced watermark removal attacks.",
+    "answer": "VidStamp’s deployment is limited by decoder access requirements, training complexity, and removal attack vulnerability."
+  },
+  {
+    "question": "How does VidStamp’s training pipeline affect its scalability?",
+    "context": "VidStamp’s two-stage fine-tuning requires a large collection of images and videos, increasing computational cost compared to post-hoc methods.",
+    "answer": "VidStamp’s training pipeline increases computational cost, which may limit scalability in low-resource settings."
+  },
+  {
+    "question": "What future work is proposed to improve VidStamp’s robustness?",
+    "context": "Future work includes integrating adversarial training and error-correcting codes to resist targeted watermark removal.",
+    "answer": "Adversarial training and error-correcting codes are proposed to enhance VidStamp’s robustness."
+  },
+  {
+    "question": "How can VidStamp be adapted for long-form or high-resolution video generation?",
+    "context": "Segment-wise embedding allows flexible control over watermark capacity, making VidStamp suitable for long-form or high-resolution content.",
+    "answer": "VidStamp’s segment-wise embedding supports scalable watermarking for long or high-resolution videos."
+  },
+  {
+    "question": "What is the impact of segment size on VidStamp’s performance?",
+    "context": "Larger segment sizes reduce watermark capacity but improve extraction reliability; video quality remains stable across segment sizes.",
+    "answer": "Increasing segment size improves extraction reliability but lowers capacity, with minimal quality impact."
+  },
+  {
+    "question": "How can VidStamp be used for forensic verification of AI-generated videos?",
+    "context": "VidStamp’s embedded watermarks can be extracted and compared to known templates for forensic verification and source attribution.",
+    "answer": "VidStamp enables forensic verification by extracting and matching embedded watermarks in generated videos."
+  },
+  {
+    "question": "What is required to extract watermarks from videos generated by VidStamp?",
+    "context": "A pretrained message extractor, such as HiDDeN, is used to decode embedded messages from each frame or segment.",
+    "answer": "Watermark extraction requires a pretrained extractor to decode messages from video frames."
+  },
+  {
+    "question": "How does VidStamp maintain imperceptibility of watermarks in generated videos?",
+    "context": "VidStamp uses perceptual loss and embeds watermarks in high-frequency regions, ensuring changes are visually imperceptible.",
+    "answer": "Perceptual loss and strategic embedding keep VidStamp’s watermarks invisible to viewers."
+  },
+  {
+    "question": "How can VidStamp’s parameters be tuned for different applications?",
+    "context": "Parameters like segment size, message length, and loss weighting can be adjusted to balance capacity, robustness, and quality.",
+    "answer": "VidStamp’s segment size and loss weights can be tuned for application-specific trade-offs."
+  },
+  {
+    "question": "What are the main steps to train VidStamp for a new video diffusion model?",
+    "context": "First, fine-tune the decoder on images for spatial embedding; second, fine-tune on videos for temporal consistency; supervise with a pretrained extractor.",
+    "answer": "Train VidStamp by sequentially fine-tuning the decoder on images and videos with extractor supervision."
+  },
+  {
+    "question": "What are some potential limitations of VidStamp under adversarial attacks?",
+    "context": "VidStamp has not been thoroughly tested against advanced removal attacks like GAN-based re-synthesis or targeted filtering.",
+    "answer": "VidStamp may be vulnerable to sophisticated adversarial attacks not covered in current experiments."
+  },
+  {
+    "question": "How does VidStamp support ownership verification for generative video content?",
+    "context": "VidStamp embeds unique, recoverable messages per video or frame, enabling reliable ownership verification.",
+    "answer": "VidStamp’s embedded messages allow for reliable ownership verification of AI-generated videos."
+  },
+  {
+    "question": "What is the impact of VidStamp on video generation speed?",
+    "context": "VidStamp does not add any inference-time overhead since watermarking is integrated into the generation process.",
+    "answer": "VidStamp does not affect video generation speed, as watermarking is performed during generation."
+  },
+  {
+    "question": "What is the main advantage of VidStamp’s frame-level message embedding?",
+    "context": "Frame-level embedding allows precise detection and localization of temporal tampering such as frame swaps or insertions.",
+    "answer": "Frame-level embedding enables accurate localization of tampered frames in videos."
+  },
+  {
+    "question": "How does VidStamp compare to audio watermarking techniques?",
+    "context": "VidStamp is designed for video diffusion models and does not address audio watermarking methods.",
+    "answer": "The context does not provide information about audio watermarking, so a comparison cannot be made."
+  },
+  {
+    "question": "Does VidStamp require access to proprietary video generation APIs?",
+    "context": "VidStamp requires access to the model decoder for fine-tuning, but the context does not mention proprietary APIs.",
+    "answer": "The context does not specify requirements for proprietary APIs, so this cannot be answered."
+  },
+  {
+    "question": "Can VidStamp be applied to real-time video streaming scenarios?",
+    "context": "VidStamp is evaluated on generated videos from diffusion models, with no discussion of real-time streaming.",
+    "answer": "The context does not address real-time streaming, so applicability to that scenario is unknown."
+  },
+  {
+    "question": "What are the environmental impacts of training VidStamp?",
+    "context": "The context discusses training costs but does not mention environmental impacts.",
+    "answer": "The context does not provide information about environmental impacts of training VidStamp."
+  },
+  {
+    "question": "How does VidStamp perform on 3D video or multi-view video data?",
+    "context": "The context mentions possible future work on multi-view video but provides no current results.",
+    "answer": "The context does not include results for 3D or multi-view video, so performance is unknown."
+  },
+  {
+    "question": "Does VidStamp support watermarking for live camera feeds?",
+    "context": "VidStamp is designed for generative video diffusion models, not live camera feeds.",
+    "answer": "The context does not address live camera feeds, so support for this use case is unclear."
+  }
+]

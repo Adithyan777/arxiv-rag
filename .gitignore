@@ -6,13 +6,16 @@ dist/
 wheels/
 *.egg-info
 
+# macos
+.DS_Store
+
+# .ENV FILES
+.env
+
 # Virtual environments
 .venv
 
 # Downloaded papers
-papers/
+data/papers-pdf
 
 # incomplete datasets
-datasets/
-final_datasets/
-.env

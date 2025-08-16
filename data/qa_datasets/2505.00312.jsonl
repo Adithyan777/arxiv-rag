@@ -1,0 +1,367 @@
+[
+  {
+    "question": "What problem does the AWARE-NET paper by Muhammad Salman et al. address?",
+    "context": "Deepfake detection has become increasingly important due to the rise of synthetic media, which poses significant risks to digital identity and cyber presence for security and trust. While multiple approaches have improved detection accuracy, challenges remain in achieving consistent performance across diverse datasets and manipulation types. In response, we propose a novel two-tier ensemble framework for deepfake detection based on deep learning that hierarchically combines multiple instances of three state-of-the-art architectures Xception, Res2Net101, and EfficientNet-B7.",
+    "answer": "AWARE-NET addresses the challenge of robust deepfake detection across diverse datasets and manipulation types."
+  },
+  {
+    "question": "What is the main contribution of AWARE-NET in deepfake detection?",
+    "context": "Our work makes several significant contributions to the field of deepfake detection and are summarized as follows - We propose AWARE-NET, a unique ensemble framework that combines three state-of-the-art architectures through a two-tier fusion strategy, leveraging multiple instances per architecture and introducing learnable weighting mechanism for optimal architecture fusion.",
+    "answer": "AWARE-NET introduces a two-tier ensemble framework with learnable weighting for optimal architecture fusion."
+  },
+  {
+    "question": "Which architectures are combined in the AWARE-NET ensemble framework?",
+    "context": "Our framework employs a unique approach where each architecture is instantiated three times with different initializations to enhance model diversity, followed by a learnable weighting mechanism that dynamically combines their predictions. Unlike traditional fixed-weight ensembles, our first-tier averages predictions within each architecture family to reduce model variance, while the second tier learns optimal contribution weights through backpropagation, automatically adjusting each architectures influence based on their detection reliability.",
+    "answer": "AWARE-NET combines Xception, Res2Net101, and EfficientNet-B7 architectures."
+  },
+  {
+    "question": "How does AWARE-NET differ from traditional ensemble methods?",
+    "context": "Unlike traditional ensemble with fixed weights, we introduce a novel adaptive weighting mechanism that automatically learns the optimal contribution of each architecture during training, enabling model to dynamically adapt to each architectures strength.",
+    "answer": "AWARE-NET uses adaptive, learnable weights instead of fixed weights for combining model predictions."
+  },
+  {
+    "question": "What is the purpose of using multiple instances per architecture in AWARE-NET?",
+    "context": "We implement a systematic approach to model diversity by maintaining three independent instances of each architecture with different initializations, combined with averaging mechanism to reduce variance and enhance prediction stability.",
+    "answer": "Multiple instances per architecture increase model diversity and reduce prediction variance."
+  },
+  {
+    "question": "What datasets are used to evaluate AWARE-NET?",
+    "context": "In this study, we adopted FaceForensics and CelebDF-v2 for training and evaluation of our approach. FaceForensics is an extensive manipulative videos database... The other dataset used in our study is CelebDF-v2. It consists of 5639 fake videos and 890 real videos sourced from paid actors and youtube as well.",
+    "answer": "AWARE-NET is evaluated on FaceForensics and CelebDF-v2 datasets."
+  },
+  {
+    "question": "What intra-dataset AUC scores does AWARE-NET achieve without augmentation?",
+    "context": "Without augmentation, our framework achieves superior AUC scores of 99.22 on FF and 100.00 on CelebDF-v2, surpassing the best individual model performances Xception 98.90 and 100.00 respectively.",
+    "answer": "AWARE-NET achieves AUC scores of 99.22 on FF and 100.00 on CelebDF-v2 without augmentation."
+  },
+  {
+    "question": "How does AWARE-NET perform in cross-dataset generalization compared to individual models?",
+    "context": "Without augmentation, our framework achieves remarkable improvements in generalization - FF to CelebDF-v2 AWARE-NET achieves an AUC of 88.20 and F1 score of 93.16, substantially outperforming individual architectures best individual AUC 30.31 by EfficientNetB7.",
+    "answer": "AWARE-NET significantly outperforms individual models in cross-dataset generalization, achieving much higher AUC and F1 scores."
+  },
+  {
+    "question": "What is the two-tier fusion strategy in AWARE-NET?",
+    "context": "We propose AWARE-NET, a two-tier framework that combines intra-architecture averaging for stability and inter-architecture learnable weights for optimal fusion, automatically discovering each architectures importance during training.",
+    "answer": "The two-tier fusion strategy averages predictions within architectures and uses learnable weights for inter-architecture fusion."
+  },
+  {
+    "question": "What are the key strengths of the architectures used in AWARE-NET?",
+    "context": "Each architecture brings unique strengths to the ensemble. Xception leverages depthwise separable convolutions that efficiently process cross-channel correlations... Res2Net101 implements a multi-scale feature extraction approach... EfficientNet-B7 utilizes compound scaling to optimally balance network depth, width and resolution.",
+    "answer": "Xception captures local artifacts, Res2Net101 extracts multi-scale features, and EfficientNet-B7 balances depth, width, and resolution."
+  },
+  {
+    "question": "How does AWARE-NET handle data augmentation?",
+    "context": "We create 30 augmented images for training by applying various augmentations to the dataset, including 15-degree rotations, 10-degree shears, flips, skewing, and jittering on the cropped face images.",
+    "answer": "AWARE-NET uses extensive data augmentation, including rotations, shears, flips, and jittering."
+  },
+  {
+    "question": "What optimizer and scheduler are used in AWARE-NET training?",
+    "context": "In Phase 1, we independently train each base model Xception, Res2Net101, EfficientNet-B7 using AdamW optimizer l1 e-4, weightdecay 1 e-5 and cosine annealing scheduler with warm restarts T03 epochs.",
+    "answer": "AWARE-NET uses the AdamW optimizer and a cosine annealing scheduler with warm restarts."
+  },
+  {
+    "question": "What is the input image size processed by AWARE-NET?",
+    "context": "The framework processes 224 224 RGB images and includes standard normalization mean 0.485,0.456,0.406, std 0.229,0.224,0.225.",
+    "answer": "AWARE-NET processes 224x224 RGB images."
+  },
+  {
+    "question": "What performance improvements does AWARE-NET show over the best individual model?",
+    "context": "AWARE-NET achieves superior performance with AUC improvements of 0.32 and F1 score improvements of 0.06 on FF compared to the best individual model, demonstrating the effectiveness of our two-tier fusion strategy.",
+    "answer": "AWARE-NET improves AUC by 0.32 and F1 score by 0.06 over the best individual model on FF."
+  },
+  {
+    "question": "What is the main limitation of current augmentation strategies in cross-dataset scenarios for AWARE-NET?",
+    "context": "However, we observe that augmentation in cross-dataset scenarios doesnt consistently improve performance. As shown in Table 4, the AUC scores slightly decrease with augmentation in cross-dataset evaluation FF to CelebDFv2 69.66 vs. 72.52 without augmentation. This suggests that domain-specific augmentation strategies might be needed for better cross-dataset generalization.",
+    "answer": "Current augmentation strategies may reduce cross-dataset performance; domain-specific augmentation is needed."
+  },
+  {
+    "question": "How does AWARE-NET optimize architecture weights during training?",
+    "context": "The second tier implements an adaptive weighting mechanism between architectures using a learnable parameter vector w w1, w2, w3... The weights undergo softmax normalization to ensure interpretability and proper scaling... During training, the model learns both the individual model parameters and the optimal architecture weights w through end-to-end backpropagation.",
+    "answer": "AWARE-NET learns architecture weights via softmax-normalized parameters updated through backpropagation."
+  },
+  {
+    "question": "What is the role of softmax normalization in AWARE-NET?",
+    "context": "The weights undergo softmax normalization to ensure interpretability and proper scaling, using equation 6. softmaxwew1z, ew2z, ew3z where Zi ewi is the normalization factor. This softmax normalization ensures Non-negativity i0 for all i Sum-to-one constraint i1 Interpretability Each i represents the relative importance of architecture i",
+    "answer": "Softmax normalization ensures weights are non-negative, sum to one, and represent architecture importance."
+  },
+  {
+    "question": "What preprocessing steps are used before training AWARE-NET?",
+    "context": "We first start our preprocessing pipeline by extracting frames from the video dataset and using dlib for face detection and processing the facial landmarks. 32 frames from real videos and 16 from fake videos were extracted and the dynamic frame sampling rate was adopted.",
+    "answer": "Frames are extracted, faces detected with dlib, and dynamic frame sampling is used for preprocessing."
+  },
+  {
+    "question": "How does AWARE-NET achieve interpretability in architecture contributions?",
+    "context": "We develop a fully differentiable end-to-end framework that jointly optimizes model parameters and architectural weights while providing interpretable insights into architecture contributions through learned weights.",
+    "answer": "AWARE-NET provides interpretability via learned, softmax-normalized weights indicating each architecture's contribution."
+  },
+  {
+    "question": "What future research directions are suggested by the AWARE-NET authors?",
+    "context": "Several promising directions emerge for future research. First, evaluating the framework on additional datasets like DFDC, and WildDeepfake would further validate its generalization capabilities across diverse manipulation techniques and quality levels. Comprehensive ablation studies on different model combinations and investigation of more sophisticated weight adaptation mechanisms could optimize the ensembles performance.",
+    "answer": "Future work includes testing on more datasets, ablation studies, and improved weight adaptation mechanisms."
+  },
+  {
+    "question": "How does the intra-architecture ensemble work in AWARE-NET?",
+    "context": "At the first level of our ensemble, we employ model-level fusion within each architecture family. For each architecture A Xception, Res2Net101,EfficientNetB7, we maintain three independent instances M1A, M2A, M3A with different initializations... The architecture-specific prediction pAx is then computed as the arithmetic means of its instance outputs.",
+    "answer": "AWARE-NET averages predictions from three independently initialized instances within each architecture."
+  },
+  {
+    "question": "How are the architecture-specific predictions combined in AWARE-NET?",
+    "context": "The final ensemble prediction yx is computed as the weighted sum, as in equation 7 yxi i pix, i 1,2,3 ...",
+    "answer": "Architecture-specific predictions are combined using a weighted sum with learnable weights."
+  },
+  {
+    "question": "Why were Xception, Res2Net101, and EfficientNet-B7 chosen for AWARE-NET?",
+    "context": "The foundation of our framework lies in the careful selection and implementation of three complementary deep learning architectures. Each architecture brings unique strengths to the ensemble.",
+    "answer": "They were chosen for their complementary strengths in capturing diverse deepfake artifacts."
+  },
+  {
+    "question": "What is the batch size and early stopping criterion in AWARE-NET training?",
+    "context": "We employ mixed-precision training with gradient accumulation steps 2 and a batch size of 32. Early stopping monitors validation loss with a patience of 7 epochs and a minimum delta of 0.001 , requiring at least 10 epochs before stopping.",
+    "answer": "Batch size is 32; early stopping uses 7-epoch patience and 0.001 minimum delta, minimum 10 epochs."
+  },
+  {
+    "question": "How does AWARE-NET handle model diversity?",
+    "context": "We implement a systematic approach to model diversity by maintaining three independent instances of each architecture with different initializations, combined with averaging mechanism to reduce variance and enhance prediction stability.",
+    "answer": "Model diversity is achieved by using three differently initialized instances per architecture."
+  },
+  {
+    "question": "What loss function does AWARE-NET use during training?",
+    "context": "Training uses cross-entropy loss and maintains the best model based on validation performance.",
+    "answer": "AWARE-NET uses cross-entropy loss for training."
+  },
+  {
+    "question": "How are augmentations applied in the AWARE-NET pipeline?",
+    "context": "We create 30 augmented images for training by applying various augmentations to the dataset, including 15-degree rotations, 10-degree shears, flips, skewing, and jittering on the cropped face images. Weve used augmenter for image augmentation pipeline.",
+    "answer": "Augmentations include rotations, shears, flips, skewing, and jittering using the augmenter library."
+  },
+  {
+    "question": "What is the main advantage of AWARE-NET's two-tier approach?",
+    "context": "The two-tier fusion strategy, combining intra-architecture averaging with learnable interarchitecture weights, proves effective in dynamically optimizing model contributions while reducing prediction variance.",
+    "answer": "It dynamically optimizes model contributions and reduces prediction variance."
+  },
+  {
+    "question": "How does AWARE-NET's adaptive weighting mechanism work?",
+    "context": "The second tier implements an adaptive weighting mechanism between architectures using a learnable parameter vector w w1, w2, w3... The weights undergo softmax normalization... During training, the model learns both the individual model parameters and the optimal architecture weights w through end-to-end backpropagation.",
+    "answer": "It learns architecture weights via softmax normalization and updates them through backpropagation."
+  },
+  {
+    "question": "What is the role of dlib in AWARE-NET's preprocessing?",
+    "context": "We first start our preprocessing pipeline by extracting frames from the video dataset and using dlib for face detection and processing the facial landmarks.",
+    "answer": "dlib is used for face detection and landmark processing in preprocessing."
+  },
+  {
+    "question": "How does AWARE-NET ensure robust generalization across datasets?",
+    "context": "The frameworks ability to maintain high performance across different datasets and its robust generalization capabilities make it a promising solution for real-world deepfake detection applications.",
+    "answer": "AWARE-NET uses diverse architectures and adaptive fusion to generalize robustly across datasets."
+  },
+  {
+    "question": "What is the impact of data augmentation on AWARE-NET's intra-dataset performance?",
+    "context": "With augmentation, we achieve AUC scores of 99.47 FF and 100.00 CelebDF-v 2, and F1 scores of 98.43 FF and 99.95 CelebDF-v 2. The framework demonstrates robust cross-dataset generalization...",
+    "answer": "Data augmentation further improves intra-dataset AUC and F1 scores for AWARE-NET."
+  },
+  {
+    "question": "What are the main challenges in deepfake detection addressed by AWARE-NET?",
+    "context": "While multiple approaches have improved detection accuracy, challenges remain in achieving consistent performance across diverse datasets and manipulation types.",
+    "answer": "AWARE-NET addresses the challenge of consistent performance across diverse datasets and manipulation types."
+  },
+  {
+    "question": "How does AWARE-NET handle evaluation and model selection?",
+    "context": "Training uses cross-entropy loss and maintains the best model based on validation performance.",
+    "answer": "AWARE-NET selects the best model based on validation performance during training."
+  },
+  {
+    "question": "What is the main finding regarding augmentation in cross-dataset scenarios for AWARE-NET?",
+    "context": "However, we observe that augmentation in cross-dataset scenarios doesnt consistently improve performance... This suggests that domain-specific augmentation strategies might be needed for better cross-dataset generalization.",
+    "answer": "Augmentation may not improve and can even reduce cross-dataset performance; domain-specific methods are needed."
+  },
+  {
+    "question": "How does AWARE-NET achieve end-to-end differentiability?",
+    "context": "We develop a fully differentiable end-to-end framework that jointly optimizes model parameters and architectural weights while providing interpretable insights into architecture contributions through learned weights.",
+    "answer": "AWARE-NET is fully differentiable, jointly optimizing model and architecture weights."
+  },
+  {
+    "question": "What is the effect of model diversity on AWARE-NET's performance?",
+    "context": "Diverse Feature Learning Multiple instances of each architecture capture different aspects of deepfake artifacts Adaptive Fusion The learnable weights mechanism adjusts architecture contributions based on their reliability for different types of manipulations",
+    "answer": "Model diversity allows AWARE-NET to capture varied deepfake artifacts, improving robustness."
+  },
+  {
+    "question": "How does the adaptive weighting mechanism in AWARE-NET improve robustness?",
+    "context": "Adaptive Weight Learning The learnable weights mechanism automatically discovers optimal architecture combinations, leading to more robust predictions than any single architecture.",
+    "answer": "It enables the model to emphasize the most reliable architectures for each scenario, improving robustness."
+  },
+  {
+    "question": "What is the role of the centralized configuration file in AWARE-NET?",
+    "context": "All hyperparameters are managed through a centralized configuration file, enabling easy experimentation.",
+    "answer": "The centralized configuration file manages hyperparameters for easy experimentation."
+  },
+  {
+    "question": "How are final predictions generated in AWARE-NET?",
+    "context": "The final ensemble prediction yx is computed as the weighted sum, as in equation 7 yxi i pix, i 1,2,3 ...",
+    "answer": "Final predictions are a weighted sum of architecture-specific outputs."
+  },
+  {
+    "question": "How does AWARE-NET compare to Atas and Karakose’s hybrid ensemble method?",
+    "context": "Atas and Karakose proposed a hybrid approach combining deep convolutional neural networks D-CNN with statistical models such as Support Vector Machine SVM, Random Forest, and Logistic Regression 15. While this approach demonstrated the advantages of combining multiple learning strategies, its reliance on fixed model architectures limits adaptation to evolving deepfake techniques... We propose AWARE-NET, a two-tier framework that combines intra-architecture averaging for stability and inter-architecture learnable weights for optimal fusion, automatically discovering each architectures importance during training.",
+    "answer": "AWARE-NET uses adaptive, learnable weights for fusion, allowing better adaptation than Atas and Karakose’s fixed-architecture ensemble."
+  },
+  {
+    "question": "What advantage does AWARE-NET have over Manju and Kalarani’s DenseNet-XGBoost method?",
+    "context": "Manju and Kalarani introduced a more flexible solution utilizing DenseNet and XGBoost 16, though it still faces challenges in generalizing across different types of deepfake manipulations... We propose AWARE-NET, a two-tier framework that combines intra-architecture averaging for stability and inter-architecture learnable weights for optimal fusion, automatically discovering each architectures importance during training.",
+    "answer": "AWARE-NET offers improved generalization across manipulation types via adaptive weighting, unlike DenseNet-XGBoost."
+  },
+  {
+    "question": "How does AWARE-NET address computational cost compared to Bakliwal et al.’s 2D/3D CNN ensemble?",
+    "context": "Bakliwal et al. proposed combining 2D and 3D convolutional neural networks CNNs to capture both spatial features and temporal dynamics 17. While effective, this methods high computational costs limit its real-time applications. Minhas et al. addressed this limitation by leveraging EfficientNetB0 18, providing a more computationally efficient solution, though with limited temporal feature analysis.",
+    "answer": "AWARE-NET leverages EfficientNet-B7 for efficient feature extraction, reducing computational cost compared to 2D/3D CNN ensembles."
+  },
+  {
+    "question": "What is the difference between AWARE-NET and Khan and DangNguyen’s hybrid transformer model?",
+    "context": "Khan and DangNguyen further improved upon these approaches by introducing a hybrid transformer model 19 that integrates CNNs for spatial feature extraction with transformers for global temporal dependencies, though generalization across newer deepfake techniques remains challenging...",
+    "answer": "AWARE-NET focuses on diverse CNN architectures and adaptive fusion, while the hybrid transformer model integrates CNNs and transformers."
+  },
+  {
+    "question": "How does AWARE-NET’s adaptability compare to Gao et al.’s incremental learning approach?",
+    "context": "Gao et al. presented an incremental learning approach using adapter-based modules 20 to prevent catastrophic forgetting, enabling dynamic adaptation to new data. However, this approach faces challenges with model complexity and computational demands.",
+    "answer": "AWARE-NET adapts via learnable weights with lower complexity, while Gao et al.'s method uses adapters with higher computational demands."
+  },
+  {
+    "question": "How does AWARE-NET improve on SIGMA-DF’s generalization?",
+    "context": "Han et al. proposed SIGMA-DF 21, a meta-learning framework that optimizes intra-class and inter-class distances for improved generalization, though class imbalance issues persist, affecting model sensitivity across different deepfake types.",
+    "answer": "AWARE-NET achieves robust generalization using architectural diversity and adaptive weighting, addressing class imbalance more effectively than SIGMA-DF."
+  },
+  {
+    "question": "How does AWARE-NET address adversarial attacks compared to Guan et al.’s ensemble?",
+    "context": "Guan et al. developed ensemble techniques to defend against adversarial perturbations 22, highlighting the vulnerability of current detection models. While this improved attack resilience...",
+    "answer": "AWARE-NET focuses on robust generalization and adaptive fusion, while Guan et al. target adversarial robustness with ensemble perturbations."
+  },
+  {
+    "question": "How does AWARE-NET differ from DeepfakeStack’s ensemble approach?",
+    "context": "Rana and Sung took a different approach with DeepfakeStack 23, combining multiple state-of-the-art models to enhance detection accuracy, though without explicit adversarial attack protection.",
+    "answer": "AWARE-NET uses adaptive, learnable weights for model fusion, while DeepfakeStack combines models without explicit weighting."
+  },
+  {
+    "question": "How does AWARE-NET compare to Ha et al.’s ViT-CNN ensemble?",
+    "context": "Ha et al. addressed this by integrating Vision Transformers ViT with CNN models 24, improving performance on low-quality and side-face manipulations.",
+    "answer": "AWARE-NET uses only CNN-based architectures with adaptive fusion, while Ha et al. combine ViT and CNN for specific manipulation types."
+  },
+  {
+    "question": "What is AWARE-NET’s advantage over Cozzolino et al.’s identity-aware learning?",
+    "context": "Cozzolino et al. focused on identity-aware learning 25, utilizing 3D Morphable Models 3DMM for facial motion analysis, though limitations persist in detecting subtle manipulations beyond facial motion.",
+    "answer": "AWARE-NET detects a broader range of manipulation artifacts by leveraging diverse CNN features, not just facial motion."
+  },
+  {
+    "question": "How does AWARE-NET outperform individual models like Xception or EfficientNet-B7?",
+    "context": "AWARE-NET consistently outperforms individual architectures across all metrics in intra-dataset evaluations. Without augmentation, our framework achieves superior AUC scores of 99.22 on FF and 100.00 on CelebDF-v2, surpassing the best individual model performances Xception 98.90 and 100.00 respectively.",
+    "answer": "AWARE-NET achieves higher AUC and F1 scores than individual models by combining their strengths adaptively."
+  },
+  {
+    "question": "How does AWARE-NET’s two-tier fusion compare to traditional fixed-weight ensembles?",
+    "context": "Unlike traditional fixed-weight ensembles, our first-tier averages predictions within each architecture family to reduce model variance, while the second tier learns optimal contribution weights through backpropagation, automatically adjusting each architectures influence based on their detection reliability.",
+    "answer": "AWARE-NET adaptively learns fusion weights, outperforming fixed-weight ensembles in robustness and accuracy."
+  },
+  {
+    "question": "What are the real-world applications of AWARE-NET for digital identity protection?",
+    "context": "Deepfake detection has become increasingly important due to the rise of synthetic media, which poses significant risks to digital identity and cyber presence for security and trust.",
+    "answer": "AWARE-NET can be used to protect digital identities by detecting manipulated media in security-sensitive environments."
+  },
+  {
+    "question": "How can AWARE-NET be applied in the entertainment industry?",
+    "context": "On the one hand, it offers significant benefits specifically in marketing and entertainment, where it can lower production costs and enhance creative expressions. For instance, deepfakes enable brands to produce customized advertising campaigns using the existing footages of actors without a need of reshoot saving potential resources. Deepfake technology is being widely used by the filmmakers and animation specialists for aging and deaging actors with VFX and CGI techniques and bring back the... aged or dead actors to life with actor doubles 8, 9.",
+    "answer": "AWARE-NET can verify authenticity in entertainment content, helping prevent misuse of deepfake technology in media production."
+  },
+  {
+    "question": "How does AWARE-NET contribute to political campaign integrity?",
+    "context": "Political prisoners are also spotlighting the potential use of AI and deepfake technology. One such use was made by the former Prime Minister of Pakistan Imran Khan, who has been imprisoned since August 2023, during a campaign rally held online urging his supporters to vote his party in large numbers 10.",
+    "answer": "AWARE-NET can help verify the authenticity of political campaign videos, reducing disinformation risks."
+  },
+  {
+    "question": "What are the limitations of AWARE-NET’s augmentation strategy in cross-dataset scenarios?",
+    "context": "However, we observe that augmentation in cross-dataset scenarios doesnt consistently improve performance. As shown in Table 4, the AUC scores slightly decrease with augmentation in cross-dataset evaluation FF to CelebDFv2 69.66 vs. 72.52 without augmentation. This suggests that domain-specific augmentation strategies might be needed for better cross-dataset generalization.",
+    "answer": "AWARE-NET's generic augmentation may reduce cross-dataset performance; domain-specific strategies are needed."
+  },
+  {
+    "question": "What future datasets are suggested for evaluating AWARE-NET?",
+    "context": "Several promising directions emerge for future research. First, evaluating the framework on additional datasets like DFDC, and WildDeepfake would further validate its generalization capabilities across diverse manipulation techniques and quality levels.",
+    "answer": "Future evaluation on DFDC and WildDeepfake datasets is suggested to test AWARE-NET's generalization."
+  },
+  {
+    "question": "What are the main implementation steps for using AWARE-NET?",
+    "context": "Our implementation follows a two-phase training strategy using PyTorch and timm 37 library for model architectures. In Phase 1, we independently train each base model Xception, Res2Net101, EfficientNet-B7 using AdamW optimizer l1 e-4, weightdecay 1 e-5 and cosine annealing scheduler with warm restarts T03 epochs. In Phase 2, we freeze the pre-trained base models and construct our ensemble with weights initialized uniformly w1 3,1 3,1 3 .",
+    "answer": "Train base models, freeze them, then train the ensemble with learnable weights using PyTorch and timm."
+  },
+  {
+    "question": "How can practitioners experiment with AWARE-NET’s hyperparameters?",
+    "context": "All hyperparameters are managed through a centralized configuration file, enabling easy experimentation.",
+    "answer": "AWARE-NET's hyperparameters can be easily adjusted via a centralized configuration file."
+  },
+  {
+    "question": "What is the recommended input preprocessing for AWARE-NET?",
+    "context": "The framework processes 224 224 RGB images and includes standard normalization mean 0.485,0.456,0.406, std 0.229,0.224,0.225 .",
+    "answer": "Input images should be 224x224 RGB, normalized with specified mean and std values."
+  },
+  {
+    "question": "How does AWARE-NET support mixed-precision training?",
+    "context": "We employ mixed-precision training with gradient accumulation steps 2 and a batch size of 32.",
+    "answer": "AWARE-NET supports mixed-precision training for efficient resource usage and faster training."
+  },
+  {
+    "question": "What are the main limitations of AWARE-NET identified by the authors?",
+    "context": "However, we observe that augmentation in cross-dataset scenarios doesnt consistently improve performance... This suggests that domain-specific augmentation strategies might be needed for better cross-dataset generalization.",
+    "answer": "AWARE-NET's main limitation is reduced cross-dataset performance with generic augmentation."
+  },
+  {
+    "question": "What is the real-world significance of AWARE-NET’s robust generalization?",
+    "context": "The frameworks ability to maintain high performance across different datasets and its robust generalization capabilities make it a promising solution for real-world deepfake detection applications.",
+    "answer": "AWARE-NET's robust generalization makes it suitable for deployment in diverse, real-world media verification scenarios."
+  },
+  {
+    "question": "How can AWARE-NET be integrated into existing digital forensics pipelines?",
+    "context": "The frameworks ability to maintain high performance across different datasets and its robust generalization capabilities make it a promising solution for real-world deepfake detection applications.",
+    "answer": "AWARE-NET can be integrated as a verification module in digital forensics pipelines for media authenticity checks."
+  },
+  {
+    "question": "What is the recommended batch size and early stopping for AWARE-NET?",
+    "context": "We employ mixed-precision training with gradient accumulation steps 2 and a batch size of 32. Early stopping monitors validation loss with a patience of 7 epochs and a minimum delta of 0.001 , requiring at least 10 epochs before stopping.",
+    "answer": "Recommended batch size is 32; early stopping uses 7-epoch patience and 0.001 delta."
+  },
+  {
+    "question": "How does AWARE-NET’s learnable weighting mechanism work in practice?",
+    "context": "The second tier implements an adaptive weighting mechanism between architectures using a learnable parameter vector w w1, w2, w3. This approach differs from traditional fixedweight ensembles by allowing the model to automatically discover the optimal architecture contributions through end-toend training.",
+    "answer": "Learnable weights are updated via backpropagation to optimize architecture contributions during training."
+  },
+  {
+    "question": "How can AWARE-NET be retrained for new deepfake manipulation types?",
+    "context": "As deepfake generation techniques evolve, model adaptability has become crucial.",
+    "answer": "AWARE-NET can be retrained on new datasets, leveraging its adaptive weighting to handle new manipulation types."
+  },
+  {
+    "question": "How does AWARE-NET handle class imbalance during training?",
+    "context": "Han et al. proposed SIGMA-DF 21, a meta-learning framework that optimizes intra-class and inter-class distances for improved generalization, though class imbalance issues persist, affecting model sensitivity across different deepfake types.",
+    "answer": "The context does not specify how AWARE-NET handles class imbalance during training."
+  },
+  {
+    "question": "Does AWARE-NET use transformer-based architectures for fusion?",
+    "context": "The foundation of our framework lies in the careful selection and implementation of three complementary deep learning architectures. Each architecture brings unique strengths to the ensemble. Xception leverages depthwise separable convolutions... Res2Net101 implements a multi-scale feature extraction... EfficientNet-B7 utilizes compound scaling...",
+    "answer": "The context does not mention the use of transformer-based architectures in AWARE-NET."
+  },
+  {
+    "question": "What are the hardware requirements for deploying AWARE-NET in production?",
+    "context": "32 frames from real videos and 16 from fake videos were extracted and the dynamic frame sampling rate was adopted. We create 30 augmented images for training by applying various augmentations to the dataset...",
+    "answer": "The context does not provide information about hardware requirements for AWARE-NET deployment."
+  },
+  {
+    "question": "Does AWARE-NET address watermarking or media provenance?",
+    "context": "Deepfake detection has become increasingly important due to the rise of synthetic media, which poses significant risks to digital identity and cyber presence for security and trust.",
+    "answer": "The context does not discuss watermarking or media provenance in relation to AWARE-NET."
+  },
+  {
+    "question": "How does AWARE-NET perform on audio deepfake detection tasks?",
+    "context": "In this study, we adopted FaceForensics and CelebDF-v2 31, 32 for training and evaluation of our approach. FaceForensics is an extensive manipulative videos database containing both real and manipulated videos.",
+    "answer": "The context only covers video/image deepfakes, not audio deepfake detection."
+  },
+  {
+    "question": "Does AWARE-NET provide explainable AI outputs for end-users?",
+    "context": "The final ensemble prediction yx is computed as the weighted sum, as in equation 7 yxi i pix, i 1,2,3 ...",
+    "answer": "The context does not mention explainable AI outputs for end-users in AWARE-NET."
+  }
+]

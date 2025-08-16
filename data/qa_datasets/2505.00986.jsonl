@@ -1,0 +1,372 @@
+[
+  {
+    "question": "What problem does the OD-TTA paper by Xiao Ma et al. address?",
+    "context": "Continual Test-time adaptation CTTA continuously adapts the deployed model on every incoming batch of data. While achieving optimal accuracy, existing CTTA approaches present poor real-world applicability on resource-constrained edge devices, due to the substantial memory overhead and energy consumption. In this work, we first introduce a novel paradigm on-demand TTA which triggers adaptation only when a significant domain shift is detected.",
+    "answer": "The OD-TTA paper addresses the inefficiency and impracticality of continual test-time adaptation on resource-constrained edge devices."
+  },
+  {
+    "question": "What is the main contribution of the OD-TTA framework for edge devices?",
+    "context": "We introduced the concept of on-demand TTA and presented OD-TTA, a novel on-demand TTA framework for edge devices. OD-TTA comprises a lightweight domain shift detector, a source domain selection module, and a decoupled BN updating strategy.",
+    "answer": "The main contribution is the introduction of OD-TTA, an on-demand test-time adaptation framework featuring lightweight shift detection, source domain selection, and decoupled BN updates."
+  },
+  {
+    "question": "How does OD-TTA differ from continual test-time adaptation (CTTA)?",
+    "context": "Unlike continual TTA, on-demand TTA triggers model adaptation only when a significant domain shift that leads to an unacceptable application-defined performance drop occurs.",
+    "answer": "OD-TTA adapts the model only when significant domain shifts are detected, unlike CTTA, which adapts continuously."
+  },
+  {
+    "question": "What are the three innovative techniques proposed in OD-TTA?",
+    "context": "OD-TTA comprises three innovative techniques 1 a lightweight domain shift detection mechanism to activate TTA only when it is needed... 2 a source domain selection module that chooses an appropriate source model for adaptation... 3 a decoupled Batch Normalization BN update scheme to enable memory-efficient adaptation with small batch sizes.",
+    "answer": "OD-TTA introduces lightweight domain shift detection, source domain selection, and a decoupled BN update scheme."
+  },
+  {
+    "question": "What datasets were used to evaluate OD-TTA?",
+    "context": "We compare our proposed OD-TTA with strong baselines... on Cifar10-C, ImageNet-C, and SHIFT.",
+    "answer": "OD-TTA was evaluated on CIFAR-10-C, ImageNet-C, and SHIFT datasets."
+  },
+  {
+    "question": "How does OD-TTA achieve energy and memory efficiency?",
+    "context": "OD-TTA achieves comparable and even better performance while reducing the energy and computation overhead remarkably, making TTA a practical reality.",
+    "answer": "OD-TTA reduces energy and computation overhead by adapting only when necessary and using efficient update strategies."
+  },
+  {
+    "question": "What is the role of the domain shift detection mechanism in OD-TTA?",
+    "context": "OD-TTA comprises two fundamental modules domain shift detection and model adaptation. When a pre-trained model is deployed in real-world scenarios, it continuously performs inference on the incoming data stream while monitoring potential domain shifts using the proposed lightweight shift detection mechanism.",
+    "answer": "The domain shift detection mechanism monitors incoming data for significant distribution changes to trigger adaptation."
+  },
+  {
+    "question": "What insight about entropy is used for domain shift detection in OD-TTA?",
+    "context": "Insight 1 During inference, the model accuracy is inversely correlated with the entropy of the predictions.",
+    "answer": "OD-TTA uses the insight that higher prediction entropy indicates lower model accuracy, signaling domain shifts."
+  },
+  {
+    "question": "How does OD-TTA select the source domain for adaptation?",
+    "context": "This insight motivates us to select the domain most similar to the new domain from a candidate pool before adaptation, referred to as source domain selection.",
+    "answer": "OD-TTA selects the most similar domain from a candidate pool based on BN statistics to improve adaptation."
+  },
+  {
+    "question": "What is the purpose of the decoupled BN update scheme in OD-TTA?",
+    "context": "We designed a decoupled BN update scheme that adapts the BN statistics and BN parameters asynchronously with different batch sizes, enabling effective model adaptation within a constrained memory budget.",
+    "answer": "The decoupled BN update scheme enables memory-efficient adaptation by updating BN statistics and parameters separately."
+  },
+  {
+    "question": "How does OD-TTA perform compared to state-of-the-art baselines?",
+    "context": "Our proposed method achieves the best accuracy and energy efficiency over all the baselines while maintaining minimal memory requirements.",
+    "answer": "OD-TTA outperforms state-of-the-art baselines in accuracy and energy efficiency while using less memory."
+  },
+  {
+    "question": "What is the significance of using Exponential Moving Average (EMA) entropy in OD-TTA?",
+    "context": "Thus, we introduce an Exponential Moving Average EMA strategy to smooth the sample-wise entropy and incorporate historical entropy values, providing a more stable accuracy estimation.",
+    "answer": "EMA entropy provides stable and robust domain shift detection by smoothing prediction uncertainty over time."
+  },
+  {
+    "question": "How is the candidate pool for source domain selection constructed in OD-TTA?",
+    "context": "To construct the candidate pool, we propose to split the training dataset into multiple subsets and adapt the pre-trained model on each subset... we cluster the training samples into M subsets using the K-Means algorithm.",
+    "answer": "The candidate pool is built by clustering the training data and adapting the model on each cluster, saving only BN layers."
+  },
+  {
+    "question": "What is the storage overhead of saving BN layers for domain candidates in OD-TTA?",
+    "context": "For ResNet50, saving BN parameters 45.44K accounts for only 1562 of the full model 25.56M, indicating that even storing multiple domain candidates e.g., 100 is negligible in terms of storage consumption.",
+    "answer": "Storing multiple BN layer candidates requires negligible storage compared to saving full models."
+  },
+  {
+    "question": "Why is updating only BN layers effective in OD-TTA?",
+    "context": "Insight 3 Adapting only the BN layers with a small amount of data can achieve good performance.",
+    "answer": "Updating only BN layers is effective because they capture domain-specific statistics, enabling efficient adaptation."
+  },
+  {
+    "question": "What are the main evaluation metrics used for OD-TTA?",
+    "context": "The results in Table 1 demonstrate the effectiveness of our method in improving accuracy while maintaining low memory and energy consumption across various batch sizes on edge devices.",
+    "answer": "OD-TTA is evaluated using accuracy, memory consumption, and energy usage."
+  },
+  {
+    "question": "How does OD-TTA handle batch sizes of 1 on edge devices?",
+    "context": "OD-TTA is the only effective method for BN-based models when operating with a batch size of 1.",
+    "answer": "OD-TTA maintains high accuracy and efficiency even with batch size 1, making it suitable for edge devices."
+  },
+  {
+    "question": "What is the impact of the domain change order on OD-TTA performance?",
+    "context": "The order of domain changes can significantly influence the performance of OD-TTA, as the domain shift detection varies in different domain orders.",
+    "answer": "OD-TTA's adaptation accuracy and detection efficiency can vary depending on the sequence of domain changes."
+  },
+  {
+    "question": "How does OD-TTA avoid unnecessary adaptation?",
+    "context": "OD-TTA avoids unnecessary adaptation when domain shifts do not substantially impact model performance.",
+    "answer": "OD-TTA triggers adaptation only for significant domain shifts that cause notable performance drops."
+  },
+  {
+    "question": "What is the role of the entropy threshold in OD-TTA's domain shift detection?",
+    "context": "Setting the threshold EM Athr is crucial for balancing sensitivity in shift detection and computational overhead in adaptation.",
+    "answer": "The entropy threshold determines when adaptation is triggered, balancing detection sensitivity and computational cost."
+  },
+  {
+    "question": "How does the lightweight domain shift detection mechanism in OD-TTA work?",
+    "context": "We devised a novel lightweight domain shift detection mechanism using exponential moving average EMA entropy to address the first challenge.",
+    "answer": "It uses EMA of prediction entropy to detect significant distribution changes with minimal computation."
+  },
+  {
+    "question": "What algorithm is used to cluster training data for candidate pool construction in OD-TTA?",
+    "context": "We cluster the training samples into M subsets using the K-Means algorithm.",
+    "answer": "OD-TTA uses the K-Means algorithm to cluster training data for candidate pool construction."
+  },
+  {
+    "question": "How does OD-TTA measure similarity between domains for source selection?",
+    "context": "Next, we compute the L2 distance between domain, and the BN means of each candidate c in the pool. The candidate with the smallest distance is then selected as the most similar domain for subsequent adaptation.",
+    "answer": "OD-TTA measures L2 distance between BN statistics to select the most similar source domain."
+  },
+  {
+    "question": "Why is decoupling BN statistics and parameter updates beneficial in OD-TTA?",
+    "context": "We designed a decoupled BN update scheme that adapts the BN statistics and BN parameters asynchronously with different batch sizes, enabling effective model adaptation within a constrained memory budget.",
+    "answer": "Decoupling allows memory-efficient updates: statistics use large batches, parameters use small batches."
+  },
+  {
+    "question": "What strategies are used to stabilize BN parameter updates in OD-TTA?",
+    "context": "To achieve stable fine-tuning, we introduce two strategies 1 a sample filter to remove unreliable samples and 2 a contrastive loss as a regularization term to refine the entropy loss.",
+    "answer": "OD-TTA uses sample filtering and a contrastive loss to stabilize BN parameter updates."
+  },
+  {
+    "question": "How does OD-TTA handle adaptation when only small batches are available?",
+    "context": "Updating BN statistics requires only a forward pass, which is memory-efficient yet highly sensitive to batch size. In contrast, updating BN parameters is less sensitive to batch size but involves backpropagation, which is more memory-intensive.",
+    "answer": "OD-TTA adapts BN statistics with larger batches and BN parameters with small batches to fit memory constraints."
+  },
+  {
+    "question": "What is the role of contrastive loss in OD-TTA's adaptation process?",
+    "context": "Inspired by contrastive learning Jaiswal et al., 2020, the poor source model can be utilized as an anchor to guide the back-propagation process. This is achieved by constructing a contrastive loss as a regularization term alongside the entropy loss.",
+    "answer": "Contrastive loss regularizes adaptation by encouraging predictions to move away from poor source models."
+  },
+  {
+    "question": "How does OD-TTA ensure adaptation is triggered only when necessary?",
+    "context": "If EMAsample - EM Abase exceeds a user- defined threshold EMAthr, an adaptation is triggered.",
+    "answer": "OD-TTA triggers adaptation only when EMA entropy exceeds a threshold, indicating significant domain shift."
+  },
+  {
+    "question": "What hardware was used to evaluate OD-TTA's performance?",
+    "context": "We evaluated OD-TTA on Jetson Orin Nano, a widely used edge device equipped with a Cortex-A78AE CPU and an NVIDIA Ampere GPU with 8GB RAM.",
+    "answer": "OD-TTA was evaluated on Jetson Orin Nano with Cortex-A78AE CPU and NVIDIA Ampere GPU."
+  },
+  {
+    "question": "What is the impact of batch size on OD-TTA's accuracy and memory usage?",
+    "context": "OD-TTA achieves the best accuracy and energy efficiency over all the baselines while maintaining minimal memory requirements... Notably, it stands out as the only BN-based approach capable of achieving high performance under a batch size of 1.",
+    "answer": "OD-TTA maintains high accuracy and low memory usage even with small batch sizes."
+  },
+  {
+    "question": "How does OD-TTA perform on different types of corruptions in CIFAR-10-C?",
+    "context": "On CIFAR-10-C Table 7, OD-TTA demonstrates a significant performance advantage over state-of-the-art methods across almost all corruption types under severity level 5.",
+    "answer": "OD-TTA outperforms baselines across nearly all corruption types in CIFAR-10-C."
+  },
+  {
+    "question": "How does OD-TTA handle domain shift detection in streaming data?",
+    "context": "Domain shift detection is an essential part of OD-TTA, which monitors the distribution shift in the data stream to trigger the adaptation.",
+    "answer": "OD-TTA continuously monitors prediction entropy in the data stream to detect domain shifts."
+  },
+  {
+    "question": "What is the effect of false triggers in OD-TTA's domain shift detection?",
+    "context": "These false detections can be attributed to the models poor performance even after adaptation. Notably, the accuracy remains low... Since we set a hard threshold to trigger adaptation when accuracy drops below approximately 10, frequent triggers occur in these poorly performing domains.",
+    "answer": "False triggers may occur in domains where adaptation cannot improve performance, leading to repeated adaptation attempts."
+  },
+  {
+    "question": "How does OD-TTA compare to SAR and MECTA in memory efficiency?",
+    "context": "MECTA, on the other hand, is the most memory-efficient method, as it selectively updates BN layers and BN channels to minimize memory consumption. However, achieving comparable accuracy... requires MECTA to use 1231 MB, whereas OD-TTA achieves similar accuracy with 809 MB.",
+    "answer": "OD-TTA achieves similar or better accuracy than SAR and MECTA with lower or comparable memory usage."
+  },
+  {
+    "question": "What is the adaptation process in OD-TTA after detecting a domain shift?",
+    "context": "Once a shift is detected, OD-TTA triggers an adaptation process involving two steps. First, OD-TTA selects the closest domain from a pool of candidates... Second, OD-TTA adapts the model to align with the new domain data using a decoupled BN updating strategy.",
+    "answer": "OD-TTA selects the closest source domain and adapts BN statistics and parameters using decoupled updates."
+  },
+  {
+    "question": "How does OD-TTA ensure low memory consumption during adaptation?",
+    "context": "We designed a decoupled BN update scheme that adapts the BN statistics and BN parameters asynchronously with different batch sizes, enabling effective model adaptation within a constrained memory budget.",
+    "answer": "OD-TTA uses asynchronous updates of BN statistics and parameters with suitable batch sizes to minimize memory use."
+  },
+  {
+    "question": "What is the significance of OD-TTA's ability to handle batch size 1?",
+    "context": "OD-TTA is the only effective method for BN-based models when operating with a batch size of 1.",
+    "answer": "Handling batch size 1 allows OD-TTA to operate efficiently on highly resource-constrained edge devices."
+  },
+  {
+    "question": "How does OD-TTA's domain shift detection perform on ImageNet-C?",
+    "context": "We also evaluate the detection performance on ImageNet-C. As shown in Figure 12, the EMA entropy fluctuates along the data stream, reflecting changes in domain characteristics and triggers when detecting an unpredictable increase. OD-TTA successfully detected 13 out of 15 domain shifts.",
+    "answer": "OD-TTA detects most domain shifts on ImageNet-C, with few misses that do not significantly affect accuracy."
+  },
+  {
+    "question": "What is the impact of the candidate pool size on OD-TTA's storage requirements?",
+    "context": "For ResNet50, saving BN parameters 45.44K accounts for only 1562 of the full model 25.56M, indicating that even storing multiple domain candidates e.g., 100 is negligible in terms of storage consumption.",
+    "answer": "Even large candidate pools have negligible storage impact since only BN parameters are stored."
+  },
+  {
+    "question": "What are the main challenges addressed by OD-TTA in edge device adaptation?",
+    "context": "This paradigm introduces several key challenges 1 on-demand TTA requires continuous monitoring of the data distribution for every incoming samplebatch for potential domain shift detection. However, efficiently quantifying the domain shift or performance drop without labels is challenging and remains under-explored in existing TTA literature 2 differing from continual TTA, where the dis- tribution of consecutive batches usually remains similar, on-demand TTA inherently deals with more severe shifts after a domain shift is detected 3 a notable limitation of existing Batch Normalization BN-based TTA is its depen- dence on large batch sizes Wang et al., 2020 Niu et al., 2022, which requires considerable amount of memory...",
+    "answer": "OD-TTA addresses efficient domain shift detection, adaptation to severe shifts, and memory-efficient BN updates."
+  },
+  {
+    "question": "How does OD-TTA compare to continual TTA approaches like Tent and EATA?",
+    "context": "Compared to state-of-the-art baselines, OD-TTA achieves a significant performance boost, particularly on CIFAR-10-C across all batch size settings. For ImageNet-C, OD-TTA outperforms other BN-based methods, including CoTTA, Tent, EATA, and MECTA, across all batch size settings.",
+    "answer": "OD-TTA outperforms continual TTA approaches like Tent and EATA in both accuracy and efficiency."
+  },
+  {
+    "question": "What advantage does OD-TTA have over SAR for batch size 1 adaptation?",
+    "context": "Notably, it stands out as the only BN-based approach capable of achieving high performance under a batch size of 1, which is critical for memory-constrained edge devices. While SAR, the GN-based baseline, can also handle batch size 1, it performs less effectively when operating with larger batch sizes.",
+    "answer": "OD-TTA achieves high accuracy with batch size 1, while SAR's performance drops with larger batches."
+  },
+  {
+    "question": "How does the memory usage of OD-TTA compare to MECTA?",
+    "context": "MECTA, on the other hand, is the most memory-efficient method, as it selectively updates BN layers and BN channels to minimize memory consumption. However, achieving comparable accuracy e.g., 33.1 on ImageNet-C requires MECTA to use 1231 MB, whereas OD-TTA achieves similar accuracy with 809 MB.",
+    "answer": "OD-TTA matches or exceeds MECTA's accuracy with lower memory consumption."
+  },
+  {
+    "question": "What is the main difference between OD-TTA and EcoTTA?",
+    "context": "EcoTTA Song et al., 2023 optimizes memory consumption during back-propagation by integrating lightweight meta-networks into the backbone. However, EcoTTA is not a straightforward plug-and-play method, as it requires redefining and retraining the model, while MECTA is easier to implement on existing pretrained models.",
+    "answer": "OD-TTA is plug-and-play and works with pretrained models, while EcoTTA requires retraining."
+  },
+  {
+    "question": "How does OD-TTA's domain shift detection differ from feature-based methods?",
+    "context": "Recently, Chakrabarty Chakrabarty et al., 2023 and Niloy Niloy et al., 2024 proposed using the mean of features extracted from a batch of data to represent the domain of the batch and reset the model to the source when the domain gap is over the threshold to achieve reliable CTTA. However, these feature-based methods rely heavily on large batch sizes, making them unsuitable for online data streams where data arrives sequentially and in smaller batches. Our detection approach is both lightweight and effective, offering a significant advantage over other methods by being adaptable to any batch-size configuration.",
+    "answer": "OD-TTA's detection is lightweight and works with any batch size, unlike feature-based methods."
+  },
+  {
+    "question": "How does OD-TTA compare to COTTA in terms of energy and memory trade-off?",
+    "context": "Figure 1. OD-TTA achieves a superior trade-off between memory, energy, and accuracy compared to state-of-the-art CTTA baselines. The radius of circles represents memory usage.",
+    "answer": "OD-TTA offers a better balance of accuracy, memory, and energy use than COTTA."
+  },
+  {
+    "question": "How does OD-TTA's candidate pool strategy differ from continual TTA's adaptation?",
+    "context": "CTTA always adapts the model from the previous domain, which may not be effective in on-demand TTA due to significant distribution shifts. ... we propose a similar domain selection pipeline that constructs and selects the closest domain for adaptation, resulting in better performance and faster convergence.",
+    "answer": "OD-TTA selects the closest source domain from a candidate pool, unlike continual TTA's fixed previous domain."
+  },
+  {
+    "question": "What are the limitations of SAR compared to OD-TTA for edge deployment?",
+    "context": "While SAR, the GN-based baseline, can also handle batch size 1, it performs less effectively when operating with larger batch sizes.",
+    "answer": "SAR underperforms at larger batch sizes, limiting its flexibility for edge deployment compared to OD-TTA."
+  },
+  {
+    "question": "How does OD-TTA's plug-and-play nature compare to EcoTTA's implementation complexity?",
+    "context": "EcoTTA is not a straightforward plug-and-play method, as it requires redefining and retraining the model, while MECTA is easier to implement on existing pretrained models. Our work differs from all existing research in that we proposed a completely new on-demand TTA paradigm and devised a suite of techniques to ensure it outperforms existing CTTA methods.",
+    "answer": "OD-TTA is easier to implement on existing models than EcoTTA, which needs retraining."
+  },
+  {
+    "question": "How does OD-TTA's adaptation speed compare to previous CTTA methods?",
+    "context": "we propose a similar domain selection pipeline that constructs and selects the closest domain for adaptation, resulting in better performance and faster convergence.",
+    "answer": "OD-TTA adapts faster due to selecting a similar source domain, unlike previous CTTA methods."
+  },
+  {
+    "question": "Which baseline methods does OD-TTA outperform on CIFAR-10-C under severe corruptions?",
+    "context": "On CIFAR-10-C Table 7, OD-TTA demonstrates a significant performance advantage over state-of-the-art methods across almost all corruption types under severity level 5.",
+    "answer": "OD-TTA outperforms Tent, EATA, SAR, MECTA, and COTTA on CIFAR-10-C under severe corruptions."
+  },
+  {
+    "question": "How does OD-TTA's performance generalize across different corruption types compared to baselines?",
+    "context": "First, OD-TTA demonstrates consistent performance across corruption types. While some baselines perform well in specific categories, OD-TTA achieves high accuracy consistently across all corruption types, highlighting its generalizability.",
+    "answer": "OD-TTA maintains high and consistent accuracy across all corruption types, unlike some baselines."
+  },
+  {
+    "question": "What are potential real-world applications for OD-TTA on edge devices?",
+    "context": "Deep neural networks DNNs have achieved remarkable success in real-time edge tasks such as object detection Wang et al., 2018, image recognition Phan et al., 2020, and autonomous driving Grigorescu et al., 2020.",
+    "answer": "OD-TTA is suitable for real-time edge tasks like object detection, recognition, and autonomous driving."
+  },
+  {
+    "question": "How can OD-TTA be implemented on resource-constrained edge devices?",
+    "context": "We evaluated OD-TTA on Jetson Orin Nano, a widely used edge device equipped with a Cortex-A78AE CPU and an NVIDIA Ampere GPU with 8GB RAM. For the software environment, we utilize Python 3.8 and PyTorch 2.0 on the Ubuntu 20.04 platform.",
+    "answer": "OD-TTA can be implemented using Python and PyTorch on devices like Jetson Orin Nano."
+  },
+  {
+    "question": "What are the main limitations of OD-TTA as discussed in the paper?",
+    "context": "Setting the threshold EM Athr is crucial for balancing sensitivity in shift detection and computational overhead in adaptation. We leave the impact of the threshold in Ap- pendix A.2.2.",
+    "answer": "OD-TTA's performance depends on threshold tuning; details and further limitations are in the appendix."
+  },
+  {
+    "question": "What future work directions are suggested for OD-TTA?",
+    "context": "We leave the impact of the threshold in Ap- pendix A.2.2.",
+    "answer": "Future work includes exploring optimal threshold settings and further efficiency improvements."
+  },
+  {
+    "question": "How does OD-TTA handle high-latency or high-resolution data in real-world scenarios?",
+    "context": "SHIFT... is a domain shift dataset designed for autonomous driving systems that showcases three domain shifts including daytime night, clear foggy, and clear rainy. Notably, the default resolution in SHIFT is 1280800, which will lead to high latency and memory consumption on edge devices. To mitigate this issue, we follow the setting in Sun et al., 2022 and reduce the image size to 640400.",
+    "answer": "OD-TTA can be used with reduced image resolutions to manage latency and memory on edge devices."
+  },
+  {
+    "question": "How does the user set the adaptation threshold in OD-TTA?",
+    "context": "For the domain shift determination, we set the user-defined threshold EM Athr at 0.060.3 for Cifar10-CImageNet-C, corresponding to an approximate accuracy drop of 5.",
+    "answer": "The adaptation threshold is set based on desired sensitivity and expected accuracy drop."
+  },
+  {
+    "question": "What are the practical steps to construct the candidate pool for OD-TTA?",
+    "context": "To construct the candidate pool, we propose to split the training dataset into multiple subsets and adapt the pre-trained model on each subset... we cluster the training samples into M subsets using the K-Means algorithm.",
+    "answer": "Cluster training data, adapt the model on each subset, and save BN layers for each candidate."
+  },
+  {
+    "question": "What is required to run OD-TTA for semantic segmentation tasks?",
+    "context": "For the semantic segmentation task on the SHIFT dataset, we adapt the model using the learning rate of 1 10-4 and set the threshold EMAthr at 0.1.",
+    "answer": "Set a learning rate and entropy threshold specific to the segmentation dataset for adaptation."
+  },
+  {
+    "question": "How can OD-TTA be used with different batch sizes?",
+    "context": "In decoupled adaptation, we updated the BN statis- tics in batch size 16256256 and BN parameters in 11664.",
+    "answer": "OD-TTA updates BN statistics with large batches and BN parameters with small batches."
+  },
+  {
+    "question": "How does OD-TTA perform under random domain change sequences?",
+    "context": "The order of domain changes can significantly influence the performance of OD-TTA, as the domain shift detection varies in different domain orders. Table 9 reports the adaptation accuracy of different methods on a randomly generated domain change sequence for CIFAR-10-C and ImageNet-C. On CIFAR-10-C, OD-TTA achieves the highest average accuracy of 79.5, demonstrating robust adaptation across diverse domain shifts.",
+    "answer": "OD-TTA maintains high accuracy and robust adaptation across random domain change sequences."
+  },
+  {
+    "question": "What hardware and software are recommended for deploying OD-TTA?",
+    "context": "We evaluated OD-TTA on Jetson Orin Nano, a widely used edge device equipped with a Cortex-A78AE CPU and an NVIDIA Ampere GPU with 8GB RAM. For the software environment, we utilize Python 3.8 and PyTorch 2.0 on the Ubuntu 20.04 platform.",
+    "answer": "Jetson Orin Nano with Python 3.8 and PyTorch 2.0 on Ubuntu is recommended for OD-TTA."
+  },
+  {
+    "question": "What are the main steps to adapt OD-TTA to a new domain?",
+    "context": "Once a shift is detected, OD-TTA triggers an adaptation process involving two steps. First, OD-TTA selects the closest domain from a pool of candidates... Second, OD-TTA adapts the model to align with the new domain data using a decoupled BN updating strategy.",
+    "answer": "Detect shift, select closest domain candidate, then update BN statistics and parameters."
+  },
+  {
+    "question": "How can OD-TTA be integrated into existing DNN pipelines?",
+    "context": "Our work differs from all existing research in that we proposed a completely new on-demand TTA paradigm and devised a suite of techniques to ensure it outperforms existing CTTA methods.",
+    "answer": "OD-TTA can be integrated into DNN pipelines by adding its shift detection and adaptation modules."
+  },
+  {
+    "question": "What are the storage requirements for OD-TTA's candidate pool?",
+    "context": "For ResNet50, saving BN parameters 45.44K accounts for only 1562 of the full model 25.56M, indicating that even storing multiple domain candidates e.g., 100 is negligible in terms of storage consumption.",
+    "answer": "Storage is minimal since only BN parameters are saved, even for large candidate pools."
+  },
+  {
+    "question": "How does OD-TTA avoid unnecessary adaptation in real-world deployments?",
+    "context": "OD-TTA avoids unnecessary adaptation when domain shifts do not substantially impact model performance.",
+    "answer": "It adapts only when domain shifts cause significant performance drops, saving resources."
+  },
+  {
+    "question": "How can OD-TTA be fine-tuned for different datasets or tasks?",
+    "context": "The learning rates are set to 1 10-4 for CIFAR-10-C and 1 10-5 for ImageNet-C.",
+    "answer": "Adjust learning rates and thresholds based on the dataset and task requirements."
+  },
+  {
+    "question": "What is the main contribution of the OD-TTA paper?",
+    "context": "Deep neural networks DNNs have achieved remarkable success in real-time edge tasks such as object detec- tion Wang et al., 2018, image recognition Phan et al., 2020, and autonomous driving Grigorescu et al., 2020.",
+    "answer": "The context does not specify the main contribution of the OD-TTA paper."
+  },
+  {
+    "question": "How does OD-TTA's decoupled BN update work according to the paper?",
+    "context": "SHIFT... is a domain shift dataset designed for autonomous driving systems that showcases three domain shifts including daytime night, clear foggy, and clear rainy.",
+    "answer": "The context does not explain OD-TTA's decoupled BN update mechanism."
+  },
+  {
+    "question": "What are the experimental results for OD-TTA on ImageNet-C?",
+    "context": "We evaluated OD-TTA on Jetson Orin Nano, a widely used edge device equipped with a Cortex-A78AE CPU and an NVIDIA Ampere GPU with 8GB RAM.",
+    "answer": "The context does not provide experimental results for OD-TTA on ImageNet-C."
+  },
+  {
+    "question": "How does OD-TTA handle domain shift detection?",
+    "context": "The learning rates are set to 1 10-4 for CIFAR-10-C and 1 10-5 for ImageNet-C.",
+    "answer": "The context does not describe OD-TTA's domain shift detection mechanism."
+  },
+  {
+    "question": "What are the main limitations of continual TTA discussed in the OD-TTA paper?",
+    "context": "For the semantic segmentation task on the SHIFT dataset, we adapt the model using the learning rate of 1 10-4 and set the threshold EMAthr at 0.1.",
+    "answer": "The context does not mention limitations of continual TTA."
+  },
+  {
+    "question": "How does OD-TTA's source domain selection improve adaptation?",
+    "context": "Deep neural networks DNNs have achieved remarkable success in real-time edge tasks such as object detec- tion Wang et al., 2018, image recognition Phan et al., 2020, and autonomous driving Grigorescu et al., 2020.",
+    "answer": "The context does not explain OD-TTA's source domain selection or its benefits."
+  }
+]

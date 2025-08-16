@@ -1,0 +1,372 @@
+[
+  {
+    "question": "What is the main problem addressed by the T2VPhysBench paper?",
+    "context": "Yet, despite these advancements, their ability to respect fundamental physical laws remains largely untested many outputs still violate basic constraints such as rigid-body collisions, energy conservation, and gravitational dynamics, resulting in unrealistic or even misleading content.",
+    "answer": "T2VPhysBench addresses the lack of systematic evaluation for physical law adherence in text-to-video generation models."
+  },
+  {
+    "question": "What is the primary contribution of T2VPhysBench by Xuyang Guo et al.?",
+    "context": "We introduce T2VPhysBench, a first-principled benchmark that systematically evaluates whether state-of-the-art text-to-video systems, both open-source and commercial, obey twelve core physical laws including Newtonian mechanics, conservation principles, and phenomenological effects.",
+    "answer": "The primary contribution is a human-evaluated benchmark testing text-to-video models on twelve fundamental physical laws."
+  },
+  {
+    "question": "Which types of physical laws does T2VPhysBench evaluate?",
+    "context": "We organize these laws into three categories Newtons laws, conservation laws, and phenomenological principles. In each category we select four specific laws for a total of twelve, and for each law we design seven prompts based on realistic scenarios.",
+    "answer": "T2VPhysBench evaluates Newtonian laws, conservation laws, and phenomenological principles."
+  },
+  {
+    "question": "How many text-to-video models are evaluated in T2VPhysBench?",
+    "context": "Our benchmark includes ten models, spanning both closed-source and opensource systems. Detailed model specifications are listed in Table 1.",
+    "answer": "Ten state-of-the-art text-to-video models are evaluated in T2VPhysBench."
+  },
+  {
+    "question": "What evaluation protocol is used in T2VPhysBench?",
+    "context": "To align with human judgment and address the fidelity-only limitations of prior physical benchmarks, we adopt a fully manual evaluation protocol, following VideoPhy BLX 25. Three annotators undergraduate or graduate students independently review every generated video and assign it one of four quality levels based on its adherence to the target physical law.",
+    "answer": "T2VPhysBench uses manual human annotation with four quality levels to score physical law adherence."
+  },
+  {
+    "question": "What are the four quality levels in T2VPhysBench’s evaluation?",
+    "context": "Each level is then mapped to a real-valued score in 0,1 - Level 1 score 0.0 the video fails to demonstrate the intended physical behavior. - Level 2 score 0.25 the video exhibits a clear violation of the law. - Level 3 score 0.5 the video is largely correct but contains minor inaccuracies. - Level 4 score 1.0 the video fully and accurately conforms to the law.",
+    "answer": "The levels are: 0.0 (fail), 0.25 (clear violation), 0.5 (minor inaccuracies), 1.0 (fully correct)."
+  },
+  {
+    "question": "Which model achieved the highest average score on Newtonian principles in T2VPhysBench?",
+    "context": "First, the highest average score on Newtons principles is only 0.56 Wan 2.1 and the lowest is 0.19 Dreamina.",
+    "answer": "Wan 2.1 achieved the highest average score on Newtonian principles (0.56)."
+  },
+  {
+    "question": "Which law category is most challenging for models in T2VPhysBench?",
+    "context": "Within each model, performance on conservation principles is consistently lower than on Newtons or phenomenon principles. For instance, LTX Video scores 0.13 on conservation but achieves 0.40 on Newtons laws and 0.40 on phenomenon principles.",
+    "answer": "Conservation principles are the most challenging law category for evaluated models."
+  },
+  {
+    "question": "How does T2VPhysBench design its prompts for evaluation?",
+    "context": "Rather than relying on intuition or everyday contexts, our prompts are derived directly from fundamental laws of physics. We organize these laws into three categories Newtons laws, conservation laws, and phenomenological principles. In each category we select four specific laws for a total of twelve, and for each law we design seven prompts based on realistic scenarios.",
+    "answer": "Prompts are derived from fundamental laws and realistic scenarios, covering twelve laws with seven prompts each."
+  },
+  {
+    "question": "What is the average compliance score for models in T2VPhysBench?",
+    "context": "Through a rigorous human evaluation protocol, we demonstrate that all state-of-the-art text-to-video models consistently fail to satisfy even basic physical constraints, with average compliance scores below 0.60 across every law category.",
+    "answer": "All models have average compliance scores below 0.60 for each physical law category."
+  },
+  {
+    "question": "Does providing more detailed prompt hints improve physical law adherence in T2VPhysBench?",
+    "context": "By incorporating progressively more concrete hints, naming the law and adding detailed mechanistic descriptions, we show that prompt refinement alone cannot overcome the models inability to generate physically coherent videos.",
+    "answer": "No, more detailed prompt hints do not significantly improve physical law adherence."
+  },
+  {
+    "question": "What is a key finding from T2VPhysBench’s counterfactual prompt experiments?",
+    "context": "We challenge models with counterfactual prompts that explicitly request physically impossible scenarios and find that they often comply, producing rule-violating videos and revealing a reliance on surface patterns rather than true physical reasoning.",
+    "answer": "Models often generate physically impossible videos when prompted, indicating a lack of true physical reasoning."
+  },
+  {
+    "question": "What are the three categories of physical laws in T2VPhysBench?",
+    "context": "We organize these laws into three categories Newtons laws, conservation laws, and phenomenological principles.",
+    "answer": "The categories are Newton’s laws, conservation laws, and phenomenological principles."
+  },
+  {
+    "question": "Which models are included in the T2VPhysBench evaluation?",
+    "context": "Our benchmark includes ten models, spanning both closed-source and opensource systems. Detailed model specifications are listed in Table 1.",
+    "answer": "Ten models including Kling, Wan 2.1, Sora, Mochi-1, LTX Video, Pika 2.2, Dreamina, Qingying, SD Video, and Hailuo."
+  },
+  {
+    "question": "What is a limitation of T2VPhysBench’s evaluation approach?",
+    "context": "First, our study is entirely empirical we document where and how models fail, but we do not offer theoretical analyses or guarantees that explain why these architectures struggle with physical constraints.",
+    "answer": "It is empirical and lacks theoretical analysis explaining model failures."
+  },
+  {
+    "question": "What impact does T2VPhysBench aim to have on generative AI?",
+    "context": "T2VPhysBench addresses a foundational trustworthiness challenge in generative AI ensuring that synthesized videos obey real-world physics. By systematically identifying where state-of-the-art text-to-video systems violate basic laws, our work highlights critical gaps that could affect downstream applications in robotics, autonomous vehicles, and scientific visualization, domains where physical realism is essential for safety and reliability.",
+    "answer": "It aims to guide development of physically coherent generative models for safety-critical applications."
+  },
+  {
+    "question": "What is the duration and resolution typically used for video generation in T2VPhysBench?",
+    "context": "For generation, we use the lowest available resolution typically 720 p to balance visual fidelity with physical accuracy. We fix a 169 aspect ratio and choose a short video duration usually 4 seconds to concentrate the evaluation on fundamental physical behaviors.",
+    "answer": "Videos are typically 4 seconds long at 720p resolution with a 16:9 aspect ratio."
+  },
+  {
+    "question": "What does T2VPhysBench reveal about current text-to-video models’ physical understanding?",
+    "context": "Our comprehensive study reveals that, despite their impressive visual fidelity and instruction following, current models uniformly struggle to satisfy even the most basic Newtonian and conservation constraints, as well as the phenomenon principles.",
+    "answer": "Current models struggle to satisfy even basic physical constraints despite high visual fidelity."
+  },
+  {
+    "question": "How does T2VPhysBench differ from previous physical evaluation benchmarks?",
+    "context": "Existing physicalevaluation benchmarks typically rely on automatic, pixel-level metrics applied to simplistic, life-scenario prompts, and thus overlook both human judgment and first-principles physics. To fill this gap, we introduce T2VPhysBench, a first-principled benchmark that systematically evaluates whether state-of-the-art text-to-video systems, both open-source and commercial, obey twelve core physical laws including Newtonian mechanics, conservation principles, and phenomenological effects. Our benchmark employs a rigorous human evaluation protocol...",
+    "answer": "T2VPhysBench uses human evaluation and first-principles physics rather than only pixel-level metrics."
+  },
+  {
+    "question": "What is the effect of counterfactual prompts on model performance in T2VPhysBench?",
+    "context": "Even when instructed to violate the laws, all models score poorly in all the physical law classes, demonstrating an inability to understand impossible physics.",
+    "answer": "Models perform poorly and fail to understand impossible physics under counterfactual prompts."
+  },
+  {
+    "question": "What future research directions does T2VPhysBench suggest?",
+    "context": "Understanding and Prediction in World Foundation Models. World Foundation Models WFMs refer to large neural networks that simulate physical environments and predict outcomes based on given inputs HS18, OT22, AAB 25 ... Rule-based Machine Learning. Another promising direction is the explicit integration of physical laws into the model training process via rules WI95, KBF21, constraints RPK17, CMW21, or symbolic reasoning YYL23, GLG08.",
+    "answer": "Future directions include integrating physical laws via rule-based learning and using world foundation models."
+  },
+  {
+    "question": "How does T2VPhysBench score model outputs for physical law adherence?",
+    "context": "Each level is then mapped to a real-valued score in 0,1 - Level 1 score 0.0 the video fails to demonstrate the intended physical behavior. - Level 2 score 0.25 the video exhibits a clear violation of the law. - Level 3 score 0.5 the video is largely correct but contains minor inaccuracies. - Level 4 score 1.0 the video fully and accurately conforms to the law.",
+    "answer": "Outputs are scored 0.0, 0.25, 0.5, or 1.0 based on degree of physical correctness."
+  },
+  {
+    "question": "How are the three hint levels for prompts defined in T2VPhysBench?",
+    "context": "Specifically, we consider three hint levels see Figure 2 for prompt and video examples, with details as follows - Initial Prompt The original prompt without any additional hints... - First-Level Hint The name of the relevant physical law is explicitly provided... - Second-Level Hint A fully concrete scenario with detailed physical interpretation is provided, alongside naming the law.",
+    "answer": "Initial prompt, law name added, and detailed physical interpretation with law name."
+  },
+  {
+    "question": "What is the main algorithmic step in T2VPhysBench’s evaluation protocol?",
+    "context": "Three annotators undergraduate or graduate students independently review every generated video and assign it one of four quality levels based on its adherence to the target physical law.",
+    "answer": "Human annotators independently score each video for physical law adherence."
+  },
+  {
+    "question": "How does T2VPhysBench ensure coverage of various physical laws?",
+    "context": "We organize these laws into three categories Newtons laws, conservation laws, and phenomenological principles. In each category we select four specific laws for a total of twelve, and for each law we design seven prompts based on realistic scenarios.",
+    "answer": "By selecting four laws per category and designing seven prompts per law."
+  },
+  {
+    "question": "What design choice was made regarding video duration in T2VPhysBench?",
+    "context": "We fix a 169 aspect ratio and choose a short video duration usually 4 seconds to concentrate the evaluation on fundamental physical behaviors.",
+    "answer": "A short duration (usually 4 seconds) is used to focus on fundamental physical behaviors."
+  },
+  {
+    "question": "Why does T2VPhysBench use human evaluation instead of only automated metrics?",
+    "context": "Existing physicalevaluation benchmarks typically rely on automatic, pixel-level metrics applied to simplistic, life-scenario prompts, and thus overlook both human judgment and first-principles physics.",
+    "answer": "Human evaluation better captures nuanced physical law adherence than automated pixel-level metrics."
+  },
+  {
+    "question": "How are average model scores computed in T2VPhysBench?",
+    "context": "For each model, we average the scores across all prompts and annotators to produce a single physical-consistency score, which is then used to rank the models.",
+    "answer": "Scores are averaged across all prompts and annotators to yield a single consistency score."
+  },
+  {
+    "question": "What is a key technical limitation of T2VPhysBench’s annotation process?",
+    "context": "Second, the reliance on manual annotation, essential to capture nuanced human judgments, limits scalability and rapid iteration. Extending the benchmark to larger model sets or more laws will require substantial annotation effort or the development of reliable automated proxies.",
+    "answer": "Manual annotation limits scalability and rapid iteration for larger benchmarks."
+  },
+  {
+    "question": "What is the rationale for using first-principles laws in T2VPhysBench prompts?",
+    "context": "Rather than relying on intuition or everyday contexts, our prompts are derived directly from fundamental laws of physics.",
+    "answer": "First-principles laws provide objective, universal criteria for physical correctness."
+  },
+  {
+    "question": "How does T2VPhysBench handle scenario diversity in prompt design?",
+    "context": "In each category we select four specific laws for a total of twelve, and for each law we design seven prompts based on realistic scenarios.",
+    "answer": "By creating seven realistic scenario prompts for each of twelve physical laws."
+  },
+  {
+    "question": "What is a typical example of a Newtonian law prompt in T2VPhysBench?",
+    "context": "For the first law inertia, we consider objects in free space or under no net external force, which should remain at rest or move at constant velocity.",
+    "answer": "Prompt: An object in free space should remain at rest or move at constant velocity."
+  },
+  {
+    "question": "What is a typical conservation law prompt in T2VPhysBench?",
+    "context": "For the conservation of energy, we design prompts that involve conversions between potential and kinetic energy, such as a roller coaster descending, two colliding balls exchanging motion, or a compressed spring releasing its stored energy.",
+    "answer": "Prompt: Two balls collide and exchange motion, illustrating conservation of energy."
+  },
+  {
+    "question": "How does T2VPhysBench test models’ understanding of impossible physics?",
+    "context": "We design counterfactual prompts that explicitly describe impossible scenarios. From a counterfactual perspective, a model with genuine physical reasoning should understand how to generate videos that violate some specific physical laws.",
+    "answer": "By using counterfactual prompts that request physically impossible scenarios."
+  },
+  {
+    "question": "What is the observed effect of prompt refinement in T2VPhysBench?",
+    "context": "Despite consistent improvements on a small number of physical laws, for most physical laws, increasing the hint level does not enhance the physical law-following scores, and in many cases, even leads to a negative impact at both hint levels.",
+    "answer": "Prompt refinement rarely improves and sometimes worsens physical law-following scores."
+  },
+  {
+    "question": "What is the scoring trend for conservation laws compared to other categories?",
+    "context": "Conservation principles are substantially harder for current models, whereas Newtons laws and phenomenon principles yield consistently higher scores.",
+    "answer": "Conservation laws consistently receive lower scores than Newtonian or phenomenological laws."
+  },
+  {
+    "question": "How does T2VPhysBench address the trustworthiness of generative models?",
+    "context": "T2VPhysBench addresses a foundational trustworthiness challenge in generative AI ensuring that synthesized videos obey real-world physics.",
+    "answer": "By systematically evaluating and identifying where models violate real-world physics."
+  },
+  {
+    "question": "What technical solution does T2VPhysBench suggest for improving physical reasoning?",
+    "context": "This is analogous to physics-informed neural networks PINNs in scientific computing PLK19, RPK19, RPK17, CMW 21, where differential equations e.g., Navier-Stokes equations for fluid dynamics or simple Newtonian equations of motion are incorporated into the loss function via automatic differentiation.",
+    "answer": "Incorporating physics-informed loss functions and symbolic reasoning into model training."
+  },
+  {
+    "question": "What does T2VPhysBench reveal about pattern memorization in text-to-video models?",
+    "context": "These reversals indicate that apparent compliance under normal prompts arises from surface-level pattern matching rather than a true understanding of physical constraints.",
+    "answer": "Models often rely on pattern memorization, not genuine physical understanding."
+  },
+  {
+    "question": "How does T2VPhysBench handle model diversity in its benchmark?",
+    "context": "Our benchmark includes ten models, spanning both closed-source and opensource systems.",
+    "answer": "It evaluates both open-source and closed-source models from 2023 to 2025."
+  },
+  {
+    "question": "How does T2VPhysBench differ from VideoPhy in evaluating physical consistency?",
+    "context": "For example, VideoPhy BLX 25 proposes a human-evaluated benchmark that systematically examines collisions between different materials, such as solid-solid, solid-fluid, and fluid-fluid cases. ... While these works provide valuable early insights into evaluating the physical behavior of text-to-video models, they do not approach the problem from a first-principles physical law perspective, nor do they incorporate careful human evaluation, which highlights the need for our work.",
+    "answer": "T2VPhysBench uses first-principles physical laws and broader human evaluation, unlike VideoPhy’s scenario focus."
+  },
+  {
+    "question": "What is a key difference between T2VPhysBench and Physics-IQ benchmarks?",
+    "context": "The Physics-IQ benchmark MCS25 evaluates models based on their ability to extend given video frames, assessing the extended frames using automated evaluation metrics like MSE or IoU. ... they do not approach the problem from a first-principles physical law perspective, nor do they incorporate careful human evaluation, which highlights the need for our work.",
+    "answer": "T2VPhysBench uses human evaluation and first-principles laws, while Physics-IQ uses automated metrics."
+  },
+  {
+    "question": "How does T2VPhysBench improve over scenario-based benchmarks like PhyBench?",
+    "context": "In addition, most existing tests use scenario-based designs rather than grounding tasks in first-principles laws e.g., Newtons laws or Bernoullis principle WMC25, MLT 24 , .MCS 25. To bridge these gaps, a human-centered, law-driven benchmark is needed to more faithfully reflect real-world physical understanding and to guide future improvements...",
+    "answer": "T2VPhysBench grounds prompts in first-principles laws, unlike scenario-based benchmarks."
+  },
+  {
+    "question": "How do baseline models in T2VPhysBench compare with those in earlier benchmarks?",
+    "context": "We selected a diverse set of state-of-the-art video generation models released between 2023 and 2025 to ensure our evaluation reflects the latest advances and uncovers their limitations in following physical constraints. Our benchmark includes ten models, spanning both closed-source and opensource systems.",
+    "answer": "T2VPhysBench evaluates more recent and diverse models than earlier benchmarks."
+  },
+  {
+    "question": "What is the main limitation of pixel-level metrics in prior physical benchmarks?",
+    "context": "Existing physicalevaluation benchmarks typically rely on automatic, pixel-level metrics applied to simplistic, life-scenario prompts, and thus overlook both human judgment and first-principles physics.",
+    "answer": "Pixel-level metrics overlook human judgment and do not test first-principles physical laws."
+  },
+  {
+    "question": "How does T2VPhysBench’s evaluation protocol differ from automated scoring?",
+    "context": "To align with human judgment and address the fidelity-only limitations of prior physical benchmarks, we adopt a fully manual evaluation protocol, following VideoPhy BLX 25.",
+    "answer": "T2VPhysBench uses manual human evaluation, unlike automated scoring in prior work."
+  },
+  {
+    "question": "How does T2VPhysBench’s prompt design compare to previous approaches?",
+    "context": "Rather than relying on intuition or everyday contexts, our prompts are derived directly from fundamental laws of physics.",
+    "answer": "T2VPhysBench derives prompts from fundamental laws, not intuition or scenarios."
+  },
+  {
+    "question": "How does T2VPhysBench handle model diversity compared to prior benchmarks?",
+    "context": "Our benchmark includes ten models, spanning both closed-source and opensource systems. Detailed model specifications are listed in Table 1.",
+    "answer": "T2VPhysBench covers both open and closed-source models, increasing diversity over prior benchmarks."
+  },
+  {
+    "question": "How do prompt hints in T2VPhysBench compare to prompt engineering in earlier work?",
+    "context": "By incorporating progressively more concrete hints, naming the law and adding detailed mechanistic descriptions, we show that prompt refinement alone cannot overcome the models inability to generate physically coherent videos.",
+    "answer": "T2VPhysBench finds prompt hints less effective than prior prompt engineering claims."
+  },
+  {
+    "question": "How does T2VPhysBench’s counterfactual prompt approach differ from previous baselines?",
+    "context": "We challenge models with counterfactual prompts that explicitly request physically impossible scenarios and find that they often comply, producing rule-violating videos and revealing a reliance on surface patterns rather than true physical reasoning.",
+    "answer": "T2VPhysBench uniquely tests with counterfactual prompts to reveal pattern reliance."
+  },
+  {
+    "question": "How does T2VPhysBench’s law coverage compare to previous benchmarks?",
+    "context": "We organize these laws into three categories Newtons laws, conservation laws, and phenomenological principles. In each category we select four specific laws for a total of twelve...",
+    "answer": "T2VPhysBench covers a broader and more systematic set of physical laws."
+  },
+  {
+    "question": "What is a unique contribution of T2VPhysBench compared to Make-A-Video?",
+    "context": "Despite the strong video fidelity and instruction-following abilities of these text-to-video diffusion models, their fundamental capability to adhere to simple physical laws still exhibits significant gaps LHY . 24, MLT 24, LWW 25, which is one of the key motivations for this benchmark.",
+    "answer": "T2VPhysBench uniquely evaluates physical law adherence, unlike Make-A-Video’s focus on fidelity."
+  },
+  {
+    "question": "What are potential real-world applications for T2VPhysBench’s findings?",
+    "context": "Such errors become critical in applications like robotics YDD 24, DYD 23 and autonomous driving SH 16, ZLY 24, WZL 24, where adherence to real-world physics is essential for safety and system reliability.",
+    "answer": "Applications include robotics, autonomous driving, and scientific visualization requiring physical realism."
+  },
+  {
+    "question": "How can T2VPhysBench be used to improve generative model safety?",
+    "context": "Researchers and practitioners can use our benchmark to flag unsafe or misleading outputs, guide the design of physics-aware architectures, and curate more robust training datasets.",
+    "answer": "It helps flag unsafe outputs and guides design of physics-aware generative models."
+  },
+  {
+    "question": "What is a limitation of T2VPhysBench’s empirical approach?",
+    "context": "First, our study is entirely empirical we document where and how models fail, but we do not offer theoretical analyses or guarantees that explain why these architectures struggle with physical constraints.",
+    "answer": "T2VPhysBench lacks theoretical analysis explaining model failures."
+  },
+  {
+    "question": "What is a scalability challenge for T2VPhysBench’s manual annotation?",
+    "context": "Second, the reliance on manual annotation, essential to capture nuanced human judgments, limits scalability and rapid iteration.",
+    "answer": "Manual annotation limits scalability for larger model sets or more laws."
+  },
+  {
+    "question": "How can practitioners implement T2VPhysBench for their own models?",
+    "context": "For generation, we use the lowest available resolution typically 720 p to balance visual fidelity with physical accuracy. We fix a 169 aspect ratio and choose a short video duration usually 4 seconds to concentrate the evaluation on fundamental physical behaviors.",
+    "answer": "Practitioners should generate short, 720p videos and score them using the T2VPhysBench protocol."
+  },
+  {
+    "question": "What future research directions are suggested by T2VPhysBench?",
+    "context": "Another promising direction is the explicit integration of physical laws into the model training process via rules WI95, KBF21, constraints RPK17, CMW21, or symbolic reasoning YYL23, GLG08.",
+    "answer": "Future work includes integrating physical laws and symbolic reasoning into models."
+  },
+  {
+    "question": "How does T2VPhysBench impact the development of world foundation models?",
+    "context": "World Foundation Models WFMs refer to large neural networks that simulate physical environments and predict outcomes based on given inputs HS18, OT22, AAB 25 ... When such a model is used as a backbone for video generation, the output naturally obeys learned physical rules.",
+    "answer": "T2VPhysBench motivates integrating WFMs for improved physical realism in video generation."
+  },
+  {
+    "question": "What is a recommended technical solution for improving physical adherence?",
+    "context": "This is analogous to physics-informed neural networks PINNs in scientific computing PLK19, RPK19, RPK17, CMW 21, where differential equations ... are incorporated into the loss function via automatic differentiation.",
+    "answer": "Incorporate physics-informed loss functions and symbolic modules into model training."
+  },
+  {
+    "question": "How should users interpret T2VPhysBench scores for model selection?",
+    "context": "For each model, we average the scores across all prompts and annotators to produce a single physical-consistency score, which is then used to rank the models.",
+    "answer": "Higher scores indicate better physical law adherence; use for ranking model reliability."
+  },
+  {
+    "question": "What is a key societal benefit of T2VPhysBench?",
+    "context": "T2VPhysBench addresses a foundational trustworthiness challenge in generative AI ensuring that synthesized videos obey real-world physics.",
+    "answer": "It improves trustworthiness of generative AI by ensuring adherence to real-world physics."
+  },
+  {
+    "question": "How can T2VPhysBench help prevent misuse of generative videos?",
+    "context": "We do not foresee direct negative uses of this benchmark exposing model failures to physical laws is unlikely to enable harmful behavior. If anything, understanding these limitations can prevent the misuse of generated videos in safety-critical systems.",
+    "answer": "By exposing failures, T2VPhysBench helps prevent misuse in safety-critical applications."
+  },
+  {
+    "question": "What are the main steps to use T2VPhysBench for model evaluation?",
+    "context": "Three annotators undergraduate or graduate students independently review every generated video and assign it one of four quality levels based on its adherence to the target physical law.",
+    "answer": "Generate videos for prompts, have annotators score adherence, and average scores for evaluation."
+  },
+  {
+    "question": "What is a limitation regarding cultural or social reasoning in T2VPhysBench?",
+    "context": "As the field progresses, care should be taken that model improvements motivated by T2VPhysBench do not introduce unintended biases in other dimensions e.g., cultural or social reasoning.",
+    "answer": "T2VPhysBench does not address cultural or social reasoning biases."
+  },
+  {
+    "question": "What is the recommended video duration and resolution for T2VPhysBench?",
+    "context": "We fix a 169 aspect ratio and choose a short video duration usually 4 seconds to concentrate the evaluation on fundamental physical behaviors.",
+    "answer": "Use 4-second videos at 720p resolution with a 16:9 aspect ratio."
+  },
+  {
+    "question": "How can T2VPhysBench guide dataset curation for training?",
+    "context": "Researchers and practitioners can use our benchmark to flag unsafe or misleading outputs, guide the design of physics-aware architectures, and curate more robust training datasets.",
+    "answer": "Use T2VPhysBench to identify and curate data that improves physical law adherence."
+  },
+  {
+    "question": "What is a unique implementation feature of Kling in T2VPhysBench?",
+    "context": "Kling is capable of producing videos lasting either 5 or 10 seconds, with flexible aspect ratios, including 169, 11, and 916. It also offers a prompt dictionary, AI-generated prompt hints powered by DeepSeek, and negative prompts as optional settings.",
+    "answer": "Kling offers prompt dictionaries, negative prompts, and flexible video durations."
+  },
+  {
+    "question": "Does the provided context explain how T2VPhysBench handles optical flow?",
+    "context": "Our benchmark includes ten models, spanning both closed-source and opensource systems. Detailed model specifications are listed in Table 1.",
+    "answer": "No, the context does not explain how T2VPhysBench handles optical flow."
+  },
+  {
+    "question": "Does the T2VPhysBench paper specify training data sources for all models?",
+    "context": "Kling is a closed-source text-to-video model developed by Kuai and released in 2024, with four different versions Kling 1.0, Kling 1.5, kling 1.6, and the latest, Kling 2.0.",
+    "answer": "No, the context does not specify training data sources for all models."
+  },
+  {
+    "question": "Does T2VPhysBench provide code for model training?",
+    "context": "We fix a 169 aspect ratio and choose a short video duration usually 4 seconds to concentrate the evaluation on fundamental physical behaviors.",
+    "answer": "No, the context does not mention providing code for model training."
+  },
+  {
+    "question": "Does the T2VPhysBench paper discuss GPU memory requirements?",
+    "context": "Our benchmark includes ten models, spanning both closed-source and opensource systems. Detailed model specifications are listed in Table 1.",
+    "answer": "No, the context does not discuss GPU memory requirements."
+  },
+  {
+    "question": "Does T2VPhysBench evaluate models on text-to-image tasks?",
+    "context": "We introduce a first first-principled benchmark that systematically evaluates whether modern text-to-video generation models respect twelve fundamental physical laws, covering Newtonian mechanics, conservation principles, and phenomenological effects.",
+    "answer": "No, the context only discusses text-to-video, not text-to-image evaluation."
+  },
+  {
+    "question": "Does the T2VPhysBench paper detail model licensing terms?",
+    "context": "For generation, we use the lowest available resolution typically 720 p to balance visual fidelity with physical accuracy.",
+    "answer": "No, the context does not detail model licensing terms."
+  }
+]

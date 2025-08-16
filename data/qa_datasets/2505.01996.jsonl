@@ -1,0 +1,267 @@
+[
+  {
+    "question": "What problem does the Always Skip Attention paper by Ji et al. identify with Vision Transformers?",
+    "context": "We highlight a curious empirical result within modern Vision Transformers (ViTs). Specifically, self-attention catastrophically fails to train unless it is used in conjunction with skip connection. This is in contrast to other elements of a ViT that continue to exhibit good performance albeit suboptimal when skip connections are removed.",
+    "answer": "The paper identifies that self-attention in Vision Transformers catastrophically fails to train without skip connections, while other ViT components like feedforward networks can still perform reasonably well when their skip connections are removed."
+  },
+  {
+    "question": "What are the main contributions of the Always Skip Attention paper?",
+    "context": "Contributions. 1. We present a proposition that characterizes why SAB output embedding without skip connection is fundamentally ill-conditioned, which challenges training convergence and stability. 2. A theoretical analysis on the role of skip connection within the SAB is undertaken. We demonstrate that it significantly improves the condition of the blocks output embedding, enhancing stability and performance. 3. Finally, we propose a novel approach-Token Graying (TG) to better pre-condition the input tokens.",
+    "answer": "The main contributions are: (1) theoretical characterization of why self-attention blocks are ill-conditioned without skip connections, (2) analysis showing skip connections improve conditioning and stability, and (3) proposing Token Graying method to better pre-condition input tokens."
+  },
+  {
+    "question": "What empirical evidence does the Always Skip Attention paper provide about skip connection importance?",
+    "context": "In Fig. 1 (c) we observe for a ViT-Tiny model trained upon the CIFAR-10 dataset that classification accuracy drops modestly (2%) when skip connections are removed in the FFN, but retained in the SAB. Surprisingly, however, the model performance becomes near catastrophic-with a 22% drop in accuracy-when skip connections are removed from the SAB while retained in the FFN.",
+    "answer": "The paper shows that removing skip connections from feedforward networks causes only a modest 2% accuracy drop, while removing them from self-attention blocks causes a catastrophic 22% accuracy drop on CIFAR-10 using ViT-Tiny."
+  },
+  {
+    "question": "How does the Always Skip Attention paper measure the conditioning problem in self-attention blocks?",
+    "context": "In Fig. 1 (b), we take one pre-trained regular ViT-Tiny model and measure the condition of the SAB and FFN outputs, both with and without skip connections. We observe that the SAB output embedding without skip connections is highly ill-conditioned, with a condition number around 1e6. In contrast, the other three configurations have relatively low condition numbers, around 1e3.",
+    "answer": "The paper measures conditioning using condition numbers, finding that self-attention block outputs without skip connections have condition numbers around 1e6 (highly ill-conditioned), while other configurations have much better condition numbers around 1e3."
+  },
+  {
+    "question": "What theoretical framework does the Always Skip Attention paper use to analyze conditioning?",
+    "context": "We argue that the Jacobian of the SAB is disproportionately ill-conditioned compared to other components, notably the FFN block. Poor Jacobian condition is fundamentally detrimental to gradient descent training, making convergence and stability challenging. So we make the following simplifying assumptions: 1. The condition of the network Jacobian is bound by the most ill-conditioned sub-block Jacobian. 2. A proxy for the condition of the sub-block Jacobian is the condition of the output embedding of that block.",
+    "answer": "The paper uses a theoretical framework based on Jacobian conditioning, with two key assumptions: (1) network Jacobian condition is bounded by the most ill-conditioned sub-block, and (2) output embedding condition serves as a proxy for sub-block Jacobian condition."
+  },
+  {
+    "question": "What does Token Graying method in the Always Skip Attention paper aim to achieve?",
+    "context": "Additionally, we propose a novel approach-Token Graying (TG) a simple yet effective complement to skip connections that further improves the condition of input tokens. We validate our approach in both supervised and self-supervised training methods.",
+    "answer": "Token Graying aims to complement skip connections by further improving the condition of input tokens, and it has been validated in both supervised and self-supervised training methods."
+  },
+  {
+    "question": "How does the Always Skip Attention paper compare ViTs to ConvMixer regarding skip connections?",
+    "context": "To further highlight the poor conditioning of the SAB, we conducted a similar experiment on a modern CNN ConvMixer. ConvMixer has a similar architecture and competitive performance to ViT with the exception that self-attention is replaced by a convolution block to spatially mix tokens. Unlike ViT, training ConvMixer without skip connections still achieves competitive performance, as shown in Fig. 2.",
+    "answer": "The paper shows that ConvMixer, which replaces self-attention with convolution blocks, can still achieve competitive performance without skip connections, highlighting that the conditioning problem is specific to self-attention mechanisms in ViTs."
+  },
+  {
+    "question": "What mathematical bound does the Always Skip Attention paper provide for self-attention conditioning?",
+    "context": "Proposition 4.1. Assume X ∈ R^(n×d), W_Q, and W_K and W_V ∈ R^(d×d) have entries that are independently drawn from a distribution with zero mean. The condition number of the SAB output embedding without skip-connection can be expressed as κ(XW_QW_K^T XW_V) ≤ C(σ_max/σ_min)^3, where σ_max and σ_min are the maximal and minimal singular values of X.",
+    "answer": "The paper provides Proposition 4.1 showing that the condition number of self-attention output without skip connections is bounded by the cube of the input matrix condition number, leading to severely ill-conditioned embeddings across multiple layers."
+  },
+  {
+    "question": "What does the Always Skip Attention paper prove about skip connections' effect on conditioning?",
+    "context": "Proposition 4.2. Let X ∈ R^(n×d) and W_Q, W_K, W_V ∈ R^(d×d) have entries that are independently drawn from a distribution with zero mean. We define M = W_QW_K^T XW_V and assume M is the positive semi-definite matrix. We have the following bounds on the condition numbers: κ(X+M) ≤ κ(X)κ(M).",
+    "answer": "Proposition 4.2 proves that skip connections provide a much lower bound on the condition number of self-attention output embeddings compared to the case without skip connections, leading to better training stability and convergence."
+  },
+  {
+    "question": "What experimental datasets does the Always Skip Attention paper use to validate their findings?",
+    "context": "We train the ViT-Tiny, which has 12 layers and 3 heads, with a head dimension of 64 and a token dimension of 192 on the Tiny-ImageNet dataset. Additionally, we train ViT-Base, which consists of 12 layers and 12 heads, each with a head dimension of 64 and a token dimension of 768 on the ImageNet-1K dataset.",
+    "answer": "The paper validates their findings using ViT-Tiny on Tiny-ImageNet dataset and ViT-Base on ImageNet-1K dataset, along with experiments on CIFAR-10 and various ViT architectures including Swin, CaiT, and PVT."
+  },
+  {
+    "question": "What performance improvements does Token Graying achieve in the Always Skip Attention paper?",
+    "context": "As shown in Tab. 5, our DCT-TG method outperforms the vanilla MAE model by 0.2% in both top-1 and top-5 classification accuracy. In Tab. 4, Top-1 and Top-5 classification accuracy on ImageNet-1K dataset using DCT token graying on different ViTs shows superior performance compared to vanilla models.",
+    "answer": "Token Graying (DCT-TG) achieves 0.2% improvement in both top-1 and top-5 accuracy on MAE models, and shows consistent improvements across different ViT architectures on ImageNet-1K dataset."
+  },
+  {
+    "question": "How does the Always Skip Attention paper define the condition number of matrices?",
+    "context": "Formally, for a rectangular full rank matrix A ∈ R^(n×d), the condition number of A is defined below: κ(A) = ||A||_2||A^+||_2 = σ_max(A)/σ_min(A) where ||·||_2 is the matrix operator norm induced by the Euclidean norm. σ_max and σ_min are the maximal and minimal singular values of A respectively.",
+    "answer": "The paper defines the condition number as the ratio of the largest to smallest singular values of a matrix, which measures how sensitive the matrix is to numerical errors and affects training stability."
+  },
+  {
+    "question": "What architectural components does the Always Skip Attention paper analyze in Vision Transformers?",
+    "context": "A Vision Transformer architecture consists of L stacked self-attention blocks (SABs) and feedforward networks (FFNs). An identity mapping commonly referred to as a skip connection is applied to connect inputs and outputs of transformation in both SAB and FFN.",
+    "answer": "The paper analyzes three main architectural components in Vision Transformers: self-attention blocks (SABs), feedforward networks (FFNs), and skip connections that connect inputs and outputs in both SAB and FFN blocks."
+  },
+  {
+    "question": "What mathematical formulation does the Always Skip Attention paper use for self-attention blocks?",
+    "context": "Formally, given an input sequence X_in ∈ R^(n×d), with n tokens of dimension d, a SAB is defined as X_out = SA(X_in) + X_in, where self-attention output embedding is SA(X_in) = σ(QK^T)V, where Q = X_in W_Q, K = X_in W_K and V = X_in W_V with learnable parameters W_Q, W_K, and W_V ∈ R^(d×d).",
+    "answer": "The paper formulates self-attention blocks as X_out = SA(X_in) + X_in, where SA(X_in) = σ(QK^T)V with Q, K, V computed from input tokens using learnable weight matrices, and σ is typically the softmax activation function."
+  },
+  {
+    "question": "How does the Always Skip Attention paper implement SVD Token Graying algorithmically?",
+    "context": "Algorithm 1 SVD Token Graying: Convert image x into token X, Compute SVD: X = UΣV^T, Normalize elements σ to [1], Amplify: σ̃ = εσ + (1-ε)σ_max, SVD reconstruct: X̃ = UΣ̃V^T, Patch Embedding Z = PatchEmbed(X̃), Forward Pass: Model(Z).",
+    "answer": "SVD Token Graying works by: (1) computing SVD of input tokens, (2) normalizing singular values to [1], (3) amplifying non-maximal singular values using coefficient ε, (4) reconstructing tokens with modified singular values, then (5) proceeding with normal ViT processing."
+  },
+  {
+    "question": "Why does the Always Skip Attention paper propose DCT Token Graying as an alternative to SVD?",
+    "context": "However, directly applying SVD to matrices is computationally expensive, with a cost of O(nd²min(n,d)) leading to longer training time. Tab. 1 demonstrates that training a vision transformer is significantly slower when using SVD reconstruction. Therefore, in the next subsection, we introduce a more efficient token graying method using the discrete cosine transform.",
+    "answer": "The paper proposes DCT Token Graying because SVD is computationally expensive with O(nd²min(n,d)) complexity, making training significantly slower (about 6 times slower), while DCT provides a more efficient approximation with O(nd log(nd)) complexity."
+  },
+  {
+    "question": "How does the Always Skip Attention paper implement DCT Token Graying algorithmically?",
+    "context": "Algorithm 2 DCT Token Graying: Convert image x into token X, Compute DCT: X̃ = DXD^T, Normalize elements to [1]: X_norm = X̃/max(X̃), Amplify: X̃ = εX_norm + (1-ε)sign(x)max(x), Inverse DCT: X̃ = D^T X̃ D, Patch Embedding Z = PatchEmbed(X̃).",
+    "answer": "DCT Token Graying works by: (1) applying 2D DCT to input tokens, (2) normalizing DCT coefficients to [1], (3) amplifying coefficients using parameter ε while preserving dominant components, (4) applying inverse DCT to reconstruct tokens, then (5) proceeding with normal processing."
+  },
+  {
+    "question": "What design choice does the Always Skip Attention paper make for the amplification coefficient ε?",
+    "context": "For all experiments, unless specified otherwise, we use ε = 0.95. In Tab. 3, ViT-Base results using SVD and DCT token graying methods with different amplification coefficient ε show that ε = 0.95 achieves good performance with κ_in and κ_out values of 6.42 and 6.43 respectively.",
+    "answer": "The paper chooses ε = 0.95 as the default amplification coefficient for Token Graying experiments, which provides good performance while maintaining reasonable condition numbers for input and output token embeddings."
+  },
+  {
+    "question": "How does the Always Skip Attention paper validate their method on self-supervised learning?",
+    "context": "In the pre-training stage, we pre-train our model on the ImageNet-1k training set without using ground-truth labels in a self-supervised manner using Masked Image Modeling (MIM). In the finetuning stage, we fine-tune the pre-trained models on ImageNet-1k for classification tasks. As shown in Tab. 5, our DCT-TG method outperforms the vanilla MAE model by 0.2% in both top-1 and top-5 classification accuracy.",
+    "answer": "The paper validates their method on self-supervised learning using Masked Autoencoder (MAE) pre-training on ImageNet-1k without labels, followed by fine-tuning for classification, achieving 0.2% improvement over vanilla MAE in both top-1 and top-5 accuracy."
+  },
+  {
+    "question": "What limitations does the Always Skip Attention paper acknowledge about their Token Graying approach?",
+    "context": "However, certain limitations remain. For instance, while our regularizer is effective, training in low-precision settings may pose challenges due to the DCT operation, which involves many multiplications and summations that are sensitive to quantization errors. Additionally, for some variants of ViTs, the performance improvement might be marginal.",
+    "answer": "The paper acknowledges that Token Graying may face challenges in low-precision training due to DCT operations being sensitive to quantization errors, and that performance improvements might be marginal for some ViT variants."
+  },
+  {
+    "question": "How does the Always Skip Attention method compare to standard ViT models regarding skip connection removal?",
+    "context": "We observe that removing [FFN skip connections] results in a modest impact on performance. This difference becomes more pronounced as the scale of the dataset increases... removing [SAB skip connections] results in a catastrophic performance drop.",
+    "answer": "The Always Skip Attention method shows catastrophic performance drops when SAB skip connections are removed, unlike standard ViTs where FFN skip removal has only a modest effect."
+  },
+  {
+    "question": "How does ConvMixer baseline performance compare to Vision Transformer models without skip connections?",
+    "context": "ConvMixer has a similar architecture and competitive performance to ViT with the exception that self-attention is replaced by a convolution block... Unlike ViT, training ConvMixer without skip connections still achieves competitive performance.",
+    "answer": "ConvMixer maintains competitive performance without skip connections, unlike Vision Transformers, which degrade significantly when SAB skip connections are removed."
+  },
+  {
+    "question": "How does the Token Graying method in Always Skip Attention compare to SVD-based approaches?",
+    "context": "SVD token graying pipeline is presented in Algorithm 1. However, directly applying SVD to matrices is computationally expensive... Therefore, we introduce a more efficient token graying method using the discrete cosine transform.",
+    "answer": "Token Graying using DCT is more computationally efficient than SVD-based approaches while providing comparable improvements in conditioning."
+  },
+  {
+    "question": "What is the training time difference between SVDTG and DCTTG in the Always Skip Attention paper?",
+    "context": "Tab. 1 demonstrates that training a vision transformer is significantly slower when using SVD reconstruction... DCT avoids the expensive computational cost of SVD and has a complexity of Ond lognd.",
+    "answer": "SVDTG is about six times slower than DCTTG, making DCTTG the preferred method for practical training."
+  },
+  {
+    "question": "How does Always Skip Attention's DCTTG compare to vanilla ViT models in classification accuracy?",
+    "context": "our DCTTG method demonstrates superior performance compared to vanilla models in terms of Top-1 and Top-5 classification accuracy, while also achieving better conditioning of SAB output embeddings across all layers in the ViT-B model.",
+    "answer": "DCTTG outperforms vanilla ViT models in both Top-1 and Top-5 classification accuracy and achieves better conditioning."
+  },
+  {
+    "question": "How does the Always Skip Attention method compare to Swin, CaiT, and PVT transformer variants?",
+    "context": "Finally, we evaluate our methods on different variants of ViTs trained on ImageNet- 1K datasets, where our DCTTG method demonstrates superior performance compared to vanilla models in terms of Top-1 and Top-5 classification accuracy.",
+    "answer": "Always Skip Attention's DCTTG improves performance across Swin, CaiT, and PVT variants compared to their vanilla counterparts."
+  },
+  {
+    "question": "How does the Token Graying method compare to MAE in self-supervised learning?",
+    "context": "As shown in Tab. 5, our DCTTG method outperforms the vanilla MAE model by 0.2 in both top-1 and top-5 classification accuracy.",
+    "answer": "DCTTG achieves a 0.2% improvement over vanilla MAE in both top-1 and top-5 accuracy for self-supervised learning."
+  },
+  {
+    "question": "How does the Always Skip Attention method compare to ResNet's skip connections in terms of necessity?",
+    "context": "He et al. 8 introduced skip connections in ResNet... Recently, in Table 3 of 11, the authors reported that VGG—a model without skip connections—achieves comparable results to ResNet—a model with skip connections—on modern datasets.",
+    "answer": "Unlike ResNet, where skip connections are beneficial but not always essential, Always Skip Attention shows skip connections in SAB are indispensable for ViT stability."
+  },
+  {
+    "question": "How does the Always Skip Attention method compare to the approach in  for training transformers without skip connections?",
+    "context": "In , the authors attempted to train deep transformer networks without using skip connections, achieving performance comparable to standard models. However, this approach requires five times more iterations...",
+    "answer": "Always Skip Attention achieves stability and performance with skip connections, while 's approach matches performance but is five times slower without skip connections."
+  },
+  {
+    "question": "How does the conditioning of SAB output embeddings compare to FFN output embeddings in Always Skip Attention?",
+    "context": "We observe that the SAB output embedding without skip connections is highly ill-conditioned, with a condition number around e6. In contrast, the other three configurations have relatively low condition numbers, around e3.",
+    "answer": "SAB output embeddings are much more ill-conditioned than FFN output embeddings when skip connections are removed."
+  },
+  {
+    "question": "How does Always Skip Attention's DCTTG method compare to linear and softmax self-attention?",
+    "context": "both SVDTG and DCTTG lead to better conditioning of SAB output embeddings throughout training epochs... we train the model on a larger dataset using the default softmax self-attention, further validating that our approach generalizes to softmax self-attention.",
+    "answer": "DCTTG improves conditioning for both linear and softmax self-attention cases, generalizing across attention types."
+  },
+  {
+    "question": "How does the Always Skip Attention method compare to previous work on skip connection scaling?",
+    "context": "Hayou et al. 6 addresses gradient stability in deep ResNets... they propose scaling the skip connections according to the layer index, thereby stabilizing gradients...",
+    "answer": "While previous work scaled skip connections for gradient stability, Always Skip Attention focuses on conditioning and shows skip connections are essential for SAB stability."
+  },
+  {
+    "question": "What real-world applications could benefit from the Always Skip Attention method's improved ViT conditioning?",
+    "context": "Vision Transformers ViTs have demonstrated impressive performance on various computer vision tasks, such as object detection, semantic segmentation, video understanding, visual-language learning, and many others.",
+    "answer": "Applications like object detection, semantic segmentation, video understanding, and visual-language learning can benefit from improved ViT conditioning using Always Skip Attention."
+  },
+  {
+    "question": "What are the practical limitations of DCT-based Token Graying in Always Skip Attention?",
+    "context": "training in low-precision settings may pose challenges due to the DCT operation, which involves many multiplications and summations that are sensitive to quantization errors.",
+    "answer": "DCT-based Token Graying may struggle in low-precision training due to quantization sensitivity in its computations."
+  },
+  {
+    "question": "How can practitioners implement DCT Token Graying from the Always Skip Attention paper?",
+    "context": "Algorithm 2 DCT Token Graying 1 Input training data, amplification coefficient 0,1 ... 4 Convert image x into token X DYDT X ... 9 Patch Embedding Z PatchEmbed 10 Forward Pass ModelZ",
+    "answer": "Practitioners can implement DCT Token Graying by applying 2D DCT to tokens, amplifying coefficients, performing inverse DCT, and then proceeding with standard ViT processing."
+  },
+  {
+    "question": "What is the recommended amplification coefficient ε for Token Graying in Always Skip Attention?",
+    "context": "For all experiments, unless specified otherwise, we use e 0.95.",
+    "answer": "The recommended amplification coefficient ε for Token Graying is 0.95."
+  },
+  {
+    "question": "What future research directions are suggested by the Always Skip Attention findings?",
+    "context": "Our hope is that this insight opens up brand new lines of inquiry for the vision community for more effective and efficient ViT design.",
+    "answer": "The findings suggest exploring new ViT designs that address conditioning and stability, possibly reducing dependence on skip connections."
+  },
+  {
+    "question": "How can the Always Skip Attention method be used in self-supervised learning pipelines?",
+    "context": "In the pre-training stage, we pre-train our model on the ImageNet-1k training set without using ground-truth labels in a self-supervised manner.",
+    "answer": "The method can be integrated into self-supervised ViT pipelines by applying Token Graying during masked image modeling pre-training."
+  },
+  {
+    "question": "What is the main limitation of the Always Skip Attention method for some ViT variants?",
+    "context": "Additionally, for some variants of ViTs, the performance improvement might be marginal.",
+    "answer": "For some ViT variants, the performance improvement from Token Graying may be marginal."
+  },
+  {
+    "question": "What is the computational complexity advantage of DCTTG over SVDTG in Always Skip Attention?",
+    "context": "DCT avoids the expensive computational cost of SVD and has a complexity of Ond lognd.",
+    "answer": "DCTTG has lower computational complexity (O(nd log nd)) compared to SVDTG, making it more practical for large-scale training."
+  },
+  {
+    "question": "What are the steps to use Token Graying in a supervised ViT training pipeline?",
+    "context": "Algorithm 2 DCT Token Graying ... Patch Embedding Z PatchEmbed 10 Forward Pass ModelZ",
+    "answer": "Steps: apply DCT to tokens, amplify coefficients, perform inverse DCT, embed patches, and proceed with supervised ViT training."
+  },
+  {
+    "question": "What is the main theoretical insight of the Always Skip Attention paper for practical ViT use?",
+    "context": "This paper provides a theoretical demonstration that the output embeddings of linear self-attention blocks—when lacking skip connections—are inherently ill-conditioned...",
+    "answer": "The main insight is that SABs without skip connections are ill-conditioned, making skip connections essential for stable and effective ViT training."
+  },
+  {
+    "question": "What are the recommended datasets for evaluating the Always Skip Attention method?",
+    "context": "We train the ViT-Tiny ... on the Tiny-ImageNet dataset ... ViT-Base ... on the ImageNet-1K dataset.",
+    "answer": "Recommended datasets include Tiny-ImageNet and ImageNet-1K for evaluating the method."
+  },
+  {
+    "question": "What are the main steps for integrating DCTTG into an existing ViT codebase?",
+    "context": "Algorithm 2 DCT Token Graying ... Patch Embedding Z PatchEmbed 10 Forward Pass ModelZ",
+    "answer": "Main steps: add DCT/IDCT transforms to token pipeline, adjust amplification, then use standard patch embedding and model forward pass."
+  },
+  {
+    "question": "What is the impact of skip connection removal in SABs on model convergence?",
+    "context": "the SAB without skip connections— which is significantly ill-conditioned—converges much more slowly than the other two configurations and diverges after 30 epochs.",
+    "answer": "Removing SAB skip connections leads to slow convergence and possible divergence during training."
+  },
+  {
+    "question": "What is the effect of Token Graying on ViT's Jacobian conditioning?",
+    "context": "we use the condition of the self-attention output embeddings as a proxy for that of its Jacobian, empirically demonstrating that input tokens with improved conditioning lead to a better-conditioned Jacobian.",
+    "answer": "Token Graying improves input token conditioning, which leads to a better-conditioned ViT Jacobian and more stable training."
+  },
+  {
+    "question": "What are the main applications for ViTs enhanced by Always Skip Attention?",
+    "context": "Vision Transformers ViTs have demonstrated impressive performance on various computer vision tasks, such as object detection, semantic segmentation, video understanding, visual-language learning, and many others.",
+    "answer": "Object detection, semantic segmentation, video understanding, and visual-language learning are key applications for enhanced ViTs."
+  },
+  {
+    "question": "Does the context explain how to deploy Always Skip Attention in edge devices?",
+    "context": "training in low-precision settings may pose challenges due to the DCT operation, which involves many multiplications and summations that are sensitive to quantization errors.",
+    "answer": "The context does not provide details on deploying Always Skip Attention in edge devices."
+  },
+  {
+    "question": "Does the context describe the energy efficiency of DCTTG compared to SVDTG?",
+    "context": "Tab. 1 demonstrates that training a vision transformer is significantly slower when using SVD reconstruction... DCT avoids the expensive computational cost of SVD...",
+    "answer": "The context mentions training speed but does not provide explicit information about energy efficiency."
+  },
+  {
+    "question": "Does the context provide implementation code for DCTTG in PyTorch?",
+    "context": "Algorithm 2 DCT Token Graying ... Patch Embedding Z PatchEmbed 10 Forward Pass ModelZ",
+    "answer": "The context outlines the algorithm steps but does not provide actual PyTorch code."
+  },
+  {
+    "question": "Does the context specify hardware requirements for training with Always Skip Attention?",
+    "context": "training in low-precision settings may pose challenges due to the DCT operation...",
+    "answer": "The context does not specify hardware requirements for training with Always Skip Attention."
+  },
+  {
+    "question": "Does the context discuss the effect of Token Graying on model interpretability?",
+    "context": "Token Graying improves the condition of input tokens, and it has been validated in both supervised and self-supervised training methods.",
+    "answer": "The context does not discuss model interpretability effects of Token Graying."
+  },
+  {
+    "question": "Does the context provide ablation studies for different DCTTG parameter settings?",
+    "context": "For all experiments, unless specified otherwise, we use e 0.95. In Tab. 3, ViT-Base results using SVD and DCT token graying methods with different amplification coefficient e show that e = 0.95 achieves good performance...",
+    "answer": "The context provides some results for different amplification coefficients but does not detail comprehensive ablation studies."
+  }
+]

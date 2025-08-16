@@ -1,0 +1,367 @@
+[
+  {
+    "question": "What problem does 'A Comprehensive Analysis for Visual Object Hallucination in Large Vision-Language Models' address?",
+    "context": "Large Vision-Language Models (LVLMs) demonstrate remarkable capabilities in multimodal tasks, but visual object hallucination remains a persistent issue. It refers to scenarios where models generate inaccurate visual object-related information based on the query input, potentially leading to misinformation and concerns about safety and reliability.",
+    "answer": "'A Comprehensive Analysis for Visual Object Hallucination in Large Vision-Language Models' addresses the persistent issue of visual object hallucination in LVLMs, where models generate inaccurate or misleading visual object-related information."
+  },
+  {
+    "question": "Which components of LVLMs are analyzed in the paper by Liqiang Jing et al.?",
+    "context": "In this paper, we analyze each component of LLaVA-like LVLMs—the large language model, the vision backbone, and the projector, to identify potential sources of error and their impact.",
+    "answer": "The paper analyzes the large language model, the vision backbone, and the projector components of LVLMs."
+  },
+  {
+    "question": "What are the main contributions of the paper 'A Comprehensive Analysis for Visual Object Hallucination in Large Vision-Language Models'?",
+    "context": "Our contributions can be summarized as follows: 1) We analyze the hallucination caused by each component in LVLMs and provide component-wise takeaway messages. 2) Based on our observation, we propose several methods to improve each hallucinated component. 3) We construct a fine-grained hallucination benchmark based on Visual Genome and a cognition-based hallucination benchmark based on FB15k for evaluation. 4) We extensively evaluate our proposed methods on various benchmarks, and provide in-depth analysis.",
+    "answer": "The main contributions are a component-wise analysis of hallucination in LVLMs, targeted mitigation methods, creation of new hallucination benchmarks, and extensive evaluation of proposed methods."
+  },
+  {
+    "question": "What new benchmarks are introduced in the paper by Liqiang Jing et al. for evaluating hallucination?",
+    "context": "To conduct a comprehensive hallucination evaluation, we develop a fine-grained hallucination benchmark named QA-VisualGenome, which is built upon the Visual Genome dataset... To address this gap, we construct a cognition-based hallucination benchmark named QA-FB15K, which is based on the FB-15K dataset.",
+    "answer": "The paper introduces QA-VisualGenome for fine-grained attribute and relation hallucinations, and QA-FB15K for cognition-based hallucinations."
+  },
+  {
+    "question": "How does the paper define visual object hallucination in LVLMs?",
+    "context": "Visual object hallucination, including object existence, attribute, and relation, has garnered significant attention due to its widespread occurrence in images. This phenomenon occurs when models generate inaccurate or misleading information unrelated to the actual visual input.",
+    "answer": "Visual object hallucination is when LVLMs generate inaccurate or misleading information about object existence, attributes, or relations that are not present in the visual input."
+  },
+  {
+    "question": "What datasets are used for evaluating component performance in the paper?",
+    "context": "We select two benchmarks to benchmark the performance of each component. 1) POPE... 2) QA-VisualGenome.",
+    "answer": "The paper uses POPE and QA-VisualGenome datasets to evaluate the performance of LVLM components."
+  },
+  {
+    "question": "What does the analysis reveal about the language model (LLM) component in LVLMs?",
+    "context": "From our study, we have the following findings. 1) The LLM in LVLM is able to generate faithful content when captions of images are provided as input.",
+    "answer": "The analysis reveals that the LLM component generates faithful content when provided with accurate image captions."
+  },
+  {
+    "question": "What is the main cause of hallucination identified in the paper's analysis?",
+    "context": "This indicates the current main reason for hallucination is caused by a vision encoder or projector.",
+    "answer": "The main cause of hallucination is attributed to the vision encoder or projector, rather than the language model."
+  },
+  {
+    "question": "How does CLIP perform on text-image matching tasks according to the paper?",
+    "context": "Overall, we found that the performance of CLIP on the text-matching task is not good. For example, the performance of CLIP on the text-image matching task is 83.33 accuracy on the random setting of POPE, indicating the presence of hallucinations within the vision encoder's perception process.",
+    "answer": "CLIP performs suboptimally on text-image matching tasks, with notable hallucinations in its perception process."
+  },
+  {
+    "question": "What does the paper find about the projector's ability to preserve visual information?",
+    "context": "Results in Table 3 shows that for the 13B LLaVA model, performance percentage drop of post-projection features is less than 2%, indicating that the visual features are well preserved by the projectors in both models.",
+    "answer": "The projector preserves visual features well, with less than 2% performance drop after projection."
+  },
+  {
+    "question": "What issue does the projector have regarding visual and textual space alignment?",
+    "context": "Results in Table 4 show that the cosine similarities of the two features are fairly low, indicating nearly independent relationships. This finding is consistent with the existing work... which reveals that visual and textual representations are apart from each other in the embedding space.",
+    "answer": "The projector struggles to align visual and textual spaces, as shown by low cosine similarity between projected image and caption embeddings."
+  },
+  {
+    "question": "What methods are proposed to mitigate hallucination in the vision backbone?",
+    "context": "To improve the vision backbone, we propose to finetune CLIP with fine-grained data and fine-grained perception-based visual instruction tuning, and find that both of them can reduce hallucination caused by the vision backbone.",
+    "answer": "The paper proposes finetuning CLIP with fine-grained data and applying fine-grained perception-based visual instruction tuning to mitigate hallucination in the vision backbone."
+  },
+  {
+    "question": "What methods are proposed to mitigate hallucination in the projector component?",
+    "context": "For the projector, we propose a contrastive alignment objective with three variations, which can all be integrated into the original training pipeline with minimal additional costs.",
+    "answer": "A contrastive alignment objective with three variations is proposed to mitigate hallucination in the projector."
+  },
+  {
+    "question": "How does the paper evaluate the effectiveness of its proposed methods?",
+    "context": "We extensively evaluate our proposed methods on various benchmarks, and provide in-depth analysis.",
+    "answer": "The effectiveness of proposed methods is evaluated using multiple benchmarks and in-depth analysis."
+  },
+  {
+    "question": "How does the paper's w-ECLIP method perform compared to LLaVA-7B?",
+    "context": "Our proposed w ECLIP method demonstrates superior performance compared to LLaVA-7B on perception-based benchmarks. This result underscores the effectiveness of our approach in reducing visual object hallucinations by enhancing the fine-grained perception capabilities of CLIP.",
+    "answer": "The w-ECLIP method outperforms LLaVA-7B on perception-based benchmarks, effectively reducing visual object hallucinations."
+  },
+  {
+    "question": "What is the purpose of the QA-VisualGenome benchmark introduced in the paper?",
+    "context": "QA-VisualGenome emphasizes the detailed attribute and relationship hallucinations.",
+    "answer": "QA-VisualGenome is designed to evaluate detailed attribute and relation hallucinations in LVLMs."
+  },
+  {
+    "question": "What does the QA-FB15K benchmark focus on?",
+    "context": "QA-FB15k, which focuses on cognition-based hallucinations.",
+    "answer": "QA-FB15K focuses on cognition-based hallucinations, such as those involving world knowledge."
+  },
+  {
+    "question": "What does the paper conclude about the impact of contrastive alignment on cognition-based benchmarks?",
+    "context": "Contrastive alignment objective is beneficial for cognition-based knowledge, as evidenced by the performance boost on QA-FB15K.",
+    "answer": "Contrastive alignment improves performance on cognition-based benchmarks like QA-FB15K."
+  },
+  {
+    "question": "What limitation does the paper acknowledge in its research?",
+    "context": "Our work primarily focuses on analyzing and improving hallucinations of general objects, such as tables and people, while neglecting the research topic of how to mitigate cognition-level hallucinations, such as the names of individuals and famous buildings.",
+    "answer": "The paper acknowledges its limitation in focusing mainly on general object hallucinations, not cognition-level hallucinations."
+  },
+  {
+    "question": "What is the main finding regarding the source of hallucinations in LVLMs?",
+    "context": "This indicates the current main reason for hallucination is caused by a vision encoder or projector.",
+    "answer": "The main source of hallucinations in LVLMs is the vision encoder or projector component."
+  },
+  {
+    "question": "What are the three modules typically found in LLaVA-like LVLMs as discussed in the paper?",
+    "context": "LLaVA-like LVLMs, which typically consist of three modules: the large language model (LLM), the vision backbone, and the projector.",
+    "answer": "LLaVA-like LVLMs typically consist of a large language model, a vision backbone, and a projector."
+  },
+  {
+    "question": "How does the proposed fine-grained CLIP tuning method work in the paper?",
+    "context": "A direct method to improve CLIP is to post-train CLIP with more fine-grained samples. This is because the CLIP is trained with massive images paired with brief captions. In this method, we leverage GPT4 to generate negative examples, which are then used in a contrastive learning setup to improve the discriminative ability of CLIP.",
+    "answer": "Fine-grained CLIP tuning involves post-training CLIP with fine-grained samples and GPT-4-generated negative examples in a contrastive learning setup."
+  },
+  {
+    "question": "What is the role of negative sample generation in CLIP enhancement?",
+    "context": "We devise two strategies: inserting hallucinatory objects and removing existing ones... By inserting one to three objects from each category into the correct captions with the assistance of GPT-4, we create examples with varying levels of hallucinations (i.e., negative samples).",
+    "answer": "Negative sample generation involves inserting or removing objects in captions to create challenging examples for contrastive learning, enhancing CLIP's discriminative ability."
+  },
+  {
+    "question": "How does the margin-based contrastive loss function contribute to CLIP training?",
+    "context": "To further refine the separation between correct matches and all classes of negative samples... we introduce a margin-based term. Let 1 be the margin threshold enforcing that a positive pair's similarity should exceed that of any negative pair by at least 1.",
+    "answer": "The margin-based contrastive loss ensures that positive image-text pairs are more similar than negative pairs by a specified margin, improving CLIP's discrimination."
+  },
+  {
+    "question": "What is fine-grained perception-based visual instruction tuning as proposed in the paper?",
+    "context": "To achieve this, we propose fine-grained perception-based visual instruction tuning. Specifically, we randomly select two bounding boxes from the image, and then use the object attributes corresponding to these bounding boxes and their relationships to generate the corresponding captions.",
+    "answer": "Fine-grained perception-based visual instruction tuning uses region-level captions generated from selected bounding boxes and their attributes/relations to train LVLMs."
+  },
+  {
+    "question": "How does the contrastive alignment objective for the projector work?",
+    "context": "We introduce an in-batch contrastive alignment loss... where we maximize the similarity between a projected image feature and the corresponding text embedding for its caption.",
+    "answer": "The contrastive alignment objective maximizes similarity between projected image features and their corresponding text embeddings during training."
+  },
+  {
+    "question": "What are the three settings for applying contrastive loss in the projector alignment?",
+    "context": "We only focus on the alignment stage and design three settings that involve the contrastive loss in different fashions. Integrated Alignment Loss... Integrated Alignment Loss... Separate Contrastive Alignment Loss...",
+    "answer": "The three settings are: integrated alignment loss with a learnable weight, integrated alignment loss with a fixed weight, and a separate contrastive alignment stage for the projector."
+  },
+  {
+    "question": "How is the effectiveness of projector alignment methods measured in the paper?",
+    "context": "We benchmark our methods in Table 6. For object-oriented benchmarks POPE and POPE-NoCaps, the model trained with Separate Contrastive Alignment Loss outperforms others on most splits of benchmarks, though the improvement over baseline seems marginal.",
+    "answer": "Effectiveness is measured by performance improvements on object-oriented and relation/attribute benchmarks like POPE and QA-VisualGenome."
+  },
+  {
+    "question": "What insight does the paper provide about the role of the vision encoder in hallucination?",
+    "context": "Firstly, object hallucinations may not be directly related to alignment in LVLM, where vision encoder is mostly responsible for the perception process.",
+    "answer": "The vision encoder is mainly responsible for perception and is a primary source of object hallucinations in LVLMs."
+  },
+  {
+    "question": "How does the paper's w-FineIns method compare in efficiency to w-ECLIP?",
+    "context": "Notably, w-FineIns offers efficiency advantages as it only requires the final training stage—instruction tuning—for the LVLM, simplifying the overall training process.",
+    "answer": "w-FineIns is more efficient than w-ECLIP, requiring only the final instruction tuning stage for LVLM training."
+  },
+  {
+    "question": "How does the paper test the information loss in the projector?",
+    "context": "We linear-probe the pre- and post-projector feature with image classification tasks on CIFAR10, CIFAR100 and ImageNet... performance percentage drop of post-projection features is less than 2%.",
+    "answer": "Information loss is tested by comparing linear probe classification accuracy on pre- and post-projector features; less than 2% drop indicates minimal loss."
+  },
+  {
+    "question": "What does the paper find about the alignment between projected image features and caption embeddings?",
+    "context": "Results in Table 4 show that the cosine similarities of the two features are fairly low, indicating nearly independent relationships.",
+    "answer": "Projected image features and caption embeddings have low cosine similarity, indicating poor alignment between visual and textual spaces."
+  },
+  {
+    "question": "What is the main challenge in mitigating cognition-based hallucinations, according to the paper?",
+    "context": "This may be attributed to the fact that, unlike perception-based benchmarks, cognition-based benchmarks necessitate not only the ability to identify objects but also the comprehension and application of relevant associated knowledge.",
+    "answer": "Mitigating cognition-based hallucinations is challenging because it requires both object identification and application of associated world knowledge."
+  },
+  {
+    "question": "What is the structure of the LVLMs analyzed in the paper?",
+    "context": "LVLMs consist of three components: language decoder D, projector, vision encoder V, and P.",
+    "answer": "The LVLMs analyzed consist of a language decoder, a vision encoder, and a projector."
+  },
+  {
+    "question": "How does the paper's method influence performance on the Amber and LLaVA-Bench benchmarks?",
+    "context": "The experimental results of Table 9 show the effectiveness of our method... The results of Table 11 show the effectiveness of our method.",
+    "answer": "The proposed methods demonstrate competitive or superior performance on both Amber and LLaVA-Bench benchmarks."
+  },
+  {
+    "question": "What does the ablation study in the paper reveal about the loss function components?",
+    "context": "These results demonstrate that both components play meaningful roles in enhancing model performance.",
+    "answer": "Ablation studies show that both components of the loss function contribute meaningfully to model performance."
+  },
+  {
+    "question": "How do the authors compare their methods to existing hallucination mitigation techniques?",
+    "context": "From this table, our methods show competitive performance with the best baseline (i.e., Less is more). This further demonstrates the effectiveness of our method.",
+    "answer": "The authors' methods perform competitively with state-of-the-art hallucination mitigation baselines."
+  },
+  {
+    "question": "What is the impact of visual instruction tuning on LVLM object recognition?",
+    "context": "LLaVA fine-tuning likely enhances the model's object recognition, memory of object-specific features, instruction-following ability, and contextual understanding of visual descriptions, enabling it to accurately identify common objects within text descriptions even without actual images.",
+    "answer": "Visual instruction tuning improves LVLM object recognition and contextual understanding, even without actual images."
+  },
+  {
+    "question": "What is the rationale behind using cosine similarity for alignment evaluation in the paper?",
+    "context": "The rationale of using cosine similarity is that, based on the findings in Section 2.2, a large performance boost is observed if we replace an image with its caption. Therefore, if the projected image feature is similar enough to its caption embedding (i.e. cosine similarity ≈ 1), then an LVLM should gain similar performance.",
+    "answer": "Cosine similarity is used to evaluate whether projected image features are well aligned with caption embeddings, as high similarity should yield similar performance to text-only input."
+  },
+  {
+    "question": "How does the w-ECLIP method compare to LLaVA-7B on perception-based benchmarks?",
+    "context": "Our proposed w ECLIP method demonstrates superior performance compared to LLaVA-7B on perceptionbased benchmarks. This result underscores the effectiveness of our approach in reducing visual object hallucinations by enhancing the fine-grained perception capabilities of CLIP.",
+    "answer": "w-ECLIP outperforms LLaVA-7B on perception-based benchmarks, reducing visual object hallucinations."
+  },
+  {
+    "question": "How does the fine-grained instruction tuning (w-FineIns) compare in efficiency to w-ECLIP?",
+    "context": "w-FineIns offers efficiency advantages as it only requires the final training stage-instruction tuning-for the LVLM, simplifying the overall training process.",
+    "answer": "w-FineIns is more efficient than w-ECLIP, needing only the final instruction tuning stage."
+  },
+  {
+    "question": "How does CLIP's object recognition compare to LLaVA's on the POPE benchmark?",
+    "context": "The accuracy of LLaVA is 91.33 on the random setting of POPE, but CLIP only achieves 83.33 accuracy. This indicates that the hallucination caused by CLIP can be alleviated to a certain extent after the pre-training feature alignment and instruction tuning.",
+    "answer": "LLaVA achieves higher object recognition accuracy than CLIP on POPE, especially after alignment and tuning."
+  },
+  {
+    "question": "How do the proposed projector alignment methods compare to the baseline on QA-VisualGenome?",
+    "context": "For QA-VisualGenome benchmark, we only observe improvement on the Relation split with Separate Contrastive Alignment Loss, whereas slight performance drops are observed for others.",
+    "answer": "Separate Contrastive Alignment Loss improves relation split performance but shows slight drops elsewhere compared to baseline."
+  },
+  {
+    "question": "How does the proposed method perform on the Amber dataset compared to other baselines?",
+    "context": "The experimental results of Table 9 show the effectiveness of our method. w-ECLIP 85.9, w-FineIns 85.5, Sep. Ctrs. Align 86.0, Less is more 86.0.",
+    "answer": "The proposed methods match or slightly outperform top baselines like 'Less is more' on Amber."
+  },
+  {
+    "question": "How does the 'Less is more' baseline compare to the proposed methods on POPE?",
+    "context": "From this table, our methods show competitive performance with the best baseline (i.e., Less is more).",
+    "answer": "The proposed methods perform competitively with the 'Less is more' baseline on POPE."
+  },
+  {
+    "question": "How does the performance of LLaVA-7B change after visual instruction tuning?",
+    "context": "In addition, we also found that the LLM after the pertaining and instruction tuning of LLaVA performs better than the original LLM.",
+    "answer": "LLaVA-7B performs better after visual instruction tuning compared to the original LLM."
+  },
+  {
+    "question": "How does the separate contrastive alignment stage compare in training time to integrated alignment?",
+    "context": "Notably, the prepended contrastive alignment stage takes only 12 minutes to train since only the vision encoder V, projector P and the embedding layer of LLM D are involved in the forward process.",
+    "answer": "The separate contrastive alignment stage is much faster, taking only 12 minutes compared to hours for integrated alignment."
+  },
+  {
+    "question": "How do the proposed methods compare to decoding-based hallucination mitigation approaches?",
+    "context": "Recently, various methods have been proposed to mitigate hallucinations in LVLMs, leveraging a range of techniques including decoding strategies Leng et al., 2023 Huang et al., 2023...",
+    "answer": "Unlike decoding-based methods, the proposed approaches target component-level causes of hallucination for more direct mitigation."
+  },
+  {
+    "question": "How does the QA-VisualGenome benchmark differ from POPE in evaluating hallucination?",
+    "context": "QA-VisualGenome emphasizes the detailed attribute and relationship hallucinations. Unlike existing objectoriented hallucination benchmarks e.g., POPE, QA-VisualGenome emphasizes the detailed attribute and relationship hallucinations.",
+    "answer": "QA-VisualGenome focuses on attribute and relation hallucinations, while POPE targets object existence."
+  },
+  {
+    "question": "How does the cognition-based QA-FB15K benchmark challenge models differently than perception-based benchmarks?",
+    "context": "QA-FB15k... focuses on cognition-based hallucinations such as the names of people and famous buildings. QAFB15K presents challenges for models in leverag- ing world knowledge to solve the questions.",
+    "answer": "QA-FB15K requires world knowledge, unlike perception-based benchmarks focused on object perception."
+  },
+  {
+    "question": "How do the proposed methods perform on cognition-based benchmarks compared to perception-based ones?",
+    "context": "Neither w-FineIns nor w-ECLIP shows any improvement on the cognition-based benchmark. This may be attributed to the fact that, unlike perception-based benchmarks, cognition-based benchmarks necessitate not only the ability to identify objects but also the comprehension and application of relevant associated knowledge.",
+    "answer": "The proposed methods improve perception-based benchmarks but do not enhance cognition-based benchmark performance."
+  },
+  {
+    "question": "What are some real-world applications for LVLMs improved by the proposed hallucination mitigation methods?",
+    "context": "This phenomenon occurs when models generate inaccurate or misleading information unrelated to the actual visual input, potentially leading to misinformation and raising concerns about safety and reliability in real-world applications Li et al., 2023e.",
+    "answer": "Applications include safer visual question answering, image captioning, and visual entailment in real-world settings."
+  },
+  {
+    "question": "What is a limitation of the current work regarding cognition-level hallucination?",
+    "context": "Our work primarily focuses on analyzing and improving hallucinations of general objects, such as tables and people, while neglecting the research topic of how to mitigate cognition-level hallucinations, such as the names of individuals and famous buildings.",
+    "answer": "The work does not address mitigation of cognition-level hallucinations involving specific names or famous entities."
+  },
+  {
+    "question": "What future research direction is suggested for cognition-level hallucination mitigation?",
+    "context": "Our work primarily focuses on analyzing and improving hallucinations of general objects... while neglecting the research topic of how to mitigate cognition-level hallucinations...",
+    "answer": "Future research should develop methods to mitigate cognition-level hallucinations involving world knowledge."
+  },
+  {
+    "question": "How can practitioners implement the w-ECLIP method for their LVLMs?",
+    "context": "To improve the vision backbone, we propose to finetune CLIP with fine-grained data and fine-grained perceptionbased visual instruction tuning...",
+    "answer": "Practitioners can finetune CLIP with fine-grained data and integrate it into their LVLMs for improved perception."
+  },
+  {
+    "question": "How can the fine-grained perception-based instruction tuning be used in practice?",
+    "context": "To achieve this, we propose fine-grained perception-based visual instruction tuning. Specifically, we randomly select two bounding boxes from the image, and then use the object attributes corresponding to these bounding boxes and their relationships to generate the corresponding captions.",
+    "answer": "It can be used by generating region-level captions from bounding boxes and using them for instruction tuning."
+  },
+  {
+    "question": "How should the contrastive alignment objective be integrated into LVLM training?",
+    "context": "We introduce an in-batch contrastive alignment loss... The contrastive loss is integrated to the alignment stage with a learnable B weight.",
+    "answer": "Integrate the contrastive alignment loss during the alignment stage, optionally with a learnable or fixed weight."
+  },
+  {
+    "question": "What is required to reproduce the experimental setup for evaluating hallucination?",
+    "context": "All benchmark datasets, code, and models will be released.",
+    "answer": "Access to the released datasets, code, and models is required to reproduce the experiments."
+  },
+  {
+    "question": "What hardware is recommended for training the proposed LVLM methods?",
+    "context": "All experiments are conducted on 4A100 GPUs. For the alignment stage, we set per-GPU batch size to 64...",
+    "answer": "Training is performed on 4 A100 GPUs with a per-GPU batch size of 64."
+  },
+  {
+    "question": "How can the benchmarks QA-VisualGenome and QA-FB15K be used to evaluate new LVLMs?",
+    "context": "We construct a fine-grained hallucination benchmark based on Visual Genome and a cognition-based hallucination benchmark based on FB15k for evaluation.",
+    "answer": "They can be used to assess perception-based and cognition-based hallucination in new LVLMs."
+  },
+  {
+    "question": "What is the main implementation difference between w-ECLIP and w-FineIns?",
+    "context": "w-FineIns offers efficiency advantages as it only requires the final training stage-instruction tuning-for the LVLM, simplifying the overall training process.",
+    "answer": "w-ECLIP requires CLIP finetuning and alignment, while w-FineIns only needs final instruction tuning."
+  },
+  {
+    "question": "How can the margin-based contrastive loss be adapted for other vision-language models?",
+    "context": "To further refine the separation between correct matches and all classes of negative samples... we introduce a margin-based term.",
+    "answer": "The margin-based contrastive loss can be adapted by enforcing similarity margins between positive and negative pairs."
+  },
+  {
+    "question": "What is the expected training time for the separate contrastive alignment stage?",
+    "context": "Notably, the prepended contrastive alignment stage takes only 12 minutes to train...",
+    "answer": "The separate contrastive alignment stage takes about 12 minutes to train."
+  },
+  {
+    "question": "How can the negative sample generation strategies benefit model robustness?",
+    "context": "We devise two strategies: inserting hallucinatory objects and removing existing ones... By inserting one to three objects from each category into the correct captions with the assistance of GPT-4, we create examples with varying levels of hallucinations (i.e., negative samples).",
+    "answer": "Negative sample generation with object insertion/removal increases robustness against hallucinated content."
+  },
+  {
+    "question": "How does the model handle uncommon relations and attributes in QA-VisualGenome?",
+    "context": "Similar to previous work Wang et al., 2020, we exclude uncommon relations and attributes.",
+    "answer": "Uncommon relations and attributes are excluded when generating negative samples for QA-VisualGenome."
+  },
+  {
+    "question": "How can the ablation study results inform loss function design?",
+    "context": "These results demonstrate that both components play meaningful roles in enhancing model performance.",
+    "answer": "Ablation results show both loss components are important, guiding balanced loss function design."
+  },
+  {
+    "question": "What is the recommended batch size for contrastive alignment training?",
+    "context": "For the alignment stage, we set per-GPU batch size to 64, which is also the batch size contrastive alignment.",
+    "answer": "A batch size of 64 per GPU is recommended for contrastive alignment training."
+  },
+  {
+    "question": "How does the paper's method address hallucination in medical image analysis?",
+    "context": "The paper focuses on general object hallucination in LVLMs but does not mention medical image analysis.",
+    "answer": "The context does not provide information about hallucination mitigation in medical image analysis."
+  },
+  {
+    "question": "Does the paper discuss the use of reinforcement learning for hallucination mitigation?",
+    "context": "While the paper references RLHF in related work, it does not detail reinforcement learning methods for hallucination mitigation.",
+    "answer": "The context does not contain details about reinforcement learning for hallucination mitigation."
+  },
+  {
+    "question": "Are there results comparing the proposed methods to human performance on benchmarks?",
+    "context": "The paper provides benchmark results for various models but does not compare them to human performance.",
+    "answer": "The context does not include comparisons to human performance on benchmarks."
+  },
+  {
+    "question": "Does the paper provide code snippets for implementing the contrastive alignment loss?",
+    "context": "The paper describes the contrastive alignment loss but does not include code snippets.",
+    "answer": "The context does not provide code snippets for implementing the contrastive alignment loss."
+  },
+  {
+    "question": "Is there information about multilingual support in the proposed LVLM methods?",
+    "context": "The main text does not discuss multilingual support in the proposed LVLM methods.",
+    "answer": "The context does not contain information about multilingual support."
+  },
+  {
+    "question": "Does the paper detail the use of external knowledge bases for cognition-based hallucination mitigation?",
+    "context": "The paper mentions cognition-based hallucination benchmarks but does not describe using external knowledge bases for mitigation.",
+    "answer": "The context does not provide details on using external knowledge bases for cognition-based hallucination mitigation."
+  }
+]

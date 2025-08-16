@@ -1,0 +1,367 @@
+[
+  {
+    "question": "What problem does the 'Regression is all you need for medical image translation' paper address?",
+    "context": "The acquisition of information-rich images within a limited time budget is crucial in medical imaging. Medical image translation (MIT) can help enhance and supplement existing datasets by generating synthetic images from acquired data.",
+    "answer": "The paper addresses the challenge of generating accurate synthetic medical images for enhanced datasets and reduced acquisition time."
+  },
+  {
+    "question": "What is the main method proposed in the 'Regression is all you need for medical image translation' paper?",
+    "context": "Here, we introduce YODA (You Only Denoise once or Average), a novel 2.5D diffusion-based framework for volumetric MIT. YODA unites diffusion and regression paradigms to produce realistic or noise-free outputs.",
+    "answer": "The paper proposes YODA, a 2.5D diffusion-based framework that combines diffusion and regression paradigms for medical image translation."
+  },
+  {
+    "question": "What are the key contributions of the YODA framework in medical image translation?",
+    "context": "Thus, our contributions summarize as follows: We establish YODA as a novel 2.5D diffusion approach for MIT. We address and leverage the volumetric nature of MR images fostering 3D coherency while maintaining computational traceability of uncompressed DMs. Based on analytical and empirical observations of the effects of noise in the generation and evaluation of synthetic images, we introduce ExpA sampling to systematically compare diffusion and regression paradigms.",
+    "answer": "Key contributions include introducing YODA as a 2.5D diffusion approach, leveraging volumetric MR images for 3D coherency, and proposing ExpA sampling to compare diffusion and regression paradigms."
+  },
+  {
+    "question": "How does YODA compare to existing GAN and diffusion model baselines in the 'Regression is all you need for medical image translation' paper?",
+    "context": "Building on these insights, we demonstrate that YODA outperforms several state-of-the-art GAN and DM methods. Notably, YODA-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks.",
+    "answer": "YODA outperforms state-of-the-art GAN and diffusion model baselines, producing images suitable or superior for downstream tasks."
+  },
+  {
+    "question": "What is the purpose of Expectation-Approximation (ExpA) sampling in the YODA framework?",
+    "context": "Furthermore, we propose Expectation-Approximation (ExpA) DM sampling, which draws inspiration from MRI signal averaging. ExpA-sampling suppresses generated noise and, thus, eliminates noise from biasing the evaluation of image quality.",
+    "answer": "ExpA sampling is designed to suppress generated noise by averaging multiple samples, improving image quality evaluation."
+  },
+  {
+    "question": "Why do the authors of 'Regression is all you need for medical image translation' challenge the presumed advantages of diffusion models (DMs) in MIT?",
+    "context": "Our findings challenge the presumed advantages of DMs in MIT and pave the way for the practical application of MIT in medical imaging.",
+    "answer": "The authors find that DMs' supposed benefits do not translate to medical imaging, as DMs mainly add acquisition noise without improving information preservation."
+  },
+  {
+    "question": "What is the main difference between medical and natural image generation according to the paper?",
+    "context": "Yet, there is an important difference between image-to-image (I2I) tasks for medical and natural images: Whereas natural image generation aims to generate realistic and pleasing images, medical images are obtained for the information contained in them, which is ultimately visually inspected or automatically extracted in downstream applications.",
+    "answer": "Medical image generation prioritizes information preservation over perceptual realism, unlike natural image generation."
+  },
+  {
+    "question": "How does YODA address the trade-off between perceptual quality and information preservation in medical image translation?",
+    "context": "MIT, and modality translation in particular, should therefore optimize the preservation of information, i.e., minimize image distortion rather than improve perceptual quality  avoiding hallucination and facilitating downstream analyses by noise suppression.",
+    "answer": "YODA prioritizes minimizing image distortion and suppressing noise to preserve medically relevant information."
+  },
+  {
+    "question": "What role do regression models (RMs) play in the YODA framework for medical image translation?",
+    "context": "In contrast to DMs and GANs, Regression Models (RMs) are trained with pixel-wise regression losses... they approximate the expected value in their respective tasks rather than sampling from probability distributions like DMs and GANs.",
+    "answer": "RMs in YODA provide noise-free, expectation-based outputs by using pixel-wise regression losses instead of probabilistic sampling."
+  },
+  {
+    "question": "Which datasets were used to evaluate YODA in 'Regression is all you need for medical image translation'?",
+    "context": "We find no evidence for systematically superior performance of DMs over RMs in extensive experiments with four large datasets: the Rhineland Study (RS) , BraTS  and IXI for multi-contrast brain MRI, as well as the Gold atlas comprising pelvic MRI and CT .",
+    "answer": "YODA was evaluated on the Rhineland Study, BraTS, IXI, and Gold atlas datasets."
+  },
+  {
+    "question": "How does YODA handle the challenge of 3D coherency in medical image translation?",
+    "context": "We address and leverage the volumetric nature of MR images fostering 3D coherency while maintaining computational traceability of uncompressed DMs.",
+    "answer": "YODA maintains 3D coherency by leveraging the volumetric nature of MR images within its 2.5D diffusion approach."
+  },
+  {
+    "question": "What is the significance of noise in the evaluation of medical image translation models according to the paper?",
+    "context": "Modeling the generated images analogously to the acquisition as X = X + n, the MSE decomposes... The noise n is random by definition and, therefore, unrecoverable and not correlated with n'. Thus, the MSE and the derived PSNR penalize noise creation, favoring solutions with small σ.",
+    "answer": "Noise affects evaluation metrics like MSE and PSNR, penalizing models that replicate acquisition noise."
+  },
+  {
+    "question": "What is the main architectural backbone used in YODA for medical image translation?",
+    "context": "YODA is parametrized by a U-Net [10,h 5 ResNet blocks (128128256256512 channels in the en- and decoder), group normalization (group size 32), SiLU activation functions, and residual self-attention layers with time-step embedding (00112 heads), resulting in 53M parameters.",
+    "answer": "YODA uses a U-Net backbone with ResNet blocks, group normalization, SiLU activations, and self-attention layers."
+  },
+  {
+    "question": "How does YODA's regression sampling differ from standard diffusion sampling?",
+    "context": "We therefore also considered this initial solution of YODA as a sampling method for approximating noise-free images, i.e. XT0 ≈ X and term this regression sampling.",
+    "answer": "Regression sampling uses the initial prediction without iterative refinement, yielding noise-free images, while diffusion sampling iteratively refines images with added noise."
+  },
+  {
+    "question": "What is the main finding regarding the computational efficiency of YODA's regression sampling?",
+    "context": "This implies that, for the application of MIT, DMs only consume computational resources to simulate acquisition noise, whereas noise-free images, which are preferable for most applications, can be obtained much more efficiently.",
+    "answer": "Regression sampling is computationally efficient, avoiding unnecessary simulation of acquisition noise."
+  },
+  {
+    "question": "How does YODA's performance generalize to external datasets according to the paper?",
+    "context": "Finally, we show that our synthetic images are largely interchangeable with the acquired images in the assessed downstream tasks and that the learned translation generalizes to unseen datasets.",
+    "answer": "YODA's learned translation generalizes well to external datasets, producing interchangeable synthetic images."
+  },
+  {
+    "question": "What evaluation metrics are used to assess YODA's performance in medical image translation?",
+    "context": "The Perception-Distortion trade-off in the Rhineland study (RS): Perception (FID, 0,1), Distortion (SSIM, NEX1, T1k), Noise level (WM DDIM ExpA Noised).",
+    "answer": "YODA's performance is assessed using FID, SSIM, PSNR, Dice, ALVR, and CNR metrics."
+  },
+  {
+    "question": "What is the role of orthogonal denoising in YODA's 2.5D diffusion approach?",
+    "context": "b) orthogonal denoising: We rotate the slicing views (sagittal, coronal, axial) between denoising steps to improve 3D information transfer and combat slicing artifacts.",
+    "answer": "Orthogonal denoising rotates slicing views to enhance 3D information transfer and reduce artifacts."
+  },
+  {
+    "question": "How does YODA's ExpA sampling approximate the expected value of diffusion models?",
+    "context": "ExpA sampling is non-deterministic due to adding random noise in the backward process... We can thus approximate the DMs expected value analogously to acquisition averages.",
+    "answer": "ExpA sampling averages multiple diffusion samples to approximate the expected value, reducing noise."
+  },
+  {
+    "question": "What is the main limitation of using GANs and DMs for medical image translation, as discussed in the paper?",
+    "context": "GANS and DMs popularity and success can be attributed to the generation of low-level features to create realistic images... in MIT, this implies either replicating acquisition noise or hallucinating about potentially false medical information.",
+    "answer": "GANs and DMs may replicate acquisition noise or hallucinate false information, which is undesirable for medical tasks."
+  },
+  {
+    "question": "How does YODA enable both diffusion and regression sampling within the same framework?",
+    "context": "While YODA is designed and trained as a DM, it allows for RM-like sampling by simply using the initial target image prediction without further refinement.",
+    "answer": "YODA supports both sampling types by using the initial prediction for regression or iterative refinement for diffusion."
+  },
+  {
+    "question": "How does the YODA method perform 2.5D diffusion for volumetric medical images?",
+    "context": "We perform a 2.5D diffusion approach: We define the diffusion process in 3D, while operating the denoiser ve on 2D slices, stacking the output of ve to form latent diffusion volumes Xt.",
+    "answer": "YODA applies the diffusion process in 3D but denoises 2D slices, stacking them for volumetric output."
+  },
+  {
+    "question": "What is the purpose of truncated sampling in YODA's diffusion process?",
+    "context": "Truncated sampling: As the initial solution XTo remains practically unchanged for many late diffusion steps, we truncate DM sampling... we only consider t = T, T/4, ..., 1.",
+    "answer": "Truncated sampling skips late diffusion steps to improve efficiency and reduce unnecessary computation."
+  },
+  {
+    "question": "How does YODA aggregate predictions to improve 3D coherency in regression sampling?",
+    "context": "To improve the performance of regression sampling, we aggregate the predictions of all three views. Additionally, 2.5D diffusion homogenizes the appearance of individual slices due to orthogonal denoising.",
+    "answer": "YODA aggregates predictions from all three orthogonal views to enhance 3D coherency in regression sampling."
+  },
+  {
+    "question": "What design choice in YODA combats slicing artifacts during denoising?",
+    "context": "b) orthogonal denoising: We rotate the slicing views (sagittal, coronal, axial) between denoising steps to improve 3D information transfer and combat slicing artifacts.",
+    "answer": "Rotating slicing views during denoising helps combat slicing artifacts in YODA."
+  },
+  {
+    "question": "Why is regression sampling considered preferable for most medical imaging applications in YODA?",
+    "context": "Noise-free images, which are preferable for most applications, can be obtained much more efficiently.",
+    "answer": "Regression sampling efficiently produces noise-free images, which are preferable for medical applications."
+  },
+  {
+    "question": "What is the effect of accelerated DM sampling on high-frequency details according to the paper?",
+    "context": "However, we find that accelerated DM sampling reduces high-frequency details (see also the figures in ).",
+    "answer": "Accelerated DM sampling reduces high-frequency details, potentially biasing image quality metrics."
+  },
+  {
+    "question": "How does YODA's ExpA sampling mitigate the perception-distortion trade-off?",
+    "context": "ExpA sampling allows us to mitigate the perception-distortion tradeoff .",
+    "answer": "ExpA sampling reduces noise and balances perceptual quality with information preservation."
+  },
+  {
+    "question": "What is the main training objective for YODA's velocity prediction?",
+    "context": "The training objective for ve is the empirical risk minimization of the velocity differences: min EX0,CXC, eN0,I, tUT L2(vo(Xt, t, C), vt).",
+    "answer": "YODA trains its network to minimize the L2 loss between predicted and true velocity differences."
+  },
+  {
+    "question": "How does YODA's multi-slice input work in its 2.5D diffusion process?",
+    "context": "a) multi-slice inputs: v predicts a single slice from a slab (differences between adjacent slices X and Xj1 formed with the two bi-directional adjacent slices, i.e. 5 in total) of both, the diffusion latent X and the conditioning C.",
+    "answer": "YODA predicts each slice using information from adjacent slices, forming a multi-slice input for improved context."
+  },
+  {
+    "question": "What is the role of gamma correction in YODA's regression sampling?",
+    "context": "For a similar effect for regression sampling, we propose to correct the individual slices X that form the volumes via gamma corrections... We then optimize the parameters θ to minimize the intensity.",
+    "answer": "Gamma correction is used to adjust slice intensities, improving consistency in regression-sampled volumes."
+  },
+  {
+    "question": "How does YODA ensure computational feasibility for full-resolution 3D images?",
+    "context": "Operating the neural denoiser on full-resolution 3D images is unfeasible on current hardware due to memory constraints. Thus, we perform a 2.5D diffusion approach.",
+    "answer": "YODA uses a 2.5D approach, denoising 2D slices instead of full 3D volumes to reduce memory usage."
+  },
+  {
+    "question": "What is the main advantage of using YODA's regression-sampled images for downstream tasks?",
+    "context": "Notably, YODA-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks.",
+    "answer": "Regression-sampled images from YODA can replace physical acquisitions in downstream tasks, sometimes with superior results."
+  },
+  {
+    "question": "How does YODA's design address the information preservation requirement in medical image translation?",
+    "context": "MIT, and modality translation in particular, should therefore optimize the preservation of information, i.e., minimize image distortion rather than improve perceptual quality  avoiding hallucination and facilitating downstream analyses by noise suppression.",
+    "answer": "YODA minimizes image distortion and suppresses noise to prioritize information preservation."
+  },
+  {
+    "question": "What is the impact of noise replication by DMs on medical image translation evaluation?",
+    "context": "Noise replication influences the assessed image quality... The MSE and the derived PSNR penalize noise creation, favoring solutions with small σ.",
+    "answer": "Noise replication by DMs negatively affects evaluation metrics, penalizing models that add unnecessary noise."
+  },
+  {
+    "question": "How does YODA's approach challenge the use of DMs for uncertainty estimation in MIT?",
+    "context": "In addition, our findings question the application of DMs for uncertainty estimation if noise imitation dominates the divergence of diffusion trajectories.",
+    "answer": "YODA suggests that DMs may not reliably estimate uncertainty if noise imitation dominates their outputs."
+  },
+  {
+    "question": "What is the main limitation of regression models in previous MIT research, as noted in the paper?",
+    "context": "Despite findings that simple RMs can effectively learn expectation values of images even if trained solely on noisy samples , RMs were rarely considered for MIT, and synthesis results of RMs lacked even anatomically well-defined details such as the gray-white matter (GMWM) contrast  or were only applied to small, private datasets and relatively simple tasks .",
+    "answer": "Previous regression models often lacked anatomical detail and were tested only on small or simple datasets."
+  },
+  {
+    "question": "How does YODA's training differ from training a dedicated regression model for MIT?",
+    "context": "We omit training dedicated RMs here, as we observed only negligible benefits over regression-sampled DMs.",
+    "answer": "YODA uses regression sampling from its diffusion model instead of training a separate regression model, as benefits were negligible."
+  },
+  {
+    "question": "How does YODA's design facilitate generalization to unseen datasets?",
+    "context": "Finally, we show that our synthetic images are largely interchangeable with the acquired images in the assessed downstream tasks and that the learned translation generalizes to unseen datasets.",
+    "answer": "YODA's design, emphasizing information preservation and noise suppression, enables generalization to unseen datasets."
+  },
+  {
+    "question": "What is the main computational resource consideration in YODA's approach to MIT?",
+    "context": "This implies that, for the application of MIT, DMs only consume computational resources to simulate acquisition noise, whereas noise-free images, which are preferable for most applications, can be obtained much more efficiently.",
+    "answer": "YODA avoids unnecessary computation by preferring efficient regression sampling over resource-intensive diffusion sampling."
+  },
+  {
+    "question": "How does YODA compare to GAN-based methods like ResViT in medical image translation?",
+    "context": "ResViT introduces residual transformer blocks for the generator, whereas Ea-GANs conduct MIT in 3D and add edge information to the GAN loss. ... We show the superiority of YODA's image generation quality over several strong baselines on four different datasets including MRI and CT.",
+    "answer": "YODA outperforms GAN-based methods like ResViT in image generation quality for medical image translation."
+  },
+  {
+    "question": "What advantage does YODA have over diffusion bridges (DBs) for medical image translation?",
+    "context": "A variant of DMs for I2I tasks is diffusion bridges (DBs)... DBs use the conditioning images rather than noise as a prior for the generative diffusion process, which can result in a more direct sampling path. ... We show the superiority of YODA's image generation quality over several strong baselines.",
+    "answer": "YODA demonstrates superior image generation quality compared to diffusion bridges for medical image translation."
+  },
+  {
+    "question": "How does YODA's regression sampling compare to standard regression models in MIT?",
+    "context": "We omit training dedicated RMs here, as we observed only negligible benefits over regression-sampled DMs.",
+    "answer": "YODA's regression sampling performs as well as or better than dedicated regression models, with negligible differences."
+  },
+  {
+    "question": "How does YODA's computational efficiency compare to traditional diffusion models?",
+    "context": "As such, the computational overhead of diffusion sampling does not provide systematic benefits in medical information translation.",
+    "answer": "YODA achieves similar or better results with much lower computational cost compared to traditional diffusion models."
+  },
+  {
+    "question": "How does YODA handle 3D coherency compared to slab-based DB sampling?",
+    "context": "To address the challenge of consistency of 3D images in MIT, Choo et al. recently proposed sampling their 2D slab-based DB using a novel inter-slice trajectory alignment... We address and leverage the volumetric nature of MR images fostering 3D coherency while maintaining computational traceability of uncompressed DMs.",
+    "answer": "YODA fosters 3D coherency through volumetric processing and orthogonal denoising, offering an alternative to slab-based DB alignment."
+  },
+  {
+    "question": "How does YODA's ExpA sampling compare to multi-path shortcut diffusion strategies?",
+    "context": "CMDM uses a dedicated GAN to generate the DBs prior and additionally employs a multi-path shortcut diffusion strategy, i.e., multiple predictions of the DM are averaged to increase translation accuracy and estimate the prediction uncertainty. ... we introduce ExpA sampling to systematically compare diffusion and regression paradigms.",
+    "answer": "YODA's ExpA sampling, like multi-path shortcut diffusion, averages multiple samples to improve accuracy and reduce noise."
+  },
+  {
+    "question": "How does YODA's performance on downstream tasks compare to ALDM?",
+    "context": "We show the superiority of YODA's image generation quality over several strong baselines on four different datasets including MRI and CT, asserting the suitability of the generated images for downstream tasks and the generalization to external data.",
+    "answer": "YODA outperforms ALDM on downstream tasks, producing images more suitable for further analysis."
+  },
+  {
+    "question": "How does YODA address the trade-off between perceptual quality and distortion compared to DMs?",
+    "context": "This revealed that DMs trade distortion (SSIM and PSNR) for perceptual quality (e.g. Fréchet inception distance, FID) owing to the ability to hallucinate high-frequency details. ... ExpA sampling allows us to mitigate the perception-distortion tradeoff.",
+    "answer": "YODA's ExpA sampling mitigates the perception-distortion trade-off better than standard DMs, reducing noise without sacrificing information."
+  },
+  {
+    "question": "How does YODA's 2.5D approach differ from full 3D latent diffusion models (LDMs)?",
+    "context": "Uncompressed 3D DMs are currently impractical for full-resolution image synthesis due to hardware constraints. A feasible 3D design choice is latent DMs (LDMs)... We perform a 2.5D diffusion approach: We define the diffusion process in 3D, while operating the denoiser on 2D slices.",
+    "answer": "YODA uses a 2.5D approach, denoising 2D slices for volumetric images, while LDMs operate in a compressed latent space for full 3D synthesis."
+  },
+  {
+    "question": "How does YODA's noise suppression compare to GANs and DMs in medical imaging?",
+    "context": "In MIT, this implies either replicating acquisition noise or hallucinating about potentially false medical information. ... YODA unites diffusion and regression paradigms to produce realistic or noise-free outputs.",
+    "answer": "YODA suppresses noise more effectively than GANs and DMs, producing cleaner images for medical applications."
+  },
+  {
+    "question": "How does YODA's performance generalize compared to previous MIT approaches?",
+    "context": "Finally, we show that our synthetic images are largely interchangeable with the acquired images in the assessed downstream tasks and that the learned translation generalizes to unseen datasets.",
+    "answer": "YODA generalizes better to unseen datasets than previous MIT approaches, maintaining high image quality."
+  },
+  {
+    "question": "How does YODA's use of regression sampling challenge the use of DMs for uncertainty estimation?",
+    "context": "Our findings question the application of DMs for uncertainty estimation if noise imitation dominates the divergence of diffusion trajectories.",
+    "answer": "YODA shows that regression sampling can provide reliable outputs without relying on DM-based uncertainty estimation, challenging its necessity."
+  },
+  {
+    "question": "What are the clinical applications of YODA-generated images in MRI protocols?",
+    "context": "Medical image translation (MIT) can help enhance and supplement existing datasets by generating synthetic images from acquired data. ... Notably, YODA-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks.",
+    "answer": "YODA-generated images can supplement or replace physical MRI acquisitions, aiding clinical diagnosis and research."
+  },
+  {
+    "question": "How can YODA accelerate multimodal imaging protocols in real-world practice?",
+    "context": "Generating synthetic, complementary target from acquired source modalities in medical image translation (MIT) may be leveraged to expand or improve existing datasets, or to accelerate multimodal imaging protocols by eliminating redundant acquisitions and thereby reducing acquisition time.",
+    "answer": "YODA can generate missing modalities, reducing the need for multiple scans and accelerating imaging protocols."
+  },
+  {
+    "question": "What are the limitations of YODA's regression sampling for complex anatomical structures?",
+    "context": "Despite findings that simple RMs can effectively learn expectation values of images even if trained solely on noisy samples, RMs were rarely considered for MIT, and synthesis results of RMs lacked even anatomically well-defined details such as the gray-white matter (GMWM) contrast.",
+    "answer": "YODA's regression sampling may struggle with fine anatomical details, similar to previous regression models."
+  },
+  {
+    "question": "What future work do the authors suggest for improving YODA's 3D coherency?",
+    "context": "To improve the performance of regression sampling, we aggregate the predictions of all three views. Additionally, 2.5D diffusion homogenizes the appearance of individual slices due to orthogonal denoising.",
+    "answer": "Future work may focus on enhancing 3D coherency through improved aggregation and denoising strategies."
+  },
+  {
+    "question": "How can researchers implement YODA for their own medical imaging datasets?",
+    "context": "We publish the models at github.com/Deep-MI/YODA.",
+    "answer": "Researchers can access and implement YODA using the provided code and pretrained models on GitHub."
+  },
+  {
+    "question": "What preprocessing steps are necessary before using YODA for MRI-to-CT translation?",
+    "context": "MRI-to-CT translation was performed in 15 participants ... We created tissue masks based on intensity thresholds on the T1w images and excluded the upper and lower 5 slices due to decreased quality.",
+    "answer": "Preprocessing includes creating tissue masks, registering images, and excluding low-quality slices."
+  },
+  {
+    "question": "What are the main real-world benefits of YODA in clinical research studies?",
+    "context": "YODA-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks.",
+    "answer": "YODA provides high-quality synthetic images, supporting clinical research and reducing the need for additional scans."
+  },
+  {
+    "question": "How does YODA handle hardware limitations for full-resolution 3D image synthesis?",
+    "context": "Operating the neural denoiser on full-resolution 3D images is unfeasible on current hardware due to memory constraints. Thus, we perform a 2.5D diffusion approach.",
+    "answer": "YODA uses a 2.5D approach to enable efficient processing of large volumetric medical images."
+  },
+  {
+    "question": "What is the impact of YODA's design on downstream segmentation tasks?",
+    "context": "Notably, YODA-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks.",
+    "answer": "YODA-generated images support effective downstream segmentation tasks, sometimes outperforming real images."
+  },
+  {
+    "question": "How can YODA be adapted for other medical imaging modalities beyond MRI and CT?",
+    "context": "We show the superiority of YODA's image generation quality over several strong baselines on four different datasets including MRI and CT.",
+    "answer": "YODA's framework can be adapted to other modalities by retraining on appropriate paired datasets."
+  },
+  {
+    "question": "What are the main limitations of YODA identified in the paper?",
+    "context": "Despite findings that simple RMs can effectively learn expectation values of images even if trained solely on noisy samples, RMs were rarely considered for MIT, and synthesis results of RMs lacked even anatomically well-defined details.",
+    "answer": "YODA may have limitations in capturing fine anatomical details and complex structures."
+  },
+  {
+    "question": "What is required to use YODA's ExpA sampling in practice?",
+    "context": "ExpA-sampling suppresses generated noise and, thus, eliminates noise from biasing the evaluation of image quality.",
+    "answer": "Implementing ExpA sampling requires generating and averaging multiple diffusion samples for each image."
+  },
+  {
+    "question": "How can YODA's models be fine-tuned for new datasets?",
+    "context": "We publish the models at github.com/Deep-MI/YODA.",
+    "answer": "YODA models can be fine-tuned on new datasets using the provided code and retraining procedures."
+  },
+  {
+    "question": "What steps should be taken to evaluate YODA's performance on a new clinical task?",
+    "context": "We extend common evaluation frameworks by assessing relevant downstream tasks.",
+    "answer": "Researchers should evaluate YODA using task-specific downstream metrics and compare to acquired images."
+  },
+  {
+    "question": "How does YODA's performance change with different sampling strategies?",
+    "context": "ExpA sampling allows us to mitigate the perception-distortion tradeoff. ... Regression sampling yields similar results in practice.",
+    "answer": "YODA's performance is robust across sampling strategies, with regression and ExpA sampling yielding similar results."
+  },
+  {
+    "question": "What is the recommended hardware setup for training YODA models?",
+    "context": "Operating the neural denoiser on full-resolution 3D images is unfeasible on current hardware due to memory constraints. Thus, we perform a 2.5D diffusion approach.",
+    "answer": "The context does not provide specific hardware recommendations for training YODA models."
+  },
+  {
+    "question": "What are the regulatory considerations for deploying YODA in clinical settings?",
+    "context": "Medical image translation (MIT) can help enhance and supplement existing datasets by generating synthetic images from acquired data.",
+    "answer": "The context does not discuss regulatory considerations for clinical deployment of YODA."
+  },
+  {
+    "question": "Does YODA support real-time image synthesis during MRI acquisition?",
+    "context": "YODA unites diffusion and regression paradigms to produce realistic or noise-free outputs.",
+    "answer": "The context does not specify if YODA supports real-time image synthesis during MRI acquisition."
+  },
+  {
+    "question": "What are the ethical implications of using YODA-generated synthetic images in diagnosis?",
+    "context": "YODA-generated images are shown to be interchangeable with, or even superior to, physical acquisitions for several downstream tasks.",
+    "answer": "The context does not address the ethical implications of using YODA-generated synthetic images in diagnosis."
+  },
+  {
+    "question": "How does YODA handle multi-institutional data variability in training?",
+    "context": "The IXI dataset contains T1w, T2w, and proton-density (PD) images from 577 participants acquired at three different sites equipped with 1.5 or 3T scanners from two vendors.",
+    "answer": "The context does not provide details on YODA's methods for handling multi-institutional data variability."
+  },
+  {
+    "question": "Can YODA be used for unsupervised medical image translation tasks?",
+    "context": "Here, we introduce YODA, a novel 2.5D diffusion-based framework for volumetric MIT.",
+    "answer": "The context does not specify whether YODA supports unsupervised medical image translation."
+  }
+]

@@ -1,0 +1,372 @@
+[
+  {
+    "question": "What problem does the paper 'Synthesizing and Identifying Noise Levels in Autonomous Vehicle Camera-Radar Datasets' address?",
+    "context": "In this paper we attempt to address this issue by creating a realistic synthetic data augmentation pipeline for camera-radar Autonomous Vehicle AV datasets. Our goal is to accurately simulate sensor failures and data deterioration due to real-world interferences.",
+    "answer": "The paper addresses the problem of simulating and identifying sensor failures and noise in autonomous vehicle camera-radar datasets."
+  },
+  {
+    "question": "What is the main goal of Morales and Habibi's paper on camera-radar datasets?",
+    "context": "Our goal is to accurately simulate sensor failures and data deterioration due to real-world interferences.",
+    "answer": "The main goal is to accurately simulate sensor failures and data deterioration in camera-radar datasets."
+  },
+  {
+    "question": "What type of data augmentation pipeline is proposed in the paper by Morales and Habibi?",
+    "context": "The main contributions of this project are A data augmentation pipeline focused on synthesiz- ing real-world sensor defects for a camera-radar au- tonomous vehicle dataset.",
+    "answer": "The paper proposes a data augmentation pipeline that synthesizes real-world sensor defects for camera-radar datasets."
+  },
+  {
+    "question": "What baseline model is introduced in the 'Synthesizing and Identifying Noise Levels' paper?",
+    "context": "A baseline for noise recognition, using lightweight models to directly estimate the degradation level.",
+    "answer": "A lightweight noise recognition model is introduced to directly estimate sensor degradation levels."
+  },
+  {
+    "question": "What sensors are the focus of the synthetic degradation in Morales and Habibi's paper?",
+    "context": "Dealing with both Camera and Radar data, we divide our methodology in two parts, one for each sensor.",
+    "answer": "The focus is on synthetic degradation for both camera and radar sensors."
+  },
+  {
+    "question": "What are the four camera degradation types synthesized in the proposed pipeline?",
+    "context": "We propose four different common degradation types for images Blurring, Low exposure, High exposure, and Additive Noise.",
+    "answer": "The four synthesized camera degradation types are blurring, low exposure, high exposure, and additive noise."
+  },
+  {
+    "question": "What are the three radar degradation steps in the proposed method?",
+    "context": "To realistically synthesize degraded radar data, we divide our algorithm in 3 steps Ghost points generation, False negatives, and noise-induced rangeDoppler shifts.",
+    "answer": "The three radar degradation steps are ghost points generation, false negatives, and noise-induced range/Doppler shifts."
+  },
+  {
+    "question": "What is the main contribution regarding robustness in Morales and Habibi's paper?",
+    "context": "Furthermore, both methods couple objects detection with robustness improvements, leading to incompatibilities with existing detection methods.",
+    "answer": "The main contribution is coupling object detection with robustness improvements by quantifying sensor degradation."
+  },
+  {
+    "question": "How does the paper define the noise level (Nlvl) for both camera and radar?",
+    "context": "We create two noise level dials, both referred to as Nlvl. The two dials are handled separately and have different meaning for each sensor, but both control a noise level going from 0 to 100.",
+    "answer": "Noise level (Nlvl) is a dial from 0 to 100, controlling degradation for each sensor."
+  },
+  {
+    "question": "What dataset is used as the basis for the synthetic noise experiments?",
+    "context": "In autonomous navigation, the nuScenes dataset 4 is a reference, as it provides users with a Camera-Radar-LiDAR dataset...",
+    "answer": "The nuScenes dataset is used as the basis for synthetic noise experiments."
+  },
+  {
+    "question": "What is the recognition accuracy achieved by the baseline noise recognition network?",
+    "context": "We also present our results of a baseline lightweight Noise Recognition neural network trained and tested on our augmented dataset, reaching an overall recognition accuracy of 54.4 on 11 categories across 10086 images and 2145 radar point-clouds.",
+    "answer": "The baseline noise recognition network achieves an overall recognition accuracy of 54.4%."
+  },
+  {
+    "question": "What is the significance of plug-and-play use in the proposed noise recognition method?",
+    "context": "This allows a plug-and-play use of our method, as any object detection can use the noise level information to take action.",
+    "answer": "Plug-and-play use means any object detection method can utilize the noise level information for robustness."
+  },
+  {
+    "question": "How does the proposed method help with sensor failure scenarios in autonomous vehicles?",
+    "context": "This project aims at addressing how we can accurately estimate a sensor-failure degradation or noise level, which, to the best of our knowledge, has never been done before for autonomous vehicle on 3D camera-radar datasets.",
+    "answer": "The method enables accurate estimation of sensor-failure degradation or noise level in autonomous vehicles."
+  },
+  {
+    "question": "What is the main challenge with camera-only detection in 3D environments according to the paper?",
+    "context": "Cameras can only output a two dimensional pixel map. This makes it extremely challenging to correctly estimate the depths, distances, and shapes of objects using only this sensor.",
+    "answer": "Camera-only detection struggles to estimate depths, distances, and shapes in 3D environments."
+  },
+  {
+    "question": "Why are radars preferred over LiDARs in some autonomous vehicle applications?",
+    "context": "Radars have been used for almost a century in a variety of applications 911, making them a well-known and cheap sensor, especially compared to LiDARs. They also offer unequaled range measurement accuracy, velocity measurement accuracy, and robustness to adverse weather conditions like fog, rain or snow, in which the LiDAR systems perform poorly 12.",
+    "answer": "Radars are preferred for their lower cost, robustness to weather, and accurate range/velocity measurements."
+  },
+  {
+    "question": "What is the main limitation of LiDAR systems in autonomous vehicles as discussed in the paper?",
+    "context": "LiDARs are expensive, heavy, large, hard to use, memory-demanding, and difficult to integrate in existing vehicles.",
+    "answer": "LiDARs are limited by cost, size, weight, and integration challenges."
+  },
+  {
+    "question": "What is the role of the U-NET architecture in the noise recognition network?",
+    "context": "The camera analyzer is a U-NET 18 of 7 layers 4 True label 50 100 Fig. 6 Confusion matrix for our Image Noise Recognition Network",
+    "answer": "The U-NET architecture is used as the backbone for the camera noise recognition network."
+  },
+  {
+    "question": "How many output classes does the noise recognition network predict?",
+    "context": "Both network are activated by a single dense layer to produce 11 outputs, corresponding to noise levels going from 0 to 100 with a step size of 10.",
+    "answer": "The noise recognition network predicts 11 output classes, representing noise levels from 0 to 100."
+  },
+  {
+    "question": "What is the size of the camera training dataset after augmentation?",
+    "context": "After applying the different types of noise at each level on the images, the resulting training set size is of 19680 images, plus 10086 for validation, and 10086 for testing.",
+    "answer": "The camera training dataset contains 19,680 images after augmentation."
+  },
+  {
+    "question": "What future work is suggested in Morales and Habibi's paper?",
+    "context": "Future works include adding adverse conditions such as weather simulation for the camera data or jammer for the radar data. Furthermore, our noise recognition model is a baseline model and future work include making it lighter, faster, and more accurate.",
+    "answer": "Future work includes simulating weather and jamming, and improving the noise recognition model's efficiency and accuracy."
+  },
+  {
+    "question": "How does the synthetic blurring effect get simulated in the proposed camera pipeline?",
+    "context": "Blurring effect is generally simulated by a convolution with a Gaussian kernel. We synthesize different noise levels by changing the size of the Gaussian kernel ksize 2 roundNlvl 1 1",
+    "answer": "Blurring is simulated by convolving the image with a Gaussian kernel of varying size."
+  },
+  {
+    "question": "How is high or low exposure simulated in the camera noise pipeline?",
+    "context": "To simulate this we create a 3x3 Gaussian kernel K 116 1, 2, 1, 2, 4, 2, 1, 2, 1 2 To create a high exposure effect, where too many light rays hit the sensor, we multiply the kernel by a factor of 1 3 Nlvl. To create the opposite effect, we divide the kernel by the same value.",
+    "answer": "High/low exposure is simulated by scaling a Gaussian kernel and convolving it with the image."
+  },
+  {
+    "question": "How is additive noise applied to images in the proposed method?",
+    "context": "This is commonly simulated by drawing W H values from a Normally distributed random variable N0,, with W and H being the width and height of the image, respectively, and adding the resulting noise map to the original images pixels.",
+    "answer": "Additive noise is applied by adding a Gaussian noise map to the image pixels."
+  },
+  {
+    "question": "How is the radar noise level (Nlvl) defined in terms of SNR?",
+    "context": "For the radar data, the noise level Nlvl is defined so that a noise level of N is a decrease by N10 dB.",
+    "answer": "Radar noise level Nlvl is defined as a decrease of N/10 dB in SNR."
+  },
+  {
+    "question": "What is the process for generating ghost points in radar data?",
+    "context": "To simulate a higher apparition rate of ghost points due to highly reflective environments, we randomly draw at each frame a number between 0 and a fixed value set at 4 to determine how many points will be generated.",
+    "answer": "Ghost points are generated by randomly adding synthetic points based on reflective environment parameters."
+  },
+  {
+    "question": "How are false negatives simulated in the radar degradation pipeline?",
+    "context": "As the noise power increases and SNR decreases, the amount of missed points increases in consequence as they disappear behind the back- ground noise.",
+    "answer": "False negatives are simulated by removing points whose RCS falls below a noise-adjusted threshold."
+  },
+  {
+    "question": "How does noise affect measurement accuracy in the radar pipeline?",
+    "context": "As noise level increases and SRN decreases, the measuring accuracy of a sensor in- creases as well. In fact, the Cramr-Rao bound suggests 17 acc 1 sqrtSNR 12",
+    "answer": "Measurement accuracy decreases as noise increases, following the Cramér-Rao bound."
+  },
+  {
+    "question": "How are noise-induced shifts applied to radar measurements?",
+    "context": "Finally, we draw noise values wr, w, wv from normally distributed random variables N0, accr, N0, acc, N0, accv and add them to the original r, , V values.",
+    "answer": "Noise-induced shifts are applied by adding Gaussian noise to range, angle, and velocity values."
+  },
+  {
+    "question": "What is the radar sensor model used in the nuScenes dataset for this study?",
+    "context": "For the radar data, we must first focus on the sensor used by nuScenes Continentals ARS 408-21 Long Range Radar Sensor 77GHz.",
+    "answer": "The radar sensor model is Continental's ARS 408-21 Long Range Radar Sensor (77GHz)."
+  },
+  {
+    "question": "How are synthetic RCS values for ghost points generated?",
+    "context": "Finally, we generate a synthetic RCS value by sampling from the known RCS distribution of the current frame, using a bounded half Gaussian variable X N0,13 to generate low values more often while preserving the possibility of getting higher ones.",
+    "answer": "Synthetic RCS values are sampled from the current frame's RCS distribution using a bounded half-Gaussian."
+  },
+  {
+    "question": "How is the noise recognition network structured for radar data?",
+    "context": "The radar analyzer is made of three 1D convolutional layers followed by two dense layers.",
+    "answer": "The radar noise recognition network uses three 1D convolutional layers and two dense layers."
+  },
+  {
+    "question": "What training hardware was used for the experiments in the paper?",
+    "context": "Training was done on a single NVIDIA GeForce RTX 3060.",
+    "answer": "A single NVIDIA GeForce RTX 3060 was used for training."
+  },
+  {
+    "question": "How does the noise recognition network handle camera and radar data differently?",
+    "context": "Dealing with both Camera and Radar data, we divide our methodology in two parts, one for each sensor.",
+    "answer": "Separate pipelines and architectures are used for camera and radar data in the noise recognition network."
+  },
+  {
+    "question": "What step size is used for noise level classification in the recognition network?",
+    "context": "Both network are activated by a single dense layer to produce 11 outputs, corresponding to noise levels going from 0 to 100 with a step size of 10.",
+    "answer": "A step size of 10 is used for noise level classification (0, 10, ..., 100)."
+  },
+  {
+    "question": "How are radar point clouds affected at higher noise levels?",
+    "context": "We see less points at lower SNR, some ghost point appearing in close range at -3 dB, and overall bigger position shifts at lower SNR.",
+    "answer": "Higher noise levels cause fewer points, more ghost points, and larger position shifts in radar point clouds."
+  },
+  {
+    "question": "What is the main advantage of the proposed data synthesizer for autonomous vehicle datasets?",
+    "context": "In conclusion this papers presents a realistic data syn- thesizer for autonomous vehicle camera and radar datasets, focusing on simulating sensor failures and data deterioration due to internal or external noise.",
+    "answer": "The main advantage is realistic simulation of sensor failures and data deterioration for robustness testing."
+  },
+  {
+    "question": "How does the method facilitate robustness in object detection pipelines?",
+    "context": "Our approach allows for plug-and-play use on any other existing method with the possibility to switch to another model at certain noise levels, or try to automatically filter out the noise with this knowledge.",
+    "answer": "It enables object detection pipelines to adapt or filter based on estimated sensor noise levels."
+  },
+  {
+    "question": "How does the proposed method differ from RadSegNet's approach?",
+    "context": "RadSegNet 15 independently extract information from each sensor, but only focuses on camera failure, showing their method can still work reliably using only the radar data. While the approach is similar to ours, our methods takes place before any feature extraction, allowing an easy switch to another detection method depending on the noise level.",
+    "answer": "The proposed method applies noise estimation before feature extraction, unlike RadSegNet which focuses post-feature."
+  },
+  {
+    "question": "What is the significance of using synthetic data for training noise recognition models?",
+    "context": "We also show we can train a light Noise Recognition model able to quantify the degradation of data in both sensors.",
+    "answer": "Synthetic data enables training of models to recognize and quantify various sensor degradation scenarios."
+  },
+  {
+    "question": "How does Morales and Habibi's method compare to RadSegNet in handling sensor failures?",
+    "context": "RadSegNet 15 independently extract information from each sensor, but only focuses on camera failure, showing their method can still work reliably using only the radar data. While the approach is similar to ours, our methods takes place before any feature extraction, allowing an easy switch to another detection method depending on the noise level.",
+    "answer": "Morales and Habibi's method estimates noise pre-feature extraction, unlike RadSegNet, enabling adaptive detection switching."
+  },
+  {
+    "question": "What is a key difference between ImmFusion and the synthetic noise pipeline by Morales and Habibi?",
+    "context": "methods such as ImmFusion 16 use Transformer networks to actively select useful information from the sensors. While generative models and self-attention mechanisms provide an interesting avenue to detect and deal with sensor defects, they still have a black-box effect, making it hard to guarantee robustness. They could also benefit from accurate representation of data degradation in training, which our method could help provide.",
+    "answer": "ImmFusion uses transformers for fusion, but Morales and Habibi's pipeline offers explicit, interpretable noise simulation."
+  },
+  {
+    "question": "How does the baseline noise recognition model in this paper differ from traditional object detection networks?",
+    "context": "A baseline for noise recognition, using lightweight models to directly estimate the degradation level. This allows a plug-and-play use of our method, as any object detection can use the noise level information to take action.",
+    "answer": "The baseline model estimates sensor degradation, not object classes, and is designed for integration with detection pipelines."
+  },
+  {
+    "question": "How does the synthetic noise approach differ from curated dataset usage in previous work?",
+    "context": "As models are getting better at performing Detection and Tracking on offline datasets that have been curated, cleaned, and annotated, how would they fare if deployed in a real-world car? ... This project aims at addressing how we can accurately estimate a sensor-failure degradation or noise level, which, to the best of our knowledge, has never been done before for autonomous vehicle on 3D camera-radar datasets.",
+    "answer": "Unlike curated datasets, this work simulates real-world sensor failures for robustness evaluation."
+  },
+  {
+    "question": "How does the proposed method compare to LiDAR-based detection in terms of cost and robustness?",
+    "context": "LiDARs are expensive, heavy, large, hard to use, memory-demanding, and difficult to integrate in existing vehicles. ... Radars have been used for almost a century in a variety of applications 911, making them a well-known and cheap sensor, especially compared to LiDARs. They also offer unequaled range measurement accuracy, velocity measurement accuracy, and robustness to adverse weather conditions like fog, rain or snow, in which the LiDAR systems perform poorly 12.",
+    "answer": "The proposed camera-radar approach is cheaper and more robust to weather than LiDAR-based detection."
+  },
+  {
+    "question": "How does the noise simulation in this paper improve upon real sensor failure testing?",
+    "context": "Our goal is to accurately simulate sensor failures and data deterioration due to real-world interferences.",
+    "answer": "It enables controlled, repeatable testing of sensor failures, unlike unpredictable real-world failures."
+  },
+  {
+    "question": "What advantage does the Morales and Habibi noise dial offer over fixed-noise baselines?",
+    "context": "We create two noise level dials, both referred to as Nlvl. The two dials are handled separately and have different meaning for each sensor, but both control a noise level going from 0 to 100.",
+    "answer": "The noise dial allows fine-grained, sensor-specific control of degradation, unlike fixed-noise baselines."
+  },
+  {
+    "question": "How does the Morales and Habibi approach facilitate plug-and-play integration compared to prior methods?",
+    "context": "This allows a plug-and-play use of our method, as any object detection can use the noise level information to take action.",
+    "answer": "Their approach outputs noise levels that any detection pipeline can use, enhancing flexibility over prior methods."
+  },
+  {
+    "question": "How does the synthetic radar degradation differ from previous radar simulation methods?",
+    "context": "To realistically synthesize degraded radar data, we divide our algorithm in 3 steps Ghost points generation, False negatives, and noise-induced rangeDoppler shifts.",
+    "answer": "It models ghost points, false negatives, and measurement noise, capturing more real-world radar failure modes."
+  },
+  {
+    "question": "What is a limitation of transformer-based fusion (e.g., ImmFusion) compared to this work?",
+    "context": "While generative models and self-attention mechanisms provide an interesting avenue to detect and deal with sensor defects, they still have a black-box effect, making it hard to guarantee robustness.",
+    "answer": "Transformer-based fusion is less interpretable and harder to guarantee robustness than explicit noise modeling."
+  },
+  {
+    "question": "How does the synthetic data augmentation here differ from standard data augmentation in vision tasks?",
+    "context": "The main contributions of this project are A data augmentation pipeline focused on synthesiz- ing real-world sensor defects for a camera-radar au- tonomous vehicle dataset.",
+    "answer": "This augmentation simulates sensor defects, not just visual variations, providing more realistic robustness tests."
+  },
+  {
+    "question": "How does the proposed method compare to SOTA camera-only detection on nuScenes?",
+    "context": "Camera-only detection networks have more difficulties to accurately place 3D bounding boxes. This is highlighted in the nuScenes leaderboard, with the highest-ranking camera-only method 5 reaching 75th place on the Detection task out of 338.",
+    "answer": "Camera-only SOTA methods rank lower on 3D detection than camera-radar fusion approaches."
+  },
+  {
+    "question": "What real-world scenario motivates the need for noise estimation in autonomous vehicles?",
+    "context": "Considering the scenario of a car driving next to a power transformer in the street. As the power transformer generates large Electro-Magnetic EM interferences, the radar sensor fails and begins sending wrong data to the autonomous vehicle.",
+    "answer": "Real-world EM interference can cause radar failures, motivating the need for noise estimation."
+  },
+  {
+    "question": "How can the Morales and Habibi method be used to test detection pipeline robustness?",
+    "context": "Our approach allows for plug-and-play use on any other existing method with the possibility to switch to another model at certain noise levels, or try to automatically filter out the noise with this knowledge.",
+    "answer": "It enables pipelines to adapt or filter predictions based on estimated sensor noise levels."
+  },
+  {
+    "question": "What is a practical application of the synthetic noise pipeline for AV developers?",
+    "context": "We also show we can train a light Noise Recognition model able to quantify the degradation of data in both sensors.",
+    "answer": "AV developers can use the pipeline to train and test models under realistic sensor degradation."
+  },
+  {
+    "question": "How does the method help mitigate risks in safety-critical AV deployments?",
+    "context": "For real-life Autonomous Vehicles, robustness must be a priority, as we cannot afford unreliable measurements while a car is driving on the street and peoples lives are at stake.",
+    "answer": "It helps detect and quantify sensor failures, allowing safer AV operation under degraded conditions."
+  },
+  {
+    "question": "What is a limitation of the current noise recognition model according to Morales and Habibi?",
+    "context": "our noise recognition model is a baseline model and future work include making it lighter, faster, and more accurate.",
+    "answer": "The current model is a baseline; it needs improvements in speed, size, and accuracy."
+  },
+  {
+    "question": "What future work is proposed for simulating adverse conditions in this research?",
+    "context": "Future works include adding adverse conditions such as weather simulation for the camera data or jammer for the radar data.",
+    "answer": "Future work includes simulating weather for cameras and jamming for radar."
+  },
+  {
+    "question": "How can a user implement the noise simulation pipeline in their own AV dataset?",
+    "context": "The code for this project is available here.",
+    "answer": "Users can implement the pipeline using the provided open-source code."
+  },
+  {
+    "question": "What is required to train the noise recognition model on a new dataset?",
+    "context": "After applying the different types of noise at each level on the images, the resulting training set size is of 19680 images, plus 10086 for validation, and 10086 for testing.",
+    "answer": "Apply synthetic noise at multiple levels and train the model on the augmented dataset."
+  },
+  {
+    "question": "What is a real-world benefit of quantifying noise levels in AV sensor data?",
+    "context": "This allows a plug-and-play use of our method, as any object detection can use the noise level information to take action.",
+    "answer": "Quantifying noise enables dynamic adaptation or fallback in AV perception pipelines."
+  },
+  {
+    "question": "How can the synthetic pipeline support AV safety certification processes?",
+    "context": "This project aims at addressing how we can accurately estimate a sensor-failure degradation or noise level, which, to the best of our knowledge, has never been done before for autonomous vehicle on 3D camera-radar datasets.",
+    "answer": "It provides controlled, repeatable degradation scenarios for robust AV safety testing."
+  },
+  {
+    "question": "What is a limitation of the experimental setup used in this paper?",
+    "context": "we currently limited our training to 5 scenes out of the 1000 provided by nuScenes.",
+    "answer": "The experiments use only a small subset of the nuScenes dataset."
+  },
+  {
+    "question": "How might the Morales and Habibi approach be extended for night-time scenarios?",
+    "context": "Note here that we do not use the night data in our camera training, as it is considered as an unlabeled adverse scenario.",
+    "answer": "The approach could be extended by including labeled night-time data for training and testing."
+  },
+  {
+    "question": "How does the paper's method handle unknown radar manufacturer algorithms?",
+    "context": "Unfortunately we cannot know exactly how this estimation is being done as each manufacturer has its own method. Similarly, most of the miscellaneous fields are estimated internally using unknown methods.",
+    "answer": "The method works with available radar outputs, not relying on proprietary manufacturer algorithms."
+  },
+  {
+    "question": "What is a potential application of the noise recognition output in an AV system?",
+    "context": "This allows a plug-and-play use of our method, as any object detection can use the noise level information to take action.",
+    "answer": "The noise level output can trigger fallback or recalibration in AV perception systems."
+  },
+  {
+    "question": "How does the method's modularity benefit AV perception research?",
+    "context": "Our approach allows for plug-and-play use on any other existing method with the possibility to switch to another model at certain noise levels, or try to automatically filter out the noise with this knowledge.",
+    "answer": "Its modularity allows integration with diverse detection pipelines for robustness research."
+  },
+  {
+    "question": "What is the main challenge in integrating this method with existing detection models?",
+    "context": "both methods couple objects detection with robustness improvements, leading to incompatibilities with existing detection methods.",
+    "answer": "Coupling detection and robustness can cause incompatibilities with some existing models."
+  },
+  {
+    "question": "Does the Morales and Habibi paper specify the exact radar point-cloud format?",
+    "context": "The output data given by the sensor at each sweep is a 3D point-cloud with coordinates x, y, z, a rela- tive velocity vector vx, vy, a motion-compensated relative radial velocity vector Vxcomp, Vycomp, a RCS Radar Cross Section value, and miscellaneous fields giving information on the false alarm probability of a detection, its estimated dynamic properties, cluster validity state, and the state of its Doppler ambiguity solution.",
+    "answer": "Yes, the paper describes the radar point-cloud format including coordinates and velocity fields."
+  },
+  {
+    "question": "Does the paper 'Synthesizing and Identifying Noise Levels' provide details on AV path planning?",
+    "context": "The output data given by the sensor at each sweep is a 3D point-cloud with coordinates x, y, z, a rela- tive velocity vector vx, vy, a motion-compensated relative radial velocity vector Vxcomp, Vycomp, a RCS Radar Cross Section value, and miscellaneous fields giving information on the false alarm probability of a detection, its estimated dynamic properties, cluster validity state, and the state of its Doppler ambiguity solution.",
+    "answer": "The context does not provide any information about AV path planning."
+  },
+  {
+    "question": "Does the paper by Morales and Habibi discuss multi-modal sensor calibration techniques?",
+    "context": "LiDARs are expensive, heavy, large, hard to use, memory-demanding, and difficult to integrate in existing vehicles.",
+    "answer": "The context does not discuss multi-modal sensor calibration techniques."
+  },
+  {
+    "question": "Does the synthetic noise pipeline address data privacy concerns in AV datasets?",
+    "context": "We create two noise level dials, both referred to as Nlvl. The two dials are handled separately and have different meaning for each sensor, but both control a noise level going from 0 to 100.",
+    "answer": "The context is unrelated to data privacy concerns in AV datasets."
+  },
+  {
+    "question": "Does the Morales and Habibi paper provide a comparison with ultrasonic sensors?",
+    "context": "Cameras are essential as they provide semantic information unmatched by other sensors. For that reason, a lot of research focuses on Camera-based object detection.",
+    "answer": "The context does not provide a comparison with ultrasonic sensors."
+  },
+  {
+    "question": "Does the 'Synthesizing and Identifying Noise Levels' paper include real-world deployment results?",
+    "context": "After applying the different types of noise at each level on the images, the resulting training set size is of 19680 images, plus 10086 for validation, and 10086 for testing.",
+    "answer": "The context does not mention real-world deployment results."
+  },
+  {
+    "question": "Does the paper discuss the ethical implications of synthetic data generation?",
+    "context": "Future works include adding adverse conditions such as weather simulation for the camera data or jammer for the radar data.",
+    "answer": "The context does not discuss ethical implications of synthetic data generation."
+  }
+]

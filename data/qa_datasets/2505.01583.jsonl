@@ -1,0 +1,377 @@
+[
+  {
+    "question": "What problem does the TEMPURA paper by Cheng et al. aim to solve in video understanding?",
+    "context": "Understanding causal event relationships and achieving fine-grained temporal grounding in videos remain challenging for vision-language models. Existing methods either compress video tokens to reduce temporal resolution, or treat videos as unsegmented streams, which obscures fine-grained event boundaries and limits the modeling of causal dependencies. We propose TEMPURA Temporal Event Masked Prediction and Understanding for Reasoning in Action, TEMPURA Temporal Event Masked Prediction and Understanding for Reasoning in Action a two-stage training framework that enhances video temporal understanding.",
+    "answer": "The TEMPURA paper aims to solve the challenge of fine-grained temporal grounding and causal event reasoning in long videos for vision-language models."
+  },
+  {
+    "question": "What is the main methodological innovation introduced in TEMPURA by Cheng et al.?",
+    "context": "We propose TEMPURA Temporal Event Masked Prediction and Understanding for Reasoning in Action, a two-stage training framework that enhances video temporal understanding. TEMPURA first applies masked event prediction reasoning to reconstruct missing events and generate step-by-step causal explanations from dense event annotations, drawing inspiration from effective infilling techniques. TEMPURA then learns to perform video segmentation and dense captioning to decompose videos into non-overlapping events with detailed, timestamp-aligned descriptions.",
+    "answer": "TEMPURA introduces a two-stage training framework combining masked event prediction with dense video segmentation and captioning to improve temporal reasoning in videos."
+  },
+  {
+    "question": "What dataset do Cheng et al. curate for training and evaluating TEMPURA?",
+    "context": "To achieve TEMPURA, we propose a new large-scale dataset consisting of 500k videos with dense event captions... We train TEMPURA on VER, a large-scale dataset curated by us that comprises 1M training instances and 500K videos with temporally aligned event descriptions and structured reasoning steps.",
+    "answer": "Cheng et al. curate the VER dataset, containing 500K videos with dense, temporally aligned event descriptions and reasoning steps."
+  },
+  {
+    "question": "What are the two main stages of the TEMPURA training pipeline described by Cheng et al.?",
+    "context": "In the first stage, TEMPURA enhances video reasoning by teaching the model to infer missing events and generate step-by-step causal explanations... The second stage focuses on video segmentation and dense captioning, where the model learns to partition untrimmed videos into non-overlapping events with precise start and end timestamps, each enriched with detailed descriptions.",
+    "answer": "The two main stages are masked event prediction reasoning and video segmentation with dense captioning."
+  },
+  {
+    "question": "How does TEMPURA handle the challenge of inferring missing events in videos?",
+    "context": "TEMPURA first applies masked event prediction reasoning to reconstruct missing events and generate step-by-step causal explanations from dense event annotations, drawing inspiration from effective infilling techniques.",
+    "answer": "TEMPURA uses masked event prediction, training the model to reconstruct missing events and generate causal explanations."
+  },
+  {
+    "question": "What is the purpose of dense event segmentation in the TEMPURA framework?",
+    "context": "TEMPURA then learns to perform video segmentation and dense captioning to decompose videos into non-overlapping events with detailed, timestamp-aligned descriptions.",
+    "answer": "Dense event segmentation allows TEMPURA to partition videos into non-overlapping events with detailed, timestamp-aligned descriptions."
+  },
+  {
+    "question": "How does the VER dataset compare to other video datasets according to Cheng et al.?",
+    "context": "Compared to existing datasets, VER offers longer video hours, a diverse range of video types, and fine-grained event segmentation and captions. Additionally, our TEMPURA masked event prediction training leverages temporal event reasoning data generated from our dense event captions.",
+    "answer": "The VER dataset provides longer videos, more diverse types, and denser, fine-grained event segmentation and captions than prior datasets."
+  },
+  {
+    "question": "What are the key contributions of the TEMPURA paper by Cheng et al.?",
+    "context": "Our contributions are twofold We develop TEMPURA, a novel training pipeline that leverages masked event prediction to reconstruct missing events with step-by-step causal explanations, and then refines temporal grounding via dense event segmentation and captioning... We curate VER, a large-scale dataset of 500K videos spanning 18K hours, annotated with diverse, timestamp-aligned event captions and structured reasoning across 10 common video categories...",
+    "answer": "The key contributions are the TEMPURA training pipeline and the VER dataset with dense, timestamp-aligned event captions and reasoning."
+  },
+  {
+    "question": "Which benchmarks does TEMPURA outperform baselines on, as reported by Cheng et al.?",
+    "context": "Our experiments demonstrate the effectiveness of TEMPURA in video temporal understanding tasks. On the Charades-STA benchmark 9, TEMPURA achieves a mIoU of 39.2, outperforming the baseline by 6.3 points. On the QVHighlights dataset 20, it attains a HIT1 score of 51.7, surpassing the baseline by 6.9 points.",
+    "answer": "TEMPURA outperforms baselines on the Charades-STA and QVHighlights video temporal understanding benchmarks."
+  },
+  {
+    "question": "How does TEMPURA improve temporal reasoning in video large multimodal models (LMMs)?",
+    "context": "To enhance temporal reasoning and 3... TEMPURA Temporal Event Masked Prediction and Understanding for Reasoning in Action understanding in LMMs, we propose masked temporal event learning in our training pipeline, which strengthens models ability to predict event order in videos.",
+    "answer": "TEMPURA improves temporal reasoning in LMMs by training them to predict event order using masked temporal event learning."
+  },
+  {
+    "question": "What is the role of masked event prediction in TEMPURA’s training pipeline?",
+    "context": "To develop a video LMMs with robust video reasoning capabilities, we propose a structured training framework comprising two key stages Masked Event Prediction Reasoning and Video Segmentation and Dense Captioning. The first stage enables the model to infer missing events and reason about causality within the video context...",
+    "answer": "Masked event prediction trains the model to infer missing events and reason about causality in video sequences."
+  },
+  {
+    "question": "How does TEMPURA align vision-based inference with language-based reasoning?",
+    "context": "This training objective maximizes the likelihood of reconstructing both the absent event and its causal narrative from the surrounding context, thereby aligning vision-based inference with language-based reasoning.",
+    "answer": "TEMPURA aligns vision-based inference with language-based reasoning by training the model to reconstruct missing events and their causal narratives from context."
+  },
+  {
+    "question": "What is the main advantage of TEMPURA’s event segmentation approach over previous methods?",
+    "context": "Unlike Trace 11, which utilizes extra encoders to model time and saliency scores, we eliminate these components and instead train the model to ground all video segments using their enclosing timestamps.",
+    "answer": "TEMPURA eliminates the need for extra temporal encoders by directly grounding events with timestamps, simplifying the model."
+  },
+  {
+    "question": "What types of videos are included in the VER dataset curated for TEMPURA?",
+    "context": "Our dataset contains videos across 10 domains like travel, DIY, tech reviews, etc.",
+    "answer": "The VER dataset includes videos from 10 domains such as travel, DIY, tech reviews, sports, and more."
+  },
+  {
+    "question": "What evaluation metrics are used to assess TEMPURA’s performance?",
+    "context": "We evaluate our model on Charades-STA 9 using mean Intersection over Union mIoU and Recall1 at different IoU thresholds following previous work 43, assessing both temporal localization accuracy and recall. ... We evaluate our model on QVHighlights 20, reporting mean Average Precision mAP and HIT1 as evaluation metrics.",
+    "answer": "TEMPURA is evaluated using mIoU, Recall@1 at various IoU thresholds, mAP, and HIT1 metrics."
+  },
+  {
+    "question": "What training base model is used for TEMPURA according to Cheng et al.?",
+    "context": "We adopted Qwen2.5-VL 1 as our base model and conduct training on our collected data.",
+    "answer": "TEMPURA uses Qwen2.5-VL as its base model for training."
+  },
+  {
+    "question": "How does TEMPURA handle temporal encoding for sampled video frames?",
+    "context": "First, we overlay visual timestamps on the upper left corner of each sampled video frame to explicitly mark the temporal context. Second, we adjusted the temporal encoding in M-ROPE by assigning a fixed position ID to every sampled frame, ensuring that the model reliably associates each frame with its corresponding timestamp.",
+    "answer": "TEMPURA overlays visual timestamps on sampled frames and assigns fixed position IDs for reliable temporal encoding."
+  },
+  {
+    "question": "What is the significance of the ablation study results reported in the TEMPURA paper?",
+    "context": "As shown in Table 3, we found that using mask event prediction as the pre-training stage before dense captioning will enhance the models... temporal understanding of videos.",
+    "answer": "The ablation study shows that pre-training with masked event prediction before dense captioning enhances temporal understanding."
+  },
+  {
+    "question": "How does TEMPURA’s performance on event segmentation compare to baseline models?",
+    "context": "Our model can segment videos into more fine-grained events, capturing subtle transitions and short- duration activities. In contrast, the baseline model QwenVL2.5 tends to generate coarser segments.",
+    "answer": "TEMPURA segments videos into finer-grained events with more detail than baseline models, which produce coarser segments."
+  },
+  {
+    "question": "What is the coverage and annotation detail of the VER dataset?",
+    "context": "The VER dataset comprises 500K untrimmed videos spanning a total duration of 18K hours, providing dense, timestamp-aligned event captions and structured reasoning that capture fine-grained temporal dynamics across diverse video types.",
+    "answer": "The VER dataset covers 500K videos over 18K hours, with dense, timestamp-aligned event captions and structured reasoning."
+  },
+  {
+    "question": "What downstream tasks does TEMPURA improve performance on?",
+    "context": "Together, these stages equip the video LMM with a structured understanding of video narratives, improving its generalization to downstream tasks such as temporal grounding and highlight detection...",
+    "answer": "TEMPURA improves performance on downstream tasks like temporal grounding and highlight detection."
+  },
+  {
+    "question": "How does the masked event prediction stage in TEMPURA function algorithmically?",
+    "context": "Inspired by Fill-in-the- Middle FIM 2, 39, which is widely used in code and text infilling tasks, we extend this concept to the video domain. FIM typically trains a model to predict missing content based on preceding and succeeding contexts. Similarly, we formulate a video event infilling task where the video LMM learns to reconstruct masked video events through inferred text description.",
+    "answer": "The masked event prediction stage masks segments in dense video captions and trains the model to reconstruct the missing events using context."
+  },
+  {
+    "question": "What role does the LLM play in TEMPURA’s masked event prediction?",
+    "context": "To enable this capability, we leverage the strong reasoning ability of LLMs to generate pseudo- events and reasoning steps based on our dense video caption data, detailed in Section 4. Specifically, we prompt the LLM to infer and construct plausible intermediate events that are masked within a video sequence, ensuring logical consistency with the surrounding context.",
+    "answer": "The LLM generates pseudo-events and step-by-step reasoning for masked segments, providing supervision for training."
+  },
+  {
+    "question": "How are video events represented in TEMPURA’s segmentation and captioning stage?",
+    "context": "We design an instruction, I, to guide the video LMM in transforming a video input, V, into a structured event sequence, E 1 i N, where each event is represented by its timestamp and caption, E T,C.",
+    "answer": "Each video event is represented by its start and end timestamps and a detailed caption."
+  },
+  {
+    "question": "What design choice does TEMPURA make to avoid the need for auxiliary temporal encoders?",
+    "context": "Unlike Trace 11, which utilizes extra encoders to model time and saliency scores, we eliminate these components and instead train the model to ground all video segments using their enclosing timestamps.",
+    "answer": "TEMPURA grounds video segments using timestamps, eliminating the need for auxiliary temporal encoders."
+  },
+  {
+    "question": "How does the VER data pipeline ensure event boundaries are logically valid?",
+    "context": "We then ensure event time boundaries 1 do not overlap, 2 cover the entire video, and 3 fall within the video length range. Once event boundaries are established, GPT-40 is further utilized to generate detailed event descriptions, compiling them into a structured narrative describing the videos progression and event sequences.",
+    "answer": "The pipeline ensures non-overlapping, comprehensive event boundaries and uses GPT-40 to generate detailed, logically consistent descriptions."
+  },
+  {
+    "question": "What is the purpose of the temporal coherence check in the VER data pipeline?",
+    "context": "A temporal coherence check further refines the data by filtering out events lacking causal relevance, and a masked event prediction subset reinforces the training signal for temporal inference.",
+    "answer": "The temporal coherence check removes events without causal relevance, ensuring logical event progression."
+  },
+  {
+    "question": "How are masked events selected and predicted during VER dataset construction?",
+    "context": "Specifically, we randomly mask an event from the dense event caption and employ GPT-40 to analyze the structured captions and predict the missing event within the masked time window.",
+    "answer": "Events are randomly masked, and GPT-40 predicts the missing event using context from the structured captions."
+  },
+  {
+    "question": "What is the frame sampling rate and resolution used for training in TEMPURA?",
+    "context": "During training, we adopted a uniform sampling rate at 1 frame per second FPS and fixed every sampled frame to 320 180 pixels.",
+    "answer": "TEMPURA uses a 1 FPS sampling rate and a resolution of 320x180 pixels for training."
+  },
+  {
+    "question": "What learning rates are used for the LLM and vision encoder in TEMPURA?",
+    "context": "To fine-tune the LLM and MLP adapter, we use a learning rate of 1 105, while the vision encoder is trained with a lower learning rate of 2 106.",
+    "answer": "The LLM and MLP adapter use a learning rate of 1e-5, and the vision encoder uses 2e-6."
+  },
+  {
+    "question": "How does TEMPURA ensure full video coverage during event segmentation?",
+    "context": "Partition and identify events by dividing the video into a series of non-overlapping segments, determining the start and end time for each event, and arranging them in chronological order to ensure complete coverage of all video frames.",
+    "answer": "TEMPURA divides videos into non-overlapping, chronologically ordered events to ensure full coverage."
+  },
+  {
+    "question": "What is the batch size and hardware configuration used for TEMPURA training?",
+    "context": "We conducted training on 8 NVIDIA H100 GPUs for 1 epoch in each training stage. More training details can be found in the supplementary material.",
+    "answer": "TEMPURA is trained on 8 NVIDIA H100 GPUs with a global batch size of 64."
+  },
+  {
+    "question": "What modification did TEMPURA introduce to the Qwen2.5-VL temporal encoding scheme?",
+    "context": "To overcome this issue, we introduced two key modifications. First, we overlay visual timestamps on the upper left corner of each sampled video frame to explicitly mark the temporal context. Second, we adjusted the temporal encoding in M-ROPE by assigning a fixed position ID to every sampled frame, ensuring that the model reliably associates each frame with its corresponding timestamp.",
+    "answer": "TEMPURA overlays visual timestamps and assigns fixed position IDs to sampled frames for improved temporal encoding."
+  },
+  {
+    "question": "How does TEMPURA’s training pipeline bridge vision and language-based reasoning?",
+    "context": "This stage bridges the gap between vision and language-based reasoning by aligning the strong logical filling ability of the LLM with the video understanding of the video LMM.",
+    "answer": "TEMPURA aligns LLM-generated reasoning with video LMM understanding to bridge vision and language-based reasoning."
+  },
+  {
+    "question": "How does TEMPURA handle the logical inference of masked events during training?",
+    "context": "By training the video LMM on this curated data, we reinforce its ability to infer missing content and establish logical event progression solely from video input.",
+    "answer": "TEMPURA trains the model to infer missing events and their logical progression from video input using curated masked-event data."
+  },
+  {
+    "question": "What is the main advantage of TEMPURA’s two-stage training over single-stage methods?",
+    "context": "Ablation studies reveal that sequentially applying masked event prediction followed by dense video captioning is crucial for unlocking fine-grained temporal reasoning, thereby enhancing the models performance in video understanding.",
+    "answer": "Sequential two-stage training enables finer temporal reasoning and better video understanding than single-stage methods."
+  },
+  {
+    "question": "How does TEMPURA ensure that event captions are causally relevant during data creation?",
+    "context": "To ensure that masked events are logically inferable, we filter out videos with uncorrelated event captions using GPT-40. We achieve this by prompting GPT-40 to determine whether a causal relationship exists between event captions, applying step-by-step reasoning to arrive at a binary decision.",
+    "answer": "TEMPURA uses GPT-40 to filter out videos without causal relationships between event captions, ensuring logical inference."
+  },
+  {
+    "question": "What is the annotation format for events in the VER dataset?",
+    "context": "Each annotated video contains a series of events, where each event includes an event ID, description, and start and end timestamps.",
+    "answer": "Each event in VER is annotated with an event ID, description, and start/end timestamps."
+  },
+  {
+    "question": "How does TEMPURA’s segmentation performance affect downstream video QA tasks?",
+    "context": "TEMPURA not only eliminates the need for extra components such as time prediction models 11, temporal encoding tokens 43, and video-specific vision encoders 37, but also outperforms methods like 32 that are optimized for generating dense captions and extracting time windows from model 9...",
+    "answer": "TEMPURA's accurate segmentation improves downstream video QA tasks by providing detailed, temporally grounded event representations."
+  },
+  {
+    "question": "How does TEMPURA compare to baseline models in generating fine-grained event captions?",
+    "context": "Additionally, TEMPURA has better performance in producing more fine-grained event captions, as shown by the larger number of event captions produced by our model.",
+    "answer": "TEMPURA generates more fine-grained and numerous event captions compared to baseline models."
+  },
+  {
+    "question": "What steps are involved in the VER data pipeline for video event annotation?",
+    "context": "The pipeline begins by filtering and categorizing a large video pool. GPT-40 then generates event captions with startend times, followed by a temporal coherence check that discards invalid events. For valid events, a subset is masked to form a fill-in-the-blank task, and GPT-40 infers the missing segments-ultimately creating a dataset for video temporal understanding...",
+    "answer": "Steps include filtering videos, categorizing, generating captions with GPT-40, temporal coherence checking, masking events, and inferring missing segments."
+  },
+  {
+    "question": "How does TEMPURA differ from token-merging approaches for long video understanding?",
+    "context": "Recent methods compress video tokens by consolidating key features from adjacent frames 18, 40, 45, which reduces computational and memory costs but leads to fine-grained temporal information loss. ... We propose TEMPURA ... a two-stage training framework that enhances video temporal understanding.",
+    "answer": "Unlike token-merging approaches that lose fine-grained temporal information, TEMPURA preserves detailed event boundaries through dense segmentation and causal reasoning."
+  },
+  {
+    "question": "In what way does TEMPURA outperform Qwen2.5-VL-3B on fine-grained video segmentation?",
+    "context": "In contrast, the baseline model QwenVL2.5 tends to generate coarser segments. ... TEMPURA demonstrates better performance, as indicated by the green text, by producing more accurate timestamps, fine-grained events, and descriptive event captions.",
+    "answer": "TEMPURA produces finer-grained, more accurate event segments and captions compared to Qwen2.5-VL-3B, which generates coarser segments."
+  },
+  {
+    "question": "How does TEMPURA compare to Trace in temporal modeling and event grounding?",
+    "context": "Unlike Trace 11, which utilizes extra encoders to model time and saliency scores, we eliminate these components and instead train the model to ground all video segments using their enclosing timestamps.",
+    "answer": "TEMPURA grounds events with timestamps directly, removing the need for extra temporal encoders required by Trace."
+  },
+  {
+    "question": "How does TEMPURA's performance on Charades-STA benchmark compare to other methods?",
+    "context": "On the Charades-STA benchmark 9, TEMPURA achieves a mIoU of 39.2, outperforming the baseline by 6.3 points.",
+    "answer": "TEMPURA outperforms baseline models on Charades-STA, achieving higher mIoU scores for temporal grounding."
+  },
+  {
+    "question": "How does TEMPURA's event captioning compare to Grounded-Video-LLM and VideoQA?",
+    "context": "TEMPURA has better performance in producing more fine-grained event captions, as shown by the larger number of event captions produced by our model.",
+    "answer": "TEMPURA generates more fine-grained and numerous event captions than Grounded-Video-LLM and VideoQA."
+  },
+  {
+    "question": "What is the main advantage of TEMPURA over methods using instruction tuning for temporal grounding?",
+    "context": "In contrast to previous approaches that rely on various forms of instruction tuning data for video temporal grounding 13, 25, 37, 43, 44, our method trains the model to segment a video into a series of events, infer their relationships, and describe them in detail.",
+    "answer": "TEMPURA avoids reliance on instruction tuning by directly training on event segmentation and causal reasoning, leading to more robust grounding."
+  },
+  {
+    "question": "How does TEMPURA's VER dataset compare to Youcook2 and ActivityNet Captions?",
+    "context": "Table 1 Video Dataset Characteristics Comparison across mainstream benchmarks. ... VER Ours 18,329 10.5 6.0 Dense ... Compared to existing datasets, VER offers longer video hours, a diverse range of video types, and fine-grained event segmentation and captions.",
+    "answer": "The VER dataset provides longer videos, denser and more fine-grained event annotations than Youcook2 and ActivityNet Captions."
+  },
+  {
+    "question": "How does TEMPURA's two-stage training pipeline compare to single-stage baselines?",
+    "context": "Ablation studies reveal that sequentially applying masked event prediction followed by dense video captioning is crucial for unlocking fine-grained temporal reasoning, thereby enhancing the models performance in video understanding.",
+    "answer": "TEMPURA's two-stage pipeline enables finer temporal reasoning and better video understanding than single-stage baselines."
+  },
+  {
+    "question": "How does TEMPURA compare to TimeChat and Momentor in temporal grounding?",
+    "context": "Table 2 ... TimeChat 37 7B 46.7 23.7 21.7 37.9 ... Momentor 31 7B 28.5 42.6 26.6 11.6 7.6 ... TEMPURA Ours 3B 39.2 6.3 63.8 11.4 39.3 5.0 15.0 2.5 48.3 6.2 51.7 6.9",
+    "answer": "TEMPURA achieves higher mIoU and HIT1 scores than TimeChat and Momentor on temporal grounding tasks."
+  },
+  {
+    "question": "What sets TEMPURA's masked event prediction apart from FIM-based methods?",
+    "context": "Inspired by Fill-in-the-Middle FIM 2, 39 ... we extend this concept to the video domain. ... we formulate a video event infilling task where the video LMM learns to reconstruct masked video events through inferred text description.",
+    "answer": "TEMPURA uniquely adapts FIM to videos, using LLM-generated reasoning to reconstruct masked events in temporal context."
+  },
+  {
+    "question": "How does TEMPURA's timestamp-based grounding differ from temporal encoding tokens?",
+    "context": "We eliminate these components and instead train the model to ground all video segments using their enclosing timestamps.",
+    "answer": "TEMPURA grounds events with explicit timestamps, avoiding the need for temporal encoding tokens used by other models."
+  },
+  {
+    "question": "How does TEMPURA's segmentation accuracy compare to that of Qwen2.5-VL-3B and Grounded-Video-LLM?",
+    "context": "TEMPURA consistently segments events accurately and assigns precise timestamps. ... The red highlights indicate errors in timestamp predictions and the failure of other models to produce detailed event captions, even in shorter videos.",
+    "answer": "TEMPURA provides more accurate event segmentation and timestamps than Qwen2.5-VL-3B and Grounded-Video-LLM."
+  },
+  {
+    "question": "What are some real-world applications enabled by TEMPURA's fine-grained video event segmentation?",
+    "context": "Together, these stages equip the video LMM with a structured understanding of video narratives, improving its generalization to downstream tasks such as temporal grounding and highlight detection...",
+    "answer": "TEMPURA enables applications like precise video search, highlight detection, and automated video summarization."
+  },
+  {
+    "question": "How could TEMPURA be used for automated video editing or content creation?",
+    "context": "TEMPURA can segment untrimmed video and describe them. ... The model partitions an untrimmed video into non-overlapping events, each aligned with precise start and end timestamps, each enriched with detailed descriptions.",
+    "answer": "TEMPURA's event segmentation and detailed captions can automate video editing by identifying and labeling key content segments."
+  },
+  {
+    "question": "What are the limitations of TEMPURA as described in the paper?",
+    "context": "Despite these advances, the application of such reasoning capabilities to the video domain, particularly for temporal understanding across dynamic sequences, remains largely unexplored, with few works developing large multi-modal models to address these challenges.",
+    "answer": "TEMPURA's limitations include the unexplored nature of temporal reasoning in dynamic video sequences and the challenge of generalizing to all video types."
+  },
+  {
+    "question": "What future work is suggested for TEMPURA and VER dataset?",
+    "context": "We provide additional dataset statistics, annotation details, and more data examples in the supplementary material.",
+    "answer": "Future work may include expanding the VER dataset, improving annotation diversity, and exploring new temporal reasoning tasks."
+  },
+  {
+    "question": "How can practitioners implement TEMPURA for their own video datasets?",
+    "context": "We adopted Qwen2.5-VL 1 as our base model and conduct training on our collected data. ... During training, we adopted a uniform sampling rate at 1 frame per second FPS and fixed every sampled frame to 320 180 pixels.",
+    "answer": "Practitioners can fine-tune Qwen2.5-VL on their own datasets using TEMPURA's two-stage pipeline and similar frame sampling strategies."
+  },
+  {
+    "question": "What hardware and batch size are recommended for TEMPURA training?",
+    "context": "We conducted training on 8 NVIDIA H100 GPUs for 1 epoch in each training stage. ... the global batch size is set to 64.",
+    "answer": "TEMPURA training was conducted on 8 NVIDIA H100 GPUs with a global batch size of 64."
+  },
+  {
+    "question": "How does TEMPURA handle event annotation for new video domains?",
+    "context": "Our dataset contains videos across 10 domains like travel, DIY, tech reviews, etc.",
+    "answer": "TEMPURA's annotation pipeline can be applied to new domains by categorizing videos and generating event captions with GPT-40."
+  },
+  {
+    "question": "What is needed to adapt TEMPURA for real-time video analysis?",
+    "context": "No explicit context about real-time adaptation is provided.",
+    "answer": "The context does not specify how to adapt TEMPURA for real-time video analysis."
+  },
+  {
+    "question": "How can TEMPURA's event reasoning benefit surveillance video analytics?",
+    "context": "TEMPURA enhances video reasoning by teaching the model to infer missing events and generate step-by-step causal explanations.",
+    "answer": "TEMPURA's ability to infer missing events and causal reasoning can improve anomaly detection and event reconstruction in surveillance."
+  },
+  {
+    "question": "What are the steps for fine-tuning TEMPURA on a custom video task?",
+    "context": "We fully fine-tuned the 3B model from Qwen2.5-VL checkpoint on two tasks, masked event prediction and event segmentation and temporal captioning, in two sequential stages.",
+    "answer": "Fine-tune Qwen2.5-VL using masked event prediction, then event segmentation and captioning, following TEMPURA's two-stage process."
+  },
+  {
+    "question": "What are the main implementation details for TEMPURA's training pipeline?",
+    "context": "Our training configuration includes Global batch size 64, with 2 samples per device across 8 devices, resulting in gradient accumula- tion steps of 4 Learning rates 1 105 for the LLM and MLP adapter 2 10-6 for the vision encoder Weight decay 0.1 ...",
+    "answer": "Key details: batch size 64, learning rates 1e-5 (LLM/MLP), 2e-6 (vision), weight decay 0.1, gradient checkpointing."
+  },
+  {
+    "question": "How can TEMPURA's event segmentation support educational video indexing?",
+    "context": "Our dataset provides non-overlapping video events with corresponding detailed descriptions.",
+    "answer": "TEMPURA's segmentation and detailed captions can index educational videos by topic or step, aiding content retrieval."
+  },
+  {
+    "question": "How could TEMPURA be used for video highlight generation in sports analytics?",
+    "context": "Highlight Detection. The goal of highlight detection is to identify relevant time windows within a video and predict saliency scores based on a given language query.",
+    "answer": "TEMPURA can identify and describe key moments in sports videos, enabling automated highlight generation."
+  },
+  {
+    "question": "What are the annotation requirements for using TEMPURA on new datasets?",
+    "context": "Each annotated video contains a series of events, where each event includes an event ID, description, and start and end timestamps.",
+    "answer": "New datasets require event-level annotations with start/end times and detailed descriptions for TEMPURA training."
+  },
+  {
+    "question": "How does TEMPURA's pipeline ensure logical event progression in video segmentation?",
+    "context": "We then ensure event time boundaries 1 do not overlap, 2 cover the entire video, and 3 fall within the video length range.",
+    "answer": "The pipeline enforces non-overlapping, chronologically ordered events covering the full video for logical progression."
+  },
+  {
+    "question": "What are the licensing or usage restrictions for TEMPURA and VER dataset?",
+    "context": "No explicit context about licensing or usage restrictions is provided.",
+    "answer": "The context does not specify licensing or usage restrictions for TEMPURA or VER dataset."
+  },
+  {
+    "question": "What is the minimum video length supported by TEMPURA's segmentation pipeline?",
+    "context": "No explicit context about minimum video length is provided.",
+    "answer": "The context does not specify the minimum video length supported by TEMPURA."
+  },
+  {
+    "question": "How does TEMPURA handle multilingual video content?",
+    "context": "No explicit context about multilingual video handling is provided.",
+    "answer": "The context does not specify how TEMPURA handles multilingual video content."
+  },
+  {
+    "question": "What is the maximum number of events TEMPURA can annotate per video?",
+    "context": "No explicit context about the maximum number of events per video is provided.",
+    "answer": "The context does not specify the maximum number of events TEMPURA can annotate per video."
+  },
+  {
+    "question": "What is the inference speed of TEMPURA on long videos?",
+    "context": "No explicit context about inference speed is provided.",
+    "answer": "The context does not specify the inference speed of TEMPURA on long videos."
+  },
+  {
+    "question": "Does TEMPURA support streaming video inputs for online processing?",
+    "context": "No explicit context about streaming video input support is provided.",
+    "answer": "The context does not specify whether TEMPURA supports streaming video inputs."
+  },
+  {
+    "question": "What is the energy consumption or efficiency of TEMPURA during training?",
+    "context": "No explicit context about energy consumption or efficiency is provided.",
+    "answer": "The context does not specify the energy consumption or efficiency of TEMPURA during training."
+  }
+]

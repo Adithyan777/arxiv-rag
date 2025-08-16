@@ -1,0 +1,397 @@
+[
+  {
+    "question": "What problem does the Minerva dataset by Arsha Nagrani et al. address in video reasoning?",
+    "context": "Multimodal LLMs are turning their focus to video benchmarks, however most video benchmarks only provide outcome supervision, with no intermediate or interpretable reasoning steps. This makes it challenging to assess if models are truly able to combine perceptual and temporal information to reason about videos, or simply get the correct answer by chance or by exploiting linguistic biases. To remedy this, we provide a new video reasoning dataset called Minerva for modern multimodal models.",
+    "answer": "The Minerva dataset addresses the lack of intermediate, interpretable reasoning steps in existing video benchmarks, enabling better assessment of true video reasoning abilities."
+  },
+  {
+    "question": "What is the main contribution of the Minerva dataset for video question answering?",
+    "context": "To summarize, we make the following contributions i We introduce Minerva, a challenging video reasoning benchmark for LMMs consisting of 1,515 hand-crafted questions. For each question, we provide 5 answer choices, as well as detailed, manually-annotated reasoning traces.",
+    "answer": "The main contribution is a challenging video reasoning benchmark with hand-crafted questions, answer choices, and detailed reasoning traces."
+  },
+  {
+    "question": "How does Minerva differ from previous video QA datasets according to the authors?",
+    "context": "In contrast to these existing benchmarks, our work provides not only the final outputs but also human-annotated reasoning traces, enabling future evaluations to assess the models reasoning process in addition to its accuracy.",
+    "answer": "Minerva differs by providing human-annotated reasoning traces alongside answers, allowing assessment of model reasoning processes."
+  },
+  {
+    "question": "What types of videos are included in the Minerva dataset?",
+    "context": "Videos cover multiple domains such as clockwise - sports, cooking, short films and science lectures. Reasoning traces are detailed, including timestamps highlighted in green and key actions highlighted in pink.",
+    "answer": "The Minerva dataset includes videos from domains such as sports, cooking, short films, and science lectures."
+  },
+  {
+    "question": "What skills are required to answer questions in Minerva?",
+    "context": "The raters are instructed to attempt to propose questions such that each question requires at least two of the following skills Temporal Reasoning, Counting, Cause and Effect, Goal Reasoning, Situational Awareness, Event Occurrence, State Changes, Reading OCR, Listening identifying a detail in the audio track, Spatial Perception, Numerical Reasoning all math operations other than counting, Object Recognition, Counterfactual Reasoning what if, but with an objective outcome.",
+    "answer": "Questions require skills such as temporal reasoning, counting, cause and effect, goal reasoning, situational awareness, and more."
+  },
+  {
+    "question": "How many questions and videos are in the Minerva dataset?",
+    "context": "We introduce Minerva, a videoQA dataset consisting of 1,515 challenging questions for videos of varying length... There are multiple questions per video, with the distribution following a minmeanmax of 1 6.8 10 questions per video 223 videos in total.",
+    "answer": "Minerva contains 1,515 questions across 223 videos."
+  },
+  {
+    "question": "What is a reasoning trace in the context of Minerva?",
+    "context": "We henceforth refer to this multi-step process as a reasoning trace for videoQA. This includes the set of the steps required to solve the question, including perception and localization...",
+    "answer": "A reasoning trace is a multi-step process outlining the steps needed to solve a video question, including perception and localization."
+  },
+  {
+    "question": "What is the average length of reasoning traces in Minerva?",
+    "context": "Reasoning traces are long and detailed, with the mean number of words in a reasoning trace being 92 Fig. 2.",
+    "answer": "The average reasoning trace in Minerva is 92 words long."
+  },
+  {
+    "question": "How does Minerva ensure questions are not answerable by text alone?",
+    "context": "While raters are explicitly instructed to avoid proposing questions that can be solved from the ASR alone, we find very few examples that are possible to guess from text alone. We address these potential text-biases both in terms of QAD-only and ASR-only with adversarial filtering.",
+    "answer": "Minerva uses rater guidelines and adversarial filtering to ensure questions cannot be answered by text alone."
+  },
+  {
+    "question": "What is the taxonomy of reasoning errors proposed in Minerva?",
+    "context": "We propose a simple taxonomy of reasoning errors for video models applied to complex questions. We do this by first examining reasoning outputs from a range of models and identify that errors fall into 4 general categories 1. Perceptual Correctness... 2. Temporal Localization... 3. Logical Reasoning... 4. Completeness...",
+    "answer": "The taxonomy includes perceptual correctness, temporal localization, logical reasoning, and completeness."
+  },
+  {
+    "question": "What is the human performance accuracy on Minerva compared to the best model?",
+    "context": "Minerva is challenging and complex every question requires multiple steps to solve, and even the best-performing frontier model Gemini 2.5 Pro Thinking achieves only 66.2 accuracy, while humans are able to achieve 92.5 .",
+    "answer": "Human accuracy on Minerva is 92.5%, while the best model achieves 66.2%."
+  },
+  {
+    "question": "What modalities are used in Minerva questions?",
+    "context": "Every question in Minerva requires complex reasoning using two or more skills for example numerical reasoning, temporal reasoning, spatial navigation. Videos also span multiple domains short films, sports, instructional videos etc, with various video lengths from 2 minutes to over 1.5 hours, making the dataset diverse. For each question we also provide the hand-crafted, detailed reasoning trace, with the steps that are required to come to the correct answer. Unlike datasets that provide auxiliary information in a single format such as timestamps LITA 21, CG-Bench 10 others, the reasoning trace is an unconstrained block of text - allowing flexibility. Each reasoning trace does include timestamps where necessary to refer to relevant sections of the video, but also describes key actions, objects, as well as outlines logical reasoning steps see Fig. 1 for examples.",
+    "answer": "Questions use both visual frames and ASR (audio/speech) transcripts as modalities."
+  },
+  {
+    "question": "How are questions and reasoning traces in Minerva created and reviewed?",
+    "context": "Once videos are identified, raters then propose complex questions, answers, decoys, reasoning traces and label question... Each annotation is verified by at least one other rater details in Appendix 8.1.4. The annotations are also periodically reviewed by the papers authors, who provide detailed feedback to the raters to ensure annotations are being provided in-line with guidelines.",
+    "answer": "Questions and reasoning traces are created by raters, verified by peers, and periodically reviewed by the authors."
+  },
+  {
+    "question": "What are the four axes used in the Minerva rubric for reasoning evaluation?",
+    "context": "We use these four axes, along with a 3-point Likert score to create a general rubric for evaluating reasoning traces provided by video models, which we call the Minerva rubric we found any more than 3 points to be difficult for both humans and models to provide consistently.",
+    "answer": "The four axes are perceptual correctness, temporal grounding, logical reasoning, and completeness."
+  },
+  {
+    "question": "Which models are benchmarked on Minerva according to the paper?",
+    "context": "We benchmark both open-source and proprietary models on our dataset, and manually compare some of their reasoning traces to the ground truth reasoning annotations...",
+    "answer": "Both open-source and proprietary models such as Qwen2.5-VL, VideoLLaMA3, InternVideo2.5, Gemini, GPT-4o, and Claude 3.5 Sonnet are benchmarked."
+  },
+  {
+    "question": "What is the average number of questions per video in Minerva?",
+    "context": "There are multiple questions per video, with the distribution following a minmeanmax of 1 6.8 10 questions per video 223 videos in total.",
+    "answer": "The average number of questions per video is 6.8."
+  },
+  {
+    "question": "What is the minimum and maximum video length in Minerva?",
+    "context": "Videos cover a wide range of lengths, with some longer than 100 minutes. Every question comes with a reasoning trace which is long and detailed, mean number of words is 92 middle. Domains are hand-selected to include videos that lend themselves well to complex reasoning questions.",
+    "answer": "Video lengths range from less than 2 minutes to over 100 minutes."
+  },
+  {
+    "question": "How does Minerva support the evaluation of reasoning traces?",
+    "context": "Our dataset is challenging for multiple frontier multimodal models, and is useful for providing insights into the reasoning failures of these models. Our analysis of using LLMs to judge model-generated reasoning traces shows promise and points out opportunities for future work in this direction.",
+    "answer": "Minerva provides ground truth reasoning traces, enabling both human and LLM-based evaluation of model-generated reasoning."
+  },
+  {
+    "question": "What is the process for adversarial filtering in Minerva?",
+    "context": "We address these potential text-biases both in terms of QAD-only and ASR-only with adversarial filtering 20,28. Our filtering process consists of taking the consensus agreement in order to avoid discarding difficult questions that models may have answered correctly by chance across a diverse range of open- and closed- source text-only baselines...",
+    "answer": "Adversarial filtering uses consensus among multiple models to filter out questions answerable by text alone."
+  },
+  {
+    "question": "What is the main goal of releasing Minerva according to the authors?",
+    "context": "The dataset, along with questions, answer candidates and reasoning traces will be publicly available under httpsgithub.comgoogle-deepmindneptune?tabreadme-ov-fileminerva.",
+    "answer": "The main goal is to provide a challenging benchmark for evaluating and improving multimodal video reasoning models."
+  },
+  {
+    "question": "How does the Minerva annotation process ensure diversity in question skills?",
+    "context": "The raters are instructed to attempt to propose questions such that each question requires at least two of the following skills Temporal Reasoning, Counting, Cause and Effect, Goal Reasoning, Situational Awareness, Event Occurrence, State Changes, Reading OCR, Listening identifying a detail in the audio track, Spatial Perception, Numerical Reasoning all math operations other than counting, Object Recognition, Counterfactual Reasoning what if, but with an objective outcome.",
+    "answer": "Raters are required to create questions involving at least two distinct reasoning skills, ensuring diversity."
+  },
+  {
+    "question": "How are reasoning traces in Minerva structured to support evaluation?",
+    "context": "Each reasoning trace does include timestamps where necessary to refer to relevant sections of the video, but also describes key actions, objects, as well as outlines logical reasoning steps see Fig. 1 for examples.",
+    "answer": "Reasoning traces contain timestamps, key actions, object descriptions, and logical steps for evaluation."
+  },
+  {
+    "question": "How does the Minerva dataset define a 'reasoning trace' for video QA?",
+    "context": "We henceforth refer to this multi-step process as a reasoning trace for videoQA. This includes the set of the steps required to solve the question, including perception and localization...",
+    "answer": "A reasoning trace is the ordered set of steps, including perception and localization, needed to answer a video question."
+  },
+  {
+    "question": "What are the main algorithmic steps in Minerva's annotation pipeline?",
+    "context": "Our dataset construction pipeline consists of the following steps 1. Video Selection We begin by selecting video domains from YouTube that lend themselves well to questions fulfilling the desiderata above. 2. Manual Annotation Raters propose questions, answers and reasoning traces. 3. Quality Review Questions are reviewed by other raters. 4. Adversarial Filtering We attempt to mitigate textual bias using consensus from multiple frontier text-only models.",
+    "answer": "Steps are: video selection, manual annotation, peer review, and adversarial filtering."
+  },
+  {
+    "question": "How are decoy answers designed in Minerva to prevent bias?",
+    "context": "Decoys should be diverse. They should be different enough from each other to not narrow down the scope of the question too much. The correct answer should not stand out among the decoys. So, decoys should not have obvious differences to the answer.",
+    "answer": "Decoys are crafted to be diverse and similar in plausibility to avoid making the correct answer obvious."
+  },
+  {
+    "question": "What design choice ensures Minerva questions require video understanding?",
+    "context": "The question should not be easily solvable by looking at just a few frames in the video - It should not be solvable using only common sense and external knowledge - It should ask about visual elements in the video and not just focus on the speech - It should not be subjective and should have only one right answer - It should be complex, and require multiple steps to solve",
+    "answer": "Questions are designed to require complex, multi-step reasoning grounded in video evidence, not just text or common sense."
+  },
+  {
+    "question": "How does Minerva handle quality control during annotation?",
+    "context": "Each annotation is verified by at least one other rater details in Appendix 8.1.4. The annotations are also periodically reviewed by the papers authors, who provide detailed feedback to the raters to ensure annotations are being provided in-line with guidelines.",
+    "answer": "Annotations undergo peer review and periodic author checks for quality control."
+  },
+  {
+    "question": "What is the rationale behind providing detailed reasoning traces in Minerva?",
+    "context": "Yet, despite the fundamentally multi-step nature of this capability, existing video benchmarks only evaluate final answers they only check the outcome and not the reasoning. It is not clear, however, if a model arrives at a correct answer due to a successful execution of key steps, pure chance, linguistic bias, or the process of elimination of answer choices.",
+    "answer": "Detailed reasoning traces help determine if correct answers result from genuine reasoning or chance/bias."
+  },
+  {
+    "question": "How does Minerva evaluate model reasoning beyond final answers?",
+    "context": "We benchmark both open-source and proprietary models on our dataset, and manually compare some of their reasoning traces to the ground truth reasoning annotations to identify failure modes. We use these failure modes to build a taxonomy of errors in other words, a rubric for video reasoning.",
+    "answer": "Minerva compares model reasoning traces to ground truth, using a rubric to identify and categorize reasoning errors."
+  },
+  {
+    "question": "What is the MiRA evaluation in the context of Minerva?",
+    "context": "We ask an LLM to score reasoning traces according to the Minerva rubric - i.e. the same score the human raters provided. We experiment with both reference-based and reference-free prompts. The instructions for human raters to judge model reasoning are provided in Sec. 8.3 in the appendix and the exact prompt for the LLM-as-a-judge is provided in Fig. 8 in the appendix. For clarity, we refer to this assessment henceforth as MiRA Minerva Reasoning Assessment.",
+    "answer": "MiRA is an LLM-based assessment that scores model reasoning traces using the Minerva rubric."
+  },
+  {
+    "question": "What prompting strategies were compared for model evaluation in Minerva?",
+    "context": "We conduct an ablation on the impact of prompting styles on Minerva with our best model. We try out 3 styles of prompting i asking the model to answer the question directly ii asking the model to reason step by step and iii additionally providing the model with the Minerva rubric for video reasoning described in Sec. 5.1.1.",
+    "answer": "Three prompting strategies: direct answer, step-by-step reasoning, and reasoning with the Minerva rubric."
+  },
+  {
+    "question": "How does providing the Minerva rubric in prompts affect model performance?",
+    "context": "What is interesting however, is that explicitly providing the rubric in the prompt improves the final score even further the reasoning outputs also improve, as shown by an automatic LLM judge MiRA which is described in Sec. 5.1.1.",
+    "answer": "Including the rubric in prompts improves both answer accuracy and reasoning quality."
+  },
+  {
+    "question": "What are the main failure modes for models on Minerva?",
+    "context": "We find that failure modes are primarily related to temporal localization, followed by visual perception errors, as opposed to logical or completeness errors.",
+    "answer": "Main failure modes are temporal localization errors and visual perception mistakes."
+  },
+  {
+    "question": "What is the effect of increasing the number of frames on model accuracy in Minerva?",
+    "context": "We also note that for all 3 models in Table 1, increasing the number of frames from 64 frames leads to an increase in performance as well, with ASR providing complementary gains.",
+    "answer": "Increasing the number of video frames improves model accuracy, with ASR offering additional gains."
+  },
+  {
+    "question": "How does Minerva support reference-based evaluation of video reasoning?",
+    "context": "Armed with the traces from Minerva, instead we explore reference-based analysis, which can operate entirely in the lower-bandwidth less expensive text space.",
+    "answer": "Minerva's ground truth reasoning traces enable scalable, reference-based evaluation of model reasoning."
+  },
+  {
+    "question": "What is the significance of the four axes in the Minerva rubric for LLM evaluation?",
+    "context": "We use these four axes, along with a 3-point Likert score to create a general rubric for evaluating reasoning traces provided by video models, which we call the Minerva rubric...",
+    "answer": "The four axes allow systematic, multi-dimensional evaluation of reasoning traces for perceptual, temporal, logical, and completeness aspects."
+  },
+  {
+    "question": "How are human and LLM assessments compared in Minerva's evaluation?",
+    "context": "We then provide these 400 model reasoning traces to human raters, along with QADs and ground truth reasoning traces, and ask them to score each reasoning trace with the Minerva rubric described above... We ask an LLM to score reasoning traces according to the Minerva rubric - i.e. the same score the human raters provided.",
+    "answer": "Human raters and LLMs both score reasoning traces using the Minerva rubric, allowing comparison of their assessments."
+  },
+  {
+    "question": "How does Minerva ensure questions are not answerable by ASR alone?",
+    "context": "While raters are explicitly instructed to avoid proposing questions that can be solved from the ASR alone, we find very few examples that are possible to guess from text alone. We address these potential text-biases both in terms of QAD-only and ASR-only with adversarial filtering.",
+    "answer": "Raters avoid ASR-only questions, and adversarial filtering removes those answerable from ASR transcripts alone."
+  },
+  {
+    "question": "How does Minerva differ from VideoCoT in reasoning trace annotation?",
+    "context": "VideoCoT 47 is perhaps the closest to our work, aiming to generate text-based chain of thought for videos however, we note key differences here. The primary goal of VideoCoT is to present a semiautomatic pipeline using LLMs and VLMs to scale up for training purposes, while we present a fully manually annotated, high quality dataset for evaluation purposes.",
+    "answer": "Minerva uses fully manual, high-quality reasoning traces for evaluation, unlike VideoCoT's semi-automatic pipeline."
+  },
+  {
+    "question": "What sets Minerva apart from Neptune and InfiniBench in annotation quality?",
+    "context": "These benchmarks, along with InfiniBench 5 maximum 52-minute videos, and Neptune 34, rely on semi-automatic pipelines using LLMs for annotation. In contrast, our dataset is entirely manually annotated.",
+    "answer": "Minerva is entirely manually annotated, while Neptune and InfiniBench use semi-automatic LLM-based annotation."
+  },
+  {
+    "question": "How does Minerva's question complexity compare to TemporalBench and PerceptionTest?",
+    "context": "TemporalBench 7 and PerceptionTest 36 include a variety of tasks, such as video QA, captioning, and grounding, but use relatively short videos most videos a couple of minutes.",
+    "answer": "Minerva features more complex, multi-step questions over longer videos than TemporalBench and PerceptionTest."
+  },
+  {
+    "question": "How does Minerva's approach to reasoning traces compare to VideoEspresso?",
+    "context": "VideoEspresso 18 does something similar for video, constructing a pipeline connecting different frozen models together to label bounding boxes for sparse key frames.",
+    "answer": "Minerva provides detailed, human-written reasoning traces, while VideoEspresso uses model-generated bounding box labels."
+  },
+  {
+    "question": "How does Minerva address textual bias compared to prior datasets?",
+    "context": "We address these potential text-biases both in terms of QAD-only and ASR-only with adversarial filtering 20,28.",
+    "answer": "Minerva applies adversarial filtering to reduce textual bias, going beyond prior datasets' approaches."
+  },
+  {
+    "question": "How do Minerva's decoy answer choices compare to previous video QA datasets?",
+    "context": "All QAD-only baselines get close to chance performance, indicating that the decoy answer choices do not offer cues to the correct answer.",
+    "answer": "Minerva's decoys are carefully crafted to prevent answer cues, unlike many previous datasets."
+  },
+  {
+    "question": "How does Minerva's error taxonomy differ from previous reasoning evaluation methods?",
+    "context": "We use these failure modes to build a taxonomy of errors in other words, a rubric for video reasoning. This rubric is specific to the video domain, and highlights the following broad categories of errors - 1 Perceptual Correctness, 2 Temporal Localization, 3 Logical Reasoning and 4 Completeness.",
+    "answer": "Minerva introduces a video-specific error taxonomy, emphasizing perceptual and temporal grounding."
+  },
+  {
+    "question": "How does Minerva's reference-based evaluation compare to reference-free approaches?",
+    "context": "We primarily focus on contributing a high-quality dataset with reference annotations for video reasoning, which may spur the development of and provide a comparison for further research into both reference-based and, by comparison, reference-free metrics for video reasoning.",
+    "answer": "Minerva enables reliable reference-based evaluation, which is more consistent than reference-free approaches."
+  },
+  {
+    "question": "How does Minerva's model benchmarking compare to blind baselines?",
+    "context": "We first evaluate models using a textonly prompt in two settings. i The model is given only... QAD baseline. ii The model is additionally given an ASR transcript of the video QADASR baseline. This helps identify questions that can be answered by prior or commonsense knowledge, or from ASR alone without requiring visual information.",
+    "answer": "Minerva benchmarks both advanced video models and blind baselines, revealing the necessity of visual information."
+  },
+  {
+    "question": "How does Minerva compare to VideoVista in terms of video length and domain?",
+    "context": "Similarly, CinePile 38 and VideoVista 29 focus on short-form content average length of 160 seconds. VideoVista 29 is notable for its broad coverage of 19 understanding and 8 reasoning tasks.",
+    "answer": "Minerva covers longer, more diverse videos and complex reasoning compared to VideoVista's short-form focus."
+  },
+  {
+    "question": "How does Minerva's manual annotation compare to VideoCoT's automated rationales?",
+    "context": "Their automated rationales tend to contain substantial information about the video that does not relate to the particular query, rather than providing specific reasoning for the given question.",
+    "answer": "Minerva's manual traces are query-specific and detailed, unlike VideoCoT's often irrelevant automated rationales."
+  },
+  {
+    "question": "How does Minerva's evaluation rubric compare to LLaVACritic and MLLM-as-a-Judge?",
+    "context": "MLLM as a judge 9 and LLaVACritic 49 show these capabilities in multimodal settings, but this has thus far been largely explored for the image-text domain. Unlike these works, we explore reference-based LLM-as-a-judge strategies for analysis of video reasoning traces.",
+    "answer": "Minerva extends LLM-as-a-judge evaluation to video reasoning, moving beyond image-text benchmarks."
+  },
+  {
+    "question": "What are potential applications of Minerva's dataset for model development?",
+    "context": "Our dataset is challenging for multiple frontier multimodal models, and is useful for providing insights into the reasoning failures of these models.",
+    "answer": "Minerva can be used to develop, benchmark, and debug multimodal video reasoning models."
+  },
+  {
+    "question": "How can Minerva's reasoning traces be used in LLM training?",
+    "context": "Each question has 5 answer options and a detailed reasoning trace accompanying the final answer see Fig. 1 for examples.",
+    "answer": "Reasoning traces can serve as supervised targets for training LLMs to generate step-by-step video reasoning."
+  },
+  {
+    "question": "What real-world domains are represented in Minerva's video selection?",
+    "context": "Short Films... Sports and Board Games... Educational... Lifestyle... These are described below and shown in Fig. 2.",
+    "answer": "Minerva includes real-world domains such as sports, board games, education, and lifestyle videos."
+  },
+  {
+    "question": "How can Minerva be used to evaluate temporal reasoning in video models?",
+    "context": "We find that failure modes are primarily related to temporal localization, followed by visual perception errors, as opposed to logical or completeness errors.",
+    "answer": "Minerva's questions and rubric specifically test and score models' temporal reasoning abilities."
+  },
+  {
+    "question": "What are the limitations of current models on Minerva according to benchmarking results?",
+    "context": "Gemini 2.5 Pro Thinking sets the state-of-the-art in the dataset at 66.2 . With peak performance still far from human performance, we hope Minerva will be a challenging benchmark to measure progress on video understanding.",
+    "answer": "Current models perform far below human level, especially in temporal and perceptual reasoning."
+  },
+  {
+    "question": "What future research directions does Minerva enable?",
+    "context": "Our analysis of using LLMs to judge model-generated reasoning traces shows promise and points out opportunities for future work in this direction.",
+    "answer": "Minerva enables research into LLM-based evaluation, reference-based metrics, and improved video reasoning models."
+  },
+  {
+    "question": "How can practitioners implement Minerva's evaluation rubric in their own research?",
+    "context": "We use these four axes, along with a 3-point Likert score to create a general rubric for evaluating reasoning traces provided by video models, which we call the Minerva rubric...",
+    "answer": "Practitioners can adopt the four-axis Minerva rubric with Likert scoring to evaluate model reasoning."
+  },
+  {
+    "question": "How can Minerva's adversarial filtering process be replicated?",
+    "context": "Our filtering process consists of taking the consensus agreement in order to avoid discarding difficult questions that models may have answered correctly by chance across a diverse range of open- and closed- source text-only baselines...",
+    "answer": "Replicate adversarial filtering by consensus evaluation across multiple text-only model baselines."
+  },
+  {
+    "question": "How can Minerva be used for reference-based LLM-as-a-judge experiments?",
+    "context": "We ask an LLM to score reasoning traces according to the Minerva rubric - i.e. the same score the human raters provided. We experiment with both reference-based and reference-free prompts.",
+    "answer": "Minerva's ground truth traces allow LLMs to be benchmarked as judges in reference-based evaluation."
+  },
+  {
+    "question": "What are the steps to use Minerva for benchmarking a new video model?",
+    "context": "We benchmark both open-source and proprietary models on our dataset, and manually compare some of their reasoning traces to the ground truth reasoning annotations to identify failure modes.",
+    "answer": "Run the model on Minerva questions, compare answers and reasoning traces to ground truth, and analyze errors."
+  },
+  {
+    "question": "How can Minerva's reasoning trace format inform dataset design in other domains?",
+    "context": "Each reasoning trace does include timestamps where necessary to refer to relevant sections of the video, but also describes key actions, objects, as well as outlines logical reasoning steps see Fig. 1 for examples.",
+    "answer": "Minerva's detailed, multi-step, timestamped traces can inspire similar annotation formats in other modalities."
+  },
+  {
+    "question": "What practical steps are needed to ensure annotation quality in a Minerva-style dataset?",
+    "context": "Each annotation is verified by at least one other rater details in Appendix 8.1.4. The annotations are also periodically reviewed by the papers authors, who provide detailed feedback to the raters to ensure annotations are being provided in-line with guidelines.",
+    "answer": "Use peer review and periodic expert checks to maintain high annotation quality."
+  },
+  {
+    "question": "How can Minerva's MCQ format be adapted for other multimodal benchmarks?",
+    "context": "Each question has 5 answer options and a detailed reasoning trace accompanying the final answer see Fig. 1 for examples.",
+    "answer": "Adopt multi-choice questions with detailed reasoning traces for robust multimodal benchmark design."
+  },
+  {
+    "question": "What are the main challenges in applying Minerva to long-form video understanding?",
+    "context": "The performance of all video models degrades as videos get longer, similar to reports in prior work 15.",
+    "answer": "Model performance drops as video length increases, making long-form reasoning particularly challenging."
+  },
+  {
+    "question": "How can researchers use Minerva to study model performance by skill type?",
+    "context": "Model performance by a skill, b video domain, and c video length is provided in Fig. 3. We note that each question is tagged with multiple skills by construction, rather than each being associated with only one.",
+    "answer": "Researchers can analyze model accuracy across different reasoning skills using Minerva's skill-tagged questions."
+  },
+  {
+    "question": "What is a key limitation of using only final answers for model evaluation, as shown by Minerva?",
+    "context": "Yet, despite the fundamentally multi-step nature of this capability, existing video benchmarks only evaluate final answers they only check the outcome and not the reasoning.",
+    "answer": "Final answers alone do not reveal reasoning errors or model weaknesses in multi-step video tasks."
+  },
+  {
+    "question": "How can Minerva's peer review process be incorporated into other dataset pipelines?",
+    "context": "Peer Review The initial annotations, including the questions, are then passed to another rater for peer review. This reviewer checks for question complexity and suggests corrections or improvements.",
+    "answer": "Include a peer review stage where independent raters check and refine annotations."
+  },
+  {
+    "question": "How does Minerva's annotation process ensure diversity in question skills?",
+    "context": "The raters are instructed to attempt to propose questions such that each question requires at least two of the following skills Temporal Reasoning, Counting, Cause and Effect, Goal Reasoning, Situational Awareness, Event Occurrence, State Changes, Reading OCR, Listening identifying a detail in the audio track, Spatial Perception, Numerical Reasoning all math operations other than counting, Object Recognition, Counterfactual Reasoning what if, but with an objective outcome.",
+    "answer": "Raters are required to design questions that require at least two distinct reasoning skills."
+  },
+  {
+    "question": "What is the recommended prompt format for evaluating models on Minerva?",
+    "context": "We conduct an ablation on the impact of prompting styles on Minerva with our best model. We try out 3 styles of prompting i asking the model to answer the question directly ii asking the model to reason step by step and iii additionally providing the model with the Minerva rubric for video reasoning described in Sec. 5.1.1.",
+    "answer": "Prompt models to reason step-by-step and include the Minerva rubric for best evaluation results."
+  },
+  {
+    "question": "What is the main topic of Minerva's Section 8.1.3 on decoys?",
+    "context": "8.1.3. Decoys - A decoy is a wrong answer to the question. We need decoys to create multiple choice questions, like in a multiple choice exam.",
+    "answer": "Section 8.1.3 details the design and role of decoy answers in Minerva's multiple-choice questions."
+  },
+  {
+    "question": "What is the main contribution of the Minerva dataset according to the authors?",
+    "context": "The dataset, along with questions, answer candidates and reasoning traces will be publicly available under httpsgithub.comgoogle-deepmindneptune?tabreadme-ov-fileminerva.",
+    "answer": "Minerva provides a challenging, publicly available benchmark for complex video reasoning."
+  },
+  {
+    "question": "What is the main focus of Minerva's Section 8.2 on human study?",
+    "context": "8.2. Human Study... Table 8. Hyperparameters for all model baselines tabularllll Method of Frames ASR Hyperparameters seeds, temperature, etc InternVideo2.5 46 256 image size 448, temperature 0, top-p0.1 default, beams 1, sampleFalse, Qwen2.5-VL-72B 6 768 frames2fps up to 768 frames default, seeddefault, samplingdefault VideoLLaMA3-7B 51 180 frames1fps up to 180 frames default, seeddefault, samplingdefault Deepseek-R132b 0 blind seeddefault, temperature1 default, top-pdefault, GPT-4o 1 250 versiongpt-4o-2024-08-06, seeddefault, top-pdefault, temperature1 default, image resolution modellow GPT-4.1 2 256 versiongpt-4o-2024-08-06, seeddefault, top-pdefault, temperature 1 default, image resolution modellow Claude 3.5 Sonnet v2 4 64 imagesize448, other parameters default Gemini 1.5 Pro 39 all temperature 0, seeddefault, samplingdefault Gemini 2.0 Flash 39 all temperature 0, seeddefault, samplingdefault Gemini 2.5 Flash Thinking 43 all temperature 0, seeddefault, samplingdefault Gemini 2.5 Pro Thinking 43 all temperature 0, seeddefault, samplingdefault OpenAI o1 23 64 imagesize448, reasoningeffortmedium, other parameters default tabular 11. Statistics for Minerva...",
+    "answer": "Section 8.2 describes the human study and model hyperparameters for Minerva benchmarking."
+  },
+  {
+    "question": "How does Minerva's dataset size compare to other video QA benchmarks?",
+    "context": "We introduce Minerva, a videoQA dataset consisting of 1,515 challenging questions for videos of varying length.",
+    "answer": "Minerva is large, with 1,515 questions, and covers a wide range of video lengths."
+  },
+  {
+    "question": "How does the Minerva paper address reinforcement learning in LLMs?",
+    "context": "Short Films We search for videos tagged as short film, which are complex, multi-event videos that typically have a story line.",
+    "answer": "The provided context does not address reinforcement learning in LLMs."
+  },
+  {
+    "question": "Does the Minerva paper discuss real-time video streaming applications?",
+    "context": "Each annotation is verified by at least one other rater details in Appendix 8.1.4. The annotations are also periodically reviewed by the papers authors, who provide detailed feedback to the raters to ensure annotations are being provided in-line with guidelines.",
+    "answer": "No, the context does not mention real-time video streaming applications."
+  },
+  {
+    "question": "Does Minerva provide details on video compression techniques?",
+    "context": "We benchmark both open-source and proprietary models on our dataset, and manually compare some of their reasoning traces to the ground truth reasoning annotations to identify failure modes.",
+    "answer": "No, the context does not provide details on video compression techniques."
+  },
+  {
+    "question": "Does the Minerva dataset include 3D video data?",
+    "context": "We introduce Minerva, a videoQA dataset consisting of 1,515 challenging questions for videos of varying length. Each question has 5 answer options and a detailed reasoning trace accompanying the final answer see Fig. 1 for examples.",
+    "answer": "The context does not specify whether Minerva includes 3D video data."
+  },
+  {
+    "question": "Does the Minerva paper discuss hardware requirements for model training?",
+    "context": "Peer Review The initial annotations, including the questions, are then passed to another rater for peer review. This reviewer checks for question complexity and suggests corrections or improvements.",
+    "answer": "No, the context does not discuss hardware requirements for model training."
+  },
+  {
+    "question": "Does Minerva evaluate models on non-English videos?",
+    "context": "Videos cover multiple domains such as clockwise - sports, cooking, short films and science lectures. Reasoning traces are detailed, including timestamps highlighted in green and key actions highlighted in pink.",
+    "answer": "The context does not indicate whether Minerva includes or evaluates non-English videos."
+  }
+]
