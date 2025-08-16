@@ -11,6 +11,8 @@ from utils import (
     get_context_for_qa_without_id,
     get_rewritten_queries,
     get_llm_generation_using_context,
+)
+from src.data import (
     clean_arxiv_md_text,
     merge_same_heading_docs,
     get_arxiv_metadata_from_paper_id,
@@ -23,8 +25,8 @@ from typing import Dict, Tuple, Optional, List
 from docling.document_converter import DocumentConverter
 from langchain_docling import DoclingLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from init_vector_stores.papers import DocumentSplitter
-from init_vector_stores.abstracts import AbstractVectorStore
+from src.data.abstracts import AbstractVectorStore
+from src.data.papers import DocumentSplitter
 import json
 
 def load_papers(filepath: str = "final_papers.json") -> Dict[str, str]:

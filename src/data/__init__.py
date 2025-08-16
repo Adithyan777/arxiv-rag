@@ -8,8 +8,9 @@ import re
 from pathlib import Path
 from typing import Dict, List, Optional
 import logging
+from langchain_core.documents import Document
 
-from ..core.config import app_config
+# from ..core.config import app_config
 
 logger = logging.getLogger(__name__)
 
@@ -82,7 +83,7 @@ class PaperDatabase:
     """Manages the paper metadata database."""
     
     def __init__(self, filepath: str = None):
-        self.filepath = filepath or app_config.PAPERS_JSON
+        self.filepath = filepath or "final_papers.json"  # Default filename
         self._ensure_absolute_path()
     
     def _ensure_absolute_path(self):
@@ -169,6 +170,69 @@ class PaperDatabase:
             logger.error(f"Failed to add paper to database: {str(e)}")
             raise
 
+class MetadataExtractor:
+    """Handles metadata extraction from filenames and database lookups."""
+    
+    def __init__(self, json_file: str = "final_papers.json"):
+        self.json_file = json_file
+    
+    def extract_metadata(self, filename: str) -> Dict:
+        """
+        Extract metadata for a paper from its filename using a JSON database.
+        
+        Args:
+            filename (str): Filename containing paper ID (format: "XXXX.XXXXX Title")
+            
+        Returns:
+            Dict: Paper metadata
+            
+        Raises:
+            ValueError: If filename format is invalid or paper not found
+            FileNotFoundError: If JSON file not found
+        """
+        # Extract ID from filename
+        id_match = re.match(r'(\d{4}\.\d+)', filename)
+        if not id_match:
+            raise ValueError("Invalid filename format. Expected format: 'XXXX.XXXXX Title'")
+        
+        arxiv_id = id_match.group(1)
+        
+        try:
+            # Get project root directory
+            project_root = Path(__file__).parent.parent.parent
+            abs_path = project_root / self.json_file
+            
+            if not abs_path.exists():
+                abs_path = Path.cwd() / self.json_file
+                
+            with open(abs_path, 'r') as f:
+                data = json.load(f)
+            
+            # Handle both possible JSON structures
+            papers_list = data if isinstance(data, list) else data.get('papers', [])
+            
+            # Find paper with matching ID
+            paper = next((p for p in papers_list if p.get('id') == arxiv_id), None)
+            
+            if not paper:
+                raise ValueError(f"No metadata found for ID: {arxiv_id}")
+                
+            # Define columns to check
+            columns = ['id', 'title', 'categories', 'abstract', 'doi', 'created', 'updated', 'authors']
+            
+            # Only add non-empty values to metadata
+            metadata = {
+                col: paper.get(col) 
+                for col in columns 
+                if paper.get(col) and str(paper.get(col)).strip()
+            }
+            
+            return metadata
+            
+        except FileNotFoundError:
+            logger.error(f"Papers list not found at: {abs_path}")
+            raise
+
 class TextProcessor:
     """Handles text cleaning and processing."""
     
@@ -228,12 +292,83 @@ class TextProcessor:
         
         return text
 
+class DocumentProcessor:
+    """Handles document processing and merging."""
+    
+    @staticmethod
+    def merge_same_heading_docs(docs: List[Document]) -> List[Document]:
+        """
+        Merge documents with the same heading to reduce redundancy.
+        
+        Args:
+            docs (List[Document]): List of documents to merge
+            
+        Returns:
+            List[Document]: Merged documents
+        """
+        if not docs:
+            return []
+
+        merged_docs = []
+        current_heading = None
+        current_doc = None
+
+        for doc in docs:
+            # Check if doc is None
+            if doc is None:
+                logger.warning("Found None document, skipping...")
+                continue
+                
+            # Check if doc has required attributes
+            if not hasattr(doc, 'page_content') or not hasattr(doc, 'metadata'):
+                logger.warning("Document missing required attributes, skipping...")
+                continue
+                
+            # Get heading from the correct nested location
+            dl_meta = doc.metadata.get("dl_meta")
+            if dl_meta and dl_meta.get('headings'):
+                heading = dl_meta.get('headings')[0]
+            else:
+                heading = None
+            
+            # If this is a new heading, start a new merged document
+            if heading != current_heading:
+                if current_doc is not None:
+                    merged_docs.append(current_doc)
+                
+                # Create a copy of the document instead of using reference
+                current_doc = type(doc)(
+                    page_content=doc.page_content,
+                    metadata=doc.metadata.copy()
+                )
+                current_heading = heading
+            else:
+                # For same heading, merge content while handling the heading prefix
+                content = doc.page_content
+                if content and "\n" in content:
+                    # Remove heading prefix if present
+                    content = content.split("\n", 1)[1]
+                
+                # Only append if content exists
+                if content:
+                    current_doc.page_content += "\n" + content
+
+        # Add the last document
+        if current_doc is not None:
+            merged_docs.append(current_doc)
+
+        return merged_docs
+
 # Global instances for backward compatibility
 metadata_extractor = ArxivMetadataExtractor()
 paper_database = PaperDatabase()
 text_processor = TextProcessor()
+file_metadata_extractor = MetadataExtractor()
+document_processor = DocumentProcessor()
 
 # Legacy function names
 get_arxiv_metadata_from_paper_id = metadata_extractor.get_arxiv_metadata_from_paper_id
 add_paper_to_json = paper_database.add_paper
 clean_arxiv_md_text = text_processor.clean_arxiv_md_text
+extract_metadata = file_metadata_extractor.extract_metadata
+merge_same_heading_docs = document_processor.merge_same_heading_docs

@@ -1,6 +1,6 @@
 from pathlib import Path
 from langchain_docling import DoclingLoader
-from utils import merge_same_heading_docs, extract_metadata
+from src.data import merge_same_heading_docs, extract_metadata
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.docstore.document import Document
 from typing import List, Optional

@@ -219,6 +219,24 @@
       "created": "2025-05-04",
       "updated": "2025-05-06",
       "authors": "['sebastian rassmann', 'david kügler', 'christian ewert', 'martin reuter']"
+    },
+    {
+      "title": "Performance of GPT-5 in Brain Tumor MRI Reasoning",
+      "authors": "['mojtaba safari', 'shansong wang', 'mingzhe hu', 'zach eidex', 'qiang li', 'xiaofeng yang']",
+      "abstract": "Accurate differentiation of brain tumor types on magnetic resonance imaging (MRI) is critical for guiding treatment planning in neuro-oncology. Recent advances in large language models (LLMs) have enabled visual question answering (VQA) approaches that integrate image interpretation with natural language reasoning. In this study, we evaluated GPT-4o, GPT-5-nano, GPT-5-mini, and GPT-5 on a curated brain tumor VQA benchmark derived from 3 Brain Tumor Segmentation (BraTS) datasets - glioblastoma (GLI), meningioma (MEN), and brain metastases (MET). Each case included multi-sequence MRI triplanar mosaics and structured clinical features transformed into standardized VQA items. Models were assessed in a zero-shot chain-of-thought setting for accuracy on both visual and reasoning tasks. Results showed that GPT-5-mini achieved the highest macro-average accuracy (44.19%), followed by GPT-5 (43.71%), GPT-4o (41.49%), and GPT-5-nano (35.85%). Performance varied by tumor subtype, with no single model dominating across all cohorts. These findings suggest that GPT-5 family models can achieve moderate accuracy in structured neuro-oncological VQA tasks, but not at a level acceptable for clinical use.",
+      "created": "2025-08-14",
+      "updated": "2025-08-14",
+      "id": "2508.10865",
+      "categories": "cs.CV"
+    },
+    {
+      "title": "Lightweight CNNs for Embedded SAR Ship Target Detection and Classification",
+      "authors": "['fabian kresse', 'georgios pilikos', 'mario azcueta', 'nicolas floury']",
+      "abstract": "Synthetic Aperture Radar (SAR) data enables large-scale surveillance of maritime vessels. However, near-real-time monitoring is currently constrained by the need to downlink all raw data, perform image focusing, and subsequently analyze it on the ground. On-board processing to generate higher-level products could reduce the data volume that needs to be downlinked, alleviating bandwidth constraints and minimizing latency. However, traditional image focusing and processing algorithms face challenges due to the satellite's limited memory, processing power, and computational resources. This work proposes and evaluates neural networks designed for real-time inference on unfocused SAR data acquired in Stripmap and Interferometric Wide (IW) modes captured with Sentinel-1. Our results demonstrate the feasibility of using one of our models for on-board processing and deployment on an FPGA. Additionally, by investigating a binary classification task between ships and windmills, we demonstrate that target classification is possible.",
+      "created": "2025-08-14",
+      "updated": "2025-08-14",
+      "id": "2508.10712",
+      "categories": "cs.CV"
     }
   ]
 }

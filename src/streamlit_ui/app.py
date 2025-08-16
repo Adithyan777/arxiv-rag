@@ -1,7 +1,12 @@
 import streamlit as st
 import sys
 import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add the project root directory to Python path
+project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+sys.path.append(project_root)
+# Also add the src directory for src-specific imports
+src_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(src_dir)
 
 from engine.llm import lmstudio_model_list, open_router_model_list, io_net_model_list
 from components import (
